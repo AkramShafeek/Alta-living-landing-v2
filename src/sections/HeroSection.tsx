@@ -1,5 +1,4 @@
 import { Button3D } from '@/pages/Home';
-import React from 'react'
 
 const HeroSection = () => {
   return (

@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react"
-import { delayInSeconds, motion } from "framer-motion"
+import { motion } from "framer-motion"
 
 const NOTES = [
   { id: "a", x: 8, y: 18, rotate: -6, text: "Indiranagar\n2BHK — too small" },

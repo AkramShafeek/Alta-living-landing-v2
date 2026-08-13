@@ -1,14 +1,14 @@
-import Navbar from '@/components/Navbar'
+// import Navbar from '@/components/Navbar'
 import Layout from '@/layout/Layout'
-import Draggable from 'react-draggable'
-import { useRef, useState } from 'react'
-import DemoOne from '@/components/3DTestimonialsDemo'
-import { Play, Sun, Moon, BedIcon, UserIcon, CurrencyIcon, ArrowRightIcon, DoorOpenIcon, MapPinIcon, StarIcon, HomeIcon } from 'lucide-react';
+// import Draggable from 'react-draggable'
+import { useState } from 'react'
+// import DemoOne from '@/components/3DTestimonialsDemo'
+import { BedIcon,  ArrowRightIcon, DoorOpenIcon, MapPinIcon, StarIcon, HomeIcon } from 'lucide-react';
 import { motion } from 'framer-motion';
-import HeroSection from '@/sections/HeroSection'
+// import HeroSection from '@/sections/HeroSection'
 import { Button } from '@/components/ui/button'
 import Marquee from '@/components/Marquee'
-import { FontSwitcher } from '@/components/FontSwitcher'
+// import { FontSwitcher } from '@/components/FontSwitcher'
 import { Separator } from '@/components/ui/separator'
 import { HouseHuntBoard } from '@/components/HouseHuntBoard'
 
