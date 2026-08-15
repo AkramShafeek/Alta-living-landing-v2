@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/alta-living-design-system-f4d97756-176b-4e5a-9fe1-ba0f3e65df64/tokens/fonts.css">
+<link rel="stylesheet" href="_ds/alta-living-design-system-f4d97756-176b-4e5a-9fe1-ba0f3e65df64/tokens/colors.css">
+<link rel="stylesheet" href="_ds/alta-living-design-system-f4d97756-176b-4e5a-9fe1-ba0f3e65df64/tokens/typography.css">
+<link rel="stylesheet" href="_ds/alta-living-design-system-f4d97756-176b-4e5a-9fe1-ba0f3e65df64/tokens/spacing.css">
+<link rel="stylesheet" href="_ds/alta-living-design-system-f4d97756-176b-4e5a-9fe1-ba0f3e65df64/tokens/borders.css">
+<link rel="stylesheet" href="_ds/alta-living-design-system-f4d97756-176b-4e5a-9fe1-ba0f3e65df64/tokens/shadows.css">
+<link rel="stylesheet" href="_ds/alta-living-design-system-f4d97756-176b-4e5a-9fe1-ba0f3e65df64/tokens/motion.css">
+<link rel="stylesheet" href="_ds/alta-living-design-system-f4d97756-176b-4e5a-9fe1-ba0f3e65df64/tokens/base.css">
+<link rel="stylesheet" href="_ds/alta-living-design-system-f4d97756-176b-4e5a-9fe1-ba0f3e65df64/styles.css">
+<script src="_ds/alta-living-design-system-f4d97756-176b-4e5a-9fe1-ba0f3e65df64/_ds_bundle.js"></script>
+<style>
+body{margin:0}
+a{color:#141311;text-decoration:none}
+a:hover{color:#7a1f1f;text-decoration:underline}
+@keyframes alta-note-land{from{opacity:0;transform:scale(1.2)}to{opacity:1;transform:none}}
+@keyframes alta-draw{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
+@keyframes alta-pattern-in{from{opacity:0}to{opacity:.1}}
+@keyframes alta-wordmark-in{from{opacity:0;transform:scale(.96)}to{opacity:1;transform:none}}
+@keyframes alta-row-left{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes alta-row-right{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+</style>
+</helmet>
+<div style="background:#f7f3ea;color:#141311;font:400 16px/1.55 'Instrument Sans',system-ui,sans-serif;overflow-x:hidden">
+
+<x-import component-from-global-scope="AltaLivingDesignSystem_f4d977.Marquee" items="{{ tickerItems }}" hint-size="100%,42px"></x-import>
+
+<section data-screen-label="Hero" style="{{ heroSectionStyle }}">
+<header style="display:flex;justify-content:space-between;align-items:center;padding:20px 32px;border-bottom:2px solid #141311">
+<div style="display:flex;align-items:center;gap:14px">
+<img src="assets/alta-logo.png" alt="Alta Living" style="width:48px;height:48px;background:#ffffff;border:2px solid #141311;border-radius:12px;box-shadow:3px 3px 0 #141311">
+<span style="font-family:'League Gothic',Impact,sans-serif;font-size:34px;text-transform:uppercase;letter-spacing:.02em;line-height:1">Alta Living</span>
+</div>
+<x-import component-from-global-scope="AltaLivingDesignSystem_f4d977.NavCapsule" items="{{ navItems }}" active="Listings" hint-size="300px,40px"></x-import>
+</header>
+
+<div style="{{ heroInnerStyle }}">
+<sc-if value="{{ showPattern }}" hint-placeholder-val="{{ true }}">
+<x-import component-from-global-scope="AltaLivingDesignSystem_f4d977.PatternField" src="assets/pattern-furniture.jpg" size="{{ 300 }}" hint-size="100%,100%"></x-import>
+</sc-if>
+<sc-if value="{{ showPinboard }}" hint-placeholder-val="{{ true }}">
+<x-import component-from-global-scope="AltaLivingDesignSystem_f4d977.Pinboard" notes="{{ notes }}" connections="{{ connections }}" hint-size="100%,100%"></x-import>
+</sc-if>
+<div style="{{ heroContentStyle }}">
+<p style="margin:0;font-family:'Cedarville Cursive',cursive;font-size:28px;color:rgba(20,19,17,.7)">curated stays, Bangalore only</p>
+<h1 style="margin:0;font-family:'Bricolage Grotesque','Arial Black',sans-serif;font-weight:800;font-size:clamp(52px,6.6vw,110px);line-height:.9;letter-spacing:-.03em;text-wrap:balance">Looking for a house rental?</h1>
+<p style="margin:0;max-width:56ch;font-family: serif;font-size:18px;line-height:1.55;color:#3f3a34;text-wrap:pretty">Every Alta home is visited, measured and photographed by our team before it goes live. The price you see includes cleaning, utilities and Wi-Fi — and there is always a local human on call.</p>
+<a href="#showcase" style="display:inline-flex;align-items:center;gap:10px;margin-top:6px;padding:20px 34px;background:#79aaca;color:#fafafa;border:3px solid #141311;box-shadow:6px 6px 0 #141311;font:600 14px/1 'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.14em" style-hover="box-shadow:2px 2px 0 #141311;transform:translate(3px,3px);text-decoration:none">{{ heroCtaLabel }} <span style="font-size:18px;line-height:1">→</span></a>
+<div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:inherit;margin-top:6px">
+<x-import component-from-global-scope="AltaLivingDesignSystem_f4d977.Tag" tone="outline" hint-size="auto,24px">Indiranagar</x-import>
+<x-import component-from-global-scope="AltaLivingDesignSystem_f4d977.Tag" tone="outline" hint-size="auto,24px">Koramangala</x-import>
+<x-import component-from-global-scope="AltaLivingDesignSystem_f4d977.Tag" tone="outline" hint-size="auto,24px">HSR Layout</x-import>
+<x-import component-from-global-scope="AltaLivingDesignSystem_f4d977.Tag" tone="outline" hint-size="auto,24px">Whitefield</x-import>
+</div>
+</div>
+</div>
+</section>
+
+<section data-screen-label="Stats" style="padding:56px 32px 64px;border-bottom:3px solid #141311;background:#f7f3ea">
+<div style="border-top:2px solid #141311;border-bottom:1px solid #141311;padding:10px 0;display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap">
+<span style="font-family:'Bricolage Grotesque',serif;font-weight:800;font-size:15px;letter-spacing:.2em;text-transform:uppercase">Alta Living — By The Numbers</span>
+<span style="font:400 11px/1 'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.18em;color:#77706a">Bangalore edition · est. 2021 · no. 47</span>
+</div>
+<div style="display:grid;grid-template-columns:repeat(4,1fr);border-bottom:2px solid #141311">
+<div style="padding:36px 24px 30px;border-right:1px solid #141311;display:flex;flex-direction:column;gap:12px">
+<span style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:88px;line-height:.85;letter-spacing:-.04em">47</span>
+<span style="width:40px;border-top:2px solid #141311"></span>
+<p style="margin:0;font:400 12px/1.7 'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.14em;color:#3f3a34">Properties across<br>Bangalore</p>
+</div>
+<div style="padding:36px 24px 30px;border-right:1px solid #141311;display:flex;flex-direction:column;gap:12px">
+<span style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:88px;line-height:.85;letter-spacing:-.04em">4.9<span style="font-size:44px">★</span></span>
+<span style="width:40px;border-top:2px solid #141311"></span>
+<p style="margin:0;font:400 12px/1.7 'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.14em;color:#3f3a34">Average guest rating<br>from 1,200+ reviews</p>
+</div>
+<div style="padding:36px 24px 30px;border-right:1px solid #141311;display:flex;flex-direction:column;gap:12px">
+<span style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:88px;line-height:.85;letter-spacing:-.04em">92%</span>
+<span style="width:40px;border-top:2px solid #141311"></span>
+<p style="margin:0;font:400 12px/1.7 'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.14em;color:#3f3a34">Occupancy rate<br>across the portfolio</p>
+</div>
+<div style="padding:36px 24px 30px;display:flex;flex-direction:column;gap:12px">
+<span style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:88px;line-height:.85;letter-spacing:-.04em">18,000<span style="font-size:44px">+</span></span>
+<span style="width:40px;border-top:2px solid #141311"></span>
+<p style="margin:0;font:400 12px/1.7 'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.14em;color:#3f3a34">Guests hosted<br>since 2021</p>
+</div>
+</div>
+</section>
+
+<section data-screen-label="Property showcase" id="showcase" style="{{ showcaseStyle }}">
+<div style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:52px">
+<div>
+<p style="margin:0 0 4px;font-family:'Cedarville Cursive',cursive;font-size:26px;color:rgba(20,19,17,.7)">the pinboard</p>
+<h2 style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(38px,4.4vw,64px);letter-spacing:-.03em;line-height:.95">Every home, right now</h2>
+</div>
+<p style="margin:0;max-width:30ch;font:400 11px/2 'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.16em;color:#3f3a34">Pinned to the map · hover a postcard and it lifts off the pin · click for the full photo set</p>
+</div>
+<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:64px 44px">
+<sc-for list="{{ showcase }}" as="p" hint-placeholder-count="6">
+<div style="position:relative;padding-top:10px">
+<a href="{{ p.href }}" style="position:relative;z-index:1;display:block;background:#ffffff;border:3px solid #141311;box-shadow:8px 10px 0 rgba(20,19,17,.85);transform:rotate({{ p.tilt }});transition:transform 240ms cubic-bezier(.16,1,.3,1),box-shadow 240ms;--lift:{{ pinLiftPx }}" style-hover="transform:translateY(calc(var(--lift) * -1px)) rotate(0deg);box-shadow:8px 22px 0 rgba(20,19,17,.85);text-decoration:none;color:#141311">
+<div style="padding:12px 12px 0">
+<div style="border:2px solid #141311;height:200px;overflow:hidden"><img src="{{ p.src }}" alt="{{ p.title }}" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+</div>
+<div style="padding:14px;display:flex;flex-direction:column;gap:8px">
+<p style="margin:0;font:400 11px/1 'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.18em;color:#77706a">{{ p.meta }}</p>
+<h3 style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:24px;letter-spacing:-.02em;line-height:1">{{ p.area }}</h3>
+<p style="margin:0;font-size:14px;color:#3f3a34;min-height:40px">{{ p.hook }}</p>
+<div style="display:flex;align-items:baseline;justify-content:space-between;border-top:2px solid #141311;padding-top:10px">
+<span style="font:700 20px/1 'IBM Plex Mono',monospace">{{ p.price }}</span>
+<span style="font:400 11px/1 'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.18em;color:#77706a">per night</span>
+</div>
+</div>
+</a>
+<span style="position:absolute;z-index:4;left:50%;top:0;margin-left:-13px;width:26px;height:26px;border-radius:999px;background:#7a1f1f;border:2px solid #141311;box-shadow:inset -4px -4px 0 rgba(0,0,0,.28),2px 3px 0 rgba(20,19,17,.35);pointer-events:none"></span>
+</div>
+</sc-for>
+</div>
+</section>
+
+<section data-screen-label="Who are we" style="background:#141311;color:#f7f3ea;padding:72px 32px 84px;border-bottom:3px solid #141311">
+<div style="display:flex;justify-content:space-between;align-items:baseline;gap:24px;flex-wrap:wrap;margin-bottom:32px">
+<div>
+<p style="margin:0 0 6px;font-family:'Cedarville Cursive',cursive;font-size:24px;color:#EF9F27">who are we</p>
+<h2 style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(38px,4.4vw,66px);letter-spacing:-.03em;line-height:.95">A managed portfolio,<br>not a marketplace</h2>
+</div>
+<p style="margin:0;max-width:34ch;font:400 12px/2 'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.16em;color:rgba(247,243,234,.6)">Five years of hosting · one city · every home walked through by us before a guest ever sees it</p>
+</div>
+<div style="display:grid;grid-template-columns:repeat(4,1fr);border:2px solid #f7f3ea">
+<div style="grid-column:span 2;grid-row:span 2;padding:32px;border-right:1px solid rgba(247,243,234,.4);border-bottom:1px solid rgba(247,243,234,.4);display:flex;flex-direction:column;justify-content:space-between;gap:24px">
+<p style="margin:0;font-size:20px;line-height:1.5;text-wrap:pretty">“I hosted my first flat in Indiranagar in 2021 with one set of keys and a spreadsheet. We still run the portfolio the same way — I know which taps drip in which flat. We don't list anyone's home that hasn't been vetted in person by our team.”</p>
+<div style="display:flex;align-items:center;gap:14px">
+<div style="width:52px;height:52px;border:2px solid #f7f3ea;background:rgba(247,243,234,.08);display:flex;align-items:center;justify-content:center;font:400 10px/1.2 'IBM Plex Mono',monospace;text-align:center;color:rgba(247,243,234,.7)">PHO<br>TO</div>
+<div>
+<p style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:18px">Akram Shafeek</p>
+<p style="margin:0;font:400 11px/1.4 'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.18em;color:rgba(247,243,234,.6)">Founder · Alta Living</p>
+</div>
+</div>
+</div>
+
+<div style="grid-column:span 2;padding:30px 32px;border-bottom:1px solid rgba(247,243,234,.4);background:#EF9F27;color:#141311;display:flex;flex-direction:column;gap:16px">
+<p style="margin:0;font:400 11px/1 'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.18em">Why we're different — pick one</p>
+<div style="display:flex;gap:0;border:2px solid #141311;width:fit-content;flex-wrap:wrap">
+<sc-for list="{{ reasonTabs }}" as="r" hint-placeholder-count="3">
+<button type="button" onClick="{{ r.select }}" style="{{ r.style }}">{{ r.label }}</button>
+</sc-for>
+</div>
+<p style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:28px;line-height:1.05;letter-spacing:-.02em">{{ reason.title }}</p>
+<p style="margin:0;font-size:15px;line-height:1.5">{{ reason.body }}</p>
+<p style="margin:0;font:700 12px/1 'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.16em">{{ reason.figure }}</p>
+</div>
+
+<sc-for list="{{ whoStats }}" as="s" hint-placeholder-count="2">
+<div style="padding:28px;border-right:1px solid rgba(247,243,234,.4);border-bottom:1px solid rgba(247,243,234,.4);display:flex;flex-direction:column;justify-content:space-between;gap:14px;transition:background 150ms" style-hover="background:rgba(247,243,234,.07)">
+<span style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:52px;line-height:.9;letter-spacing:-.03em">{{ s.value }}</span>
+<p style="margin:0;font:400 11px/1.7 'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.16em;color:rgba(247,243,234,.65)">{{ s.label }}</p>
+</div>
+</sc-for>
+
+<div style="grid-column:span 2;padding:30px 32px;border-right:1px solid rgba(247,243,234,.4);display:flex;flex-direction:column;gap:16px">
+<div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px">
+<p style="margin:0;font:400 11px/1 'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.18em;color:rgba(247,243,234,.6)">What we check before a home goes live</p>
+<span style="font:700 12px/1 'IBM Plex Mono',monospace;color:#EF9F27">{{ checkCounter }}</span>
+</div>
+<p style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:30px;line-height:1.1;letter-spacing:-.02em">{{ check }}</p>
+<button type="button" onClick="{{ nextCheck }}" style="align-self:flex-start;padding:14px 22px;background:#f7f3ea;color:#141311;border:2px solid #f7f3ea;box-shadow:4px 4px 0 rgba(247,243,234,.35);cursor:pointer;font:600 11px/1 'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.16em" style-hover="background:#EF9F27;border-color:#EF9F27">Next check →</button>
+</div>
+
+<div style="padding:28px;border-right:1px solid rgba(247,243,234,.4);display:flex;flex-direction:column;justify-content:space-between;gap:14px;transition:background 150ms" style-hover="background:rgba(247,243,234,.07)">
+<span style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:52px;line-height:.9;letter-spacing:-.03em">96%</span>
+<p style="margin:0;font:400 11px/1.7 'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.16em;color:rgba(247,243,234,.65)">Extended stays that renew at least once</p>
+</div>
+<div style="padding:28px;display:flex;flex-direction:column;justify-content:space-between;gap:14px;transition:background 150ms" style-hover="background:rgba(247,243,234,.07)">
+<span style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:52px;line-height:.9;letter-spacing:-.03em">0</span>
+<p style="margin:0;font:400 11px/1.7 'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.16em;color:rgba(247,243,234,.65)">Surprise invoices on checkout day</p>
+</div>
+</div>
+</section>
+
+<section data-screen-label="Photo collage" style="position:relative;padding:72px 32px 96px;border-bottom:3px solid #141311;background:#e8dcc6">
+<div style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:24px">
+<div>
+<p style="margin:0 0 4px;font-family:'Cedarville Cursive',cursive;font-size:24px;color:rgba(20,19,17,.65)">our own photography</p>
+<h2 style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(36px,4.2vw,60px);letter-spacing:-.03em;line-height:.95">Drag the pile around</h2>
+</div>
+<p style="margin:0;max-width:32ch;font:400 11px/2 'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.16em;color:#3f3a34">Every frame is a real Alta home, shot in daylight by our team — grab a photo and move it</p>
+</div>
+<div ref="{{ collageRef }}" style="position:relative;height:620px;border:3px solid #141311;background-color:#f7f3ea;background-image:linear-gradient(to right,rgba(20,19,17,.07) 1px,transparent 1px),linear-gradient(to bottom,rgba(20,19,17,.07) 1px,transparent 1px);background-size:32px 32px;overflow:hidden;touch-action:none">
+<sc-for list="{{ collage }}" as="c" hint-placeholder-count="6">
+<figure data-drag="1" data-rot="{{ c.rot }}" style="{{ c.style }}">
+<img src="{{ c.src }}" alt="Alta interior" style="width:100%;height:calc(100% - 34px);object-fit:cover;display:block;border-bottom:2px solid #141311;pointer-events:none">
+<figcaption style="height:34px;display:flex;align-items:center;padding:0 10px;font-family:'Cedarville Cursive',cursive;font-size:16px;color:rgba(20,19,17,.7)">{{ c.caption }}</figcaption>
+</figure>
+</sc-for>
+<p style="position:absolute;z-index:60;left:50%;bottom:18px;transform:translateX(-50%);margin:0;padding:8px 14px;background:#EF9F27;border:2px solid #141311;box-shadow:4px 4px 0 #141311;font:600 11px/1 'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.18em">✥ drag any photo</p>
+</div>
+</section>
+
+<section data-screen-label="Testimonials" style="padding:68px 0 76px;border-bottom:3px solid #141311;background:#f7f3ea;overflow:hidden">
+<div style="display:flex;justify-content:space-between;align-items:baseline;gap:24px;flex-wrap:wrap;padding:0 32px;margin-bottom:36px">
+<div>
+<p style="margin:0 0 4px;font-family:'Cedarville Cursive',cursive;font-size:24px;color:rgba(20,19,17,.65)">1,200+ reviews</p>
+<h2 style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(36px,4.2vw,60px);letter-spacing:-.03em;line-height:.95">What people love about us</h2>
+</div>
+<p style="margin:0;font:400 11px/2 'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.16em;color:#77706a">← row one scrolls left · row two scrolls right →</p>
+</div>
+<div style="display:flex;gap:24px;width:max-content;animation:alta-row-left 44s linear infinite;margin-bottom:24px">
+<sc-for list="{{ testimonials }}" as="t" hint-placeholder-count="6">
+<div style="flex:none;width:360px;background:{{ t.bg }};border:3px solid #141311;box-shadow:6px 6px 0 #141311;padding:24px;display:flex;flex-direction:column;gap:14px;justify-content:space-between">
+<p style="margin:0;font:400 11px/1 'IBM Plex Mono',monospace;letter-spacing:.16em;color:#141311">{{ t.stars }}</p>
+<p style="margin:0;font-size:16px;line-height:1.5;color:#141311;text-wrap:pretty">“{{ t.quote }}”</p>
+<div style="display:flex;justify-content:space-between;align-items:baseline;border-top:2px solid #141311;padding-top:12px;font:600 11px/1 'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.16em">
+<span>{{ t.name }}, {{ t.location }}</span><span style="color:#3f3a34">✓ verified</span>
+</div>
+</div>
+</sc-for>
+<sc-for list="{{ testimonials }}" as="t" hint-placeholder-count="6">
+<div style="flex:none;width:360px;background:{{ t.bg }};border:3px solid #141311;box-shadow:6px 6px 0 #141311;padding:24px;display:flex;flex-direction:column;gap:14px;justify-content:space-between">
+<p style="margin:0;font:400 11px/1 'IBM Plex Mono',monospace;letter-spacing:.16em;color:#141311">{{ t.stars }}</p>
+<p style="margin:0;font-size:16px;line-height:1.5;color:#141311;text-wrap:pretty">“{{ t.quote }}”</p>
+<div style="display:flex;justify-content:space-between;align-items:baseline;border-top:2px solid #141311;padding-top:12px;font:600 11px/1 'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.16em">
+<span>{{ t.name }}, {{ t.location }}</span><span style="color:#3f3a34">✓ verified</span>
+</div>
+</div>
+</sc-for>
+</div>
+<div style="display:flex;gap:24px;width:max-content;animation:alta-row-right 52s linear infinite">
+<sc-for list="{{ testimonialsB }}" as="t" hint-placeholder-count="6">
+<div style="flex:none;width:360px;background:{{ t.bg }};border:3px solid #141311;box-shadow:6px 6px 0 #141311;padding:24px;display:flex;flex-direction:column;gap:14px;justify-content:space-between">
+<p style="margin:0;font:400 11px/1 'IBM Plex Mono',monospace;letter-spacing:.16em;color:#141311">{{ t.stars }}</p>
+<p style="margin:0;font-size:16px;line-height:1.5;color:#141311;text-wrap:pretty">“{{ t.quote }}”</p>
+<div style="display:flex;justify-content:space-between;align-items:baseline;border-top:2px solid #141311;padding-top:12px;font:600 11px/1 'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.16em">
+<span>{{ t.name }}, {{ t.location }}</span><span style="color:#3f3a34">✓ verified</span>
+</div>
+</div>
+</sc-for>
+<sc-for list="{{ testimonialsB }}" as="t" hint-placeholder-count="6">
+<div style="flex:none;width:360px;background:{{ t.bg }};border:3px solid #141311;box-shadow:6px 6px 0 #141311;padding:24px;display:flex;flex-direction:column;gap:14px;justify-content:space-between">
+<p style="margin:0;font:400 11px/1 'IBM Plex Mono',monospace;letter-spacing:.16em;color:#141311">{{ t.stars }}</p>
+<p style="margin:0;font-size:16px;line-height:1.5;color:#141311;text-wrap:pretty">“{{ t.quote }}”</p>
+<div style="display:flex;justify-content:space-between;align-items:baseline;border-top:2px solid #141311;padding-top:12px;font:600 11px/1 'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.16em">
+<span>{{ t.name }}, {{ t.location }}</span><span style="color:#3f3a34">✓ verified</span>
+</div>
+</div>
+</sc-for>
+</div>
+</section>
+
+<section data-screen-label="Map" id="map" style="padding:76px 32px 84px;border-bottom:3px solid #141311;background:#f7f3ea">
+<div style="display:grid;grid-template-columns:.8fr 1.2fr;gap:0;border:3px solid #141311;box-shadow:8px 10px 0 #141311">
+<div style="padding:44px 36px;border-right:3px solid #141311;display:flex;flex-direction:column;gap:22px;justify-content:center">
+<p style="margin:0;font:400 11px/1 'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.18em;color:#77706a">Explore by area</p>
+<h2 style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:44px;letter-spacing:-.03em;line-height:.98">Five clusters,<br>one commute</h2>
+<p style="margin:0;font-size:16px;color:#3f3a34;text-wrap:pretty">We only take homes inside the neighbourhoods we can reach in twenty minutes. That is why the portfolio is small, and why a bulb gets changed the same day.</p>
+<div style="display:flex;flex-direction:column;border-top:2px solid #141311">
+<sc-for list="{{ clusters }}" as="c" hint-placeholder-count="5">
+<div style="display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid rgba(20,19,17,.18);font:400 12px/1 'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.14em">
+<span>{{ c.name }}</span><span style="color:#77706a">{{ c.count }}</span>
+</div>
+</sc-for>
+</div>
+</div>
+<div style="position:relative;min-height:520px;background-image:url(assets/map.png);background-size:cover;background-position:center;filter:none">
+<div style="position:absolute;inset:0;background:rgba(232,220,198,.35);mix-blend-mode:multiply"></div>
+<sc-for list="{{ pins }}" as="pin" hint-placeholder-count="5">
+<div style="{{ pin.style }}">
+<span style="display:flex;align-items:center;gap:6px;padding:6px 10px;background:#ffffff;border:2px solid #141311;box-shadow:3px 3px 0 #141311;font:600 11px/1 'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.12em;white-space:nowrap">{{ pin.label }}</span>
+<span style="width:16px;height:16px;margin:6px auto 0;border-radius:999px;background:#EF9F27;border:2px solid #141311;display:block"></span>
+</div>
+</sc-for>
+<p style="position:absolute;left:16px;bottom:14px;margin:0;padding:6px 10px;background:rgba(20,19,17,.5);backdrop-filter:blur(4px);color:#f7f3ea;font:400 10px/1.2 'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.18em">47 homes · 5 clusters · bangalore</p>
+</div>
+</div>
+</section>
+
+<section data-screen-label="Pricing" style="padding:76px 32px 84px;background:#f7f3ea">
+<div style="text-align:center;margin-bottom:48px">
+<p style="margin:0 0 4px;font-family:'Cedarville Cursive',cursive;font-size:24px;color:rgba(20,19,17,.65)">one price, everything in</p>
+<h2 style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(36px,4.2vw,60px);letter-spacing:-.03em;line-height:.95">Stay a week or a year</h2>
+</div>
+<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:36px;max-width:1240px;margin:0 auto">
+<div style="background:#dfeaf7;border:3px solid #141311;box-shadow:8px 10px 0 #141311;padding:32px;display:flex;flex-direction:column;gap:18px">
+<p style="margin:0;font:600 11px/1 'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.18em">Short Stay</p>
+<div><span style="font:800 46px/1 'Bricolage Grotesque',sans-serif;letter-spacing:-.03em">₹ 3,200</span><span style="font:400 12px/1 'IBM Plex Mono',monospace;letter-spacing:.14em;color:#3f3a34"> / night</span></div>
+<p style="margin:0;font-size:14px;color:#3f3a34">1–13 nights. Hotel replacement for a work trip.</p>
+<div style="border-top:2px solid #141311;padding-top:16px;display:flex;flex-direction:column;gap:10px;font:400 13px/1.5 'Instrument Sans',sans-serif">
+<span>✓ Cleaning + linen change on arrival</span><span>✓ Utilities and 200 Mbps Wi-Fi</span><span>✓ Local host on call, 8am–10pm</span>
+</div>
+<a href="#" style="margin-top:auto;display:block;text-align:center;padding:16px;background:#ffffff;border:3px solid #141311;box-shadow:5px 6px 0 #141311;font:600 12px/1 'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.16em" style-hover="background:#141311;color:#f7f3ea;text-decoration:none">Enquire</a>
+</div>
+<div style="background:#EF9F27;border:3px solid #141311;box-shadow:8px 10px 0 #141311;padding:32px;display:flex;flex-direction:column;gap:18px;position:relative;transform:translateY(-14px)">
+<span style="position:absolute;right:-3px;top:-16px;padding:6px 12px;background:#141311;color:#f7f3ea;border:3px solid #141311;font:600 10px/1 'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.18em">Most booked</span>
+<p style="margin:0;font:600 11px/1 'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.18em">Extended Stay</p>
+<div><span style="font:800 46px/1 'Bricolage Grotesque',sans-serif;letter-spacing:-.03em">₹ 30,000</span><span style="font:400 12px/1 'IBM Plex Mono',monospace;letter-spacing:.14em"> / month</span></div>
+<p style="margin:0;font-size:14px">14 nights and up. Furnished, serviced, no lock-in beyond 30 days.</p>
+<div style="border-top:2px solid #141311;padding-top:16px;display:flex;flex-direction:column;gap:10px;font:400 13px/1.5 'Instrument Sans',sans-serif">
+<span>✓ Fortnightly deep clean</span><span>✓ Utilities, Wi-Fi and maintenance included</span><span>✓ Move-in within 3 days of enquiry</span><span>✓ Switch homes once, free</span>
+</div>
+<a href="#" style="margin-top:auto;display:block;text-align:center;padding:16px;background:#141311;color:#f7f3ea;border:3px solid #141311;box-shadow:5px 6px 0 #141311;font:600 12px/1 'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.16em" style-hover="background:#ffffff;color:#141311;text-decoration:none">Enquire</a>
+</div>
+<div style="background:#e0e9dd;border:3px solid #141311;box-shadow:8px 10px 0 #141311;padding:32px;display:flex;flex-direction:column;gap:18px">
+<p style="margin:0;font:600 11px/1 'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.18em">Corporate</p>
+<div><span style="font:800 46px/1 'Bricolage Grotesque',sans-serif;letter-spacing:-.03em">On request</span></div>
+<p style="margin:0;font-size:14px;color:#3f3a34">Three or more units, invoiced monthly to your company.</p>
+<div style="border-top:2px solid #141311;padding-top:16px;display:flex;flex-direction:column;gap:10px;font:400 13px/1.5 'Instrument Sans',sans-serif">
+<span>✓ GST invoicing and single point of contact</span><span>✓ Rolling inventory across all 47 homes</span><span>✓ Relocation support for new joiners</span>
+</div>
+<a href="#" style="margin-top:auto;display:block;text-align:center;padding:16px;background:#ffffff;border:3px solid #141311;box-shadow:5px 6px 0 #141311;font:600 12px/1 'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.16em" style-hover="background:#141311;color:#f7f3ea;text-decoration:none">Talk to us</a>
+</div>
+</div>
+</section>
+
+<section data-screen-label="Contact" id="contact" style="padding:76px 32px 88px;border-top:3px solid #141311;background:#f7f3ea">
+<div style="display:grid;grid-template-columns:.85fr 1.15fr;border:3px solid #141311;box-shadow:8px 10px 0 #141311;background:#ffffff">
+<div style="padding:40px 36px;border-right:3px solid #141311;background:#dfeaf7;display:flex;flex-direction:column;gap:22px">
+<p style="margin:0;font-family:'Cedarville Cursive',cursive;font-size:24px;color:rgba(20,19,17,.7)">talk to a human</p>
+<h2 style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:44px;letter-spacing:-.03em;line-height:.98">Contact us</h2>
+<p style="margin:0;font-size:16px;color:#3f3a34;text-wrap:pretty">Tell us your dates and the area you want to be in. We reply the same day, and it is one of the four of us — never a bot.</p>
+<div style="display:flex;flex-direction:column;border-top:2px solid #141311">
+<sc-for list="{{ contactRows }}" as="c" hint-placeholder-count="4">
+<div style="display:flex;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px solid rgba(20,19,17,.2);font:400 11px/1.4 'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.14em">
+<span style="color:#77706a">{{ c.k }}</span><span>{{ c.v }}</span>
+</div>
+</sc-for>
+</div>
+</div>
+<div style="padding:40px 36px;display:flex;flex-direction:column;gap:20px">
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
+<label style="display:flex;flex-direction:column;gap:8px;font:600 10px/1 'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.18em">Your name
+<input type="text" placeholder="Priya Menon" style="padding:14px;background:#f7f3ea;border:2px solid #141311;font:400 15px/1 'Instrument Sans',sans-serif;color:#141311" style-focus="outline:none;background:#ffffff;box-shadow:4px 4px 0 #141311">
+</label>
+<label style="display:flex;flex-direction:column;gap:8px;font:600 10px/1 'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.18em">Email or phone
+<input type="text" placeholder="priya@work.in" style="padding:14px;background:#f7f3ea;border:2px solid #141311;font:400 15px/1 'Instrument Sans',sans-serif;color:#141311" style-focus="outline:none;background:#ffffff;box-shadow:4px 4px 0 #141311">
+</label>
+</div>
+<div style="display:flex;flex-direction:column;gap:10px">
+<span style="font:600 10px/1 'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.18em">Area you want</span>
+<div style="display:flex;gap:0;border:2px solid #141311;width:fit-content;flex-wrap:wrap">
+<sc-for list="{{ areaChips }}" as="a" hint-placeholder-count="5">
+<button type="button" onClick="{{ a.select }}" style="{{ a.style }}">{{ a.label }}</button>
+</sc-for>
+</div>
+</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
+<label style="display:flex;flex-direction:column;gap:8px;font:600 10px/1 'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.18em">Move-in date
+<input type="text" placeholder="12 / 09 / 2026" style="padding:14px;background:#f7f3ea;border:2px solid #141311;font:400 15px/1 'IBM Plex Mono',monospace;color:#141311" style-focus="outline:none;background:#ffffff;box-shadow:4px 4px 0 #141311">
+</label>
+<label style="display:flex;flex-direction:column;gap:8px;font:600 10px/1 'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.18em">How long
+<input type="text" placeholder="3 months" style="padding:14px;background:#f7f3ea;border:2px solid #141311;font:400 15px/1 'IBM Plex Mono',monospace;color:#141311" style-focus="outline:none;background:#ffffff;box-shadow:4px 4px 0 #141311">
+</label>
+</div>
+<label style="display:flex;flex-direction:column;gap:8px;font:600 10px/1 'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.18em">Anything else
+<textarea rows="3" placeholder="Two of us, both work from home — a second desk matters more than a second bedroom." style="padding:14px;background:#f7f3ea;border:2px solid #141311;font:400 15px/1.5 'Instrument Sans',sans-serif;color:#141311;resize:vertical" style-focus="outline:none;background:#ffffff;box-shadow:4px 4px 0 #141311"></textarea>
+</label>
+<div style="display:flex;align-items:center;gap:18px;flex-wrap:wrap">
+<button type="button" onClick="{{ sendEnquiry }}" style="display:inline-flex;align-items:center;gap:10px;padding:18px 30px;background:#EF9F27;color:#141311;border:3px solid #141311;box-shadow:6px 6px 0 #141311;cursor:pointer;font:600 13px/1 'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.14em" style-hover="box-shadow:2px 2px 0 #141311;transform:translate(3px,3px)">{{ enquiryLabel }} <span style="font-size:18px;line-height:1">→</span></button>
+<span style="font:400 11px/1.6 'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.14em;color:#77706a">Interested in {{ enquiryArea }} · reply within one working day</span>
+</div>
+</div>
+</div>
+</section>
+
+<section data-screen-label="Closing CTA" style="background:#EF9F27;color:#141311;border-top:3px solid #141311;border-bottom:3px solid #141311;padding:72px 32px;display:flex;justify-content:space-between;align-items:center;gap:36px;flex-wrap:wrap">
+<div>
+<h2 style="margin:0 0 10px;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(38px,5vw,76px);letter-spacing:-.03em;line-height:.92">House hunt ends today</h2>
+<p style="margin:0;font:400 12px/1 'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.18em">Tell us your dates and your area — we reply the same day</p>
+</div>
+<a href="#showcase" style="display:inline-flex;align-items:center;gap:10px;padding:20px 34px;background:#141311;color:#FAC775;border:3px solid #141311;box-shadow:6px 6px 0 #141311;font:600 14px/1 'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.14em" style-hover="background:#ffffff;color:#141311;text-decoration:none">Browse properties <span style="font-size:18px;line-height:1">→</span></a>
+</section>
+
+<footer style="background:#f7f3ea">
+<div style="height:56px;background-image:url(assets/pattern-furniture.jpg);background-size:220px;opacity:.14;border-bottom:2px solid #141311"></div>
+<div style="padding:48px 32px;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:32px">
+<div style="display:flex;flex-direction:column;gap:14px">
+<span style="font-family:'League Gothic',Impact,sans-serif;font-size:64px;text-transform:uppercase;line-height:.9">Alta Living</span>
+<p style="margin:0;font:400 11px/2 'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.18em;color:#77706a">Serviced rentals · bangalore<br>hello@altaliving.in · +91 80 4000 1212</p>
+<div style="display:flex;gap:10px;margin-top:6px">
+<sc-for list="{{ socials }}" as="s" hint-placeholder-count="4">
+<a href="#" style="width:40px;height:40px;display:flex;align-items:center;justify-content:center;border:2px solid #141311;background:#ffffff;box-shadow:3px 3px 0 #141311" style-hover="background:#141311;color:#f7f3ea">
+<span style="font:600 12px/1 'IBM Plex Mono',monospace;letter-spacing:.08em">{{ s }}</span>
+</a>
+</sc-for>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:10px">
+<p style="margin:0 0 6px;font:600 11px/1 'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.18em">Stays</p>
+<a href="Alta Property.dc.html" style="font-size:14px">Indiranagar</a><a href="Alta Property.dc.html" style="font-size:14px">Koramangala</a><a href="Alta Property.dc.html" style="font-size:14px">HSR Layout</a><a href="Alta Property.dc.html" style="font-size:14px">Whitefield</a><a href="Alta Property.dc.html" style="font-size:14px">Jayanagar</a>
+</div>
+<div style="display:flex;flex-direction:column;gap:10px">
+<p style="margin:0 0 6px;font:600 11px/1 'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.18em">Company</p>
+<a href="#" style="font-size:14px">About us</a><a href="#" style="font-size:14px">How it works</a><a href="#" style="font-size:14px">List your home</a><a href="#" style="font-size:14px">Careers</a>
+</div>
+<div style="display:flex;flex-direction:column;gap:10px">
+<p style="margin:0 0 6px;font:600 11px/1 'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.18em">Guests</p>
+<a href="#" style="font-size:14px">House rules</a><a href="#" style="font-size:14px">Cancellations</a><a href="#" style="font-size:14px">FAQ</a><a href="#" style="font-size:14px">Contact</a>
+</div>
+</div>
+<div style="border-top:2px solid #141311;padding:16px 32px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font:400 10px/1.6 'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.18em;color:#77706a">
+<span>© 2026 Alta Living · bangalore</span><span>Privacy · Terms</span>
+</div>
+</footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440},&quot;heroAlign&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;center&quot;,&quot;left&quot;],&quot;default&quot;:&quot;center&quot;,&quot;tsType&quot;:&quot;'center' | 'left'&quot;,&quot;section&quot;:&quot;Hero&quot;},&quot;heroBackdrop&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;furniture&quot;,&quot;blueprint&quot;],&quot;default&quot;:&quot;furniture&quot;,&quot;tsType&quot;:&quot;'furniture' | 'blueprint'&quot;,&quot;section&quot;:&quot;Hero&quot;},&quot;showPinboard&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Hero&quot;},&quot;heroCtaLabel&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Browse properties&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Hero&quot;},&quot;mapBackdrop&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Property board&quot;},&quot;pinLift&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;min&quot;:4,&quot;max&quot;:28,&quot;step&quot;:2,&quot;unit&quot;:&quot;px&quot;,&quot;default&quot;:12,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Property board&quot;}}">
+const REASONS = [
+  { label: 'Serviced', title: 'Someone is already looking after the flat', body: 'Cleaning, laundry pickup, plumbing, the gas cylinder — handled by the same four people who onboarded the home.', figure: '4 hrs — average time to fix a reported issue' },
+  { label: 'One price', title: 'One number, everything already inside it', body: 'Rent, cleaning, utilities and 200 Mbps Wi-Fi are quoted together. No deposit games, no invoice on checkout day.', figure: '0 — surprise charges billed in 2025' },
+  { label: 'One city', title: 'Only homes we can reach in twenty minutes', body: 'We stay inside five Bangalore clusters on purpose. It is why the portfolio is small and why a bulb gets changed the same day.', figure: '5 clusters — 47 homes, no other city' },
+];
+const CHECKS = [
+  'Water pressure on every tap, hot and cold',
+  'Mobile signal in each room, both major networks',
+  'Backup power tested with the AC running',
+  'Mattress age — nothing older than three years',
+  'Street noise measured at 11pm, not at noon',
+  'Desk height and a real task chair per bedroom',
+];
+const AREAS = ['Indiranagar', 'Koramangala', 'HSR Layout', 'Whitefield', 'Jayanagar'];
+
+class Component extends DCLogic {
+  state = { reason: 0, check: 0, area: 0, sent: false };
+  constructor(props) {
+    super(props);
+    this.collageRef = React.createRef();
+  }
+  componentDidMount() {
+    const root = this.collageRef.current;
+    if (!root) return;
+    let active = null, sx = 0, sy = 0, ox = 0, oy = 0, z = 20;
+    const down = (e) => {
+      const el = e.target.closest('[data-drag]');
+      if (!el || !root.contains(el)) return;
+      active = el; sx = e.clientX; sy = e.clientY;
+      ox = parseFloat(el.dataset.x || 0); oy = parseFloat(el.dataset.y || 0);
+      el.style.zIndex = ++z; el.style.cursor = 'grabbing';
+      el.setPointerCapture?.(e.pointerId);
+      e.preventDefault();
+    };
+    const move = (e) => {
+      if (!active) return;
+      const nx = ox + (e.clientX - sx), ny = oy + (e.clientY - sy);
+      active.dataset.x = nx; active.dataset.y = ny;
+      active.style.transform = `translate(${nx}px,${ny}px) rotate(${active.dataset.rot || 0}deg)`;
+    };
+    const up = () => { if (active) { active.style.cursor = 'grab'; active = null; } };
+    root.addEventListener('pointerdown', down);
+    window.addEventListener('pointermove', move);
+    window.addEventListener('pointerup', up);
+    this._off = () => { root.removeEventListener('pointerdown', down); window.removeEventListener('pointermove', move); window.removeEventListener('pointerup', up); };
+  }
+  componentWillUnmount() { this._off?.(); }
+  renderVals() {
+    const photo = (n) => `assets/homes/${n}.jpg`;
+    const shot = (x, y, rot, i) => ({ position: 'absolute', left: x + '%', top: y, width: '27%', height: 215, margin: 0, background: '#ffffff', border: '3px solid #141311', boxShadow: '8px 10px 0 rgba(20,19,17,.9)', transform: `rotate(${rot}deg)`, cursor: 'grab', userSelect: 'none', zIndex: i + 2 });
+    const collage = [
+      [2, 26, -5, 1, 'living room, indiranagar'],
+      [27, 62, 3, 2, 'kitchen, hsr'],
+      [53, 20, -3, 3, 'balcony, koramangala'],
+      [8, 300, 4, 2, 'bedroom, jayanagar'],
+      [35, 340, -6, 3, 'study nook, whitefield'],
+      [63, 296, 5, 1, 'bath, indiranagar'],
+    ].map(([x, y, rot, n, caption], i) => ({
+      key: i, src: photo(n), caption, style: shot(x, y, rot, i), rot,
+    }));
+    const pin = (x, y, label) => ({ label, style: { position: 'absolute', left: x + '%', top: y + '%', transform: 'translate(-50%,-100%)', textAlign: 'center' } });
+    const q = this.props;
+    const backdrop = q.heroBackdrop ?? 'furniture';
+    const centered = (q.heroAlign ?? 'center') === 'center';
+    const lift = q.pinLift ?? 12;
+    const blueprint = {
+      backgroundColor: '#f7f3ea',
+      backgroundImage: 'linear-gradient(to right,rgba(20,19,17,.09) 1px,transparent 1px),linear-gradient(to bottom,rgba(20,19,17,.09) 1px,transparent 1px),linear-gradient(to right,rgba(20,19,17,.05) 1px,transparent 1px),linear-gradient(to bottom,rgba(20,19,17,.05) 1px,transparent 1px)',
+      backgroundSize: '120px 120px,120px 120px,24px 24px,24px 24px',
+    };
+    const mapGround = {
+      backgroundColor: '#e8dcc6',
+      backgroundImage: 'linear-gradient(rgba(247,243,234,.72),rgba(247,243,234,.72)),url(assets/map.png)',
+      backgroundSize: 'cover', backgroundPosition: 'center',
+    };
+    return {
+      collageRef: this.collageRef,
+      heroCtaLabel: q.heroCtaLabel ?? 'Browse properties',
+      showPinboard: q.showPinboard ?? true,
+      showPattern: backdrop === 'furniture',
+      heroSectionStyle: Object.assign(
+        { position: 'relative', borderBottom: '3px solid #141311' },
+        backdrop === 'blueprint' ? blueprint : { background: '#f7f3ea' },
+      ),
+      heroInnerStyle: {
+        position: 'relative', overflow: 'hidden', minHeight: 780,
+        display: 'flex', alignItems: 'center',
+        justifyContent: centered ? 'center' : 'flex-start',
+        padding: centered ? '120px 200px 130px' : '110px 64px 120px',
+      },
+      heroContentStyle: {
+        position: 'relative', zIndex: 10, display: 'flex', flexDirection: 'column',
+        alignItems: centered ? 'center' : 'flex-start',
+        justifyContent: centered ? 'center' : 'flex-start',
+        textAlign: centered ? 'center' : 'left',
+        gap: 22, maxWidth: 760,
+      },
+      showcaseStyle: Object.assign(
+        { padding: '80px 32px 96px', borderBottom: '3px solid #141311' },
+        (q.mapBackdrop ?? true) ? mapGround : { background: '#f7f3ea' },
+      ),
+      pinLiftPx: lift,
+      reason: REASONS[this.state.reason],
+      reasonTabs: REASONS.map((r, i) => ({
+        label: r.label,
+        select: () => this.setState({ reason: i }),
+        style: {
+          padding: '11px 16px', border: 'none', borderRight: '2px solid #141311', cursor: 'pointer',
+          background: i === this.state.reason ? '#141311' : 'transparent',
+          color: i === this.state.reason ? '#EF9F27' : '#141311',
+          font: "600 11px/1 'IBM Plex Mono',monospace", textTransform: 'uppercase', letterSpacing: '.16em',
+        },
+      })),
+      whoStats: [
+        { value: '100%', label: 'Homes visited and measured by us before listing' },
+        { value: '3 days', label: 'Average move-in time from first enquiry' },
+      ],
+      check: CHECKS[this.state.check],
+      checkCounter: `${this.state.check + 1} / ${CHECKS.length}`,
+      nextCheck: () => this.setState((s) => ({ check: (s.check + 1) % CHECKS.length })),
+      contactRows: [
+        { k: 'Email', v: 'hello@altaliving.in' },
+        { k: 'Phone', v: '+91 80 4000 1212' },
+        { k: 'Office', v: '12th main, indiranagar' },
+        { k: 'Hours', v: '8am – 10pm, all week' },
+      ],
+      areaChips: AREAS.map((a, i) => ({
+        label: a,
+        select: () => this.setState({ area: i, sent: false }),
+        style: {
+          padding: '11px 16px', border: 'none', borderRight: '2px solid #141311', cursor: 'pointer',
+          background: i === this.state.area ? '#141311' : '#ffffff',
+          color: i === this.state.area ? '#f7f3ea' : '#141311',
+          font: "600 11px/1 'IBM Plex Mono',monospace", textTransform: 'uppercase', letterSpacing: '.16em',
+        },
+      })),
+      enquiryArea: AREAS[this.state.area],
+      enquiryLabel: this.state.sent ? 'Enquiry sent ✓' : 'Send enquiry',
+      sendEnquiry: () => this.setState({ sent: true }),
+      notes: [
+        { id: 'a', x: 7, y: 20, rotate: -6, text: 'Indiranagar\n2BHK — too small' },
+        { id: 'b', x: 6, y: 52, rotate: 4, text: 'Koramangala\n★ good light' },
+        { id: 'c', x: 9, y: 82, rotate: -3, text: 'Whitefield\ntoo far from work' },
+        { id: 'd', x: 86, y: 22, rotate: 5, text: 'HSR Layout\nnear metro ✓' },
+        { id: 'e', x: 87, y: 54, rotate: -4, text: 'Budget\n₹30,000 / month' },
+        { id: 'f', x: 84, y: 84, rotate: 3, text: 'Jayanagar\nvisited 12/3 ✓' },
+      ],
+      connections: [['a', 'b'], ['b', 'c'], ['c', 'e'], ['d', 'e'], ['e', 'f']],
+      tickerItems: ['47 homes live across bangalore', 'new listing — indiranagar 2bhk', 'average move-in time — 3 days', '92% occupancy this quarter', 'fully furnished, fully photographed'],
+      navItems: ['Listings', 'About Us', 'Contact'],
+      showcase: [['-2.5deg'], ['1.8deg'], ['-1.4deg'], ['2.4deg'], ['-2deg'], ['1.2deg']].map((t, i) => Object.assign({ tilt: t[0] }, [
+        { href: 'Alta Property.dc.html', src: photo(1), area: 'Indiranagar', meta: '2BHK · 12th main · available 1/3', hook: 'A quiet 2BHK above a courtyard, five minutes from 100ft Road.', price: '₹ 3,200' },
+        { href: 'Alta Property.dc.html', src: photo(2), area: 'Koramangala', meta: '1BHK · 5th block · available 2/3', hook: 'Top-floor studio with the best morning light in 5th Block.', price: '₹ 2,800' },
+        { href: 'Alta Property.dc.html', src: photo(3), area: 'Whitefield', meta: '3BHK · itpl road · available 1/2', hook: 'Three bedrooms built for long work stays, ten minutes from ITPL.', price: '₹ 4,100' },
+        { href: 'Alta Property.dc.html', src: photo(2), area: 'HSR Layout', meta: '2BHK · sector 2 · available 3/3', hook: 'Corner flat off 27th Main with a desk in every bedroom.', price: '₹ 3,000' },
+        { href: 'Alta Property.dc.html', src: photo(3), area: 'Jayanagar', meta: '3BHK · 4th block · available 1/2', hook: 'Old-Bangalore house around an open courtyard, red-oxide floors.', price: '₹ 3,600' },
+        { href: 'Alta Property.dc.html', src: photo(1), area: 'Indiranagar', meta: 'studio · defence colony · available 2/2', hook: 'A compact studio for solo stays, one street from the metro.', price: '₹ 2,400' },
+      ][i])),
+      collage,
+      testimonials: [
+        { quote: 'The Indiranagar flat was exactly the room in the photographs — same light, same plants. Nothing was staged.', name: 'Priya', location: 'Mumbai', stars: '★★★★★', bg: '#dfeaf7' },
+        { quote: 'Geyser stopped working at 9pm. Someone was at the door by 9:40 with a replacement.', name: 'Rohan', location: 'Bangalore', stars: '★★★★★', bg: '#f7e5d8' },
+        { quote: 'I stayed six weeks in Koramangala and never once thought about bills or cleaning. That is the whole product.', name: 'Emma', location: 'London', stars: '★★★★★', bg: '#e0e9dd' },
+      ],
+      testimonialsB: [
+        { quote: 'Moved in three days after the first call. The HSR flat had a real desk, not a dining chair pushed to a wall.', name: 'Arjun', location: 'Chennai', stars: '★★★★★', bg: '#e7e2f2' },
+        { quote: 'The Jayanagar house has red-oxide floors and a courtyard — I extended twice because of that courtyard.', name: 'Sneha', location: 'Pune', stars: '★★★★★', bg: '#f6eecd' },
+        { quote: 'Our team took two units in Whitefield. One invoice, one contact, zero follow-up needed from me.', name: 'David', location: 'Singapore', stars: '★★★★☆', bg: '#dfeaf7' },
+      ],
+      clusters: [
+        { name: 'Indiranagar', count: '14 homes' },
+        { name: 'Koramangala', count: '11 homes' },
+        { name: 'HSR Layout', count: '9 homes' },
+        { name: 'Whitefield', count: '8 homes' },
+        { name: 'Jayanagar', count: '5 homes' },
+      ],
+      pins: [pin(34, 38, 'Indiranagar · 14'), pin(52, 62, 'Koramangala · 11'), pin(66, 78, 'HSR Layout · 9'), pin(84, 34, 'Whitefield · 8'), pin(30, 76, 'Jayanagar · 5')],
+      socials: ['IG', 'X', 'IN', '✉'],
+    };
+  }
+}
+</script>
+</body>
+</html>

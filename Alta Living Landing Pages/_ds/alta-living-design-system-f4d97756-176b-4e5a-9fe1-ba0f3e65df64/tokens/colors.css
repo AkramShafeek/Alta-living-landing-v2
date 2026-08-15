@@ -1,0 +1,46 @@
+:root{
+/* --- Ink & paper: the base pair. Near-black, never pure #000. --- */
+--ink:#141311;            /* THE accent — buttons, borders, type */
+--ink-soft:#3f3a34;
+--ink-mute:#77706a;       /* secondary copy on paper */
+--paper:#f7f3ea;          /* default page background */
+--paper-2:#e8dcc6;        /* sand panel */
+--paper-3:#d3bfa1;        /* deep sand — grid lines, empty tiles */
+--white:#ffffff;
+
+/* --- Pastels: the card grounds. One per card family, never mixed inside a card. --- */
+--pastel-blue:#dfeaf7;    /* default card ground */
+--pastel-blue-deep:#c3d8ef;
+--pastel-sage:#e0e9dd;
+--pastel-peach:#f7e5d8;
+--pastel-lilac:#e7e2f2;
+--pastel-butter:#f6eecd;
+
+/* --- Complementary warm accent (used sparingly: string, pins, ticker) --- */
+--rust:#7a1f1f;
+--rust-band:#9a3412;
+--clay:#c2653a;
+--note:#fffbeb;           /* pinned note paper */
+
+/* --- Semantic aliases --- */
+--bg-page:var(--paper);
+--bg-panel:var(--paper-2);
+--bg-card:var(--pastel-blue);
+--bg-card-wash:var(--pastel-blue);
+--bg-invert:var(--ink);
+--accent:var(--ink);          /* the interactive accent is near-black */
+--accent-fg:var(--paper);
+--accent-warm:var(--rust);    /* complementary only */
+--text-body:var(--ink);
+--text-muted:var(--ink-mute);
+--text-invert:var(--paper);
+--text-accent:var(--rust);
+--border-hard:var(--ink);
+--border-soft:rgba(20,19,17,.18);
+--tag-bg:var(--ink);
+--tag-fg:var(--white);
+--focus-ring:rgba(20,19,17,.35);
+--ok:#0f7a4a;
+--warn:#a86b12;
+--danger:#a3231f;
+}

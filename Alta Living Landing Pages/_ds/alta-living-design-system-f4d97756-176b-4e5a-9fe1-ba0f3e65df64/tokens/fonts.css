@@ -1,0 +1,8 @@
+/* Webfonts. All Google-hosted; @font-face rules arrive via these stylesheets.
+   League Gothic = ALTA LIVING wordmark. Bricolage Grotesque = display/headline.
+   IBM Plex Mono = labels, tickers, prices. Cedarville Cursive = pinboard notes. Instrument Sans = UI body. */
+@import url('https://fonts.googleapis.com/css2?family=League+Gothic&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap');

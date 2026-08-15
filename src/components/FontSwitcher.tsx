@@ -26,9 +26,9 @@ export function FontSwitcher() {
   if (!import.meta.env.DEV) return null;
 
   return (
-    <div className="border rounded-md">
+    <div className="border rounded-full border-black">
       <Select value={font} onValueChange={(v) => setFont(v as FontSet)}>
-        <SelectTrigger className="w-40">
+        <SelectTrigger className="w-40 rounded-full">
           <SelectValue placeholder="Font set" />
         </SelectTrigger>
         <SelectContent position="popper">

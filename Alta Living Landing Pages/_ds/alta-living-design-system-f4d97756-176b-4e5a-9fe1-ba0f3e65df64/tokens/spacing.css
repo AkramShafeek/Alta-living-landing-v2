@@ -1,0 +1,12 @@
+:root{
+/* 4px base, but the system leans on 2/8/16/32/64 — page gutters are deliberately tight (p-2/p-4) */
+--space-0:0px;--space-1:2px;--space-2:4px;--space-3:8px;--space-4:12px;--space-5:16px;
+--space-6:24px;--space-7:32px;--space-8:48px;--space-9:64px;--space-10:88px;--space-11:128px;
+--gutter-page:8px;      /* full-bleed frame inset (Layout p-2) */
+--gutter-section:32px;
+--pad-card:16px;
+--pad-panel:64px;
+--grid-hairline:1px; /* @kind spacing */
+--max-content:1440px; /* @kind spacing */
+--section-rhythm:88px;
+}

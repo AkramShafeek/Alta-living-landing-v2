@@ -1,0 +1,35 @@
+:root{
+--font-wordmark:'League Gothic',Impact,sans-serif;
+--font-display:'Bricolage Grotesque','Arial Black',sans-serif;
+--font-body:'Instrument Sans',system-ui,sans-serif;
+--font-mono:'IBM Plex Mono',ui-monospace,monospace;
+--font-hand:'Cedarville Cursive',cursive;
+
+--fs-hero:clamp(64px,9vw,128px); /* @kind font */
+--fs-display:clamp(40px,5vw,72px); /* @kind font */
+--fs-h1:56px;
+--fs-h2:38px;
+--fs-h3:24px;
+--fs-stat:72px;
+--fs-body:16px;
+--fs-body-sm:14px;
+--fs-label:12px;   /* mono, uppercase, tracked */
+--fs-micro:11px;
+
+--lh-tight:0.92; /* @kind font */
+--lh-snug:1.15; /* @kind font */
+--lh-body:1.55; /* @kind font */
+
+--tracking-hero:-0.03em; /* @kind font */
+--tracking-display:-0.02em; /* @kind font */
+--tracking-label:0.18em; /* @kind font */
+
+--weight-display:800; /* @kind font */
+--weight-strong:700; /* @kind font */
+--weight-body:400; /* @kind font */
+
+/* semantic */
+--type-eyebrow:var(--weight-body) var(--fs-label)/1.2 var(--font-mono);
+--type-body:var(--weight-body) var(--fs-body)/var(--lh-body) var(--font-body);
+--type-price:var(--weight-strong) 30px/1 var(--font-body);
+}

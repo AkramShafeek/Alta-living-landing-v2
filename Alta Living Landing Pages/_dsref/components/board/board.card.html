@@ -1,0 +1,23 @@
+<!-- @dsCard group="Components" viewport="700x340" name="Board — Pinboard, Notes, Marquee" subtitle="Pinned photos, handwritten notes on red string, fact ticker" -->
+<!DOCTYPE html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../../styles.css"><script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script><script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script><script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script><script src="../../_ds_bundle.js"></script><title>Board</title></head><body style="margin:0;background:var(--paper)">
+<div id="root"></div>
+<script type="text/babel">
+const { Pinboard, PinnedPhoto, StickyNote, Marquee, PatternField } = window.AltaLivingDesignSystem_f4d977;
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <div>
+    <Marquee items={["14 homes live across bangalore","new listing — indiranagar 2bhk","average move-in time — 3 days"]} />
+    <div style={{position:'relative',height:230,overflow:'hidden',borderBottom:'1px solid var(--ink)'}}>
+      <PatternField src="../../assets/pattern-furniture.jpg" />
+      <Pinboard notes={[
+        {id:'a',x:12,y:26,rotate:-6,text:'Indiranagar\n2BHK — too small'},
+        {id:'b',x:34,y:64,rotate:4,text:'Koramangala\n★ good light'},
+        {id:'c',x:60,y:28,rotate:-3,text:'Budget\n₹30,000 / night'},
+      ]} connections={[['a','b'],['b','c']]} />
+      <div style={{position:'absolute',right:24,top:18,display:'flex',gap:16}}>
+        <PinnedPhoto src="../../assets/homes/1.jpg" seed={37} width={130} height={98} caption="Indiranagar" />
+        <PinnedPhoto src="../../assets/homes/3.jpg" seed={61} width={130} height={98} caption="Coorg" />
+      </div>
+    </div>
+  </div>
+);
+</script></body></html>

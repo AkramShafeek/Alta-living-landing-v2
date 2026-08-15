@@ -1,0 +1,12 @@
+:root{
+--border-w:1px;         /* default hairline, always solid ink */
+--border-w-2:2px;       /* emphasis / testimonial cards */
+--border-w-4:4px;       /* rare, full-bleed dividers */
+--radius-0:0px;         /* default: cards, tags, images, buttons in grids */
+--radius-sm:6px;
+--radius-md:12px;
+--radius-pill:999px;    /* nav capsule, hero CTA */
+--radius-arch:60px;     /* signature: rounded-t only on section panels */
+--rule-hairline:1px solid var(--ink); /* @kind other */
+--rule-soft:1px solid var(--border-soft); /* @kind other */
+}

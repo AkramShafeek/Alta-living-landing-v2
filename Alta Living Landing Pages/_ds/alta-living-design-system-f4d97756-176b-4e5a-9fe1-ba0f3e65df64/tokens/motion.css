@@ -1,0 +1,15 @@
+:root{
+--ease-out:cubic-bezier(0.16,1,0.3,1); /* @kind other */
+--ease-standard:cubic-bezier(0.4,0,0.2,1); /* @kind other */
+--dur-instant:100ms; /* @kind other */
+--dur-fast:150ms; /* @kind other */
+--dur-base:250ms; /* @kind other */
+--dur-slow:600ms; /* @kind other */
+--dur-hero:900ms; /* @kind other */
+--dur-wash:4400ms; /* @kind other */
+--stagger:150ms; /* @kind other */
+--stagger-notes:250ms; /* @kind other */
+--marquee-duration:26s; /* @kind other */
+--spring-stiffness:300; /* @kind other */
+--spring-damping:20; /* @kind other */
+}
