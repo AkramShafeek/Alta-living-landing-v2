@@ -3,7 +3,6 @@ import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button'
 import Marquee from '@/components/Marquee'
 import { HouseHuntBoard } from '@/components/HouseHuntBoard'
-import { PinnedCard } from '@/components/PinnedCard';
 import { PropertyCard } from '@/components/PropertyCard';
 import { StatsBar } from '@/sections/StatsBar';
 import { WhoWeAre } from '@/sections/WhoWeAre';
@@ -14,20 +13,6 @@ import { ContactSection } from '@/sections/ContactSection';
 import { ClosingCta } from '@/sections/ClosingCta';
 import { Footer } from '@/sections/Footer';
 import { heroContent, properties, tickerItems } from '@/content/site';
-
-
-// Base sizes are the "true" thumbnail size before the 0.55 display scale below.
-// Position (x, y) is where the top-left of the marker stack sits inside .collage-container.
-const cards = [
-  { x: 40, y: 100, width: 176, height: 132, z: 2, url: '1.jpg' },
-  { x: 20, y: 300, width: 152, height: 132, z: 1, url: '2.jpg' },
-  { x: 340, y: 250, width: 176, height: 132, z: 2, url: '3.jpg' },
-  { x: 560, y: 70, width: 152, height: 132, z: 3, url: '1.jpg' },
-  { x: 780, y: 160, width: 176, height: 132, z: 2, url: '2.jpg' },
-  { x: 600, y: 320, width: 152, height: 132, z: 1, url: '3.jpg' },
-  { x: 300, y: 440, width: 164, height: 132, z: 1, url: '1.jpg' },
-]
-
 
 
 const Home = () => {
@@ -126,52 +111,21 @@ const Home = () => {
           </motion.div>
         </div>
       </Layout>
-      <Layout className="p-4">
-        <div className="grid grid-cols-[1fr_4fr_1fr] gap-4 h-full">
-          <div className="border grid grid-rows-3">
-            <div className="p-4 flex flex-col gap-2 justify-between">
-              <p className="font-extrabold text-7xl mb-2">12+</p>
-              <p className="font-extralight text text-right ">Properties and counting</p>
-            </div>
-            <div className="p-4 flex flex-col gap-2 justify-between">
-              <p className="font-extrabold text-7xl mb-2">5+</p>
-              <p className="font-extralight text text-right ">Years of hosting</p>
-            </div>
-            <div className="p-4 flex flex-col gap-2 justify-between">
-              <p className="font-extrabold text-7xl mb-2">100+</p>
-              <p className="font-extralight text text-right ">Happy Customers</p>
-            </div>
-          </div>
-          <div className="flex flex-col border overflow-hidden">
-            <div className=" collage-container w-full h-full relative overflow-hidden bg-cover bg-center bg-[linear-gradient(to_bottom,white_0%,transparent_40%,transparent_75%,white_95%),url('/image-4.png')]">
-
-              <div className="absolute inset-0 z-10">
-                {cards.map((card, i) => (
-                  <PinnedCard key={i} {...card} />
-                ))}
-              </div>
-            </div>
-          </div>
-          <div className="border grid grid-rows-[2fr_1fr]">
-            <div className="border-b" ></div>
-            <div className="" ></div>
-          </div>
-        </div>
-      </Layout >
+      {/* <CaseStudyBoard /> */}
 
 
       {/* <Layout className="p-8 mt-22" id="showcase"> */}
-        <div className="p-16 m-8 mt-30 pb-12 flex flex-col gap-8 border border-neutral-400 rounded-t-[60px]">
-          <div>
-            <p className="cedarville-cursive-regular text-2xl text-black/70 mb-1">the pinboard</p>
-            <p className="w-full text-left text-6xl font-bold">Every home, right now</p>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 w-full flex-wrap">
-            {properties.map((property) => (
-              <PropertyCard key={property.slug} property={property} />
-            ))}
-          </div>
+      <div className="p-16 m-8 mt-30 pb-12 flex flex-col gap-8 border border-neutral-400 rounded-t-[60px]">
+        <div>
+          <p className="cedarville-cursive-regular text-2xl text-black/70 mb-1">the pinboard</p>
+          <p className="w-full text-left text-6xl font-bold">Every home, right now</p>
         </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 w-full flex-wrap">
+          {properties.map((property) => (
+            <PropertyCard key={property.slug} property={property} />
+          ))}
+        </div>
+      </div>
       {/* </Layout> */}
 
 
