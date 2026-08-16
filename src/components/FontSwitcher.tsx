@@ -23,7 +23,7 @@ export function FontSwitcher() {
     localStorage.setItem("dev-font", font);
   }, [font]);
 
-  if (!import.meta.env.DEV) return null;
+  // if (!import.meta.env.DEV) return null;
 
   return (
     <div className="border rounded-full border-black">
