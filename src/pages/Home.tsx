@@ -14,7 +14,6 @@ import { ContactSection } from '@/sections/ContactSection';
 import { ClosingCta } from '@/sections/ClosingCta';
 import { Footer } from '@/sections/Footer';
 import { heroContent, properties, tickerItems } from '@/content/site';
-import { FontSwitcher } from '@/components/FontSwitcher';
 
 
 // Base sizes are the "true" thumbnail size before the 0.55 display scale below.
@@ -88,30 +87,8 @@ const Home = () => {
             animate="visible"
             variants={restContainerVariants}
           >
-            <motion.div variants={slideUpVariants} className="z-10 bg-orange-800/60 border-b">
+            <motion.div data-marquee variants={slideUpVariants} className="z-10 bg-orange-800/60 border-b">
               <Marquee items={tickerItems} />
-            </motion.div>
-
-            <motion.div
-              variants={slideUpVariants}
-              className="z-10 flex justify-between items-center w-full pt-4 px-8"
-            >
-              <div className="flex items-center gap-3.5">
-                <img
-                  src="/alta-logo.png"
-                  alt="Logo"
-                  className="w-12 border-black shadow-[3px_3px_0px_#000] border rounded-xl"
-                />
-                <span className="alta-living-title text-3xl uppercase leading-none hidden sm:inline">
-                  Alta Living
-                </span>
-              </div>
-              <div className="bg-white flex gap-2 border rounded-full px-1 pl-2 py-1 border-black shadow-md">
-                <Button variant="link" className="text-foreground">Listings</Button>
-                <Button variant="link" className="text-foreground">About Us</Button>
-                <Button variant="link" className="text-foreground">Contact</Button>
-                <FontSwitcher />
-              </div>
             </motion.div>
 
             <div className="z-10 flex flex-col flex-1 justify-center items-center p-8 px-16 text-center">
@@ -150,7 +127,6 @@ const Home = () => {
         </div>
       </Layout>
       <Layout className="p-4">
-        {/* <Navbar /> */}
         <div className="grid grid-cols-[1fr_4fr_1fr] gap-4 h-full">
           <div className="border grid grid-rows-3">
             <div className="p-4 flex flex-col gap-2 justify-between">
