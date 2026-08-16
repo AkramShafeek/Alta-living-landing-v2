@@ -41,7 +41,7 @@ const noteVariants = {
       delay: 2 + i * NOTE_STAGGER,
     },
   }),
-} as const
+} as any
 
 // ─── Geometry helpers ────────────────────────────────────────────────────
 
@@ -62,7 +62,7 @@ function computeEdgePath(p0: Point, p1: Point, bow: number, side: 1 | -1): strin
 
 // ─── Component ───────────────────────────────────────────────────────────
 
-export const HouseHuntBoard = ({ startDelay = 10 }: { startDelay?: number }) => {
+export const HouseHuntBoard = () => {
   const containerRef = useRef<HTMLDivElement>(null)
 
   // ONE useRef call holding a Map — not one ref per note.

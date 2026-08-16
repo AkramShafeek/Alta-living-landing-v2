@@ -1,5 +1,4 @@
 import { HomeIcon, MapPinIcon, StarIcon } from "lucide-react"
-import { Separator } from "./ui/separator"
 import { cn } from "@/lib/utils"
 
 const TONE_CLASSES = {
