@@ -48,7 +48,7 @@ export const PropertyCard = ({
     <div className="h-72 flex relative border-b border-neutral-500 overflow-hidden">
       <img src={src || propertySrc || "/1.jpg"} className="bg-cover w-full object-cover transition-transform duration-300 ease-out group-hover/card:scale-[1.03]" />
       {rating && (
-        <span className="absolute top-3 right-3 bg-white rounded-full border border-neutral-500 px-2 py-1 flex items-center gap-1 font-mono text-[11px] font-semibold tracking-[0.1em] shadow-[3px_3px_0px_#000]">
+        <span className="absolute top-3 right-3 bg-white rounded-full border border-neutral-500 px-2 py-1 flex items-center gap-1 font-mono text-[11px] font-semibold tracking-widest shadow-[3px_3px_0px_#000]">
           <StarIcon size={11} className="fill-black" /> {rating}
         </span>
       )}
