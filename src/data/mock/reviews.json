@@ -1,0 +1,54 @@
+[
+  {
+    "id": "rev_001a",
+    "propertyId": "prop_001",
+    "unitId": "unit_001x",
+    "authorFirstName": "Anjali",
+    "authorCity": "Pune",
+    "stayMonth": "Mar 2025",
+    "stayDurationNights": "92",
+    "rating": "5",
+    "text": "Took the whole place for three months while my office shifted to Bangalore. The desk in the living room genuinely fits two monitors, which I did not believe from the listing. Fortnightly clean happened every time without me chasing it.",
+    "source": "direct",
+    "verified": "TRUE"
+  },
+  {
+    "id": "rev_001b",
+    "propertyId": "prop_001",
+    "unitId": "unit_001a",
+    "authorFirstName": "Rahul",
+    "authorCity": "Hyderabad",
+    "stayMonth": "Jan 2025",
+    "stayDurationNights": "45",
+    "rating": "4",
+    "text": "Master bedroom is quiet and the ensuite is spotless. Only gripe is the lift being out for two days in my second week, though Meera had someone on it the same morning I messaged.",
+    "source": "direct",
+    "verified": "TRUE"
+  },
+  {
+    "id": "rev_001c",
+    "propertyId": "prop_001",
+    "unitId": "unit_001b",
+    "authorFirstName": "Sneha",
+    "authorCity": "",
+    "stayMonth": "Nov 2024",
+    "stayDurationNights": "30",
+    "rating": "5",
+    "text": "The courtyard room stays dark till about eight, which after years of east-facing bedrooms was the whole reason I extended. Kitchen is better stocked than the photos suggest.",
+    "source": "google",
+    "verified": "FALSE"
+  },
+  {
+    "id": "rev_001d",
+    "propertyId": "prop_001",
+    "unitId": "",
+    "authorFirstName": "Tom",
+    "authorCity": "Amsterdam",
+    "stayMonth": "Sep 2024",
+    "stayDurationNights": "14",
+    "rating": "4",
+    "text": "Short work trip, booked over WhatsApp in an afternoon. Wi-Fi held up for calls all day. Marble floors and teak windows are exactly as photographed.",
+    "source": "whatsapp",
+    "verified": "TRUE"
+  }
+]

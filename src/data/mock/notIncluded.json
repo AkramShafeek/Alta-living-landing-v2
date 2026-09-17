@@ -1,0 +1,14 @@
+[
+  {
+    "propertyId": "prop_001",
+    "item": "Gas",
+    "note": "Piped connection, billed to you at actuals",
+    "order": "0"
+  },
+  {
+    "propertyId": "prop_001",
+    "item": "Linen",
+    "note": "Changed fortnightly; extra sets on request",
+    "order": "1"
+  }
+]

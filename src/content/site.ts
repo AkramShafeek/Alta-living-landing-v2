@@ -111,7 +111,8 @@ export const tickerItems = [
 export const heroContent = {
   eyebrow: "curated stays from alta living",
   headline: "Looking for a house rental?",
-  body: "Every Alta home is visited, measured and photographed by our team before it goes live. The price you see includes cleaning, utilities and Wi-Fi — and there is always a local human on call.",
+  // body: "Every Alta home is visited, measured and photographed by our team before it goes live. The price you see includes cleaning, utilities and Wi-Fi — and there is always a local human on call.",
+  body: "You may find one with us, at Alta Living",
   ctaLabel: "Browse Properties",
   areas: ["Indiranagar", "Koramangala", "HSR Layout", "Whitefield"],
 }

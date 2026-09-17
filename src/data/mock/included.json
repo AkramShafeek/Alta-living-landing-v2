@@ -1,0 +1,7 @@
+[
+  { "propertyId": "prop_001", "includedKey": "electricity" },
+  { "propertyId": "prop_001", "includedKey": "water" },
+  { "propertyId": "prop_001", "includedKey": "internet" },
+  { "propertyId": "prop_001", "includedKey": "maintenance" },
+  { "propertyId": "prop_001", "includedKey": "housekeeping" }
+]

@@ -1,0 +1,35 @@
+[
+  {
+    "id": "ph_001a",
+    "propertyId": "prop_001",
+    "url": "/homes/1.jpg",
+    "alt": "Living room with north-facing windows and a two-monitor desk",
+    "caption": "Living room, north light",
+    "unitId": "unit_001x",
+    "category": "Living",
+    "order": "0",
+    "isHero": "TRUE"
+  },
+  {
+    "id": "ph_001b",
+    "propertyId": "prop_001",
+    "url": "/homes/2.jpg",
+    "alt": "Kitchen with a four-burner gas hob and open shelving",
+    "caption": "Kitchen with gas hob",
+    "unitId": "",
+    "category": "Kitchen",
+    "order": "1",
+    "isHero": "FALSE"
+  },
+  {
+    "id": "ph_001c",
+    "propertyId": "prop_001",
+    "url": "/homes/3.jpg",
+    "alt": "Bedroom looking onto the shared courtyard",
+    "caption": "Courtyard bedroom",
+    "unitId": "unit_001b",
+    "category": "Bedrooms",
+    "order": "2",
+    "isHero": "FALSE"
+  }
+]

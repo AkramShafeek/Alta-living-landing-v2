@@ -18,5 +18,14 @@ export default defineConfig([
     languageOptions: {
       globals: globals.browser,
     },
+    rules: {
+      // `_name` marks a parameter that is deliberately unused but part of a
+      // signature we are committing to — e.g. the pricing engine's discount
+      // seams, which take their inputs today and start using them in v2.
+      '@typescript-eslint/no-unused-vars': [
+        'error',
+        { argsIgnorePattern: '^_', varsIgnorePattern: '^_', caughtErrorsIgnorePattern: '^_' },
+      ],
+    },
   },
 ])

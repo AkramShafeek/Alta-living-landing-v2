@@ -1,0 +1,12 @@
+[
+  { "propertyId": "prop_001", "amenityKey": "fully_furnished" },
+  { "propertyId": "prop_001", "amenityKey": "work_desk" },
+  { "propertyId": "prop_001", "amenityKey": "task_chair" },
+  { "propertyId": "prop_001", "amenityKey": "washer" },
+  { "propertyId": "prop_001", "amenityKey": "dryer" },
+  { "propertyId": "prop_001", "amenityKey": "ro_water" },
+  { "propertyId": "prop_001", "amenityKey": "covered_parking" },
+  { "propertyId": "prop_001", "amenityKey": "power_backup" },
+  { "propertyId": "prop_001", "amenityKey": "lift" },
+  { "propertyId": "prop_001", "amenityKey": "courtyard" }
+]

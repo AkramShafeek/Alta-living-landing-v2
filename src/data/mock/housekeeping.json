@@ -1,0 +1,5 @@
+[
+  { "propertyId": "prop_001", "cover": "bathrooms", "frequency": "fortnightly" },
+  { "propertyId": "prop_001", "cover": "kitchen", "frequency": "fortnightly" },
+  { "propertyId": "prop_001", "cover": "floors", "frequency": "weekly" }
+]

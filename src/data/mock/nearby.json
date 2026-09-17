@@ -1,0 +1,23 @@
+[
+  {
+    "propertyId": "prop_001",
+    "kind": "metro",
+    "name": "Indiranagar Metro",
+    "minutes": "6",
+    "mode": "walk"
+  },
+  {
+    "propertyId": "prop_001",
+    "kind": "cafe_strip",
+    "name": "100ft Road",
+    "minutes": "5",
+    "mode": "walk"
+  },
+  {
+    "propertyId": "prop_001",
+    "kind": "park",
+    "name": "Indiranagar Park",
+    "minutes": "4",
+    "mode": "walk"
+  }
+]

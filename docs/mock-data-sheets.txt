@@ -1,0 +1,118 @@
+ALTA LIVING - MOCK DATA (Google Sheets import)
+
+Generated from src/data/mock/*.json
+One block per sheet tab. Tab order matches the table registry in src/db/config.ts.
+("hosts" is last: it has mock data but is not yet a registered table.)
+
+HOW TO USE
+  1. Create a tab named exactly as the block heading (e.g. "properties").
+  2. Format the sheet as plain text first: Format > Number > Plain text. This keeps
+     values like 12,000 / 560038 / 14/03/2021 / TRUE from being reinterpreted by Sheets.
+  3. Select the block rows below - header row included - and copy.
+  4. Click A1 in the tab and paste. Columns are TAB-separated, so Sheets splits them.
+     If it all lands in column A: Data > Split text to columns > Separator: Tab.
+
+NOTES
+  - Empty cells are intentionally empty (optional fields).
+  - Booleans are the literal strings TRUE / FALSE.
+  - Pipe-separated lists (e.g. languages: English|Kannada|Hindi) stay in one cell.
+  - Every row currently belongs to prop_001 / host_meera.
+
+DO NOT PUBLISH THE hosts TAB
+  It holds phone and whatsapp for a real person, and Publish to web is
+  world-readable. The hosts table reads from the fixture on purpose and has
+  no env switch. Keep the tab private, or leave it out of the spreadsheet.
+
+========================================================================
+
+TAB: properties   (1 row, 66 columns)
+------------------------------------------------------------------------
+id	slug	name	status	listedOn	vettedOn	vettedBy	city	neighbourhood	subLocality	addressLine	pincode	lat	lng	floor	totalFloors	hasLift	propertyType	bedrooms	bathrooms	balconies	carpetAreaSqft	furnishing	maxOccupancy	deskCount	taskChairCount	acRooms	kitchenType	kitchenHob	kitchenFridge	kitchenMicrowave	kitchenOven	kitchenCookware	laundry	parkingCar	parkingTwoWheeler	parkingCovered	floorPlanUrl	wifiDownMbps	wifiWired	wifiProvider	powerBackup	waterSource	waterHotWater	waterDrinking	housekeepingCadence	linenChange	gstInvoice	tenantFit	smoking	alcohol	pets	overnightGuests	partyPolicy	kycRequired	agreementType	sharedWith	currency	minStayNights	noticePeriodDays	lockInMonths	hook	body	founderNote	displayOnHome	hostId
+prop_001	indiranagar-garden-loft	The Garden Loft	live	14/03/2021	02/02/2025	Meera	Bangalore	Indiranagar	12th Main	412, 12th Main, HAL 2nd Stage	560038	12.9784	77.6408	3	4	TRUE	apartment	2	2	1	940	fully	4	2	1	bedrooms_only	full	TRUE	TRUE	TRUE	FALSE	TRUE	washer_dryer	1	1	TRUE		200	FALSE	ACT Fibernet	partial	corporation	geyser	ro	fortnightly	fortnightly	FALSE	anyone	not_allowed	allowed	on_request	on_request	no_parties	TRUE	license		INR	7	30	0	A quiet 2BHK above a courtyard, five minutes from 100ft Road.	A quiet 2BHK above a courtyard, five minutes walk from 100ft Road. The living room takes the morning sun and the back bedroom stays dark until eight. Teak windows, marble floors, a working gas hob and a desk that fits two monitors.	my favourite kitchen in the portfolio ★	TRUE	host_meera
+
+
+TAB: units   (4 rows, 16 columns)
+------------------------------------------------------------------------
+id	propertyId	kind	name	bedType	bathroom	hasDesk	hasAc	hasBalcony	areaSqft	maxOccupancy	monthlyRate	nightlyRate	deposit	status	note
+unit_001a	prop_001	room	Master bedroom	queen	ensuite	TRUE	FALSE	FALSE	220	2	18,000	2,000	36000	available	
+unit_001b	prop_001	room	Courtyard bedroom	double	shared	TRUE	FALSE	FALSE	180	2	13,500	1,500	27000	available	
+unit_001c	prop_001	room	Study room	single	shared	FALSE	FALSE	FALSE	90	1	8,000	900	16000	booked	convertible
+unit_001x	prop_001	entire	Entire property			TRUE	FALSE	FALSE	940	4	30,000	3,200	60000	available	
+
+
+TAB: photos   (3 rows, 9 columns)
+------------------------------------------------------------------------
+id	propertyId	url	alt	caption	unitId	category	order	isHero
+ph_001a	prop_001	/homes/1.jpg	Living room with north-facing windows and a two-monitor desk	Living room, north light	unit_001x	Living	0	TRUE
+ph_001b	prop_001	/homes/2.jpg	Kitchen with a four-burner gas hob and open shelving	Kitchen with gas hob		Kitchen	1	FALSE
+ph_001c	prop_001	/homes/3.jpg	Bedroom looking onto the shared courtyard	Courtyard bedroom	unit_001b	Bedrooms	2	FALSE
+
+
+TAB: reviews   (4 rows, 11 columns)
+------------------------------------------------------------------------
+id	propertyId	unitId	authorFirstName	authorCity	stayMonth	stayDurationNights	rating	text	source	verified
+rev_001a	prop_001	unit_001x	Anjali	Pune	Mar 2025	92	5	Took the whole place for three months while my office shifted to Bangalore. The desk in the living room genuinely fits two monitors, which I did not believe from the listing. Fortnightly clean happened every time without me chasing it.	direct	TRUE
+rev_001b	prop_001	unit_001a	Rahul	Hyderabad	Jan 2025	45	4	Master bedroom is quiet and the ensuite is spotless. Only gripe is the lift being out for two days in my second week, though Meera had someone on it the same morning I messaged.	direct	TRUE
+rev_001c	prop_001	unit_001b	Sneha		Nov 2024	30	5	The courtyard room stays dark till about eight, which after years of east-facing bedrooms was the whole reason I extended. Kitchen is better stocked than the photos suggest.	google	FALSE
+rev_001d	prop_001		Tom	Amsterdam	Sep 2024	14	4	Short work trip, booked over WhatsApp in an afternoon. Wi-Fi held up for calls all day. Marble floors and teak windows are exactly as photographed.	whatsapp	TRUE
+
+
+TAB: nearby   (3 rows, 5 columns)
+------------------------------------------------------------------------
+propertyId	kind	name	minutes	mode
+prop_001	metro	Indiranagar Metro	6	walk
+prop_001	cafe_strip	100ft Road	5	walk
+prop_001	park	Indiranagar Park	4	walk
+
+
+TAB: amenities   (10 rows, 2 columns)
+------------------------------------------------------------------------
+propertyId	amenityKey
+prop_001	fully_furnished
+prop_001	work_desk
+prop_001	task_chair
+prop_001	washer
+prop_001	dryer
+prop_001	ro_water
+prop_001	covered_parking
+prop_001	power_backup
+prop_001	lift
+prop_001	courtyard
+
+
+TAB: included   (5 rows, 2 columns)
+------------------------------------------------------------------------
+propertyId	includedKey
+prop_001	electricity
+prop_001	water
+prop_001	internet
+prop_001	maintenance
+prop_001	housekeeping
+
+
+TAB: notIncluded   (2 rows, 4 columns)
+------------------------------------------------------------------------
+propertyId	item	note	order
+prop_001	Gas	Piped connection, billed to you at actuals	0
+prop_001	Linen	Changed fortnightly; extra sets on request	1
+
+
+TAB: housekeeping   (3 rows, 3 columns)
+------------------------------------------------------------------------
+propertyId	cover	frequency
+prop_001	bathrooms	fortnightly
+prop_001	kitchen	fortnightly
+prop_001	floors	weekly
+
+
+TAB: highlights   (1 row, 4 columns)
+------------------------------------------------------------------------
+propertyId	value	label	order
+prop_001	3 days	move-in from enquiry	0
+
+
+TAB: hosts   (1 row, 9 columns)
+------------------------------------------------------------------------
+id	name	photoUrl	respondsWithin	hours	minutesAway	languages	phone	whatsapp
+host_meera	Meera		under an hour	8am-10pm	6	English|Kannada|Hindi	+91 90000 00001	+91 90000 00001
+

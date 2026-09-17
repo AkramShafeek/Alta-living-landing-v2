@@ -97,7 +97,7 @@ const Home = () => {
               </motion.div>
 
               <motion.div variants={slideUpVariants} className='w-full flex justify-center mt-5'>
-                <Button className="z-10 m-8 bg-white border-2 rounded-full text-black hover:text-white border-black h-16 w-1/2 mx-auto hover:bg-black shadow-[5px_6px_0px_#000]">
+                <Button className="z-10 m-8 bg-white border-2 rounded-full text-black hover:text-white border-black h-16 w-1/4 mx-auto hover:bg-black shadow-[5px_6px_0px_#000]">
                   {heroContent.ctaLabel}
                 </Button>
               </motion.div>
