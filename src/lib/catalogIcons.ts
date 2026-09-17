@@ -20,10 +20,12 @@
 // ─────────────────────────────────────────────────────────────────────────
 
 import {
+  AirVent,
   ArrowUpDown,
   Armchair,
   BatteryCharging,
   BedDouble,
+  Bath,
   Bike,
   Building2,
   Coffee,
@@ -44,6 +46,7 @@ import {
   SquareParking,
   TrainFront,
   TreeDeciduous,
+  Users,
   Trees,
   UtensilsCrossed,
   WashingMachine,
@@ -106,4 +109,31 @@ export const NEARBY_ICONS: Record<NearbyKind, LucideIcon> = {
   hospital: Hospital,
   gym: Dumbbell,
   park: TreeDeciduous,
+}
+
+/**
+ * A room's own features, for the per-room cards.
+ *
+ * Keyed by a union declared here rather than by a model enum, because these are
+ * not one column — they are several booleans and two enums on `units` read
+ * together as "what this room has". The card decides which apply; this decides
+ * what each looks like.
+ */
+export type UnitFeature =
+  | "ensuite"
+  | "sharedBath"
+  | "sleeps"
+  | "desk"
+  | "airConditioning"
+  | "balcony"
+  | "bed"
+
+export const UNIT_FEATURE_ICONS: Record<UnitFeature, LucideIcon> = {
+  ensuite: Bath,
+  sharedBath: Bath,
+  sleeps: Users,
+  desk: LampDesk,
+  airConditioning: AirVent,
+  balcony: Fence,
+  bed: BedDouble,
 }

@@ -16,7 +16,7 @@
     "url": "/homes/2.jpg",
     "alt": "Kitchen with a four-burner gas hob and open shelving",
     "caption": "Kitchen with gas hob",
-    "unitId": "",
+    "unitId": "unit_001x",
     "category": "Kitchen",
     "order": "1",
     "isHero": "FALSE"
