@@ -227,7 +227,7 @@ const Notice = ({
 const allHomesLink = (
   <Link
     to="/listings"
-    className="mt-2 inline-flex items-center gap-2.5 px-7 py-4 bg-amber-400 border-2 border-black shadow-[6px_6px_0_#000] font-mono text-[13px] font-semibold uppercase tracking-[0.14em] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[3px_3px_0_#000] transition-all"
+    className="mt-2 inline-flex items-center gap-2.5 px-7 py-4 bg-amber-400 border-2 border-black shadow-[6px_6px_0_#000] font-mono text-[13px] font-semibold uppercase tracking-[0.14em] hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-[3px_3px_0_#000] transition-all"
   >
     See every home <ArrowRightIcon size={16} />
   </Link>
@@ -579,7 +579,7 @@ const Property = () => {
           <div className="flex gap-4 flex-wrap">
             <a
               href="#enquire"
-              className="inline-flex items-center gap-2.5 px-7 py-4.5 bg-amber-400 border-2 border-black shadow-[6px_6px_0_#000] font-mono text-[13px] font-semibold uppercase tracking-[0.14em] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[3px_3px_0_#000] transition-all"
+              className="inline-flex items-center gap-2.5 px-7 py-4.5 bg-amber-400 border-2 border-black shadow-[6px_6px_0_#000] font-mono text-[13px] font-semibold uppercase tracking-[0.14em] hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-[3px_3px_0_#000] transition-all"
             >
               Enquire about this home <span className="text-lg leading-none">→</span>
             </a>
@@ -606,7 +606,7 @@ const Property = () => {
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute left-5 top-5 flex gap-2">
-                  <span className="px-3 py-1.5 bg-black/55 backdrop-blur-[4px] text-background border-2 border-background font-mono text-[10px] font-semibold uppercase tracking-[0.18em]">
+                  <span className="px-3 py-1.5 bg-black/55 backdrop-blur-xs text-background border-2 border-background font-mono text-[10px] font-semibold uppercase tracking-[0.18em]">
                     {availability}
                   </span>
                   <span className="px-3 py-1.5 bg-amber-400 border-2 border-black font-mono text-[10px] font-semibold uppercase tracking-[0.18em]">
@@ -634,7 +634,7 @@ const Property = () => {
                   </>
                 )}
                 {currentPhoto.caption && (
-                  <p className="absolute right-5 bottom-5 px-3 py-1.5 bg-black/55 backdrop-blur-[4px] text-background font-mono text-[10px] uppercase tracking-[0.18em]">
+                  <p className="absolute right-5 bottom-5 px-3 py-1.5 bg-black/55 backdrop-blur-xs text-background font-mono text-[10px] uppercase tracking-[0.18em]">
                     {currentPhoto.caption}
                   </p>
                 )}
