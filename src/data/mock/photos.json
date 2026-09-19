@@ -31,5 +31,16 @@
     "category": "Bedrooms",
     "order": "2",
     "isHero": "FALSE"
+  },
+  {
+    "id": "ph_002a",
+    "propertyId": "prop_002",
+    "url": "/homes/3.jpg",
+    "alt": "Bedroom looking onto the shared courtyard",
+    "caption": "Courtyard bedroom",
+    "unitId": "unit_002a",
+    "category": "Bedrooms",
+    "order": "2",
+    "isHero": "TRUE"
   }
 ]

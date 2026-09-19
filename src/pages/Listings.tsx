@@ -99,13 +99,13 @@ const Listings = () => {
 
   return (
     <div className="bg-background" style={{ paddingTop: NAV_OFFSET }}>
-      <header className="px-8 pt-14 pb-10 border-b-2 border-black">
-        <p className="cedarville-cursive-regular text-2xl text-black/70 mb-1">the pinboard</p>
-        <div className="flex justify-between items-end gap-6 flex-wrap">
+      <header className="px-8 pt-14">
+        <p className="cedarville-cursive-regular text-center text-2xl text-black/70 mb-1">the pinboard</p>
+        <div className="flex flex-col justify-center items-center gap-6 flex-wrap">
           <h1 className="bricolage-grotesque-500 text-6xl md:text-7xl leading-none tracking-tight">
             Every home, right now
           </h1>
-          <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-muted-foreground max-w-70">
+          <p className="font-mono text-[11px] uppercase text-center tracking-[0.16em] text-muted-foreground max-w-100">
             {allLoaded ? `All ${properties.length} ` : "Our "}homes are visited, measured and
             photographed by us before they go live.
           </p>
@@ -114,10 +114,10 @@ const Listings = () => {
 
       {/* Filter rail — sticks under the navbar as the grid scrolls past it. */}
       <div
-        className="z-30 bg-background border-b-2 border-black px-8 py-6"
+        className="z-30 bg-background border-b-2 border-black px-8 py-6 hidden"
         style={{ top: NAV_OFFSET }}
       >
-        <div className="flex flex-wrap items-end gap-x-10 gap-y-6">
+        <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-6">
           <div className="flex flex-col gap-2.5">
             <span className={labelClasses}>Neighbourhood</span>
             <PillToggles
@@ -130,7 +130,7 @@ const Listings = () => {
           <div className="flex flex-col gap-2.5 min-w-64 flex-1 max-w-90">
             <div className="flex justify-between items-baseline gap-4">
               <span className={labelClasses}>Price per night</span>
-              <span className="font-mono text-[11px] font-semibold tracking-[0.1em]">
+              <span className="font-mono text-[11px] font-semibold tracking-widest">
                 {formatINR(range[0])} — {formatINR(range[1])}
               </span>
             </div>
@@ -156,7 +156,7 @@ const Listings = () => {
             <PillTabs options={SORTS} value={sort} onChange={setSort} />
           </div>
 
-          <div className="flex items-center gap-4 ml-auto pb-1">
+          <div className="flex items-center gap-4 pb-1">
             <span className="font-mono text-[11px] uppercase tracking-[0.14em] text-muted-foreground">
               {filtered.length} of {cards.length} homes
             </span>
@@ -173,7 +173,7 @@ const Listings = () => {
         </div>
       </div>
 
-      <div className="px-8 py-14">
+      <div className="px-8 py-10">
         {isLoading ? (
           // Skeletons rather than a spinner: the grid keeps its shape, so the
           // page does not jump when the real cards land.
@@ -198,13 +198,13 @@ const Listings = () => {
             <button
               type="button"
               onClick={() => void loadAllProperties({ force: true })}
-              className="mt-2 inline-flex items-center gap-2.5 px-7 py-4 bg-amber-400 border-2 border-black shadow-[6px_6px_0_#000] font-mono text-[13px] font-semibold uppercase tracking-[0.14em] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[3px_3px_0_#000] transition-all"
+              className="mt-2 inline-flex items-center gap-2.5 px-7 py-4 bg-amber-400 border-2 border-black shadow-[6px_6px_0_#000] font-mono text-[13px] font-semibold uppercase tracking-[0.14em] hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-[3px_3px_0_#000] transition-all"
             >
               Try again <span className="text-lg leading-none">→</span>
             </button>
           </div>
         ) : filtered.length > 0 ? (
-          <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
+          <div className="flex flex-wrap justify-center gap-8">
             {filtered.map((card, i) => (
               <motion.div
                 key={card.slug}
@@ -231,7 +231,7 @@ const Listings = () => {
             <button
               type="button"
               onClick={reset}
-              className="mt-2 inline-flex items-center gap-2.5 px-7 py-4 bg-amber-400 border-2 border-black shadow-[6px_6px_0_#000] font-mono text-[13px] font-semibold uppercase tracking-[0.14em] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[3px_3px_0_#000] transition-all"
+              className="mt-2 inline-flex items-center gap-2.5 px-7 py-4 bg-amber-400 border-2 border-black shadow-[6px_6px_0_#000] font-mono text-[13px] font-semibold uppercase tracking-[0.14em] hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-[3px_3px_0_#000] transition-all"
             >
               Clear filters <span className="text-lg leading-none">→</span>
             </button>

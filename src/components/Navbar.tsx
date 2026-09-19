@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import { Link, useLocation } from 'react-router-dom'
 import { Button } from '@/components/ui/button'
 import { FontSwitcher } from '@/components/FontSwitcher'
+import { FilterIcon } from 'lucide-react'
 
 const slideUpVariants = {
   hidden: { opacity: 0, y: 0 },
@@ -58,6 +59,7 @@ function useNavTop(isHome: boolean) {
 const Navbar = () => {
   const { pathname } = useLocation()
   const isHome = pathname === '/'
+  const isListings = pathname === '/listings'
   const navTop = useNavTop(isHome)
 
   return (
@@ -78,13 +80,20 @@ const Navbar = () => {
           Alta Living
         </span>
       </Link>
-      <div className="bg-white flex gap-2 border rounded-full px-1 pl-2 py-1 border-black shadow-md">
-        <Button variant="link" className="text-foreground" asChild>
-          <Link to="/listings">Listings</Link>
-        </Button>
-        <Button variant="link" className="text-foreground">About Us</Button>
-        <Button variant="link" className="text-foreground">Contact</Button>
-        <FontSwitcher />
+      <div className="flex gap-4 items-center">
+        {isListings && (
+          <div className="aspect-square h-11 cursor-pointer hover:shadow-[2px_3px_0_#000] active:shadow-[0px_0px_0_#000] transition-all active:translate-x-1 active:translate-y-1 flex justify-center shadow-md items-center bg-white rounded-full border border-black">
+            <FilterIcon size={20} className="fill-black" />
+          </div>
+        )}
+        <div className="bg-white flex gap-2 border rounded-full px-1 pl-2 py-1 border-black shadow-md">
+          <Button variant="link" className="text-foreground" asChild>
+            <Link to="/listings">Listings</Link>
+          </Button>
+          <Button variant="link" className="text-foreground">About Us</Button>
+          <Button variant="link" className="text-foreground">Contact</Button>
+          <FontSwitcher />
+        </div>
       </div>
     </motion.div>
   )

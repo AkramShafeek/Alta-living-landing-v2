@@ -44,9 +44,9 @@ export const PropertyCard = ({
     rating,
   } = property ?? {}
 
-  const card = <div className="bg-blue-50 flex rounded-4xl flex-1 flex-col border border-neutral-500 min-w-100 gap-2 overflow-hidden group/card">
-    <div className="h-72 flex relative border-b border-neutral-500 overflow-hidden">
-      <img src={src || propertySrc || "/1.jpg"} className="bg-cover w-full object-cover transition-transform duration-300 ease-out group-hover/card:scale-[1.03]" />
+  const card = <div className="flex-1 min-w-130 bg-blue-50 flex rounded-4xl  flex-col border border-neutral-500 gap-2 overflow-hidden group/card">
+    <div className="h-80 flex relative border-b border-neutral-500 overflow-hidden">
+      <img src={src || propertySrc || "/3.jpg"} className="bg-cover w-full h-full object-cover transition-transform duration-300 ease-out group-hover/card:scale-[1.03]" />
       {rating && (
         <span className="absolute top-3 right-3 bg-white rounded-full border border-neutral-500 px-2 py-1 flex items-center gap-1 font-mono text-[11px] font-semibold tracking-widest shadow-[3px_3px_0px_#000]">
           <StarIcon size={11} className="fill-black" /> {rating}
