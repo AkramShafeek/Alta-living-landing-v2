@@ -177,15 +177,57 @@ export type Testimonial = {
 }
 
 export const testimonialsRowA: Testimonial[] = [
-  { quote: "The Indiranagar flat was exactly the room in the photographs — same light, same plants. Nothing was staged.", name: "Priya", location: "Mumbai", rating: 5, tone: "blue" },
-  { quote: "Geyser stopped working at 9pm. Someone was at the door by 9:40 with a replacement.", name: "Rohan", location: "Bangalore", rating: 5, tone: "peach" },
-  { quote: "I stayed six weeks in Koramangala and never once thought about bills or cleaning. That is the whole product.", name: "Emma", location: "London", rating: 5, tone: "sage" },
+  {
+    quote:
+      "The Indiranagar flat was exactly the room in the photographs — same light, same plants. Nothing was staged.",
+    name: "Priya",
+    location: "Mumbai",
+    rating: 5,
+    tone: "blue",
+  },
+  {
+    quote:
+      "Geyser stopped working at 9pm. Someone was at the door by 9:40 with a replacement.",
+    name: "Rohan",
+    location: "Bangalore",
+    rating: 5,
+    tone: "peach",
+  },
+  {
+    quote:
+      "I stayed six weeks in Koramangala and never once thought about bills or cleaning. That is the whole product.",
+    name: "Emma",
+    location: "London",
+    rating: 5,
+    tone: "sage",
+  },
 ]
 
 export const testimonialsRowB: Testimonial[] = [
-  { quote: "Moved in three days after the first call. The HSR flat had a real desk, not a dining chair pushed to a wall.", name: "Arjun", location: "Chennai", rating: 5, tone: "lilac" },
-  { quote: "The Jayanagar house has red-oxide floors and a courtyard — I extended twice because of that courtyard.", name: "Sneha", location: "Pune", rating: 5, tone: "butter" },
-  { quote: "Our team took two units in Whitefield. One invoice, one contact, zero follow-up needed from me.", name: "David", location: "Singapore", rating: 4, tone: "blue" },
+  {
+    quote:
+      "Moved in three days after the first call. The HSR flat had a real desk, not a dining chair pushed to a wall.",
+    name: "Arjun",
+    location: "Chennai",
+    rating: 5,
+    tone: "lilac",
+  },
+  {
+    quote:
+      "The Jayanagar house has red-oxide floors and a courtyard — I extended twice because of that courtyard.",
+    name: "Sneha",
+    location: "Pune",
+    rating: 5,
+    tone: "butter",
+  },
+  {
+    quote:
+      "Our team took two units in Whitefield. One invoice, one contact, zero follow-up needed from me.",
+    name: "David",
+    location: "Singapore",
+    rating: 4,
+    tone: "blue",
+  },
 ]
 
 export const clusters = [
@@ -216,7 +258,8 @@ export const pricingTiers = [
     price: "₹ 30,000",
     unit: "/ month",
     tone: "accent" as const,
-    description: "14 nights and up. Furnished, serviced, no lock-in beyond 30 days.",
+    description:
+      "14 nights and up. Furnished, serviced, no lock-in beyond 30 days.",
     features: [
       "Fortnightly deep clean",
       "Utilities, Wi-Fi and maintenance included",
@@ -243,6 +286,15 @@ export const pricingTiers = [
   },
 ]
 
+/**
+ * The number the enquiry cart opens in WhatsApp.
+ *
+ * PLACEHOLDER. Swap for the real business line before this ships — everything
+ * numeric in this file is a placeholder (see PRODUCT.md), and this is the one
+ * that sends a stranger's message somewhere.
+ */
+export const enquiryWhatsApp = "+91 90000 00001"
+
 export const contactRows = [
   { k: "Email", v: "hello@altaliving.in" },
   { k: "Phone", v: "+91 80 4000 1212" },
@@ -251,7 +303,13 @@ export const contactRows = [
 ]
 
 export const footerLinks = {
-  stays: ["Indiranagar", "Koramangala", "HSR Layout", "Whitefield", "Jayanagar"],
+  stays: [
+    "Indiranagar",
+    "Koramangala",
+    "HSR Layout",
+    "Whitefield",
+    "Jayanagar",
+  ],
   company: ["About us", "How it works", "List your home", "Careers"],
   guests: ["House rules", "Cancellations", "FAQ", "Contact"],
 }

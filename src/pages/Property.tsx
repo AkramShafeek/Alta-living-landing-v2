@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { Link, useParams } from "react-router-dom"
 import { ArrowLeftIcon, ArrowRightIcon } from "lucide-react"
 import { Tabs } from "radix-ui"
-import { XIcon } from "lucide-react"
+import { CheckIcon, PlusIcon, XIcon } from "lucide-react"
 import {
   AMENITY_ICONS,
   CATALOG_ICON_SIZE,
@@ -17,6 +17,7 @@ import { ContactCard } from "@/components/ContactCard"
 import { Footer } from "@/sections/Footer"
 import { cn } from "@/lib/utils"
 import { useCatalogStore } from "@/store/catalogStore"
+import { isInCart, useCartStore, type PropertyRef } from "@/store/cartStore"
 import type { UnitDetail } from "@/store/types"
 import type { Photo } from "@/models/Photo"
 import { Separator } from "@/components/ui/separator"
@@ -48,28 +49,6 @@ const isBookable = (unit: UnitDetail | undefined) =>
   unit?.status === "available"
 
 /** A titled block that renders nothing when it has nothing to say. */
-const Block = ({
-  title,
-  children,
-}: {
-  title: string
-  children?: React.ReactNode
-}) => (
-  <div>
-    <p className="mb-3.5 font-mono font-semibold tracking-[0.18em] uppercase">
-      {title}
-    </p>
-    {children}
-  </div>
-)
-
-/**
- * The amenity tick list.
- *
- * Rendered twice on purpose — once in the summary column, once in the
- * reference panel below — so the panel reads as a complete account of the home
- * rather than as the leftovers of the column above it.
- */
 const AmenityGrid = ({ amenities }: { amenities: readonly AmenityKey[] }) => (
   <div className="grid grid-cols-1 border-t-2 border-l-2 border-black sm:grid-cols-2">
     {amenities.map((amenity) => {
@@ -360,7 +339,7 @@ const RoomCard = ({
   return (
     <article
       className={cn(
-        "grid  bg-white  lg:grid-cols-[1fr_1fr] border-2 border-black/15 p-4",
+        "grid border-2 border-black/15 bg-white p-4 lg:grid-cols-[1fr_1fr]",
         !bookable && "opacity-70"
       )}
     >
@@ -426,29 +405,34 @@ const RoomCard = ({
           </span>
 
           <span className="flex items-center gap-2.5">
-            {bookable && (
+            {bookable ? (
               <button
                 type="button"
                 aria-pressed={active}
                 onClick={onSelect}
                 className={cn(
-                  "border-2 border-black px-4 py-2.5 font-mono text-[10px] font-semibold tracking-[0.16em] uppercase transition-colors",
+                  "inline-flex items-center gap-2 border-2 border-black px-4 py-2.5 font-mono text-[10px] font-semibold tracking-[0.16em] uppercase transition-colors",
                   "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black",
                   active
-                    ? "bg-black text-amber-300"
-                    : "bg-white hover:bg-amber-200"
+                    ? "bg-black text-amber-300 hover:bg-white hover:text-black"
+                    : "bg-amber-400 hover:bg-black hover:text-amber-300"
                 )}
               >
-                {active ? "Selected" : "Select room"}
+                {active ? (
+                  <>
+                    <CheckIcon size={13} aria-hidden /> In your enquiry
+                  </>
+                ) : (
+                  <>
+                    <PlusIcon size={13} aria-hidden /> Add to enquiry
+                  </>
+                )}
               </button>
+            ) : (
+              <span className="border-2 border-black bg-white px-4 py-2.5 font-mono text-[10px] font-semibold tracking-[0.16em] uppercase opacity-70">
+                Not available
+              </span>
             )}
-            <a
-              href="#enquire"
-              onClick={bookable ? onSelect : undefined}
-              className="border-2 border-black bg-amber-400 px-4 py-2.5 font-mono text-[10px] font-semibold tracking-[0.16em] uppercase transition-colors hover:bg-black hover:text-amber-300"
-            >
-              {bookable ? "Enquire" : "Join waitlist"}
-            </a>
           </span>
         </div>
       </div>
@@ -515,12 +499,37 @@ const Property = () => {
   const detail = useCatalogStore((state) =>
     id ? state.properties[id] : undefined
   )
+  // What is "selected" now lives in the cart, which outlives this page. There
+  // is no longer a page-local idea of a chosen room to disagree with it.
+  const cartItems = useCartStore((state) => state.items)
+  const toggleUnit = useCartStore((state) => state.toggle)
+  const syncCart = useCartStore((state) => state.syncFromProperty)
 
   // The store dedupes, skips what it already has, and remembers a bad slug, so
   // this can fire on every mount without coordinating with the listings page.
   useEffect(() => {
     if (slug) void loadProperty(slug)
   }, [slug, loadProperty])
+
+  // The cart stores a snapshot of each unit so it can draw itself anywhere.
+  // While the real home is on screen, refresh that snapshot — a rate that moved
+  // in the sheet must not go out over WhatsApp at yesterday's number.
+  useEffect(() => {
+    if (!detail) return
+
+    const home = detail.property
+    syncCart(
+      {
+        id: home.id,
+        slug: home.slug,
+        name: home.name,
+        area: `${home.neighbourhood}, ${home.city}`,
+        heroUrl: detail.photos[0]?.url,
+        heroAlt: detail.photos[0]?.alt,
+      },
+      detail.units
+    )
+  }, [detail, syncCart])
 
   // Which of the two offers is on screen, and which room within the first.
   //
@@ -530,7 +539,6 @@ const Property = () => {
   // expensive one always sitting on top of the cheap ones. The tab separates
   // them, so the state has to separate first.
   const [mode, setMode] = useState<UnitMode>("rooms")
-  const [roomIndex, setRoomIndex] = useState(0)
   const [photo, setPhoto] = useState(0)
 
   if (notFound) {
@@ -567,7 +575,7 @@ const Property = () => {
     )
   }
 
-  const { property, photos, units, amenities, highlights, reviews } = detail
+  const { property, photos, units, amenities, reviews } = detail
   const { nearby, housekeeping, notIncluded, includedInPrice } = detail
 
   const rooms = units.filter((unit) => unit.kind === "room")
@@ -577,7 +585,6 @@ const Property = () => {
   // would land on does not exist. Derived rather than corrected in an effect,
   // which would render the empty tab for a frame first.
   const unitMode: UnitMode = rooms.length === 0 ? "whole" : mode
-  const selectedRoom = unitMode === "rooms" ? rooms[roomIndex] : undefined
 
   const openRooms = rooms.filter(isBookable).length
   const availability =
@@ -590,6 +597,20 @@ const Property = () => {
         : `${openRooms} of ${rooms.length} available`
 
   const area = `${property.neighbourhood}, ${property.city}`
+
+  // What the cart needs to remember about this home. The slug is what the
+  // router addresses, and after a reload the cart is the only thing that knows
+  // which home a stray room came from.
+  const propertyRef: PropertyRef = {
+    id: property.id,
+    slug: property.slug,
+    name: property.name,
+    area,
+    heroUrl: photos[0]?.url,
+    heroAlt: photos[0]?.alt,
+  }
+
+  const inCart = (unitId: string) => isInCart(cartItems, unitId)
   const beds =
     property.propertyType === "studio" ? "Studio" : `${property.bedrooms} BHK`
   const size = `${property.carpetAreaSqft.toLocaleString("en-IN")} sq ft`
@@ -600,8 +621,9 @@ const Property = () => {
   const essentials = present([
     {
       label: "Wi-Fi",
-      value: `${property.wifiDownMbps} Mbps${property.wifiWired ? " · wired" : ""}${property.wifiProvider ? ` · ${property.wifiProvider}` : ""
-        }`,
+      value: `${property.wifiDownMbps} Mbps${property.wifiWired ? " · wired" : ""}${
+        property.wifiProvider ? ` · ${property.wifiProvider}` : ""
+      }`,
     },
     { label: "Power backup", value: humanise(property.powerBackup) },
     { label: "Air conditioning", value: humanise(property.acRooms) },
@@ -618,16 +640,16 @@ const Property = () => {
       value:
         property.parkingCar + property.parkingTwoWheeler > 0
           ? [
-            property.parkingCar > 0
-              ? plural(property.parkingCar, "car")
-              : undefined,
-            property.parkingTwoWheeler > 0
-              ? plural(property.parkingTwoWheeler, "two-wheeler")
-              : undefined,
-            property.parkingCovered ? "covered" : undefined,
-          ]
-            .filter(Boolean)
-            .join(" · ")
+              property.parkingCar > 0
+                ? plural(property.parkingCar, "car")
+                : undefined,
+              property.parkingTwoWheeler > 0
+                ? plural(property.parkingTwoWheeler, "two-wheeler")
+                : undefined,
+              property.parkingCovered ? "covered" : undefined,
+            ]
+              .filter(Boolean)
+              .join(" · ")
           : undefined,
     },
     { label: "Sleeps", value: plural(property.maxOccupancy, "guest") },
@@ -635,10 +657,11 @@ const Property = () => {
       label: "Desks",
       value:
         property.deskCount > 0
-          ? `${plural(property.deskCount, "desk")}${property.taskChairCount > 0
-            ? ` · ${plural(property.taskChairCount, "task chair")}`
-            : ""
-          }`
+          ? `${plural(property.deskCount, "desk")}${
+              property.taskChairCount > 0
+                ? ` · ${plural(property.taskChairCount, "task chair")}`
+                : ""
+            }`
           : undefined,
     },
     {
@@ -646,8 +669,9 @@ const Property = () => {
       value:
         property.floor === undefined
           ? undefined
-          : `${property.floor === 0 ? "Ground" : property.floor}${property.totalFloors ? ` of ${property.totalFloors}` : ""
-          }${property.hasLift ? " · lift" : " · no lift"}`,
+          : `${property.floor === 0 ? "Ground" : property.floor}${
+              property.totalFloors ? ` of ${property.totalFloors}` : ""
+            }${property.hasLift ? " · lift" : " · no lift"}`,
     },
     {
       label: "Balconies",
@@ -802,7 +826,6 @@ const Property = () => {
     { label: "Minimum stay", value: plural(property.minStayNights, "night") },
   ])
 
-  const monthly = selectedRoom?.monthlyRate ?? whole?.monthlyRate ?? 0
   const nightly = whole?.nightlyRate ?? 0
 
   // Guarded so an empty gallery cannot produce `n % 0` → NaN.
@@ -826,7 +849,7 @@ const Property = () => {
 
       <div className="grid items-start border-t-2 border-t-black lg:grid-cols-[2fr_3fr]">
         {/* ── details ── */}
-        <div className="flex flex-col justify-center h-full gap-8 border-b-2 bg-amber-50 p-8 pb-18 md:p-11 lg:border-b-0">
+        <div className="flex h-full flex-col justify-center gap-8 border-b-2 p-8 pb-18 md:p-11 lg:border-b-0">
           <div className="flex flex-col gap-3.5">
             {/* <p className={monoLabel}>
               {beds} · {size} · {property.furnishing === "fully" ? "Fully furnished" : "Semi furnished"}
@@ -857,9 +880,15 @@ const Property = () => {
             {property.body}
           </p>
 
-          <div className="flex rounded-4xl p-6 gap-6 justify-between">
+          <div className="flex justify-between gap-6 rounded-4xl p-6">
             <div className="">
-              <p className={"mb-2 font-mono text-[10px] font-semibold tracking-[0.18em] uppercase"}>Per night</p>
+              <p
+                className={
+                  "mb-2 font-mono text-[10px] font-semibold tracking-[0.18em] uppercase"
+                }
+              >
+                Per night
+              </p>
               <p className="font-mono text-3xl font-bold">
                 {formatINR(nightly)}
               </p>
@@ -876,7 +905,6 @@ const Property = () => {
               </p>
             </div>
           </div>
-
 
           {/* {amenities.length > 0 && (
             <Block title="Amenities">
@@ -906,14 +934,14 @@ const Property = () => {
           <div className="flex flex-wrap gap-4">
             <a
               href="#enquire"
-              className="inline-flex items-center gap-2.5 border-2 border-black bg-amber-400 px-7 py-4.5 font-mono text-[13px] font-semibold tracking-[0.14em] uppercase w-full transition-all hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-[3px_3px_0_#000]"
+              className="inline-flex w-full items-center gap-2.5 border-2 border-black bg-amber-400 px-7 py-4.5 font-mono text-[13px] font-semibold tracking-[0.14em] uppercase transition-all hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-[3px_3px_0_#000]"
             >
               Enquire about this home{" "}
               <span className="text-lg leading-none">→</span>
             </a>
             <a
               href="#enquire"
-              className="inline-flex items-center border-2 border-black px-7 py-4.5 font-mono text-[13px] font-semibold tracking-[0.14em] uppercase w-full transition-all hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-[3px_3px_0_#000]"
+              className="inline-flex w-full items-center border-2 border-black px-7 py-4.5 font-mono text-[13px] font-semibold tracking-[0.14em] uppercase transition-all hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-[3px_3px_0_#000]"
             >
               Book a viewing
             </a>
@@ -1048,31 +1076,16 @@ const Property = () => {
 
           <Tabs.Content
             value="rooms"
-            className="flex flex-col gap-14 focus-visible:outline-none"
+            className="flex flex-col gap-7 focus-visible:outline-none"
           >
-            {rooms.map((room, index) => (
+            {rooms.map((room) => (
               <RoomCard
                 key={room.id}
                 room={room}
-                active={index === roomIndex}
-                onSelect={() => setRoomIndex(index)}
+                active={inCart(room.id)}
+                onSelect={() => toggleUnit(room, propertyRef)}
               />
             ))}
-
-            <div className="flex flex-wrap items-center justify-between gap-4 border-2 border-black bg-amber-100 px-5 py-4">
-              <span className="font-mono text-[11px] leading-relaxed tracking-[0.14em] uppercase">
-                {selectedRoom
-                  ? `Enquiring about ${selectedRoom.name} · single room`
-                  : "No room selected"}
-              </span>
-              <span className="font-mono text-2xl font-bold">
-                {formatINR(selectedRoom?.monthlyRate ?? 0)}
-                <span className="font-mono text-[11px] font-normal tracking-[0.14em]">
-                  {" "}
-                  / month
-                </span>
-              </span>
-            </div>
           </Tabs.Content>
 
           <Tabs.Content
@@ -1130,14 +1143,34 @@ const Property = () => {
                 >
                   {whole ? humanise(whole.status) : "—"}
                 </span>
-                <a
-                  href="#enquire"
-                  className="inline-flex items-center gap-2 border-2 border-black bg-black px-5 py-3 font-mono text-[11px] font-semibold tracking-[0.14em] text-amber-300 uppercase transition-colors hover:bg-white hover:text-black"
-                >
-                  {isBookable(whole)
-                    ? "Book the whole home"
-                    : "Join the waitlist"}
-                </a>
+                {whole && isBookable(whole) ? (
+                  <button
+                    type="button"
+                    aria-pressed={inCart(whole.id)}
+                    onClick={() => toggleUnit(whole, propertyRef)}
+                    className={cn(
+                      "inline-flex items-center gap-2 border-2 border-black px-5 py-3 font-mono text-[11px] font-semibold tracking-[0.14em] uppercase transition-colors",
+                      "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black",
+                      inCart(whole.id)
+                        ? "bg-black text-amber-300 hover:bg-white hover:text-black"
+                        : "bg-black text-amber-300 hover:bg-white hover:text-black"
+                    )}
+                  >
+                    {inCart(whole.id) ? (
+                      <>
+                        <CheckIcon size={14} aria-hidden /> In your enquiry
+                      </>
+                    ) : (
+                      <>
+                        <PlusIcon size={14} aria-hidden /> Add the whole home
+                      </>
+                    )}
+                  </button>
+                ) : (
+                  <span className="border-2 border-black bg-white px-5 py-3 font-mono text-[11px] font-semibold tracking-[0.14em] uppercase opacity-70">
+                    Not available
+                  </span>
+                )}
               </div>
             </div>
           </Tabs.Content>
@@ -1217,40 +1250,19 @@ const Property = () => {
         </section>
       )}
 
-      {/* ── enquiry, scoped to this home ── */}
+      {/* ── a general enquiry, not about this home ──────────────────────
+          Anything about a specific room now goes through the cart, which knows
+          exactly which room and at what rate. What is left for a form is the
+          enquiry the catalog cannot answer: a home we have not listed, dates
+          that do not fit, a city we are not in yet. Making this generic is what
+          stops the two paths quietly competing. */}
       <section id="enquire" className="px-8 pb-18">
         <ContactCard
-          eyebrow="talk to us"
-          title={`Enquire about ${property.name}`}
-          body="Tell us your dates and we'll confirm what's still open."
-          areas={[]}
-          subject={{
-            label: "Home you're asking about",
-            value: `${property.name} · ${area}`,
-          }}
+          eyebrow="something else in mind?"
+          title="Tell us what you're looking for"
+          body="For a specific room, add it to your enquiry and send it over WhatsApp — it reaches us with the rates attached. This is for everything else: a different area, dates that don't fit, or a home you haven't found here yet."
           submitLabel="Send enquiry"
-          messagePlaceholder={
-            rooms.length > 0
-              ? `Arriving mid-month — is the ${rooms[0].name.toLowerCase()} still free?`
-              : "Arriving mid-month — is this home still free?"
-          }
-          footnote={() =>
-            `${selectedRoom ? selectedRoom.name : "Entire property"} · ${formatINR(monthly)} / month`
-          }
-          rows={[
-            { k: "Home", v: property.name },
-            { k: "Area", v: area },
-            { k: "Availability", v: availability },
-            { k: "Minimum stay", v: plural(property.minStayNights, "night") },
-            ...(property.vettedOn
-              ? [
-                {
-                  k: "Last vetted",
-                  v: property.vettedOn.toLocaleDateString("en-IN"),
-                },
-              ]
-              : []),
-          ]}
+          messagePlaceholder="Two of us, both work from home — a second desk matters more than a second bedroom."
         />
       </section>
 

@@ -11,6 +11,7 @@ import Property from "./pages/Property.tsx"
 import OpsEditor from "./pages/OpsEditor.tsx"
 import { OPS_ROUTE } from "./ops/route.ts"
 import Navbar from "./components/Navbar.tsx"
+import { CartBar } from "./components/cart/CartBar.tsx"
 import { ScrollToTop } from "./components/ScrollToTop.tsx"
 
 createRoot(document.getElementById("root")!).render(
@@ -29,6 +30,10 @@ createRoot(document.getElementById("root")!).render(
               <>
                 <Navbar />
                 <Outlet />
+                {/* Site-wide: a room picked on one home survives navigating to
+                    another, and to a reload. Deliberately outside the ops
+                    editor's route. */}
+                <CartBar />
               </>
             }
           >

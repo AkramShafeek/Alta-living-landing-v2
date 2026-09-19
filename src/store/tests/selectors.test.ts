@@ -37,7 +37,10 @@ describe("status drives availability", () => {
       ...base,
       units: base.units.map((unit, i) =>
         unit.kind === "room"
-          ? { ...unit, status: (["on_notice", "blocked", "booked"] as const)[i] }
+          ? {
+              ...unit,
+              status: (["on_notice", "blocked", "booked"] as const)[i],
+            }
           : unit
       ),
     }

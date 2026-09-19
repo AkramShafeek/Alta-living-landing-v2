@@ -56,9 +56,12 @@ describe("buildUnitDetail", () => {
     const details = buildUnitDetails(units, photos)
 
     const byId = new Map(details.map((u) => [u.id, u]))
-    expect(byId.get("unit_001x")?.photos.map((p) => p.id)).toEqual(["ph_001a"])
+    expect(byId.get("unit_001x")?.photos.map((p) => p.id)).toEqual([
+      "ph_001a",
+      "ph_001b",
+    ])
     expect(byId.get("unit_001b")?.photos.map((p) => p.id)).toEqual(["ph_001c"])
-    // ph_001b is a photo of the whole home, so it lands on no unit.
+    // A unit nobody has tagged a photo to gets an empty list, not undefined.
     expect(byId.get("unit_001a")?.photos).toEqual([])
     expect(byId.get("unit_001c")?.photos).toEqual([])
   })

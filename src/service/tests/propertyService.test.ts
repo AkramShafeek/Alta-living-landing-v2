@@ -21,7 +21,7 @@ describe("getPropertyBySlug", () => {
   it("nests each unit's photos", async () => {
     const d = await propertyService.getPropertyBySlug("indiranagar-garden-loft")
     const whole = d.units.find((u) => u.kind === "entire")
-    expect(whole?.photos.map((p) => p.id)).toEqual(["ph_001a"])
+    expect(whole?.photos.map((p) => p.id)).toEqual(["ph_001a", "ph_001b"])
   })
 
   it("throws PropertyNotFoundError on an unknown slug", async () => {

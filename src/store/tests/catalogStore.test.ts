@@ -61,7 +61,9 @@ describe("loadProperty", () => {
   })
 
   it("surfaces a real failure as an error", async () => {
-    vi.spyOn(propertyService, "getPropertyBySlug").mockRejectedValueOnce(new Error("sheet down"))
+    vi.spyOn(propertyService, "getPropertyBySlug").mockRejectedValueOnce(
+      new Error("sheet down")
+    )
     vi.spyOn(console, "error").mockImplementation(() => {})
 
     await get().loadProperty("indiranagar-garden-loft")
@@ -102,7 +104,9 @@ describe("loadAllProperties", () => {
   })
 
   it("leaves the store untouched when it fails", async () => {
-    vi.spyOn(propertyService, "getAllProperties").mockRejectedValueOnce(new Error("sheet down"))
+    vi.spyOn(propertyService, "getAllProperties").mockRejectedValueOnce(
+      new Error("sheet down")
+    )
     vi.spyOn(console, "error").mockImplementation(() => {})
 
     await get().loadAllProperties()
