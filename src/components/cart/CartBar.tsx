@@ -22,7 +22,8 @@
 // ─────────────────────────────────────────────────────────────────────────
 
 import { useEffect, useState } from "react"
-import { BedDoubleIcon, ChevronRightIcon /*, ChevronUpIcon */ } from "lucide-react"
+import { BedDoubleIcon, ChevronRightIcon, /*, ChevronUpIcon */ 
+DoorOpenIcon} from "lucide-react"
 import { cn } from "@/lib/utils"
 import { cartTotal, useCartStore } from "@/store/cartStore"
 import { CartDialog } from "./CartDialog"
@@ -57,8 +58,6 @@ export const CartBar = () => {
 
   if (count === 0) return null
 
-  const shown = items.slice(0, THUMBS)
-  const extra = count - shown.length
 
   return (
     <>
@@ -70,7 +69,7 @@ export const CartBar = () => {
             "motion-safe:animate-[cart-rise_260ms_cubic-bezier(0.16,1,0.3,1)]"
           )}
         >
-          <BedDoubleIcon size={24} aria-hidden className="" />
+          <DoorOpenIcon size={24} aria-hidden className="" />
           {/* Overlapped, because three squares in a row would read as three
               separate things rather than as one basket. */}
           <ul className="flex shrink-0 items-center -space-x-3">
@@ -89,11 +88,6 @@ export const CartBar = () => {
                 ) : null}
               </li>
             ))} */}
-            {extra > 0 && (
-              <li className="relative flex size-12 items-center justify-center border bg-amber-400 font-mono text-[12px] font-bold">
-                +{extra}
-              </li>
-            )}
           </ul>
 
           <div className="min-w-0 flex-1">

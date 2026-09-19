@@ -81,5 +81,88 @@
     "displayOnHome": "TRUE",
 
     "hostId": "host_meera"
+  },
+  {
+    "id": "prop_002",
+    "slug": "indiranagar-beach-loft",
+    "name": "The Beach Loft",
+    "status": "live",
+    "listedOn": "14/03/2021",
+    "vettedOn": "02/02/2025",
+    "vettedBy": "Meera",
+
+    "city": "Bangalore",
+    "neighbourhood": "Indiranagar",
+    "subLocality": "12th Main",
+    "addressLine": "412, 12th Main, HAL 2nd Stage",
+    "pincode": "560038",
+    "lat": "12.9784",
+    "lng": "77.6408",
+    "floor": "3",
+    "totalFloors": "4",
+    "hasLift": "TRUE",
+
+    "propertyType": "apartment",
+    "bedrooms": "2",
+    "bathrooms": "2",
+    "balconies": "1",
+    "carpetAreaSqft": "940",
+    "furnishing": "fully",
+    "maxOccupancy": "4",
+    "deskCount": "2",
+    "taskChairCount": "1",
+    "acRooms": "bedrooms_only",
+
+    "kitchenType": "full",
+    "kitchenHob": "TRUE",
+    "kitchenFridge": "TRUE",
+    "kitchenMicrowave": "TRUE",
+    "kitchenOven": "FALSE",
+    "kitchenCookware": "TRUE",
+
+    "laundry": "washer_dryer",
+
+    "parkingCar": "1",
+    "parkingTwoWheeler": "1",
+    "parkingCovered": "TRUE",
+
+    "floorPlanUrl": "",
+
+    "wifiDownMbps": "200",
+    "wifiWired": "FALSE",
+    "wifiProvider": "ACT Fibernet",
+
+    "powerBackup": "partial",
+
+    "waterSource": "corporation",
+    "waterHotWater": "geyser",
+    "waterDrinking": "ro",
+
+    "housekeepingCadence": "fortnightly",
+    "linenChange": "fortnightly",
+    "gstInvoice": "FALSE",
+
+    "tenantFit": "anyone",
+    "smoking": "not_allowed",
+    "alcohol": "allowed",
+    "pets": "on_request",
+    "overnightGuests": "on_request",
+    "partyPolicy": "no_parties",
+    "kycRequired": "TRUE",
+    "agreementType": "license",
+    "sharedWith": "",
+
+    "currency": "INR",
+    "minStayNights": "7",
+    "noticePeriodDays": "30",
+    "lockInMonths": "0",
+
+    "hook": "A quiet 2BHK above a courtyard, five minutes from 100ft Road.",
+    "body": "A quiet 2BHK above a courtyard, five minutes walk from 100ft Road. The living room takes the morning sun and the back bedroom stays dark until eight. Teak windows, marble floors, a working gas hob and a desk that fits two monitors.",
+    "founderNote": "my favourite kitchen in the portfolio ★",
+
+    "displayOnHome": "TRUE",
+
+    "hostId": "host_meera"
   }
 ]
