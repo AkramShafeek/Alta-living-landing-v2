@@ -19,11 +19,9 @@ import { useEffect, useRef, useState } from "react"
 import { Dialog, VisuallyHidden } from "radix-ui"
 import {
   ArrowLeftIcon,
-  ArrowRightIcon,
-  DeleteIcon,
+  ArrowRightIcon,  
   ExternalLinkIcon,
-  Trash2Icon,
-  TrashIcon,
+  Trash2Icon,  
   XIcon,
 } from "lucide-react"
 import { Link } from "react-router-dom"
@@ -145,7 +143,7 @@ export const CartDialog = ({
   const total = cartTotal(items)
   const groups = itemsByProperty(items)
   const href = whatsappLink(enquiryWhatsApp, items, name)
-  const blockShadow = "shadow-[10px_12px_0_#000]"
+  // const blockShadow = "shadow-[10px_12px_0_#000]"
 
   return (
     <Dialog.Root open={open} onOpenChange={handleOpenChange}>

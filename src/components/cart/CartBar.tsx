@@ -22,7 +22,7 @@
 // ─────────────────────────────────────────────────────────────────────────
 
 import { useEffect, useState } from "react"
-import { BedDoubleIcon, ChevronRightIcon, /*, ChevronUpIcon */ 
+import { ChevronRightIcon, /*, ChevronUpIcon */ 
 DoorOpenIcon} from "lucide-react"
 import { cn } from "@/lib/utils"
 import { cartTotal, useCartStore } from "@/store/cartStore"
@@ -32,9 +32,6 @@ const MONO = "font-mono text-[10px] font-semibold uppercase tracking-[0.16em]"
 
 const formatINR = (value: number): string =>
   `₹ ${value.toLocaleString("en-IN")}`
-
-/** How many thumbnails the bar shows before it stops and counts instead. */
-const THUMBS = 3
 
 export const CartBar = () => {
   const items = useCartStore((state) => state.items)
