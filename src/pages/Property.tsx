@@ -893,7 +893,7 @@ const Property = () => {
               </p>
             </div>
             <Separator orientation="vertical" /> */}
-            <div className="text-center mb-5">
+            <div className="text-center mb-2">
               <p className="text-sm text-muted-foreground">
                 Starting from
                 {includedInPrice.length > 0 &&
@@ -935,21 +935,21 @@ const Property = () => {
             </div>
           )} */}
 
-          <div className="flex flex-wrap gap-4 justify-center">
+          <div className="flex flex-col gap-4 items-center">
             <a
               href="#enquire"
-              className="inline-flex rounded-full flex-1 items-center border-2 border-black px-7 py-4.5 font-mono text-[13px] font-semibold tracking-[0.14em] uppercase transition-all hover:-translate-x-0.5 hover:-translate-y-0.5 active:translate-x-0 active:translate-y-0 hover:shadow-[5px_5px_0_#000] active:shadow-none shadow-[3px_3px_0_#000] justify-between"
+              className="inline-flex rounded-full w-1/2 items-center border-2 border-black px-7 py-4.5 font-mono text-[13px] font-semibold tracking-[0.14em] uppercase transition-all hover:-translate-x-0.5 hover:-translate-y-0.5 active:translate-x-0 active:translate-y-0 hover:shadow-[5px_5px_0_#000] active:shadow-none shadow-[3px_3px_0_#000] justify-between"
             >
               Book a viewing
               <span className="text-lg leading-none"><CalendarIcon /></span>
             </a>
-            <a
+            {/* <a
               href="#enquire"
               className="inline-flex rounded-full flex-1 items-center gap-2.5 border-2 border-black bg-amber-400 px-7 py-4.5 font-mono text-[13px] font-semibold tracking-[0.14em] uppercase transition-all hover:-translate-x-0.5 hover:-translate-y-0.5 active:translate-x-0 active:translate-y-0 hover:shadow-[5px_5px_0_#000] active:shadow-none shadow-[3px_3px_0_#000] justify-between"
             >
-              Enquire about this home{" "}
+              Enquire{" "}
               <span className="text-lg leading-none"><ArrowRightIcon /></span>
-            </a>
+            </a> */}            
           </div>
         </div>
 
