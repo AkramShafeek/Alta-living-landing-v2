@@ -82,7 +82,7 @@ const Navbar = () => {
       </Link>
       <div className="flex gap-4 items-center">
         {isListings && (
-          <div className="aspect-square h-11 cursor-pointer hover:shadow-[2px_3px_0_#000] active:shadow-[0px_0px_0_#000] transition-all active:translate-x-1 active:translate-y-1 flex justify-center shadow-md items-center bg-white rounded-full border border-black">
+          <div className="aspect-square h-11 cursor-pointer transition-all active:scale-[0.92] flex justify-center shadow-md items-center bg-white rounded-full border border-black">
             <FilterIcon size={20} className="fill-black" />
           </div>
         )}

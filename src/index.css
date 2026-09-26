@@ -187,10 +187,12 @@
   --sidebar-ring: oklch(0.556 0 0);
 }
 
-@theme {
-  --animate-marquee: marquee var(--duration) linear infinite;
-  --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
-}
+/* The marquee animations live as plain classes below rather than as @theme
+   utilities. The @theme form generated a second `.animate-marquee` whose
+   duration came from an undefined `--duration`, and which only lost to the
+   real one because unlayered CSS outranks a layer. `--animate-marquee-vertical`
+   pointed at a `marquee-vertical` keyframe that was never written.
+   Both consumers set `animationDuration` inline. */
 
 @keyframes marquee {
   from {

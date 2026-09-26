@@ -23,7 +23,7 @@ export const TestimonialCard = ({
   tone?: keyof typeof TONE_CLASSES
 }) => {
   return (
-    <div className={cn("w-full flex flex-1 flex-col border shadow-[3px_5px_0px_#000] border-black gap-2 overflow-hidden h-full", TONE_CLASSES[tone])}>
+    <div className={cn("rounded-2xl w-full flex flex-1 flex-col border shadow-[3px_5px_0px_#000] border-black gap-2 overflow-hidden h-full", TONE_CLASSES[tone])}>
       <div className="flex flex-col w-full justify-between h-full">
         <div className="flex flex-col p-4 w-full gap-2">
           <div className="flex w-full justify-between items-center">
@@ -49,7 +49,7 @@ export const TestimonialCard = ({
         <div className="flex flex-col gap-2 border-t border-black">
           {/* <Separator className="bg-black"/> */}
           <div className="text-xs flex justify-between gap-2 items-center p-2">
-            <div className="bg-blue-200 text-blue-800 text-xs h-fit px-2 py-1 flex gap-2 items-center">
+            <div className="bg-blue-200 text-blue-800 text-xs h-fit px-2 py-1 flex gap-2 items-center rounded-full">
               <MapPinIcon size={12} />
               {location || "Indiranagar, Bangalore"}
             </div>

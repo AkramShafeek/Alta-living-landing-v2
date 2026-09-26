@@ -121,11 +121,20 @@ export type PropertyCardView = {
   /** Kept as numbers so the listings filters can compare them. */
   nightly: number
   rawRating: number | null
+  /**
+   * True when the home has no `entire` unit yet — a property added ahead of
+   * its rooms, mid-onboarding. `nightly` is 0 in that case, and 0 is not a
+   * real rate: showing "₹ 0" would read as free, and letting the price slider
+   * hide the card would make it invisible by default rather than merely
+   * unpriced. Both are handled by checking this flag instead of the number.
+   */
+  unpriced: boolean
 }
 
 export const toCardView = (property: PropertyDetail): PropertyCardView => {
   const rating = selectRating(property)
   const nightly = selectNightly(property)
+  const unpriced = nightly === 0
 
   return {
     slug: property.property.slug,
@@ -135,10 +144,11 @@ export const toCardView = (property: PropertyDetail): PropertyCardView => {
     location: property.property.neighbourhood,
     bedType: selectBedLabel(property),
     availability: selectAvailabilityLabel(property),
-    price: formatINR(nightly),
+    price: unpriced ? "Price coming soon" : formatINR(nightly),
     priceUnit: "per night",
     rating: rating === null ? undefined : rating.toFixed(1),
     nightly,
+    unpriced,
     rawRating: rating,
   }
 }

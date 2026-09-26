@@ -9,7 +9,7 @@ export type PillTabOption = { label: string; value: string }
  * twice.
  */
 const pillBase =
-  "px-4 py-2.5 font-mono text-[11px] font-semibold uppercase tracking-[0.16em] border-r border-black last:border-r-0 transition-colors"
+  "px-4 py-2.5 font-mono text-[11px] font-semibold uppercase tracking-[0.16em] border-r border-neutral-400 last:border-r-0 transition-colors"
 
 export const PillTabs = ({
   options,
@@ -26,8 +26,8 @@ export const PillTabs = ({
 }) => (
   <div
     className={cn(
-      "flex flex-wrap w-fit border",
-      tone === "dark" ? "border-black" : "border-black",
+      "flex flex-wrap w-fit border rounded-full overflow-hidden",
+      tone === "dark" ? "border-neutral-400" : "border-neutral-400",
       className
     )}
   >
@@ -72,7 +72,7 @@ export const PillToggles = ({
   onChange: (values: string[]) => void
   className?: string
 }) => (
-  <div className={cn("flex flex-wrap w-fit border border-black", className)}>
+  <div className={cn("flex flex-wrap w-fit border border-neutral-400", className)}>
     {options.map((option) => {
       const active = values.includes(option.value)
       return (

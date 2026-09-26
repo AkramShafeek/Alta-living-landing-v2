@@ -12,7 +12,7 @@ export const StatsBar = () => {
           Bangalore edition · est. 2021
         </span>
       </div>
-      <div className="bg-[#b8a281] grid grid-cols-2 md:grid-cols-4 divide-x divide-black border-b-2 border-black">
+      <div className="bg-white grid grid-cols-2 md:grid-cols-4 divide-x divide-black border-b-2 border-black">
         {numbers.map((n) => (
           <div key={n.value} className="p-6 md:p-9">
             <StatCell value={n.value} label={n.label} />

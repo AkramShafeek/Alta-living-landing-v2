@@ -28,7 +28,7 @@ import { cn } from "@/lib/utils"
 import { cartTotal, useCartStore } from "@/store/cartStore"
 import { CartDialog } from "./CartDialog"
 
-const MONO = "font-mono text-[10px] font-semibold uppercase tracking-[0.16em]"
+// const MONO = "font-mono text-[10px] font-semibold uppercase tracking-[0.16em]"
 
 const formatINR = (value: number): string =>
   `₹ ${value.toLocaleString("en-IN")}`
@@ -88,12 +88,12 @@ export const CartBar = () => {
           </ul>
 
           <div className="min-w-0 flex-1">
-            <p className={cn(MONO, "text-black/60")}>
+            <p className={"text-xs text-muted-foreground"}>
               {count} {count === 1 ? "unit" : "units"} in your enquiry
             </p>
             <p className="truncate font-mono text-[15px] font-bold">
               {formatINR(total)}
-              <span className="font-mono text-[10px] font-normal tracking-[0.14em]">
+              <span className="text-xs font-light text-muted-foreground">
                 {" "}
                 / month
               </span>

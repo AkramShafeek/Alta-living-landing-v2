@@ -1,19 +1,21 @@
-import Layout from '@/layout/Layout'
-import { motion } from 'framer-motion';
-import { Button } from '@/components/ui/button'
-import Marquee from '@/components/Marquee'
-import { HouseHuntBoard } from '@/components/HouseHuntBoard'
-import { PropertyCard } from '@/components/PropertyCard';
-import { StatsBar } from '@/sections/StatsBar';
-import { WhoWeAre } from '@/sections/WhoWeAre';
-import { TestimonialsSection } from '@/sections/TestimonialsSection';
-import { AreaExplorer } from '@/sections/AreaExplorer';
-import { PricingSection } from '@/sections/PricingSection';
-import { ContactSection } from '@/sections/ContactSection';
-import { ClosingCta } from '@/sections/ClosingCta';
-import { Footer } from '@/sections/Footer';
-import { heroContent, properties, tickerItems } from '@/content/site';
-
+import Layout from "@/layout/Layout"
+import { motion } from "framer-motion"
+import { Button } from "@/components/ui/button"
+import Marquee from "@/components/Marquee"
+import { HouseHuntBoard } from "@/components/HouseHuntBoard"
+import { PropertyCoverflow } from "@/sections/PropertyCoverflow"
+import { PropertyScatterReveal } from "@/sections/PropertyScatterReveal"
+import { StatsBar } from "@/sections/StatsBar"
+import { WhoWeAre } from "@/sections/WhoWeAre"
+import { TestimonialsSection } from "@/sections/TestimonialsSection"
+import { AreaExplorer } from "@/sections/AreaExplorer"
+// import { PricingSection } from "@/sections/PricingSection" // unused — <PricingSection /> is commented out below
+// import { Tabs } from "radix-ui" // unused
+import { ContactSection } from "@/sections/ContactSection"
+import { ClosingCta } from "@/sections/ClosingCta"
+import { Footer } from "@/sections/Footer"
+import { heroContent, tickerItems } from "@/content/site"
+// import { cn } from "@/lib/utils" // unused
 
 const Home = () => {
   const backgroundVariants = {
@@ -52,7 +54,7 @@ const Home = () => {
   return (
     <>
       <Layout className="p-0">
-        <div className="relative flex flex-col h-full w-full border-b">
+        <div className="relative flex h-full w-full flex-col border-b">
           <motion.div
             className="absolute inset-0 bg-repeat"
             style={{
@@ -67,18 +69,24 @@ const Home = () => {
           <HouseHuntBoard />
 
           <motion.div
-            className="flex flex-col h-full w-full"
+            className="flex h-full w-full flex-col"
             initial="hidden"
             animate="visible"
             variants={restContainerVariants}
           >
-            <motion.div data-marquee variants={slideUpVariants} className="z-10 bg-orange-800/60 border-b">
+            <motion.div
+              data-marquee
+              variants={slideUpVariants}
+              className="z-10 border-b bg-orange-800/60"
+            >
               <Marquee items={tickerItems} />
             </motion.div>
 
-            <div className="z-10 flex flex-col flex-1 justify-center items-center p-8 px-16 text-center">
+            <div className="z-10 flex flex-1 flex-col items-center justify-center p-8 px-16 text-center">
               <motion.div variants={slideUpVariants}>
-                <p className="cedarville-cursive-regular text-3xl text-black/70 mb-4">{heroContent.eyebrow}</p>
+                <p className="cedarville-cursive-regular mb-4 text-3xl text-black/70">
+                  {heroContent.eyebrow}
+                </p>
               </motion.div>
 
               {/* <motion.div variants={slideUpVariants}>
@@ -86,18 +94,27 @@ const Home = () => {
               </motion.div> */}
 
               {/* Alta Living animates independently, ahead of everything else */}
-              <motion.div initial="hidden" animate="visible" variants={altaVariants}>
-                <p className="text-8xl font-extrabold max-w-2xl">Looking for a house rental?</p>
+              <motion.div
+                initial="hidden"
+                animate="visible"
+                variants={altaVariants}
+              >
+                <p className="max-w-2xl text-8xl font-extrabold">
+                  Looking for a house rental?
+                </p>
               </motion.div>
 
               <motion.div variants={slideUpVariants}>
-                <p className="max-w-2xl text-lg font-serif leading-relaxed text-black/70 text-balance mt-4">
+                <p className="mt-4 max-w-2xl font-serif text-lg leading-relaxed text-balance text-black/70">
                   {heroContent.body}
                 </p>
               </motion.div>
 
-              <motion.div variants={slideUpVariants} className='w-full flex justify-center mt-5'>
-                <Button className="z-10 m-8 bg-white border-2 rounded-full text-black hover:text-white border-black h-16 w-1/4 mx-auto hover:bg-black shadow-[5px_6px_0px_#000]">
+              <motion.div
+                variants={slideUpVariants}
+                className="mt-5 flex w-full justify-center"
+              >
+                <Button className="z-10 m-8 mx-auto h-16 w-1/4 rounded-full border-2 border-black bg-white text-black shadow-[5px_6px_0px_#000] hover:bg-yellow-400 active:shadow-none">
                   {heroContent.ctaLabel}
                 </Button>
               </motion.div>
@@ -113,35 +130,22 @@ const Home = () => {
       </Layout>
       {/* <CaseStudyBoard /> */}
 
+      <PropertyScatterReveal />
 
       {/* <Layout className="p-8 mt-22" id="showcase"> */}
-      <div className="p-16 m-8 mt-30 pb-12 flex flex-col gap-8 border border-neutral-400 rounded-t-[60px]">
-        <div>
-          <p className="cedarville-cursive-regular text-2xl text-black/70 mb-1">the pinboard</p>
-          <p className="w-full text-left text-6xl font-bold">Every home, right now</p>
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 w-full flex-wrap">
-          {properties.map((property) => (
-            <PropertyCard key={property.slug} property={property} />
-          ))}
-        </div>
-      </div>
+      <PropertyCoverflow />
       {/* </Layout> */}
-
 
       <StatsBar />
       <WhoWeAre />
       <TestimonialsSection />
       <AreaExplorer />
-      <PricingSection />
+      {/* <PricingSection /> */}
       <ContactSection />
       <ClosingCta />
       <Footer />
     </>
   )
 }
-
-
-
 
 export default Home

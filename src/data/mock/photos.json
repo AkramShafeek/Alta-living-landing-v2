@@ -42,5 +42,115 @@
     "category": "Bedrooms",
     "order": "2",
     "isHero": "TRUE"
+  },
+  {
+    "id": "ph_003a",
+    "propertyId": "prop_003",
+    "url": "/homes/1.jpg",
+    "alt": "Bright living room with tall windows",
+    "caption": "",
+    "unitId": "",
+    "category": "Living",
+    "order": "0",
+    "isHero": "TRUE"
+  },
+  {
+    "id": "ph_004a",
+    "propertyId": "prop_004",
+    "url": "/homes/2.jpg",
+    "alt": "Kitchen with open shelving and a gas hob",
+    "caption": "",
+    "unitId": "",
+    "category": "Living",
+    "order": "0",
+    "isHero": "TRUE"
+  },
+  {
+    "id": "ph_005a",
+    "propertyId": "prop_005",
+    "url": "/homes/3.jpg",
+    "alt": "Bedroom looking onto a shared courtyard",
+    "caption": "",
+    "unitId": "",
+    "category": "Living",
+    "order": "0",
+    "isHero": "TRUE"
+  },
+  {
+    "id": "ph_006a",
+    "propertyId": "prop_006",
+    "url": "/homes/1.jpg",
+    "alt": "Bright living room with tall windows",
+    "caption": "",
+    "unitId": "",
+    "category": "Living",
+    "order": "0",
+    "isHero": "TRUE"
+  },
+  {
+    "id": "ph_007a",
+    "propertyId": "prop_007",
+    "url": "/homes/2.jpg",
+    "alt": "Kitchen with open shelving and a gas hob",
+    "caption": "",
+    "unitId": "",
+    "category": "Living",
+    "order": "0",
+    "isHero": "TRUE"
+  },
+  {
+    "id": "ph_008a",
+    "propertyId": "prop_008",
+    "url": "/homes/3.jpg",
+    "alt": "Bedroom looking onto a shared courtyard",
+    "caption": "",
+    "unitId": "",
+    "category": "Living",
+    "order": "0",
+    "isHero": "TRUE"
+  },
+  {
+    "id": "ph_009a",
+    "propertyId": "prop_009",
+    "url": "/homes/1.jpg",
+    "alt": "Bright living room with tall windows",
+    "caption": "",
+    "unitId": "",
+    "category": "Living",
+    "order": "0",
+    "isHero": "TRUE"
+  },
+  {
+    "id": "ph_010a",
+    "propertyId": "prop_010",
+    "url": "/homes/2.jpg",
+    "alt": "Kitchen with open shelving and a gas hob",
+    "caption": "",
+    "unitId": "",
+    "category": "Living",
+    "order": "0",
+    "isHero": "TRUE"
+  },
+  {
+    "id": "ph_011a",
+    "propertyId": "prop_011",
+    "url": "/homes/3.jpg",
+    "alt": "Bedroom looking onto a shared courtyard",
+    "caption": "",
+    "unitId": "",
+    "category": "Living",
+    "order": "0",
+    "isHero": "TRUE"
+  },
+  {
+    "id": "ph_012a",
+    "propertyId": "prop_012",
+    "url": "/homes/1.jpg",
+    "alt": "Bright living room with tall windows",
+    "caption": "",
+    "unitId": "",
+    "category": "Living",
+    "order": "0",
+    "isHero": "TRUE"
   }
 ]

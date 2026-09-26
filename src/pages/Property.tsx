@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react"
 import { Link, useParams } from "react-router-dom"
-import { ArrowLeftIcon, ArrowRightIcon } from "lucide-react"
+// ArrowLeftIcon, Calendar1Icon and CalendarClockIcon are unused — each only
+// appears in commented-out markup below.
+import { ArrowRightIcon, CalendarIcon } from "lucide-react"
 import { Tabs } from "radix-ui"
 import { CheckIcon, PlusIcon, XIcon } from "lucide-react"
 import {
@@ -20,7 +22,7 @@ import { useCatalogStore } from "@/store/catalogStore"
 import { isInCart, useCartStore, type PropertyRef } from "@/store/cartStore"
 import type { UnitDetail } from "@/store/types"
 import type { Photo } from "@/models/Photo"
-import { Separator } from "@/components/ui/separator"
+// import { Separator } from "@/components/ui/separator" // unused — only appears in commented-out markup
 
 // Matches the listings page — the fixed navbar occupies the first 64px.
 const NAV_OFFSET = 64
@@ -270,7 +272,7 @@ const PhotoQuad = ({
 
   return (
     <div role="group" aria-label={caption}>
-      <div className="grid gap-0.5 overflow-hidden">
+      <div className="grid gap-0.5 overflow-hidden rounded-2xl">
         <PhotoTile photo={cover} ratio="aspect-[16/8]" />
 
         <div className="grid grid-cols-3 gap-0.5">
@@ -339,7 +341,7 @@ const RoomCard = ({
   return (
     <article
       className={cn(
-        "grid border-2 border-black/15 bg-white p-4 lg:grid-cols-[1fr_1fr]",
+        "grid border-2 rounded-4xl border-black/15 bg-white p-4 lg:grid-cols-[1fr_1fr]",
         !bookable && "opacity-70"
       )}
     >
@@ -391,7 +393,7 @@ const RoomCard = ({
           <span className="flex flex-wrap items-center gap-2">
             <span
               className={cn(
-                "border-2 border-black px-2.5 py-1 font-mono text-[10px] font-semibold tracking-[0.16em] uppercase",
+                "border-2 border-black px-2.5 py-1 font-mono text-[10px] rounded-full font-semibold tracking-[0.16em] uppercase",
                 bookable ? "bg-green-100" : "bg-black text-background"
               )}
             >
@@ -412,7 +414,7 @@ const RoomCard = ({
                 onClick={onSelect}
                 className={cn(
                   "inline-flex items-center gap-2 border-2 border-black px-4 py-2.5 font-mono text-[10px] font-semibold tracking-[0.16em] uppercase transition-colors",
-                  "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black",
+                  "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black rounded-full",
                   active
                     ? "bg-black text-amber-300 hover:bg-white hover:text-black"
                     : "bg-amber-400 hover:bg-black hover:text-amber-300"
@@ -621,9 +623,8 @@ const Property = () => {
   const essentials = present([
     {
       label: "Wi-Fi",
-      value: `${property.wifiDownMbps} Mbps${property.wifiWired ? " · wired" : ""}${
-        property.wifiProvider ? ` · ${property.wifiProvider}` : ""
-      }`,
+      value: `${property.wifiDownMbps} Mbps${property.wifiWired ? " · wired" : ""}${property.wifiProvider ? ` · ${property.wifiProvider}` : ""
+        }`,
     },
     { label: "Power backup", value: humanise(property.powerBackup) },
     { label: "Air conditioning", value: humanise(property.acRooms) },
@@ -640,16 +641,16 @@ const Property = () => {
       value:
         property.parkingCar + property.parkingTwoWheeler > 0
           ? [
-              property.parkingCar > 0
-                ? plural(property.parkingCar, "car")
-                : undefined,
-              property.parkingTwoWheeler > 0
-                ? plural(property.parkingTwoWheeler, "two-wheeler")
-                : undefined,
-              property.parkingCovered ? "covered" : undefined,
-            ]
-              .filter(Boolean)
-              .join(" · ")
+            property.parkingCar > 0
+              ? plural(property.parkingCar, "car")
+              : undefined,
+            property.parkingTwoWheeler > 0
+              ? plural(property.parkingTwoWheeler, "two-wheeler")
+              : undefined,
+            property.parkingCovered ? "covered" : undefined,
+          ]
+            .filter(Boolean)
+            .join(" · ")
           : undefined,
     },
     { label: "Sleeps", value: plural(property.maxOccupancy, "guest") },
@@ -657,11 +658,10 @@ const Property = () => {
       label: "Desks",
       value:
         property.deskCount > 0
-          ? `${plural(property.deskCount, "desk")}${
-              property.taskChairCount > 0
-                ? ` · ${plural(property.taskChairCount, "task chair")}`
-                : ""
-            }`
+          ? `${plural(property.deskCount, "desk")}${property.taskChairCount > 0
+            ? ` · ${plural(property.taskChairCount, "task chair")}`
+            : ""
+          }`
           : undefined,
     },
     {
@@ -669,9 +669,8 @@ const Property = () => {
       value:
         property.floor === undefined
           ? undefined
-          : `${property.floor === 0 ? "Ground" : property.floor}${
-              property.totalFloors ? ` of ${property.totalFloors}` : ""
-            }${property.hasLift ? " · lift" : " · no lift"}`,
+          : `${property.floor === 0 ? "Ground" : property.floor}${property.totalFloors ? ` of ${property.totalFloors}` : ""
+          }${property.hasLift ? " · lift" : " · no lift"}`,
     },
     {
       label: "Balconies",
@@ -826,7 +825,7 @@ const Property = () => {
     { label: "Minimum stay", value: plural(property.minStayNights, "night") },
   ])
 
-  const nightly = whole?.nightlyRate ?? 0
+  // const nightly = whole?.nightlyRate ?? 0 // unused — only read from the "Per night" block above, which is commented out
 
   // Guarded so an empty gallery cannot produce `n % 0` → NaN.
   const photoCount = photos.length
@@ -834,8 +833,8 @@ const Property = () => {
   const currentPhoto = photos[activePhoto]
 
   return (
-    <div className="bg-background" style={{ paddingTop: NAV_OFFSET }}>
-      <div className="flex flex-wrap items-center justify-between gap-4 px-8 py-5">
+    <div className="bg-background" style={{ paddingTop: 0 }}>
+      {/* <div className="flex flex-wrap items-center justify-between gap-4 px-8 py-5">
         <Link
           to="/listings"
           className="inline-flex items-center gap-2 border-b border-b-transparent font-mono text-[11px] font-semibold tracking-[0.16em] uppercase transition-colors hover:border-b-black"
@@ -845,12 +844,12 @@ const Property = () => {
         <span className="font-mono text-[11px] tracking-[0.16em] text-muted-foreground uppercase">
           {area}
         </span>
-      </div>
+      </div> */}
 
       <div className="grid items-start border-t-2 border-t-black lg:grid-cols-[2fr_3fr]">
         {/* ── details ── */}
         <div className="flex h-full flex-col justify-center gap-8 border-b-2 p-8 pb-18 md:p-11 lg:border-b-0">
-          <div className="flex flex-col gap-3.5">
+          <div className="flex flex-col items-center gap-3.5">
             {/* <p className={monoLabel}>
               {beds} · {size} · {property.furnishing === "fully" ? "Fully furnished" : "Semi furnished"}
             </p> */}
@@ -869,19 +868,19 @@ const Property = () => {
             )} */}
           </div>
 
-          <div className="flex flex-wrap gap-2.5">
-            <Tag tone="solid">{area}</Tag>
-            <Tag>{beds}</Tag>
-            <Tag>{size}</Tag>
-            <Tag className="bg-blue-50">{availability}</Tag>
+          <div className="flex flex-wrap justify-center gap-2.5">
+            <Tag className="rounded-full" tone="solid">{area}</Tag>
+            <Tag className="rounded-full">{beds}</Tag>
+            <Tag className="rounded-full">{size}</Tag>
+            <Tag className="bg-blue-50 rounded-full">{availability}</Tag>
           </div>
 
-          <p className="text-[17px] leading-relaxed text-pretty text-black/70">
+          <p className="text-[17px] leading-relaxed text-pretty text-center text-black/70">
             {property.body}
           </p>
 
-          <div className="flex justify-between gap-6 rounded-4xl p-6">
-            <div className="">
+          <div className="flex justify-center gap-6 rounded-4xl">
+            {/* <div className="">
               <p
                 className={
                   "mb-2 font-mono text-[10px] font-semibold tracking-[0.18em] uppercase"
@@ -893,16 +892,21 @@ const Property = () => {
                 {formatINR(nightly)}
               </p>
             </div>
-            <Separator orientation="vertical" />
-            <div className="">
-              <p className="mb-2 font-mono text-[10px] font-semibold tracking-[0.18em] uppercase">
-                Monthly
+            <Separator orientation="vertical" /> */}
+            <div className="text-center mb-5">
+              <p className="text-sm text-muted-foreground">
+                Starting from
                 {includedInPrice.length > 0 &&
                   ` · ${includedInPrice.length} included`}
               </p>
-              <p className="font-mono text-3xl font-bold">
-                {formatINR(whole?.monthlyRate ?? 0)}
-              </p>
+              <div className="flex items-baseline justify-center gap-2">
+                <p className="font-mono text-4xl font-bold">
+                  {formatINR(whole?.monthlyRate ?? 0)}
+                </p>
+                <span className="text-sm font-normal text-muted-foreground">
+                  / per month
+                </span>
+              </div>
             </div>
           </div>
 
@@ -931,19 +935,20 @@ const Property = () => {
             </div>
           )} */}
 
-          <div className="flex flex-wrap gap-4">
+          <div className="flex flex-wrap gap-4 justify-center">
             <a
               href="#enquire"
-              className="inline-flex w-full items-center gap-2.5 border-2 border-black bg-amber-400 px-7 py-4.5 font-mono text-[13px] font-semibold tracking-[0.14em] uppercase transition-all hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-[3px_3px_0_#000]"
+              className="inline-flex rounded-full flex-1 items-center border-2 border-black px-7 py-4.5 font-mono text-[13px] font-semibold tracking-[0.14em] uppercase transition-all hover:-translate-x-0.5 hover:-translate-y-0.5 active:translate-x-0 active:translate-y-0 hover:shadow-[5px_5px_0_#000] active:shadow-none shadow-[3px_3px_0_#000] justify-between"
             >
-              Enquire about this home{" "}
-              <span className="text-lg leading-none">→</span>
+              Book a viewing
+              <span className="text-lg leading-none"><CalendarIcon /></span>
             </a>
             <a
               href="#enquire"
-              className="inline-flex w-full items-center border-2 border-black px-7 py-4.5 font-mono text-[13px] font-semibold tracking-[0.14em] uppercase transition-all hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-[3px_3px_0_#000]"
+              className="inline-flex rounded-full flex-1 items-center gap-2.5 border-2 border-black bg-amber-400 px-7 py-4.5 font-mono text-[13px] font-semibold tracking-[0.14em] uppercase transition-all hover:-translate-x-0.5 hover:-translate-y-0.5 active:translate-x-0 active:translate-y-0 hover:shadow-[5px_5px_0_#000] active:shadow-none shadow-[3px_3px_0_#000] justify-between"
             >
-              Book a viewing
+              Enquire about this home{" "}
+              <span className="text-lg leading-none"><ArrowRightIcon /></span>
             </a>
           </div>
         </div>
@@ -1055,7 +1060,7 @@ const Property = () => {
           {rooms.length > 0 && (
             <Tabs.List
               aria-label="What to book"
-              className="inline-flex w-fit border-2 border-black bg-white shadow-[4px_4px_0_#000]"
+              className="inline-flex w-fit border-2 border-black bg-white shadow-[4px_4px_0_#000] rounded-full overflow-hidden"
             >
               {UNIT_TABS.map(([value, label]) => (
                 <Tabs.Trigger
@@ -1211,7 +1216,7 @@ const Property = () => {
             {reviews.map((review) => (
               <article
                 key={review.id}
-                className="flex flex-col gap-3.5 border-2 border-black bg-white p-6 shadow-[6px_6px_0_#000]"
+                className="flex flex-col rounded-4xl gap-3.5 border-2 border-black bg-white p-6 shadow-[6px_6px_0_#000]"
               >
                 <div className="flex items-baseline justify-between gap-3">
                   <span className="font-mono text-sm font-bold">
@@ -1256,7 +1261,17 @@ const Property = () => {
           enquiry the catalog cannot answer: a home we have not listed, dates
           that do not fit, a city we are not in yet. Making this generic is what
           stops the two paths quietly competing. */}
-      <section id="enquire" className="px-8 pb-18">
+      <section id="enquire" className="px-8 pb-18 mt-8 pt-16 border-t">
+        <div className="mb-9 flex flex-wrap items-end justify-center gap-6">
+          <div>
+            <p className="cedarville-cursive-regular mb-1 text-center text-2xl text-black/70">
+              Wanna get in touch?
+            </p>
+            <h2 className="bricolage-grotesque-500 text-4xl leading-none tracking-tight md:text-5xl">
+              Contact Us
+            </h2>
+          </div>
+        </div>
         <ContactCard
           eyebrow="something else in mind?"
           title="Tell us what you're looking for"

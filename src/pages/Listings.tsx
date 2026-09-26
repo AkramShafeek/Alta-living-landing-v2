@@ -72,8 +72,12 @@ const Listings = () => {
       .filter(
         (card) =>
           (locations.length === 0 || locations.includes(card.location)) &&
-          card.nightly >= low &&
-          card.nightly <= high &&
+          // An unpriced home (no entire-unit rate yet) is exempt from the price
+          // filter rather than treated as a nightly rate of zero — the same
+          // reasoning as the rating filter below: no data is not bad data, and
+          // folding it into the range would make it vanish from the default
+          // view instead of merely showing as unpriced.
+          (card.unpriced || (card.nightly >= low && card.nightly <= high)) &&
           // An unrated home is hidden by a rating filter rather than treated as
           // a zero — too few reviews is not the same as a bad stay.
           (minRating === "0" || (card.rawRating ?? 0) >= Number(minRating))

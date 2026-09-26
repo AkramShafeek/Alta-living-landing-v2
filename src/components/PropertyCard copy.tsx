@@ -1,4 +1,4 @@
-import { ArrowRightIcon, BedIcon, DiamondIcon, DoorOpenIcon, MapPinIcon, StarIcon } from "lucide-react";
+import { ArrowRightIcon, BedIcon, DoorOpenIcon, MapPinIcon, StarIcon } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Separator } from "./ui/separator";
 import { Button } from "./ui/button";
@@ -16,9 +16,6 @@ export type PropertyCardData = {
   price?: string
   priceUnit?: string
   rating?: string
-  /** No entire-unit rate yet — swaps the price block for a plain notice
-   *  instead of "Starting from ₹ 0", which would read as free. */
-  unpriced?: boolean
 }
 
 // Design is locked — only the data driving it changes. `property` is a single
@@ -43,16 +40,12 @@ export const PropertyCard = ({
     bedType = "1BHK",
     availability = "Available 1/3",
     price = "₹ 30,000",
-    // Unused: the markup below hardcodes "/ month (per room)" rather than
-    // reading this prop. Kept `_`-prefixed rather than dropped from the
-    // signature, since callers still pass it and removing the prop would be
-    // a breaking change for no behaviour gained.
+    // Unused: the markup below hardcodes "/ month (per room)" instead.
     priceUnit: _priceUnit = "per month",
     rating,
-    unpriced = false,
   } = property ?? {}
 
-  const card = <div className="pb-6 flex-1 min-w-130 bg-[#fffef6] flex rounded-4xl flex-col border border-neutral-500 gap-2 overflow-hidden group/card">
+  const card = <div className="flex-1 min-w-130 bg-blue-50 flex rounded-4xl  flex-col border border-neutral-500 gap-2 overflow-hidden group/card">
     <div className="h-80 flex relative border-b border-neutral-500 overflow-hidden">
       <img src={src || propertySrc || "/3.jpg"} className="bg-cover w-full h-full object-cover transition-transform duration-300 ease-out group-hover/card:scale-[1.03]" />
       {rating && (
@@ -73,37 +66,23 @@ export const PropertyCard = ({
         <div className="flex flex-col px-4 gap-2 mb-3">
           <Separator />
           <div className="text-xs flex justify-between gap-2">
-            <div className="bg-black text-white text-xs h-fit px-2 py-1 flex gap-2 items-center rounded-full"> <MapPinIcon size={12} /> {location}</div>
-            <p className="flex items-center gap-1"><DiamondIcon size={16} /> 1200 sq ft</p>
+            <div className="bg-black text-white text-xs h-fit px-2 py-1 flex gap-2 items-center"> <MapPinIcon size={12} /> {location}</div>
             <p className="flex items-center gap-1"><BedIcon size={16} /> {bedType}</p>
             <p className="flex items-center gap-1"><DoorOpenIcon size={16} /> {availability}</p>
           </div>
           <Separator />
         </div>
-        <div className="flex justify-between items-center">
-          <div className="flex px-6 flex-col">
-            {unpriced ? (
-              <p className="text-sm font-light text-muted-foreground">{price}</p>
-            ) : (
-              <>
-                <p className="text-xs font-light">Starting from</p>
-                <p className="flex flex-1 items-baseline gap-1 text-2xl font-bold">{price}
-                  <p className="text-xs font-light">/ month (per room)</p>
-                </p>
-              </>
-            )}
-          </div>
-          <div className="mx-6">
-            <Button variant="link" size="icon-lg" className="text-black hover:bg-black hover:text-white transition-all rounded-full">
-              <ArrowRightIcon />
-            </Button>
-          </div>
+        <div className="flex px-6 pb-2 flex-col">
+          <p className="text-xs font-light">Starting from</p>
+          <p className="flex flex-1 items-baseline gap-1 text-xl font-bold">{price}
+            <p className="text-xs font-light">/ month (per room)</p>
+          </p>
         </div>
-        {/* <div className="p-4 pt-0 mx-2">
-          <Button variant="default" asChild={!!to} className="w-full h-10 flex justify-between rounded-full bg-white text-black hover:bg-yellow-400 hover:text-black border-t shadow-[3px_4px_0px_#000] active:shadow-none border-neutral-500">
+        <div className="p-4 pt-0 w-full mb-1">
+          <Button variant="default" asChild={!!to} className="w-full h-10 flex justify-between rounded-full bg-white text-black hover:bg-yellow-400 hover:text-black border-t shadow-[5px_6px_0px_#000] active:shadow-none border-neutral-500">
             {to ? <span>View <ArrowRightIcon /></span> : <>View <ArrowRightIcon /></>}
           </Button>
-        </div> */}
+        </div>
       </div>
     </div>
   </div>;

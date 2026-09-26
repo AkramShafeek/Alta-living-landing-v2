@@ -27,7 +27,7 @@ export const properties: Property[] = [
     meta: "2BHK · 12th Main",
     hook: "A quiet 2BHK above a courtyard, five minutes from 100ft Road.",
     price: "₹ 3,200",
-    priceUnit: "per night",
+    priceUnit: "per month",
     location: "Indiranagar",
     bedType: "2BHK",
     availability: "Available 1/3",
@@ -40,7 +40,7 @@ export const properties: Property[] = [
     meta: "1BHK · 5th Block",
     hook: "Top-floor studio with the best morning light in 5th Block.",
     price: "₹ 2,800",
-    priceUnit: "per night",
+    priceUnit: "per month",
     location: "Koramangala",
     bedType: "1BHK",
     availability: "Available 2/3",
@@ -53,7 +53,7 @@ export const properties: Property[] = [
     meta: "3BHK · ITPL Road",
     hook: "Three bedrooms built for long work stays, ten minutes from ITPL.",
     price: "₹ 4,100",
-    priceUnit: "per night",
+    priceUnit: "per month",
     location: "Whitefield",
     bedType: "3BHK",
     availability: "Available 1/2",
@@ -66,7 +66,7 @@ export const properties: Property[] = [
     meta: "2BHK · Sector 2",
     hook: "Corner flat off 27th Main with a desk in every bedroom.",
     price: "₹ 3,000",
-    priceUnit: "per night",
+    priceUnit: "per month",
     location: "HSR Layout",
     bedType: "2BHK",
     availability: "Available 3/3",
@@ -79,7 +79,7 @@ export const properties: Property[] = [
     meta: "3BHK · 4th Block",
     hook: "Old-Bangalore house around an open courtyard, red-oxide floors.",
     price: "₹ 3,600",
-    priceUnit: "per night",
+    priceUnit: "per month",
     location: "Jayanagar",
     bedType: "3BHK",
     availability: "Available 1/2",
@@ -92,7 +92,7 @@ export const properties: Property[] = [
     meta: "Studio · Defence Colony",
     hook: "A compact studio for solo stays, one street from the metro.",
     price: "₹ 2,400",
-    priceUnit: "per night",
+    priceUnit: "per month",
     location: "Indiranagar",
     bedType: "Studio",
     availability: "Available 2/2",
@@ -115,6 +115,14 @@ export const heroContent = {
   body: "You may find one with us, at Alta Living",
   ctaLabel: "Browse Properties",
   areas: ["Indiranagar", "Koramangala", "HSR Layout", "Whitefield"],
+}
+
+/** The scroll-triggered scatter reveal, between the hero and the marquee. */
+export const scatterReveal = {
+  eyebrow: "no surprises, ever",
+  headline: "Every photo is real. Every price is final.",
+  body: "We visit, measure and photograph each home ourselves — no stock photos, no stand-ins. What you see is what you get, and the price already covers cleaning, Wi-Fi and utilities. A local human is one message away if anything is off.",
+  ctaLabel: "Browse all properties",
 }
 
 export const numbers = [

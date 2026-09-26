@@ -36,7 +36,7 @@ import {
   type CartItem,
 } from "@/store/cartStore"
 
-const MONO = "font-mono text-[10px] font-semibold uppercase tracking-[0.16em]"
+// const MONO = "font-mono text-[10px] font-semibold uppercase tracking-[0.16em]"
 
 /**
  * What a ScrollArea needs to behave inside this dialog.
@@ -68,7 +68,7 @@ const CartLine = ({
   onRemove: () => void
 }) => (
   <li className="flex items-stretch gap-4 py-3 last:border-b-0">
-    <div className="relative size-22 shrink-0 overflow-hidden bg-[#141311]">
+    <div className="relative size-22 shrink-0 overflow-hidden bg-[#141311] rounded-xl">
       {item.photoUrl ? (
         <img
           src={item.photoUrl}
@@ -91,7 +91,7 @@ const CartLine = ({
       </p>
       <p className="font-mono text-[15px] font-bold">
         {formatINR(item.monthlyRate)}
-        <span className="font-mono text-[10px] font-normal tracking-[0.14em]">
+        <span className="text-xs font-normal text-muted-foreground">
           {" "}
           / month
         </span>
@@ -154,7 +154,7 @@ export const CartDialog = ({
           className={cn(
             "fixed top-1/2 left-1/2 z-50 w-[min(38rem,calc(100vw-2rem))] -translate-x-1/2 -translate-y-1/2",
             "flex max-h-[min(44rem,calc(100dvh-2rem))] flex-col overflow-hidden",
-            "border-2 border-black bg-white"
+            "border-2 border-black bg-white rounded-4xl"
           )}
         >
           <Dialog.Title asChild>
@@ -163,7 +163,7 @@ export const CartDialog = ({
                 <p className="bricolage-grotesque-500 text-xl leading-none tracking-tight">
                   {step === "cart" ? "Your enquiry" : "Almost there"}
                 </p>
-                <p className={cn(MONO, "mt-1.5 text-black/70")}>
+                <p className={cn("text-xs mt-1.5 text-black/70")}>
                   {step === "cart"
                     ? `${items.length} ${items.length === 1 ? "room" : "rooms"} selected`
                     : "We'll open WhatsApp with this written out"}
@@ -252,7 +252,7 @@ export const CartDialog = ({
                 <div className="px-6 py-5">
                   <label
                     htmlFor="enquiry-name"
-                    className={cn(MONO, "mb-2 block")}
+                    className={cn("mb-2 block")}
                   >
                     Your name
                   </label>
@@ -261,19 +261,19 @@ export const CartDialog = ({
                     ref={nameRef}
                     value={name}
                     onChange={(event) => setName(event.target.value)}
-                    placeholder="Anjali"
+                    placeholder="Akram Shafeek"
                     autoComplete="name"
-                    className="w-full border-2 border-black bg-background px-3.5 py-3 font-mono text-[14px] transition-shadow focus:bg-white focus:shadow-[4px_4px_0_#000] focus:outline-none"
+                    className="w-full rounded-lg border border-neutral-400 bg-background px-3.5 py-3.5 text-sm transition-shadow focus:bg-white focus:shadow-[4px_4px_0_#000] focus:outline focus:outline-black"
                   />
 
-                  <p className={cn(MONO, "mt-7 mb-2 text-black/50")}>
+                  <p className={cn("mt-7 mb-2 text-black/50")}>
                     What we'll say
                   </p>
 
                   {/* A preview, not a field. Everything here came from the
                     listing, and letting it be retyped here would let the
                     enquiry disagree with the home it is about. */}
-                  <div className="border-2 border-black bg-blue-50 p-4">
+                  <div className="border-b shadow-xs bg-blue-50 p-4 rounded-xl">
                     <ul className="flex flex-col gap-3">
                       {items.map((item) => (
                         <li
@@ -281,12 +281,12 @@ export const CartDialog = ({
                           className="flex items-baseline justify-between gap-4"
                         >
                           <span className="min-w-0">
-                            <span className="block truncate font-mono text-[13px]">
+                            <span className="block truncate text-sm">
                               {item.kind === "entire"
                                 ? "Entire home"
                                 : item.unitName}
                             </span>
-                            <span className={cn(MONO, "text-black/55")}>
+                            <span className={cn("text-xs text-black/55")}>
                               {item.propertyName}
                             </span>
                           </span>
@@ -298,7 +298,7 @@ export const CartDialog = ({
                     </ul>
                   </div>
 
-                  <p className="mt-4 font-mono text-[11px] leading-relaxed text-black/60">
+                  <p className="mt-4 text-xs leading-relaxed text-black/60">
                     Pressing send opens WhatsApp with this already written. You
                     send it yourself — nothing leaves this page until you do.
                   </p>
@@ -321,7 +321,7 @@ export const CartDialog = ({
                 type="button"
                 disabled={items.length === 0}
                 onClick={() => setRequestedStep("form")}
-                className="inline-flex items-center gap-2.5  border-2 border-black bg-black px-6 py-3.5 text-[11px] font-semibold text-amber-300 uppercase transition-colors hover:bg-white hover:text-black focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black disabled:opacity-40 disabled:hover:bg-black disabled:hover:text-amber-300"
+                className="rounded-full inline-flex items-center gap-2.5  border-2 border-black bg-white px-6 py-3.5 text-[11px] font-semibold text-black uppercase hover:bg-amber-400 hover:text-black shadow-[3px_3px_0px_#000] -translate-y-0.5 -translate-x-0.5 active:translate-y-0 active:translate-x-0 active:shadow-none transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black disabled:opacity-40 disabled:hover:bg-black disabled:hover:text-amber-300"
               >
                 Send enquiry <ArrowRightIcon size={14} aria-hidden />
               </button>
@@ -330,7 +330,7 @@ export const CartDialog = ({
                 <button
                   type="button"
                   onClick={() => setRequestedStep("cart")}
-                  className="inline-flex items-center gap-2 border-2 border-black bg-white px-4 py-3.5 font-mono text-[11px] font-semibold tracking-[0.14em] uppercase transition-colors hover:bg-black hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                  className="rounded-full inline-flex items-center gap-2.5  border-2 border-black bg-white px-6 py-3.5 text-[11px] font-semibold text-black uppercase hover:bg-amber-400 hover:text-black shadow-[3px_3px_0px_#000] -translate-y-0.5 -translate-x-0.5 active:translate-y-0 active:translate-x-0 active:shadow-none transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black disabled:opacity-40 disabled:hover:bg-black disabled:hover:text-amber-300"
                 >
                   <ArrowLeftIcon size={14} aria-hidden /> Back
                 </button>
@@ -338,7 +338,7 @@ export const CartDialog = ({
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2.5 border-2 border-black bg-black px-6 py-3.5 font-mono text-[11px] font-semibold tracking-[0.14em] text-amber-300 uppercase transition-colors hover:bg-white hover:text-black focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                  className="rounded-full inline-flex items-center gap-2.5  border-2 border-black bg-emerald-500 px-6 py-3.5 text-[11px] font-semibold text-black uppercase hover:bg-emerald-400 hover:text-black shadow-[3px_3px_0px_#000] -translate-y-0.5 -translate-x-0.5 active:translate-y-0 active:translate-x-0 active:shadow-none transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black disabled:opacity-40 disabled:hover:bg-black disabled:hover:text-amber-300"
                 >
                   Open WhatsApp <ArrowRightIcon size={14} aria-hidden />
                 </a>
