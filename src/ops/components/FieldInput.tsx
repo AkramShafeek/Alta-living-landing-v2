@@ -10,11 +10,12 @@
 import { cn } from "@/lib/utils"
 import type { Field } from "../fields"
 
-const LABEL = "font-mono text-[10px] font-semibold uppercase tracking-[0.16em]"
+const LABEL =
+  "text-xs font-semibold text-black/70"
 
 const CONTROL =
-  "w-full border-2 border-black bg-white px-3 py-2 font-mono text-[13px] " +
-  "focus:outline-2 focus:-outline-offset-4 focus:outline-black"
+  "w-full rounded-lg border border-neutral-300 bg-background px-3 py-2.5 font-mono text-[13px] " +
+  "transition-shadow focus:border-black/60 focus:bg-white focus:shadow-[3px_3px_0_#000] focus:outline-none"
 
 export const FieldInput = ({
   field,
@@ -35,7 +36,7 @@ export const FieldInput = ({
       : undefined
 
   const invalid = Boolean(problem)
-  const controlClass = cn(CONTROL, invalid && "border-red-700 bg-red-50")
+  const controlClass = cn(CONTROL, invalid && "border-red-300 bg-red-50")
 
   return (
     <div className="flex flex-col gap-1.5">

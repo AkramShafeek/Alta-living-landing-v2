@@ -70,7 +70,7 @@ const Navbar = () => {
       style={{ top: navTop }}
       className="fixed inset-x-0 z-40 flex justify-between items-center w-full pt-4 px-8 bg-transparent "
     >
-      <Link to="/" className="flex items-center gap-2 shadow-[3px_3px_0px_#000] px-1 pr-2 py-1 border border-black bg-white rounded-lg">
+      <Link to="/" className="flex items-center gap-2  px-1 pr-2 py-1 border border-black bg-white rounded-lg">
         <img
           src="/alta-logo.png"
           alt="Logo"

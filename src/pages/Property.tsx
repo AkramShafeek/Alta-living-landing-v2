@@ -2,9 +2,9 @@ import { useEffect, useState } from "react"
 import { Link, useParams } from "react-router-dom"
 // ArrowLeftIcon, Calendar1Icon and CalendarClockIcon are unused — each only
 // appears in commented-out markup below.
-import { ArrowRightIcon, CalendarIcon } from "lucide-react"
+import { ArrowRightIcon, BedDoubleIcon, CalendarIcon, DiamondIcon, DoorOpenIcon, MapIcon, MapPinIcon } from "lucide-react"
 import { Tabs } from "radix-ui"
-import { CheckIcon, PlusIcon, XIcon } from "lucide-react"
+import { Bath, ReceiptText, Users, XIcon, type LucideIcon } from "lucide-react"
 import {
   AMENITY_ICONS,
   CATALOG_ICON_SIZE,
@@ -15,6 +15,19 @@ import {
 } from "@/lib/catalogIcons"
 import type { AmenityKey, IncludedKey } from "@/models/common"
 import { Tag } from "@/components/Tag"
+import {
+  RoomCard,
+  RoomCardAction,
+  RoomCardContent,
+  RoomCardFooter,
+  RoomCardGroup,
+  RoomCardHeader,
+  RoomCardList,
+  type RoomCardListItem,
+  RoomCardMedia,
+  RoomCardNote,
+  RoomCardStatus,
+} from "@/components/RoomCard"
 import { ContactCard } from "@/components/ContactCard"
 import { Footer } from "@/sections/Footer"
 import { cn } from "@/lib/utils"
@@ -29,6 +42,46 @@ const NAV_OFFSET = 64
 
 const monoLabel =
   "font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-muted-foreground"
+
+// The same tones `TestimonialCard` (the home page's marquee reviews) cycles
+// through, so a review here and a review there read as the same kind of card.
+const REVIEW_CARD_COLORS = [
+  "bg-blue-50",
+  "bg-orange-50",
+  "bg-green-50",
+  "bg-violet-50",
+  "bg-amber-50",
+]
+
+const COLORS = [
+  "bg-blue-50",
+  // "bg-orange-100",
+  // "bg-green-100",
+  // "bg-violet-100",
+  // "bg-amber-50",
+]
+
+/** A color for this review, picked by a number derived from its id and
+ *  wrapped into the list by `%`. Keyed off the id rather than `Math.random`
+ *  so it stays the same color across re-renders — React requires render to
+ *  be a pure function of its inputs, which a literal random call is not. */
+const reviewCardColor = (id: string) => {
+  let n = 0
+  for (let i = 0; i < id.length; i++) n = (n * 31 + id.charCodeAt(i)) | 0
+  return REVIEW_CARD_COLORS[Math.abs(n) % REVIEW_CARD_COLORS.length]
+}
+
+/** Icons for the whole-home facts list — keyed by the label above, since
+ *  these six are assembled ad hoc for this one card rather than drawn from
+ *  an enum with a map of its own. */
+const WHOLE_FACT_ICONS: Record<string, LucideIcon> = {
+  Sleeps: Users,
+  Bedrooms: BedDoubleIcon,
+  Bathrooms: Bath,
+  "Carpet area": DiamondIcon,
+  Deposit: ReceiptText,
+  "Minimum stay": CalendarIcon,
+}
 
 // Read straight off `PropertyDetail` for now — no selector layer. These are the
 // few formatting bits the page cannot do without, kept local so there is one
@@ -52,13 +105,13 @@ const isBookable = (unit: UnitDetail | undefined) =>
 
 /** A titled block that renders nothing when it has nothing to say. */
 const AmenityGrid = ({ amenities }: { amenities: readonly AmenityKey[] }) => (
-  <div className="grid grid-cols-1 border-t-2 border-l-2 border-black sm:grid-cols-2">
+  <div className="flex flex-wrap gap-6">
     {amenities.map((amenity) => {
       const Icon = AMENITY_ICONS[amenity]
       return (
         <div
           key={amenity}
-          className="flex items-center gap-2.5 border-r-2 border-b-2 border-black px-4 py-3.5 font-mono text-[13px] tracking-[0.08em] uppercase"
+          className={`flex items-center gap-2.5 border border-neutral-500 rounded-full px-4 py-3.5 text-sm uppercase ${COLORS[Math.abs(amenity.length) % COLORS.length]}`}
         >
           <Icon size={CATALOG_ICON_SIZE} aria-hidden className="shrink-0" />
           {humanise(amenity)}
@@ -76,13 +129,13 @@ const PriceGrid = ({
   included: readonly IncludedKey[]
   notIncluded: readonly { item: string; note: string }[]
 }) => (
-  <div className="grid grid-cols-1 border-t-2 border-l-2 border-black sm:grid-cols-2">
+  <div className="flex flex-wrap gap-6">
     {included.map((key) => {
       const Icon = INCLUDED_ICONS[key]
       return (
         <div
           key={key}
-          className="flex items-center gap-2.5 border-r-2 border-b-2 border-black px-4 py-3.5 font-mono text-[13px] tracking-[0.08em] uppercase"
+          className="flex items-center gap-2.5 px-6 py-3 border border-neutral-500 uppercase rounded-full bg-green-50"
         >
           <Icon size={CATALOG_ICON_SIZE} aria-hidden className="shrink-0" />
           {humanise(key)}
@@ -90,10 +143,10 @@ const PriceGrid = ({
       )
     })}
     {/* `item` is free text, not an enum, so there is nothing to map it to. */}
-    {notIncluded.map((entry) => (
+    {/* {notIncluded.map((entry) => (
       <div
         key={entry.item}
-        className="flex items-start gap-2.5 border-r-2 border-b-2 border-black px-4 py-3.5 font-mono text-[13px] text-black/65"
+        className="flex items-center gap-2.5 px-6 font-mono text-black/65 border border-neutral-500 rounded-full bg-red-50"
       >
         <XIcon
           size={CATALOG_ICON_SIZE}
@@ -107,7 +160,7 @@ const PriceGrid = ({
           )}
         </span>
       </div>
-    ))}
+    ))} */}
   </div>
 )
 
@@ -157,11 +210,11 @@ const MoreDetails = ({ name, panels }: { name: string; panels: Panel[] }) => {
       value={active}
       onValueChange={setActive}
       orientation="vertical"
-      className="grid overflow-hidden border-2 border-black bg-white shadow-[8px_10px_0_#000] md:min-h-56 md:grid-cols-[minmax(0,16rem)_1fr]"
+      className="grid md:min-h-56 md:grid-cols-[minmax(0,16rem)_1fr]"
     >
       <Tabs.List
         aria-label={`More details about ${name}`}
-        className="flex flex-col border-b-2 border-black bg-amber-50 md:border-r-2 md:border-b-0"
+        className="flex h-fit flex-col border-2 rounded-4xl overflow-hidden border-black bg-amber-50 md:border-r-2 shadow-[8px_10px_0_#000]"
       >
         {panels.map((panel) => (
           <Tabs.Trigger
@@ -169,10 +222,10 @@ const MoreDetails = ({ name, panels }: { name: string; panels: Panel[] }) => {
             value={panel.id}
             className={cn(
               "group border-b-2 border-black/15 px-5 py-4.5 text-left last:border-b-0",
-              "font-mono text-[11px] font-semibold tracking-[0.16em] uppercase",
+              "text-xs data-[state=active]:font-semibold",
               "transition-colors hover:bg-amber-200",
               "focus-visible:outline-2 focus-visible:-outline-offset-4 focus-visible:outline-black",
-              "data-[state=active]:bg-amber-400 data-[state=active]:shadow-[inset_6px_0_0_#000]"
+              "data-[state=active]:bg-amber-400"
             )}
           >
             <span className="flex items-baseline justify-between gap-3">
@@ -189,7 +242,7 @@ const MoreDetails = ({ name, panels }: { name: string; panels: Panel[] }) => {
         <Tabs.Content
           key={panel.id}
           value={panel.id}
-          className="p-6 focus-visible:outline-2 focus-visible:-outline-offset-4 focus-visible:outline-black md:p-8"
+          className="focus-visible:outline-2 focus-visible:-outline-offset-4 focus-visible:outline-black pl-8"
         >
           <p className="mb-5 font-mono text-[11px] leading-loose tracking-[0.16em] text-muted-foreground uppercase">
             {panel.blurb}
@@ -301,146 +354,44 @@ const PhotoQuad = ({
  * Selection still exists: the enquiry form at the foot of the page names the
  * room being asked about, and it has to learn it from somewhere.
  */
-const RoomCard = ({
-  room,
-  active,
-  onSelect,
-}: {
-  room: UnitDetail
-  active: boolean
-  onSelect: () => void
-}) => {
-  const bookable = isBookable(room)
-
-  const features: { key: UnitFeature; label: string }[] = [
-    room.bedType
-      ? { key: "bed" as const, label: `${humanise(room.bedType)} bed` }
-      : undefined,
-    room.bathroom === "ensuite"
-      ? { key: "ensuite" as const, label: "Ensuite bathroom" }
-      : room.bathroom === "shared"
-        ? { key: "sharedBath" as const, label: "Shared bathroom" }
+/** A room's features as the generic `RoomCard.List` items it renders. */
+const roomAmenities = (room: UnitDetail): RoomCardListItem[] =>
+  (
+    [
+      room.bedType
+        ? { key: "bed" as const, label: `${humanise(room.bedType)} bed` }
         : undefined,
-    { key: "sleeps" as const, label: plural(room.maxOccupancy, "guest") },
-    room.hasDesk ? { key: "desk" as const, label: "Work desk" } : undefined,
-    room.hasAc
-      ? { key: "airConditioning" as const, label: "Air conditioning" }
-      : undefined,
-    room.hasBalcony ? { key: "balcony" as const, label: "Balcony" } : undefined,
-  ].filter((entry): entry is { key: UnitFeature; label: string } =>
-    Boolean(entry)
+      room.bathroom === "ensuite"
+        ? { key: "ensuite" as const, label: "Ensuite bathroom" }
+        : room.bathroom === "shared"
+          ? { key: "sharedBath" as const, label: "Shared bathroom" }
+          : undefined,
+      { key: "sleeps" as const, label: plural(room.maxOccupancy, "guest") },
+      room.hasDesk ? { key: "desk" as const, label: "Work desk" } : undefined,
+      room.hasAc
+        ? { key: "airConditioning" as const, label: "Air conditioning" }
+        : undefined,
+      room.hasBalcony
+        ? { key: "balcony" as const, label: "Balcony" }
+        : undefined,
+    ] satisfies (
+      | { key: UnitFeature; label: string }
+      | undefined
+    )[]
   )
+    .filter((entry): entry is { key: UnitFeature; label: string } =>
+      Boolean(entry)
+    )
+    .map((feature) => ({
+      key: feature.key,
+      label: feature.label,
+      icon: UNIT_FEATURE_ICONS[feature.key],
+    }))
 
-  const meta = [
-    room.areaSqft ? `${room.areaSqft} sq ft` : undefined,
-    room.note || undefined,
-  ]
+const roomArea = (room: UnitDetail) =>
+  [room.areaSqft ? `${room.areaSqft} sq ft` : undefined, room.note || undefined]
     .filter(Boolean)
     .join(" · ")
-
-  return (
-    <article
-      className={cn(
-        "grid border-2 rounded-4xl border-black/15 bg-white p-4 lg:grid-cols-[1fr_1fr]",
-        !bookable && "opacity-70"
-      )}
-    >
-      {/* The larger share, and flush to the frame. A room is chosen by looking
-          at it; the prose beside it only confirms what the photographs said. */}
-      <div className="">
-        <PhotoQuad photos={room.photos} />
-      </div>
-
-      <div className={cn("flex flex-col justify-center pl-7", active && "")}>
-        <div className="flex flex-wrap items-start justify-between gap-4 px-7 pt-7 pb-5">
-          <div className="min-w-0">
-            <h3 className="bricolage-grotesque-500 text-3xl leading-tight tracking-tight">
-              {room.name}
-            </h3>
-            {meta && <p className={cn(monoLabel, "mt-1.5")}>{meta}</p>}
-          </div>
-
-          <div className="text-right">
-            <p className="font-mono text-3xl font-bold whitespace-nowrap">
-              {formatINR(room.monthlyRate)}
-            </p>
-            <p className={cn(monoLabel, "mt-0.5")}>per month</p>
-          </div>
-        </div>
-
-        {features.length > 0 && (
-          <ul className="flex flex-col gap-x-6 gap-y-3 px-7 pb-7">
-            {features.map((feature) => {
-              const Icon = UNIT_FEATURE_ICONS[feature.key]
-              return (
-                <li
-                  key={feature.label}
-                  className="flex items-center gap-2 font-mono text-[13px] text-black/75"
-                >
-                  <Icon
-                    size={CATALOG_ICON_SIZE}
-                    aria-hidden
-                    className="shrink-0"
-                  />
-                  {feature.label}
-                </li>
-              )
-            })}
-          </ul>
-        )}
-
-        <div className="mt-auto flex flex-wrap items-center justify-between gap-3 px-7 py-5">
-          <span className="flex flex-wrap items-center gap-2">
-            <span
-              className={cn(
-                "border-2 border-black px-2.5 py-1 font-mono text-[10px] rounded-full font-semibold tracking-[0.16em] uppercase",
-                bookable ? "bg-green-100" : "bg-black text-background"
-              )}
-            >
-              {humanise(room.status)}
-            </span>
-            {room.deposit > 0 && (
-              <span className={monoLabel}>
-                {formatINR(room.deposit)} deposit
-              </span>
-            )}
-          </span>
-
-          <span className="flex items-center gap-2.5">
-            {bookable ? (
-              <button
-                type="button"
-                aria-pressed={active}
-                onClick={onSelect}
-                className={cn(
-                  "inline-flex items-center gap-2 border-2 border-black px-4 py-2.5 font-mono text-[10px] font-semibold tracking-[0.16em] uppercase transition-colors",
-                  "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black rounded-full",
-                  active
-                    ? "bg-black text-amber-300 hover:bg-white hover:text-black"
-                    : "bg-amber-400 hover:bg-black hover:text-amber-300"
-                )}
-              >
-                {active ? (
-                  <>
-                    <CheckIcon size={13} aria-hidden /> In your enquiry
-                  </>
-                ) : (
-                  <>
-                    <PlusIcon size={13} aria-hidden /> Add to enquiry
-                  </>
-                )}
-              </button>
-            ) : (
-              <span className="border-2 border-black bg-white px-4 py-2.5 font-mono text-[10px] font-semibold tracking-[0.16em] uppercase opacity-70">
-                Not available
-              </span>
-            )}
-          </span>
-        </div>
-      </div>
-    </article>
-  )
-}
 
 /** Shared shell for the loading, error and not-found states. */
 const Notice = ({
@@ -598,7 +549,7 @@ const Property = () => {
         ? "Fully booked"
         : `${openRooms} of ${rooms.length} available`
 
-  const area = `${property.neighbourhood}, ${property.city}`
+  const area = `${property.neighbourhood}`
 
   // What the cart needs to remember about this home. The slug is what the
   // router addresses, and after a reload the cart is the only thing that knows
@@ -833,129 +784,28 @@ const Property = () => {
   const currentPhoto = photos[activePhoto]
 
   return (
-    <div className="bg-background" style={{ paddingTop: 0 }}>
+    <div className="bg-background relative" style={{ paddingTop: 0 }}>
       {/* <div className="flex flex-wrap items-center justify-between gap-4 px-8 py-5">
         <Link
-          to="/listings"
-          className="inline-flex items-center gap-2 border-b border-b-transparent font-mono text-[11px] font-semibold tracking-[0.16em] uppercase transition-colors hover:border-b-black"
+        to="/listings"
+        className="inline-flex items-center gap-2 border-b border-b-transparent font-mono text-[11px] font-semibold tracking-[0.16em] uppercase transition-colors hover:border-b-black"
         >
-          <ArrowLeftIcon size={14} /> All properties
+        <ArrowLeftIcon size={14} /> All properties
         </Link>
         <span className="font-mono text-[11px] tracking-[0.16em] text-muted-foreground uppercase">
-          {area}
+        {area}
         </span>
-      </div> */}
+        </div> */}
 
-      <div className="grid items-start border-t-2 border-t-black lg:grid-cols-[2fr_3fr]">
+      <div className="grid relative items-start border-t-2 border-t-black lg:grid-cols-[3fr_2fr]">
         {/* ── details ── */}
-        <div className="flex h-full flex-col justify-center gap-8 border-b-2 p-8 pb-18 md:p-11 lg:border-b-0">
-          <div className="flex flex-col items-center gap-3.5">
-            {/* <p className={monoLabel}>
-              {beds} · {size} · {property.furnishing === "fully" ? "Fully furnished" : "Semi furnished"}
-            </p> */}
-            <h1 className="bricolage-grotesque-500 text-5xl leading-[0.92] tracking-tight md:text-6xl">
-              {property.name}
-            </h1>
-            {/* {property.hook && (
-              <p className="text-[17px] leading-relaxed text-black/80 text-pretty">
-                {property.hook}
-              </p>
-            )} */}
-            {/* {property.founderNote && (
-              <p className="cedarville-cursive-regular text-2xl text-black/70">
-                {property.founderNote}
-              </p>
-            )} */}
-          </div>
-
-          <div className="flex flex-wrap justify-center gap-2.5">
-            <Tag className="rounded-full" tone="solid">{area}</Tag>
-            <Tag className="rounded-full">{beds}</Tag>
-            <Tag className="rounded-full">{size}</Tag>
-            <Tag className="bg-blue-50 rounded-full">{availability}</Tag>
-          </div>
-
-          <p className="text-[17px] leading-relaxed text-pretty text-center text-black/70">
-            {property.body}
-          </p>
-
-          <div className="flex justify-center gap-6 rounded-4xl">
-            {/* <div className="">
-              <p
-                className={
-                  "mb-2 font-mono text-[10px] font-semibold tracking-[0.18em] uppercase"
-                }
-              >
-                Per night
-              </p>
-              <p className="font-mono text-3xl font-bold">
-                {formatINR(nightly)}
-              </p>
-            </div>
-            <Separator orientation="vertical" /> */}
-            <div className="text-center mb-2">
-              <p className="text-sm text-muted-foreground">
-                Starting from
-                {includedInPrice.length > 0 &&
-                  ` · ${includedInPrice.length} included`}
-              </p>
-              <div className="flex items-baseline justify-center gap-2">
-                <p className="font-mono text-4xl font-bold">
-                  {formatINR(whole?.monthlyRate ?? 0)}
-                </p>
-                <span className="text-sm font-normal text-muted-foreground">
-                  / per month
-                </span>
-              </div>
-            </div>
-          </div>
-
-          {/* {amenities.length > 0 && (
-            <Block title="Amenities">
-              <AmenityGrid amenities={amenities} />
-            </Block>
-          )} */}
-
-          {/* {highlights.length > 0 && (
-            <div className="grid grid-cols-3 border-2 border-black">
-              {highlights.map((fact, i) => (
-                <div
-                  key={fact.label}
-                  className={cn(
-                    "flex flex-col gap-2 p-4",
-                    i < highlights.length - 1 && "border-r border-black/25"
-                  )}
-                >
-                  <span className="bricolage-grotesque-500 text-3xl leading-none">
-                    {fact.value}
-                  </span>
-                  <span className={monoLabel}>{fact.label}</span>
-                </div>
-              ))}
-            </div>
-          )} */}
-
-          <div className="flex flex-col gap-4 items-center">
-            <a
-              href="#enquire"
-              className="inline-flex rounded-full w-1/2 items-center border-2 border-black px-7 py-4.5 font-mono text-[13px] font-semibold tracking-[0.14em] uppercase transition-all hover:-translate-x-0.5 hover:-translate-y-0.5 active:translate-x-0 active:translate-y-0 hover:shadow-[5px_5px_0_#000] active:shadow-none shadow-[3px_3px_0_#000] justify-between"
-            >
-              Book a viewing
-              <span className="text-lg leading-none"><CalendarIcon /></span>
-            </a>
-            {/* <a
-              href="#enquire"
-              className="inline-flex rounded-full flex-1 items-center gap-2.5 border-2 border-black bg-amber-400 px-7 py-4.5 font-mono text-[13px] font-semibold tracking-[0.14em] uppercase transition-all hover:-translate-x-0.5 hover:-translate-y-0.5 active:translate-x-0 active:translate-y-0 hover:shadow-[5px_5px_0_#000] active:shadow-none shadow-[3px_3px_0_#000] justify-between"
-            >
-              Enquire{" "}
-              <span className="text-lg leading-none"><ArrowRightIcon /></span>
-            </a> */}            
-          </div>
-        </div>
-
+        <div className="absolute inset-0 w-full h-full opacity-5" style={{
+          backgroundImage: "url('/pattern.jpg')",
+          backgroundSize: "300px 300px"
+        }}></div>
         {/* ── gallery, held in place while the details scroll ── */}
         <div
-          className="flex flex-col gap-3 bg-white lg:sticky"
+          className="flex flex-col gap-3 lg:sticky"
           style={{ top: 0, height: `calc(100dvh)` }}
         >
           {currentPhoto ? (
@@ -1027,6 +877,153 @@ const Property = () => {
             </div>
           )}
         </div>
+        <div className={cn("flex h-full flex-col justify-center gap-8 border-b-2 p-8 pb-18 md:p-11 lg:border-b-0",
+        )}
+        >
+          <div className="flex flex-col items-start gap-3.5 z-10">
+            {/* <p className={monoLabel}>
+              {beds} · {size} · {property.furnishing === "fully" ? "Fully furnished" : "Semi furnished"}
+            </p> */}
+            <h1 className="bricolage-grotesque-500 text-5xl leading-[0.92] tracking-tight md:text-6xl">
+              {property.name}
+            </h1>
+          </div>
+
+          {/* `.paper-lift` (index.css) is the peeling-corner-shadow trick —
+              two skewed, blurred pseudo-elements behind each tag at
+              z-index:-1, hidden under its background except where they poke
+              out past the bottom corners. The tag itself never rotates or
+              bends; every bit of the "lifted paper" read is that shadow. */}
+          {property.hook && (
+            <p className="text-left -mt-4 mb-2 leading-relaxed text-muted-foreground text-pretty z-10">
+              {property.hook}
+            </p>
+          )}
+          <div className="flex flex-col justify-center z-10">
+            {/* <div className="paper-lift -rotate-12 h-10 w-36 flex justify-center">
+              <Tag className="bg-amber-100 absolute w-full h-full z-10 border-border py-4 gap-1 justify-center items-center">
+                <MapPinIcon size={16} />
+                {area}
+              </Tag>
+            </div>
+            <div className="paper-lift rotate-4 h-10 w-24 flex justify-center">
+              <Tag className="bg-[#ffe387] absolute w-full h-full z-10 border-border py-4 gap-1 justify-center items-center">
+                <BedDoubleIcon size={16} />
+                {beds}
+              </Tag>
+            </div>
+            <div className="paper-lift -rotate-3 -translate-y-1 translate-x-1 h-10 w-36 flex justify-center">
+              <Tag className="bg-amber-100 absolute w-full h-full z-10 border-border py-4 gap-1 justify-center items-center">
+                <DiamondIcon size={16} />
+                {size}
+              </Tag>
+            </div>
+            <div className="paper-lift -rotate-6 -translate-x-1 h-10 w-46 flex justify-center">
+              <Tag className="bg-amber-100 absolute w-full h-full z-10 border-border py-4 gap-1 justify-center items-center">
+                <DoorOpenIcon size={16} />
+                {availability}
+              </Tag>
+            </div> */}
+            <Tag className="border-none text-lg gap-5 items-center">
+              <MapPinIcon size={20} />
+              {area}
+            </Tag>
+            <Tag className="border-none text-lg gap-5 items-center">
+              <BedDoubleIcon size={20} />
+              {beds}
+            </Tag>
+            <Tag className="border-none text-lg gap-5 items-center">
+              <DiamondIcon size={20} />
+              {size}
+            </Tag>
+            <Tag className="border-none text-lg gap-5 items-center">
+              <DoorOpenIcon size={20} />
+              {availability}
+            </Tag>
+          </div>
+
+          {/* {property.founderNote && (
+            <p className="cedarville-cursive-regular text-center text-2xl text-black/70">
+              {property.founderNote}
+            </p>
+          )} */}
+
+          {/* <p className="text-[17px] leading-relaxed text-pretty text-center text-black/70">
+            {property.body}
+          </p> */}
+
+          <div className="flex justify-start gap-6 rounded-4xl">
+            {/* <div className="">
+              <p
+                className={
+                  "mb-2 font-mono text-[10px] font-semibold tracking-[0.18em] uppercase"
+                }
+              >
+                Per night
+              </p>
+              <p className="font-mono text-3xl font-bold">
+                {formatINR(nightly)}
+              </p>
+            </div>
+            <Separator orientation="vertical" /> */}
+            <div className="text-left mb-2 z-10">
+              <p className="text-sm text-muted-foreground">
+                Starting from
+              </p>
+              <div className="flex items-baseline justify-start gap-2">
+                <p className="font-mono text-4xl font-bold">
+                  {formatINR(whole?.monthlyRate ?? 0)}
+                </p>
+                <span className="text-sm font-normal text-muted-foreground">
+                  / per month
+                </span>
+              </div>
+            </div>
+          </div>
+
+          {/* {amenities.length > 0 && (
+            <Block title="Amenities">
+              <AmenityGrid amenities={amenities} />
+            </Block>
+          )} */}
+
+          {/* {highlights.length > 0 && (
+            <div className="grid grid-cols-3 border-2 border-black">
+              {highlights.map((fact, i) => (
+                <div
+                  key={fact.label}
+                  className={cn(
+                    "flex flex-col gap-2 p-4",
+                    i < highlights.length - 1 && "border-r border-black/25"
+                  )}
+                >
+                  <span className="bricolage-grotesque-500 text-3xl leading-none">
+                    {fact.value}
+                  </span>
+                  <span className={monoLabel}>{fact.label}</span>
+                </div>
+              ))}
+            </div>
+          )} */}
+
+          <div className="flex flex-col gap-4 items-start z-10">
+            <a
+              href="#enquire"
+              className="inline-flex rounded-full w-1/2 items-center border-2 border-black px-7 py-4.5 font-mono text-[13px] font-semibold tracking-[0.14em] uppercase transition-all active:translate-x-0.5 active:translate-y-0.5 active:shadow-none shadow-[3px_3px_0_#000] justify-between bg-blue-400"
+            >
+              Book a viewing
+              <span className="text-lg leading-none"><CalendarIcon /></span>
+            </a>
+            {/* <a
+              href="#enquire"
+              className="inline-flex rounded-full flex-1 items-center gap-2.5 border-2 border-black bg-amber-400 px-7 py-4.5 font-mono text-[13px] font-semibold tracking-[0.14em] uppercase transition-all hover:-translate-x-0.5 hover:-translate-y-0.5 active:translate-x-0 active:translate-y-0 hover:shadow-[5px_5px_0_#000] active:shadow-none shadow-[3px_3px_0_#000] justify-between"
+            >
+              Enquire{" "}
+              <span className="text-lg leading-none"><ArrowRightIcon /></span>
+            </a> */}
+          </div>
+        </div>
+
       </div>
 
       {/* ── rooms and the whole home, as two separate offers ── */}
@@ -1083,101 +1080,95 @@ const Property = () => {
             value="rooms"
             className="flex flex-col gap-7 focus-visible:outline-none"
           >
-            {rooms.map((room) => (
-              <RoomCard
-                key={room.id}
-                room={room}
-                active={inCart(room.id)}
-                onSelect={() => toggleUnit(room, propertyRef)}
-              />
-            ))}
+            {rooms.map((room) => {
+              const bookable = isBookable(room)
+              return (
+                <RoomCard key={room.id} bookable={bookable}>
+                  <RoomCardMedia>
+                    <PhotoQuad photos={room.photos} />
+                  </RoomCardMedia>
+                  <RoomCardContent>
+                    <RoomCardHeader
+                      title={room.name}
+                      area={roomArea(room) || undefined}
+                      price={formatINR(room.monthlyRate)}
+                    />
+                    <RoomCardList items={roomAmenities(room)} />
+                    <RoomCardFooter>
+                      <RoomCardGroup>
+                        <RoomCardStatus
+                          label={humanise(room.status)}
+                          available={bookable}
+                        />
+                        {room.deposit > 0 && (
+                          <RoomCardNote>
+                            {formatINR(room.deposit)} deposit
+                          </RoomCardNote>
+                        )}
+                      </RoomCardGroup>
+                      <RoomCardGroup className="flex-nowrap gap-2.5">
+                        <RoomCardAction
+                          state={
+                            !bookable
+                              ? "unavailable"
+                              : inCart(room.id)
+                                ? "active"
+                                : "idle"
+                          }
+                          onClick={() => toggleUnit(room, propertyRef)}
+                        />
+                      </RoomCardGroup>
+                    </RoomCardFooter>
+                  </RoomCardContent>
+                </RoomCard>
+              )
+            })}
           </Tabs.Content>
 
-          <Tabs.Content
-            value="whole"
-            className="grid items-start gap-8 focus-visible:outline-none lg:grid-cols-2"
-          >
-            <div>
-              <div className="border-2 border-black">
+          <Tabs.Content value="whole" className="focus-visible:outline-none">
+            <RoomCard bookable={Boolean(whole && isBookable(whole))}>
+              <RoomCardMedia>
                 <PhotoQuad photos={photos} />
-              </div>
-              <p className={cn(monoLabel, "mt-3.5")}>
-                {property.name} — the whole home
-              </p>
-            </div>
-
-            <div className="border-2 border-black bg-white shadow-[8px_10px_0_#000]">
-              <div className="border-b-2 border-black bg-amber-400 px-5 py-4">
-                <p className="bricolage-grotesque-500 text-xl leading-tight tracking-tight">
-                  Entire property — {property.name}
-                </p>
-                <p className="mt-1 font-mono text-[11px] tracking-[0.16em] text-black/70 uppercase">
-                  {beds} · {size} · {plural(property.maxOccupancy, "guest")}
-                </p>
-              </div>
-
-              <div className="grid grid-cols-2 border-b-2 border-black">
-                <div className="border-r-2 border-black px-5 py-4">
-                  <p className={cn(monoLabel, "mb-1.5")}>Monthly</p>
-                  <p className="font-mono text-2xl font-bold">
-                    {formatINR(whole?.monthlyRate ?? 0)}
-                  </p>
-                </div>
-                <div className="px-5 py-4">
-                  <p className={cn(monoLabel, "mb-1.5")}>Per night</p>
-                  <p className="font-mono text-2xl font-bold">
-                    {formatINR(whole?.nightlyRate ?? 0)}
-                  </p>
-                </div>
-              </div>
-
-              {wholeFacts.length > 0 && (
-                <div className="px-5 py-5">
-                  <FactGrid facts={wholeFacts} />
-                </div>
-              )}
-
-              <div className="flex flex-wrap items-center justify-between gap-4 border-t-2 border-black bg-amber-100 px-5 py-4">
-                <span
-                  className={cn(
-                    "border-2 border-black px-2.5 py-1 font-mono text-[10px] font-semibold tracking-[0.16em] uppercase",
-                    isBookable(whole)
-                      ? "bg-green-100"
-                      : "bg-black text-background"
-                  )}
-                >
-                  {whole ? humanise(whole.status) : "—"}
-                </span>
-                {whole && isBookable(whole) ? (
-                  <button
-                    type="button"
-                    aria-pressed={inCart(whole.id)}
-                    onClick={() => toggleUnit(whole, propertyRef)}
-                    className={cn(
-                      "inline-flex items-center gap-2 border-2 border-black px-5 py-3 font-mono text-[11px] font-semibold tracking-[0.14em] uppercase transition-colors",
-                      "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black",
-                      inCart(whole.id)
-                        ? "bg-black text-amber-300 hover:bg-white hover:text-black"
-                        : "bg-black text-amber-300 hover:bg-white hover:text-black"
-                    )}
-                  >
-                    {inCart(whole.id) ? (
-                      <>
-                        <CheckIcon size={14} aria-hidden /> In your enquiry
-                      </>
-                    ) : (
-                      <>
-                        <PlusIcon size={14} aria-hidden /> Add the whole home
-                      </>
-                    )}
-                  </button>
-                ) : (
-                  <span className="border-2 border-black bg-white px-5 py-3 font-mono text-[11px] font-semibold tracking-[0.14em] uppercase opacity-70">
-                    Not available
-                  </span>
-                )}
-              </div>
-            </div>
+              </RoomCardMedia>
+              <RoomCardContent>
+                <RoomCardHeader
+                  title={`Entire property — ${property.name}`}
+                  area={`${beds} · ${size} · ${plural(property.maxOccupancy, "guest")}`}
+                  price={formatINR(whole?.monthlyRate ?? 0)}
+                />
+                <RoomCardList
+                  items={wholeFacts.map((fact) => ({
+                    key: fact.label,
+                    label: `${fact.label}: ${fact.value}`,
+                    icon: WHOLE_FACT_ICONS[fact.label],
+                  }))}
+                />
+                <RoomCardFooter>
+                  <RoomCardGroup>
+                    <RoomCardStatus
+                      label={whole ? humanise(whole.status) : "—"}
+                      available={Boolean(whole && isBookable(whole))}
+                    />
+                    <RoomCardNote>
+                      {formatINR(whole?.nightlyRate ?? 0)} / night
+                    </RoomCardNote>
+                  </RoomCardGroup>
+                  <RoomCardGroup className="flex-nowrap gap-2.5">
+                    <RoomCardAction
+                      state={
+                        !whole || !isBookable(whole)
+                          ? "unavailable"
+                          : inCart(whole.id)
+                            ? "active"
+                            : "idle"
+                      }
+                      onClick={() => whole && toggleUnit(whole, propertyRef)}
+                      idleLabel="Add the whole home"
+                    />
+                  </RoomCardGroup>
+                </RoomCardFooter>
+              </RoomCardContent>
+            </RoomCard>
           </Tabs.Content>
         </Tabs.Root>
       </section>
@@ -1216,7 +1207,10 @@ const Property = () => {
             {reviews.map((review) => (
               <article
                 key={review.id}
-                className="flex flex-col rounded-4xl gap-3.5 border-2 border-black bg-white p-6 shadow-[6px_6px_0_#000]"
+                className={cn(
+                  "flex flex-col rounded-4xl gap-3.5 border-2 border-black p-6 shadow-[6px_6px_0_#000]",
+                  reviewCardColor(review.id)
+                )}
               >
                 <div className="flex items-baseline justify-between gap-3">
                   <span className="font-mono text-sm font-bold">

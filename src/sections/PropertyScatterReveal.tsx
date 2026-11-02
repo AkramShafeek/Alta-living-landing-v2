@@ -105,7 +105,7 @@ type ScatterTile = {
 const TILES: ScatterTile[] = [
   {
     src: "/homes/1.jpg",
-    start: { x: -530, y: -250, rotation: 3 },
+    start: { x: -630, y: 450, rotation: 12 },
     rise: { x: "-11vw", y: "-142vh", rotation: -30 },
   },
   {
@@ -127,7 +127,7 @@ const TILES: ScatterTile[] = [
   },
   {
     src: "/homes/2.jpg",
-    start: { x: 60, y: -400, rotation: 5 },
+    start: { x: 520, y: 500, rotation: 5 },
     rise: { x: "3vw", y: "-172vh", rotation: 11 },
   },
   {
@@ -273,11 +273,11 @@ export const PropertyScatterReveal = () => {
               ref={(node) => {
                 tileRefs.current[i] = node
               }}
-              className="absolute top-1/2 left-1/2 h-52 w-64 overflow-hidden rounded-2xl border-2 border-black bg-white shadow-lg will-change-transform
+              className="absolute pb-8 p-2 top-1/2 left-1/2 h-52 w-64 overflow-hidden border bg-white shadow-lg will-change-transform
               sm:h-64
               sm:w-72
               "
-            >
+            >              
               <img src={tile.src} alt="" className="h-full w-full object-cover" />
             </div>
           ))}

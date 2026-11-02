@@ -242,14 +242,15 @@
 }
 
 /* ── the floating enquiry bar ──────────────────────────────────────────
-   `--cart-bar` is set on the root by CartBar while the cart has anything in
-   it, and is absent otherwise. Every page's last section pads by it, so the
-   bar never parks on top of a footer or a final call to action. */
+  `--cart-bar` is set on the root by CartBar while the cart has anything in
+  it, and is absent otherwise. Every page's last section pads by it, so the
+  bar never parks on top of a footer or a final call to action. */
 @keyframes cart-rise {
   from {
     opacity: 0;
     transform: translateY(0.75rem);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -258,4 +259,63 @@
 
 body {
   padding-bottom: var(--cart-bar, 0);
+}
+
+/* ── "lifted paper" corner shadows ────────────────────────────────────────
+  The paper-lift itself stays a perfectly flat rectangle — nothing here rotates or
+  bends it. The illusion is entirely two pseudo-elements sitting behind it at
+  z-index:-1, skewed and rotated, each casting a heavy blurred shadow. Hidden
+  under the paper-lift's own background everywhere except right at the bottom
+  corners, where the skew makes them poke out sideways — which is what reads
+  as the corners lifting off the page. `position: relative` on the paper-lift is
+  what gives those `absolute` pseudo-elements something to anchor to.
+
+  A direct port of the classic version of this trick, built for a paper-lift several
+  times taller than these tags are — `bottom`/`height`, the two pixel values
+  tied to that original size, are scaled down here to stay visible on a small
+  chip; the shadow, the transform angles, the transition and the hover
+  behaviour are unchanged. */
+.paper-lift {
+  position: relative;
+  /* margin: 40px auto; */
+  /* width: 400px;
+  height: 350px; */
+  background: #fff;
+  border-radius: 2px;
+  /* z-index: 50; */
+}
+
+.paper-lift::before,
+.paper-lift::after {
+  content: '';
+  position: absolute;
+  bottom: 10px;
+  width: 40%;
+  height: 10px;
+  box-shadow: 0 5px 14px rgba(0,0,0,.5);
+  /* z-index: -1; */
+  transition: all .3s ease-in-out;
+}
+
+.paper-lift::before {
+  left: 15px;
+  transform: skew(-5deg) rotate(-5deg);
+}
+
+.paper-lift::after {
+  right: 15px;
+  transform: skew(5deg) rotate(5deg);
+}
+
+.paper-lift:hover::before,
+.paper-lift:hover::after {
+  box-shadow: 0 2px 14px rgba(0,0,0,.4);
+}
+
+.paper-lift:hover::before {
+  left: 5px;
+}
+
+.paper-lift:hover::after {
+  right: 5px;
 }

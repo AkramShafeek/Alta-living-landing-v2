@@ -28,7 +28,7 @@ import type { ScopedRow } from "../propertyScope"
 import { RowFields } from "./RowFields"
 
 const CHIP =
-  "border-2 px-2.5 py-1.5 font-mono text-[10px] font-semibold uppercase tracking-[0.14em] " +
+  "rounded-full border px-3 py-1.5 font-mono text-[10px] uppercase " +
   "transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
 
 /** "Master bedroom · room · 18,000" — enough to tell rows apart. */
@@ -65,8 +65,8 @@ export const ChildSection = ({
   )
 
   return (
-    <section className="border-2 border-black bg-white">
-      <header className="flex flex-wrap items-start justify-between gap-4 border-b-2 border-black px-5 py-4">
+    <section className="mt-4 overflow-hidden rounded-2xl border border-neutral-500 bg-white shadow-[4px_4px_0px_#000]">
+      <header className="flex flex-wrap items-start justify-between gap-4 border-b border-neutral-500 px-6 py-5">
         <div className="max-w-160">
           <h3 className="bricolage-grotesque-500 text-lg leading-tight tracking-tight">
             {spec.title}
@@ -81,7 +81,7 @@ export const ChildSection = ({
 
         <div className="flex items-center gap-2">
           {problems > 0 && (
-            <span className="border-2 border-red-700 bg-red-50 px-2 py-1 font-mono text-[9px] font-semibold tracking-[0.14em] text-red-700 uppercase">
+            <span className="rounded-full border border-red-200 bg-red-50 px-2.5 py-1 font-mono text-[9px] font-semibold tracking-[0.14em] text-red-700 uppercase">
               {problems} to fix
             </span>
           )}
@@ -91,7 +91,7 @@ export const ChildSection = ({
               onClick={onAdd}
               className={cn(
                 CHIP,
-                "inline-flex items-center gap-1.5 border-black bg-amber-400 hover:bg-black hover:text-amber-300"
+                "inline-flex items-center gap-1.5 border-neutral-500 -translate-x-0.5 -translate-y-0.5 active:translate-x-0 active:translate-y-0 active:shadow-none shadow-[3px_3px_0px_#000] transition-all"
               )}
             >
               <PlusIcon size={13} aria-hidden /> {spec.addLabel}
@@ -103,7 +103,7 @@ export const ChildSection = ({
       {spec.toggle ? (
         <ToggleGrid spec={spec} rows={rows} onToggle={onToggle} />
       ) : rows.length === 0 ? (
-        <p className="px-5 py-6 font-mono text-[11px] leading-relaxed text-black/60">
+        <p className="px-6 py-7 font-mono text-[11px] leading-relaxed text-black/60">
           {spec.empty}
         </p>
       ) : (
@@ -116,15 +116,15 @@ export const ChildSection = ({
             return (
               <li
                 key={`${spec.table}-${entry.index}`}
-                className="border-b-2 border-black/15 last:border-b-0"
+                className="border-b border-neutral-200 last:border-b-0"
               >
-                <div className="flex items-center gap-2 px-3">
+                <div className="flex items-center gap-2 px-4">
                   <button
                     type="button"
                     aria-expanded={isOpen}
                     onClick={() => setOpen(isOpen ? null : entry.index)}
                     className={cn(
-                      "flex flex-1 items-center gap-2.5 py-3 text-left transition-colors",
+                      "flex flex-1 items-center gap-2.5 py-3.5 text-left transition-colors",
                       "focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-black"
                     )}
                   >
@@ -145,12 +145,12 @@ export const ChildSection = ({
                       {summarise(spec, entry.row)}
                     </span>
                     {edited && (
-                      <span className="shrink-0 border-2 border-black bg-amber-400 px-1.5 py-0.5 font-mono text-[9px] font-semibold tracking-[0.14em] uppercase">
+                      <span className="shrink-0 rounded-full border border-black/10 bg-amber-400 px-2 py-0.5 font-mono text-[9px] font-semibold tracking-[0.14em] uppercase">
                         Draft
                       </span>
                     )}
                     {rowProblems > 0 && (
-                      <span className="shrink-0 border-2 border-red-700 bg-red-50 px-1.5 py-0.5 font-mono text-[9px] font-semibold text-red-700 tabular-nums">
+                      <span className="shrink-0 rounded-full border border-red-200 bg-red-50 px-2 py-0.5 font-mono text-[9px] font-semibold text-red-700 tabular-nums">
                         {rowProblems}
                       </span>
                     )}
@@ -170,8 +170,8 @@ export const ChildSection = ({
                     }}
                     aria-label={`Remove ${summarise(spec, entry.row)}`}
                     className={cn(
-                      CHIP,
-                      "shrink-0 border-black bg-white hover:bg-red-700 hover:text-white"
+                      // CHIP,
+                      "shrink-0 border-neutral-300 bg-white hover:border-red-700 hover:bg-red-700 hover:text-white p-3 rounded-full transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
                     )}
                   >
                     <Trash2Icon size={13} aria-hidden />
@@ -179,7 +179,7 @@ export const ChildSection = ({
                 </div>
 
                 {isOpen && (
-                  <div className="border-t-2 border-black/15 bg-amber-50/40 px-5 py-5">
+                  <div className="border-t border-neutral-200 bg-neutral-50 px-6 py-6">
                     <RowFields
                       table={spec.table}
                       row={entry.row}
@@ -215,7 +215,7 @@ const ToggleGrid = ({
   const chosen = new Set(rows.map((entry) => entry.row[column]).filter(Boolean))
 
   return (
-    <div className="flex flex-wrap gap-2 p-5">
+    <div className="flex flex-wrap gap-2 p-6">
       {options.map((option) => {
         const on = chosen.has(option)
         return (
@@ -227,8 +227,8 @@ const ToggleGrid = ({
             className={cn(
               CHIP,
               on
-                ? "border-black bg-amber-400"
-                : "border-black/30 bg-white text-black/60 hover:border-black hover:text-black"
+                ? "border-neutral-500 bg-amber-400"
+                : "border-neutral-300 bg-white text-black/60 hover:border-black/40 hover:text-black"
             )}
           >
             {option.replace(/_/g, " ")}

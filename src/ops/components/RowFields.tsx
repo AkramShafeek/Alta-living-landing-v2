@@ -75,7 +75,7 @@ const FieldGrid = ({
 }) => (
   <div
     className={cn(
-      "grid gap-5",
+      "grid gap-6",
       columns === 3 ? "sm:grid-cols-2 xl:grid-cols-3" : "sm:grid-cols-2"
     )}
   >
@@ -142,9 +142,9 @@ export const RowFields = ({
         return (
           <section
             key={section.title}
-            className={cn(index > 0 && "mt-7 border-t border-black/15 pt-7")}
+            className={cn(index > 0 && "mt-8 border-t border-neutral-200 pt-8")}
           >
-            <h4 className="mb-4 flex items-baseline gap-2.5 font-mono text-[10px] font-semibold tracking-[0.18em] text-black/50 uppercase">
+            <h4 className="mb-5 flex items-baseline gap-2.5 text-sm font-semibold text-muted-foreground uppercase">
               {section.title}
               {broken > 0 && (
                 <span className="tracking-[0.14em] text-red-700">

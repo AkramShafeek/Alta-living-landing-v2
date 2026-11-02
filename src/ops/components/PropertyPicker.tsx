@@ -35,16 +35,16 @@ export const PropertyPicker = ({
 }) => (
   <nav
     aria-label="Homes"
-    className="flex flex-col border-b-2 border-black bg-amber-50 lg:border-r-2 lg:border-b-0"
+    className="flex h-full flex-col border-b border-neutral-200 bg-amber-50/50 lg:border-r lg:border-b-0"
   >
-    <div className="flex items-center justify-between gap-3 border-b-2 border-black px-4 py-3">
+    <div className="flex items-center justify-between gap-3 border-b border-neutral-200 px-4 py-3.5">
       <span className={MONO}>
         {homes.length} {homes.length === 1 ? "home" : "homes"}
       </span>
       <button
         type="button"
         onClick={onAdd}
-        className="inline-flex items-center gap-1.5 border-2 border-black bg-amber-400 px-2.5 py-1.5 font-mono text-[10px] font-semibold tracking-[0.16em] uppercase transition-colors hover:bg-black hover:text-amber-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+        className="inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-[10px] -translate-x-0.5 -translate-y-0.5 active:translate-x-0 active:translate-y-0 active:shadow-none shadow-[3px_3px_0px_#000] border-neutral-500 transition-all bg-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
       >
         <PlusIcon size={13} aria-hidden /> New
       </button>
@@ -67,27 +67,25 @@ export const PropertyPicker = ({
               aria-current={isActive ? "page" : undefined}
               onClick={() => onSelect(home.id)}
               className={cn(
-                "flex w-full flex-col gap-1.5 border-b-2 border-black/15 px-4 py-3 text-left transition-colors",
+                "flex w-full flex-col gap-1 border-b border-neutral-200 px-4 py-3.5 text-left transition-colors",
                 "focus-visible:outline-2 focus-visible:-outline-offset-4 focus-visible:outline-black",
-                isActive
-                  ? "bg-amber-400 shadow-[inset_6px_0_0_#000]"
-                  : "hover:bg-amber-200"
+                isActive ? "bg-amber-100" : "hover:bg-amber-100/60"
               )}
             >
-              <span className="truncate font-mono text-[12px] font-semibold">
+              <span className="truncate font-semibold">
                 {home.name || "(unnamed home)"}
               </span>
-              <span className="truncate font-mono text-[10px] tracking-[0.12em] text-black/60 uppercase">
+              <span className="truncate text-[10px] text-muted-foreground">
                 {home.area || home.id}
               </span>
 
               <span className="flex flex-wrap items-center gap-1.5">
                 <span
                   className={cn(
-                    "border px-1.5 py-0.5 font-mono text-[9px] tracking-[0.14em] uppercase",
+                    "rounded-full border px-2 py-0.5 font-mono text-[9px] tracking-[0.14em] uppercase",
                     home.status === "live"
-                      ? "border-black/40 bg-green-100 text-black"
-                      : "border-black/30 text-black/60"
+                      ? "border-neutral-500 bg-green-100 text-black"
+                      : "border-neutral-500 text-black/60"
                   )}
                 >
                   {home.status || "no status"}
@@ -96,12 +94,12 @@ export const PropertyPicker = ({
                   {home.rowCount} rows
                 </span>
                 {home.edited && (
-                  <span className="border-2 border-black bg-white px-1.5 py-0.5 font-mono text-[9px] font-semibold tracking-[0.14em] uppercase">
+                  <span className="rounded-full border border-neutral-500 bg-white px-2 py-0.5 font-mono text-[9px] font-semibold tracking-[0.14em] uppercase">
                     Draft
                   </span>
                 )}
                 {home.problemCount > 0 && (
-                  <span className="border-2 border-red-700 bg-red-50 px-1.5 py-0.5 font-mono text-[9px] font-semibold text-red-700 tabular-nums">
+                  <span className="rounded-full border border-red-200 bg-red-50 px-2 py-0.5 font-mono text-[9px] font-semibold text-red-700 tabular-nums">
                     {home.problemCount}
                   </span>
                 )}
