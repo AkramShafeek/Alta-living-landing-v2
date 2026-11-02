@@ -17,8 +17,7 @@ import {
   AlertTriangleIcon,
   DownloadIcon,
   RotateCwIcon,
-  Trash2Icon,
-  UsersIcon,
+  Trash2Icon,  
 } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { blankRow, problemCountOf } from "@/ops/fields"

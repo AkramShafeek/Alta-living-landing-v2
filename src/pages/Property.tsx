@@ -2,9 +2,9 @@ import { useEffect, useState } from "react"
 import { Link, useParams } from "react-router-dom"
 // ArrowLeftIcon, Calendar1Icon and CalendarClockIcon are unused — each only
 // appears in commented-out markup below.
-import { ArrowRightIcon, BedDoubleIcon, CalendarIcon, DiamondIcon, DoorOpenIcon, MapIcon, MapPinIcon } from "lucide-react"
+import { ArrowRightIcon, BedDoubleIcon, CalendarIcon, DiamondIcon, DoorOpenIcon, MapPinIcon } from "lucide-react"
 import { Tabs } from "radix-ui"
-import { Bath, ReceiptText, Users, XIcon, type LucideIcon } from "lucide-react"
+import { Bath, ReceiptText, Users, type LucideIcon } from "lucide-react"
 import {
   AMENITY_ICONS,
   CATALOG_ICON_SIZE,
@@ -123,11 +123,10 @@ const AmenityGrid = ({ amenities }: { amenities: readonly AmenityKey[] }) => (
 
 /** Included and excluded, side by side — the exclusions carry a note. */
 const PriceGrid = ({
-  included,
-  notIncluded,
+  included,  
 }: {
   included: readonly IncludedKey[]
-  notIncluded: readonly { item: string; note: string }[]
+  notIncluded?: readonly { item: string; note: string }[]
 }) => (
   <div className="flex flex-wrap gap-6">
     {included.map((key) => {
