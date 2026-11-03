@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { Link, useLocation } from 'react-router-dom'
 import { Button } from '@/components/ui/button'
-import { FilterIcon } from 'lucide-react'
+// import { FilterIcon } from 'lucide-react'
 import { navItems } from '@/content/site'
 
 const slideUpVariants = {
