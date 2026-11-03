@@ -327,6 +327,7 @@ export const contactRows = [
 export const navItems = [
   { label: "How it works", href: "/#how-it-works" },
   { label: "Contact", href: "/#contact" },
+  { label: "Find a home", href: "/listings" },
 ]
 
 // ─────────────────────────────────────────────────────────────────────────

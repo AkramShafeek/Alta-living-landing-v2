@@ -249,7 +249,14 @@ A value from the sheets was never overwritten.
   - On the home: 3 (garden ×2, veranda).
   - Cover: the garden.
   - `11.11.39 AM` was left out as a near-identical frame of `11.11.39 AM (1)`.
-- **Every other home:** none yet. The site shows "Photos coming soon".
+- **Meridian:** not shot yet. The owner says its furnishing is the same as
+  Linden's, so it is seeded with 14 of Linden's photos:
+  - Copied to `public/homes/meridian/` and captioned "(representative)".
+  - A different subset, order and cover from Linden's own. Linden's sunset
+    view is excluded.
+  - All on the "Meridian 2BHK" unit.
+  - When Meridian is shot, replace the files and the 14 `prop_201` rows
+    (`meridian-photos.txt`).
 
 **Hosting:** the photos are served by the site itself, from
 `public/homes/<slug>/NN-<caption>.jpg` (originals from Drive, 1280 px on the

@@ -1,0 +1,14 @@
+prop_201-photo-1	prop_201	/homes/meridian/01-living-room.avif	Living room with a sofa, coffee table and red rug beside the balcony door	Living room (representative)	prop_201-room-1	Living room	0	TRUE
+prop_201-photo-2	prop_201	/homes/meridian/02-bedroom.avif	Double bed with folded towels and a wardrobe with a mirror	Bedroom (representative)	prop_201-room-1	Bedroom	1	FALSE
+prop_201-photo-3	prop_201	/homes/meridian/03-kitchen.avif	Kitchen with a sink, wooden and cream cabinets and black counters	Kitchen (representative)	prop_201-room-1	Kitchen	2	FALSE
+prop_201-photo-4	prop_201	/homes/meridian/04-living-room.avif	TV unit beside floor-length curtains	Living room (representative)	prop_201-room-1	Living room	3	FALSE
+prop_201-photo-5	prop_201	/homes/meridian/05-bedroom.avif	Bedroom with a double bed in coral linen beside a large window	Bedroom (representative)	prop_201-room-1	Bedroom	4	FALSE
+prop_201-photo-6	prop_201	/homes/meridian/06-bedroom.avif	Double bed with block-printed linen beside a curtained window	Bedroom (representative)	prop_201-room-1	Bedroom	5	FALSE
+prop_201-photo-7	prop_201	/homes/meridian/07-living-room.avif	Living room with a TV unit, coffee table and the hallway to the door	Living room (representative)	prop_201-room-1	Living room	6	FALSE
+prop_201-photo-8	prop_201	/homes/meridian/08-bedroom.avif	Double bed with folded towels, beside the bedroom door	Bedroom (representative)	prop_201-room-1	Bedroom	7	FALSE
+prop_201-photo-9	prop_201	/homes/meridian/09-kitchen.avif	Kitchen with open shelves, cookware and an induction hob under a window	Kitchen (representative)	prop_201-room-1	Kitchen	8	FALSE
+prop_201-photo-10	prop_201	/homes/meridian/10-kitchen.avif	Kitchen with open shelving, a hob and a window	Kitchen (representative)	prop_201-room-1	Kitchen	9	FALSE
+prop_201-photo-11	prop_201	/homes/meridian/11-bathroom.avif	Washbasin and mixer tap against blue patterned tiles	Bathroom (representative)	prop_201-room-1	Bathroom	10	FALSE
+prop_201-photo-12	prop_201	/homes/meridian/12-bathroom.avif	Bathroom with patterned wall tiles, a washbasin and a shower	Bathroom (representative)	prop_201-room-1	Bathroom	11	FALSE
+prop_201-photo-13	prop_201	/homes/meridian/13-bedroom.avif	Bedroom with a wooden wardrobe, a bench and a curtained window	Bedroom (representative)	prop_201-room-1	Bedroom	12	FALSE
+prop_201-photo-14	prop_201	/homes/meridian/14-living-room.avif	Sofa and coffee table on a red rug by the curtained bedroom door	Living room (representative)	prop_201-room-1	Living room	13	FALSE

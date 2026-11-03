@@ -49,7 +49,135 @@
           "note": "AC in 10 of the 32 apartments",
           "hasReplicas": true,
           "totalCount": 32,
-          "occupiedCount": 31
+          "occupiedCount": 31,
+          "photos": [
+            {
+              "id": "prop_201-photo-1",
+              "url": "/homes/meridian/01-living-room.avif",
+              "alt": "Living room with a sofa, coffee table and red rug beside the balcony door",
+              "caption": "Living room (representative)",
+              "category": "Living room",
+              "order": 0,
+              "isHero": true
+            },
+            {
+              "id": "prop_201-photo-2",
+              "url": "/homes/meridian/02-bedroom.avif",
+              "alt": "Double bed with folded towels and a wardrobe with a mirror",
+              "caption": "Bedroom (representative)",
+              "category": "Bedroom",
+              "order": 1,
+              "isHero": false
+            },
+            {
+              "id": "prop_201-photo-3",
+              "url": "/homes/meridian/03-kitchen.avif",
+              "alt": "Kitchen with a sink, wooden and cream cabinets and black counters",
+              "caption": "Kitchen (representative)",
+              "category": "Kitchen",
+              "order": 2,
+              "isHero": false
+            },
+            {
+              "id": "prop_201-photo-4",
+              "url": "/homes/meridian/04-living-room.avif",
+              "alt": "TV unit beside floor-length curtains",
+              "caption": "Living room (representative)",
+              "category": "Living room",
+              "order": 3,
+              "isHero": false
+            },
+            {
+              "id": "prop_201-photo-5",
+              "url": "/homes/meridian/05-bedroom.avif",
+              "alt": "Bedroom with a double bed in coral linen beside a large window",
+              "caption": "Bedroom (representative)",
+              "category": "Bedroom",
+              "order": 4,
+              "isHero": false
+            },
+            {
+              "id": "prop_201-photo-6",
+              "url": "/homes/meridian/06-bedroom.avif",
+              "alt": "Double bed with block-printed linen beside a curtained window",
+              "caption": "Bedroom (representative)",
+              "category": "Bedroom",
+              "order": 5,
+              "isHero": false
+            },
+            {
+              "id": "prop_201-photo-7",
+              "url": "/homes/meridian/07-living-room.avif",
+              "alt": "Living room with a TV unit, coffee table and the hallway to the door",
+              "caption": "Living room (representative)",
+              "category": "Living room",
+              "order": 6,
+              "isHero": false
+            },
+            {
+              "id": "prop_201-photo-8",
+              "url": "/homes/meridian/08-bedroom.avif",
+              "alt": "Double bed with folded towels, beside the bedroom door",
+              "caption": "Bedroom (representative)",
+              "category": "Bedroom",
+              "order": 7,
+              "isHero": false
+            },
+            {
+              "id": "prop_201-photo-9",
+              "url": "/homes/meridian/09-kitchen.avif",
+              "alt": "Kitchen with open shelves, cookware and an induction hob under a window",
+              "caption": "Kitchen (representative)",
+              "category": "Kitchen",
+              "order": 8,
+              "isHero": false
+            },
+            {
+              "id": "prop_201-photo-10",
+              "url": "/homes/meridian/10-kitchen.avif",
+              "alt": "Kitchen with open shelving, a hob and a window",
+              "caption": "Kitchen (representative)",
+              "category": "Kitchen",
+              "order": 9,
+              "isHero": false
+            },
+            {
+              "id": "prop_201-photo-11",
+              "url": "/homes/meridian/11-bathroom.avif",
+              "alt": "Washbasin and mixer tap against blue patterned tiles",
+              "caption": "Bathroom (representative)",
+              "category": "Bathroom",
+              "order": 10,
+              "isHero": false
+            },
+            {
+              "id": "prop_201-photo-12",
+              "url": "/homes/meridian/12-bathroom.avif",
+              "alt": "Bathroom with patterned wall tiles, a washbasin and a shower",
+              "caption": "Bathroom (representative)",
+              "category": "Bathroom",
+              "order": 11,
+              "isHero": false
+            },
+            {
+              "id": "prop_201-photo-13",
+              "url": "/homes/meridian/13-bedroom.avif",
+              "alt": "Bedroom with a wooden wardrobe, a bench and a curtained window",
+              "caption": "Bedroom (representative)",
+              "category": "Bedroom",
+              "order": 12,
+              "isHero": false
+            },
+            {
+              "id": "prop_201-photo-14",
+              "url": "/homes/meridian/14-living-room.avif",
+              "alt": "Sofa and coffee table on a red rug by the curtained bedroom door",
+              "caption": "Living room (representative)",
+              "category": "Living room",
+              "order": 13,
+              "isHero": false
+            }
+          ]
         }
       ],
       "amenities": [

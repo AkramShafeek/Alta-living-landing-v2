@@ -95,12 +95,12 @@ const Navbar = () => {
               </Button>
             ))}
           </div>
-          <Button
+          {/* <Button
             asChild
             className="h-9 rounded-full border-2 border-black bg-amber-400 px-4 text-black hover:bg-black hover:text-amber-400"
           >
             <Link to="/listings">Find a home</Link>
-          </Button>
+          </Button> */}
         </div>
       </div>
     </motion.div>

@@ -244,10 +244,12 @@ export const PropertyScatterReveal = () => {
     { scope: sectionRef }
   )
 
-  const cellWidth = 80;
-  const cellHeight = 80;
-  const lineWidth = 1;
-  const lineColor = "rgba(0,0,0,0.08)";
+  // Grid background — commented out together with the `style` below; restore
+  // both to bring the grid back. (Unused constants fail `tsc -b`.)
+  // const cellWidth = 80;
+  // const cellHeight = 80;
+  // const lineWidth = 1;
+  // const lineColor = "rgba(0,0,0,0.08)";
 
   return (
     <section ref={sectionRef} className="relative h-[240vh] border-b">
