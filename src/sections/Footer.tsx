@@ -1,15 +1,33 @@
-import { footerLinks, socials } from "@/content/site"
+import { Link } from "react-router-dom"
+import { MailIcon, MessageCircleIcon } from "lucide-react"
+import { contact, enquiryWhatsApp, footer, footerLinks, type FooterLink } from "@/content/site"
+import { whatsappTextLink } from "@/lib/whatsapp"
 
-const FooterColumn = ({ title, links }: { title: string; links: string[] }) => (
+const whatsappHref = whatsappTextLink(enquiryWhatsApp, "Hi Alta, ")
+
+/** In-site links route without a reload; mail links stay plain anchors. */
+const FooterAnchor = ({ link }: { link: FooterLink }) =>
+  link.href.startsWith("/") ? (
+    <Link to={link.href} className="text-sm hover:text-red-900 hover:underline">
+      {link.label}
+    </Link>
+  ) : (
+    <a href={link.href} className="text-sm hover:text-red-900 hover:underline">
+      {link.label}
+    </a>
+  )
+
+const FooterColumn = ({ title, links }: { title: string; links: FooterLink[] }) => (
   <div className="flex flex-col gap-2.5">
     <p className="mb-1.5 font-mono text-[11px] font-semibold uppercase tracking-[0.18em]">{title}</p>
-    {links.map((label) => (
-      <a key={label} href="#" className="text-sm hover:text-red-900 hover:underline">
-        {label}
-      </a>
+    {links.map((link) => (
+      <FooterAnchor key={link.label} link={link} />
     ))}
   </div>
 )
+
+const iconButton =
+  "w-10 h-10 flex items-center justify-center border-2 border-black bg-white shadow-[3px_3px_0_#000] hover:bg-black hover:text-background transition-colors"
 
 export const Footer = () => {
   return (
@@ -22,26 +40,31 @@ export const Footer = () => {
         <div className="flex flex-col gap-3.5 col-span-2 md:col-span-1">
           <span className="alta-living-title text-6xl uppercase leading-none">Alta Living</span>
           <p className="font-mono text-[11px] leading-loose uppercase tracking-[0.18em] text-muted-foreground">
-            Serviced rentals · bangalore<br />hello@altaliving.in · +91 80 4000 1212
+            {footer.tagline}
+            <br />
+            <a href={`mailto:${contact.email}`} className="normal-case hover:text-black hover:underline">
+              {contact.email}
+            </a>
+            {" · "}
+            <a href={whatsappHref} target="_blank" rel="noopener noreferrer" className="hover:text-black hover:underline">
+              {contact.phone}
+            </a>
           </p>
           <div className="flex gap-2.5 mt-1.5">
-            {socials.map((s) => (
-              <a
-                key={s}
-                href="#"
-                className="w-10 h-10 flex items-center justify-center border-2 border-black bg-white shadow-[3px_3px_0_#000] hover:bg-black hover:text-background transition-colors"
-              >
-                <span className="font-mono text-xs tracking-[0.08em]">{s}</span>
-              </a>
-            ))}
+            <a href={whatsappHref} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Alta Living" className={iconButton}>
+              <MessageCircleIcon size={18} aria-hidden />
+            </a>
+            <a href={`mailto:${contact.email}`} aria-label="Email Alta Living" className={iconButton}>
+              <MailIcon size={18} aria-hidden />
+            </a>
           </div>
         </div>
-        <FooterColumn title="Stays" links={footerLinks.stays} />
+        <FooterColumn title="Homes" links={footerLinks.homes} />
         <FooterColumn title="Company" links={footerLinks.company} />
         <FooterColumn title="Guests" links={footerLinks.guests} />
       </div>
       <div className="border-t-2 border-black px-8 py-4 flex justify-between gap-4 flex-wrap font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
-        <span>© 2026 Alta Living · bangalore</span>
+        <span>{footer.copyright}</span>
         <span>Privacy · Terms</span>
       </div>
     </footer>

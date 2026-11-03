@@ -59,6 +59,12 @@ type DraftState = {
   ) => void
   addRow: (table: TableName, row: Row) => void
   removeRow: (table: TableName, index: number) => void
+  /**
+   * Swaps whole tables in one write — an import, or filling a home's ids.
+   * One clone and one save for the lot, where a loop of `addRow` would do
+   * both per row.
+   */
+  replaceTables: (next: Partial<Record<TableName, Row[]>>) => void
   revertTable: (table: TableName) => void
   discardAll: () => void
 }
@@ -198,6 +204,19 @@ export const useDraftStore = create<DraftState>()(
         rows.splice(index, 1)
         state.edits[table] = rows
         state.savedAt = writePersisted({ ...get().edits, [table]: rows })
+      })
+    },
+
+    replaceTables: (next) => {
+      const tables = Object.keys(next) as TableName[]
+      if (tables.length === 0) return
+
+      const edits = { ...get().edits }
+      for (const table of tables) edits[table] = structuredClone(next[table]!)
+
+      set((state) => {
+        for (const table of tables) state.edits[table] = edits[table]
+        state.savedAt = writePersisted(edits)
       })
     },
 

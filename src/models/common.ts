@@ -6,7 +6,12 @@ export const PROPERTY_STATUSES = [
   "paused",
   "archived",
 ] as const
-export const CITIES = ["Bangalore", "Goa", "Coorg"] as const
+/**
+ * Where a home is, at the level a guest searches by — a city or a district.
+ * Coorg and Mandya are districts: Mandya is for the out-of-city stays on the
+ * Mysuru–Bengaluru Expressway, such as Maddur.
+ */
+export const CITIES = ["Bangalore", "Goa", "Coorg", "Mandya"] as const
 export const UNIT_STATUSES = [
   "available",
   "booked",

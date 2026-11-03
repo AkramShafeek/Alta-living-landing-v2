@@ -1,0 +1,249 @@
+{
+  "version": 1,
+  "properties": [
+    {
+      "id": "prop_206",
+      "slug": "juniper",
+      "name": "Alta Juniper House",
+      "status": "draft",
+      "city": "Bangalore",
+      "neighbourhood": "Yelachenahalli",
+      "subLocality": "",
+      "addressLine": "Aiekya, Yelachenahalli, Kanakapura Road",
+      "hasLift": true,
+      "propertyType": "apartment",
+      "bedrooms": 3,
+      "furnishing": "fully",
+      "maxOccupancy": 6,
+      "kitchenType": "full",
+      "allowsEntireBooking": true,
+      "hook": "A fully furnished three-bedroom home near Yelachenahalli Metro, off Kanakapura Road.",
+      "hostId": "host_meera",
+      "units": [
+        {
+          "id": "prop_206-room-1",
+          "kind": "room",
+          "name": "Juniper Bedroom",
+          "bedType": "double",
+          "hasAc": true,
+          "maxOccupancy": 2,
+          "status": "available",
+          "hasReplicas": true,
+          "totalCount": 3,
+          "occupiedCount": 3,
+          "photos": [
+            {
+              "id": "prop_206-photo-2",
+              "url": "/homes/juniper/02-bedroom.jpg",
+              "alt": "Bedroom with a dark wood double bed, orange linen, a patterned rug and floor-length curtains",
+              "caption": "Bedroom",
+              "category": "Bedroom",
+              "order": 1,
+              "isHero": false
+            },
+            {
+              "id": "prop_206-photo-15",
+              "url": "/homes/juniper/15-bedroom.jpg",
+              "alt": "Bedroom with a double bed, orange linen and tall windows",
+              "caption": "Bedroom",
+              "category": "Bedroom",
+              "order": 14,
+              "isHero": false
+            },
+            {
+              "id": "prop_206-photo-16",
+              "url": "/homes/juniper/16-bedroom.jpg",
+              "alt": "Bedroom with a double bed, a full-height wardrobe and the door to the hall",
+              "caption": "Bedroom",
+              "category": "Bedroom",
+              "order": 15,
+              "isHero": false
+            }
+          ]
+        },
+        {
+          "id": "prop_206-entire",
+          "kind": "entire",
+          "name": "Juniper 3BHK",
+          "hasAc": true,
+          "maxOccupancy": 6,
+          "monthlyRate": 110000,
+          "nightlyRate": 8000,
+          "status": "booked",
+          "hasReplicas": false
+        }
+      ],
+      "photos": [
+        {
+          "id": "prop_206-photo-1",
+          "url": "/homes/juniper/01-living-room.jpg",
+          "alt": "Living room with two velvet Chesterfield sofas, nesting tables and a backlit TV wall",
+          "caption": "Living room",
+          "category": "Living room",
+          "order": 0,
+          "isHero": true
+        },
+        {
+          "id": "prop_206-photo-3",
+          "url": "/homes/juniper/03-kitchen.jpg",
+          "alt": "Long modular kitchen with black counters, glass-front cabinets, a chimney and a refrigerator",
+          "caption": "Kitchen",
+          "category": "Kitchen",
+          "order": 2,
+          "isHero": false
+        },
+        {
+          "id": "prop_206-photo-4",
+          "url": "/homes/juniper/04-dining.jpg",
+          "alt": "Dining table for four beside the living room sofas and TV wall",
+          "caption": "Dining",
+          "category": "Dining",
+          "order": 3,
+          "isHero": false
+        },
+        {
+          "id": "prop_206-photo-5",
+          "url": "/homes/juniper/05-living-room.jpg",
+          "alt": "Living room with velvet sofas, a floor lamp and the TV wall by the front door",
+          "caption": "Living room",
+          "category": "Living room",
+          "order": 4,
+          "isHero": false
+        },
+        {
+          "id": "prop_206-photo-6",
+          "url": "/homes/juniper/06-living-room.jpg",
+          "alt": "Open living and dining area with marble floors",
+          "caption": "Living room",
+          "category": "Living room",
+          "order": 5,
+          "isHero": false
+        },
+        {
+          "id": "prop_206-photo-7",
+          "url": "/homes/juniper/07-living-room.jpg",
+          "alt": "Living room with the sofas, plants and the TV wall, looking towards the kitchen",
+          "caption": "Living room",
+          "category": "Living room",
+          "order": 6,
+          "isHero": false
+        },
+        {
+          "id": "prop_206-photo-8",
+          "url": "/homes/juniper/08-living-room.jpg",
+          "alt": "Two velvet sofas around marble-topped nesting tables",
+          "caption": "Living room",
+          "category": "Living room",
+          "order": 7,
+          "isHero": false
+        },
+        {
+          "id": "prop_206-photo-9",
+          "url": "/homes/juniper/09-living-room.jpg",
+          "alt": "Backlit wooden TV wall with a large TV and floating cabinets",
+          "caption": "Living room",
+          "category": "Living room",
+          "order": 8,
+          "isHero": false
+        },
+        {
+          "id": "prop_206-photo-10",
+          "url": "/homes/juniper/10-living-room.jpg",
+          "alt": "TV wall with a floor lamp, plants and a velvet sofa",
+          "caption": "Living room",
+          "category": "Living room",
+          "order": 9,
+          "isHero": false
+        },
+        {
+          "id": "prop_206-photo-11",
+          "url": "/homes/juniper/11-dining.jpg",
+          "alt": "Dining table with four chairs and a bench",
+          "caption": "Dining",
+          "category": "Dining",
+          "order": 10,
+          "isHero": false
+        },
+        {
+          "id": "prop_206-photo-12",
+          "url": "/homes/juniper/12-kitchen.jpg",
+          "alt": "Kitchen counter with a hob, chimney and under-cabinet lighting",
+          "caption": "Kitchen",
+          "category": "Kitchen",
+          "order": 11,
+          "isHero": false
+        },
+        {
+          "id": "prop_206-photo-13",
+          "url": "/homes/juniper/13-kitchen.jpg",
+          "alt": "Galley kitchen running towards the living room",
+          "caption": "Kitchen",
+          "category": "Kitchen",
+          "order": 12,
+          "isHero": false
+        },
+        {
+          "id": "prop_206-photo-14",
+          "url": "/homes/juniper/14-kitchen.jpg",
+          "alt": "Kitchen island with pendant lights, beside the dining area",
+          "caption": "Kitchen",
+          "category": "Kitchen",
+          "order": 13,
+          "isHero": false
+        },
+        {
+          "id": "prop_206-photo-17",
+          "url": "/homes/juniper/17-bathroom.jpg",
+          "alt": "Bathroom with marble-look tiles, a wall-hung toilet and a washbasin",
+          "caption": "Bathroom",
+          "category": "Bathroom",
+          "order": 16,
+          "isHero": false
+        },
+        {
+          "id": "prop_206-photo-18",
+          "url": "/homes/juniper/18-bathroom.jpg",
+          "alt": "Bathroom with a wall-hung toilet, geyser and window",
+          "caption": "Bathroom",
+          "category": "Bathroom",
+          "order": 17,
+          "isHero": false
+        },
+        {
+          "id": "prop_206-photo-19",
+          "url": "/homes/juniper/19-bathroom.jpg",
+          "alt": "Bathroom with a rain shower, geyser and a washbasin",
+          "caption": "Bathroom",
+          "category": "Bathroom",
+          "order": 18,
+          "isHero": false
+        },
+        {
+          "id": "prop_206-photo-20",
+          "url": "/homes/juniper/20-utility.jpg",
+          "alt": "Utility area with a top-loading washing machine",
+          "caption": "Utility",
+          "category": "Utility",
+          "order": 19,
+          "isHero": false
+        }
+      ],
+      "amenities": [
+        "fully_furnished",
+        "lift",
+        "balcony"
+      ],
+      "included": [
+        "internet",
+        "housekeeping",
+        "maintenance"
+      ],
+      "nearby": [
+        {
+          "kind": "metro",
+          "name": "Yelachenahalli Metro"
+        }
+      ]
+    }
+  ]
+}

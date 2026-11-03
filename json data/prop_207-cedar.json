@@ -1,0 +1,356 @@
+{
+  "version": 1,
+  "properties": [
+    {
+      "id": "prop_207",
+      "slug": "cedar",
+      "name": "Alta Cedar Residences",
+      "status": "draft",
+      "city": "Bangalore",
+      "neighbourhood": "Bellandur",
+      "subLocality": "",
+      "addressLine": "Cedar, Bellandur, Outer Ring Road",
+      "hasLift": true,
+      "propertyType": "apartment",
+      "bedrooms": 3,
+      "furnishing": "fully",
+      "maxOccupancy": 12,
+      "kitchenType": "full",
+      "allowsEntireBooking": true,
+      "hook": "Two fully furnished three-bedroom homes in Bellandur, on the Outer Ring Road.",
+      "hostId": "host_meera",
+      "units": [
+        {
+          "id": "prop_207-room-1",
+          "kind": "room",
+          "name": "Cedar Bedroom 1",
+          "bedType": "double",
+          "hasAc": true,
+          "maxOccupancy": 2,
+          "status": "booked",
+          "hasReplicas": false,
+          "photos": [
+            {
+              "id": "prop_207-photo-2",
+              "url": "/homes/cedar/02-bedroom-1.jpg",
+              "alt": "Bedroom with a wooden double bed, grey linen and a full wall of wooden wardrobes",
+              "caption": "Bedroom 1",
+              "category": "Bedroom 1",
+              "order": 1,
+              "isHero": false
+            },
+            {
+              "id": "prop_207-photo-12",
+              "url": "/homes/cedar/12-bedroom-1.jpg",
+              "alt": "Bedroom with a double bed, bedside table and two horse-rider paintings",
+              "caption": "Bedroom 1",
+              "category": "Bedroom 1",
+              "order": 11,
+              "isHero": false
+            },
+            {
+              "id": "prop_207-photo-13",
+              "url": "/homes/cedar/13-bedroom-1.jpg",
+              "alt": "Double bed facing the wooden wardrobe with a mirror panel",
+              "caption": "Bedroom 1",
+              "category": "Bedroom 1",
+              "order": 12,
+              "isHero": false
+            },
+            {
+              "id": "prop_207-photo-14",
+              "url": "/homes/cedar/14-bedroom-1.jpg",
+              "alt": "Bedroom wardrobes with mirror and drawers beside sheer and brown curtains",
+              "caption": "Bedroom 1",
+              "category": "Bedroom 1",
+              "order": 13,
+              "isHero": false
+            }
+          ]
+        },
+        {
+          "id": "prop_207-room-2",
+          "kind": "room",
+          "name": "Cedar Bedroom 2",
+          "bedType": "double",
+          "hasAc": true,
+          "maxOccupancy": 2,
+          "status": "booked",
+          "hasReplicas": false,
+          "photos": [
+            {
+              "id": "prop_207-photo-15",
+              "url": "/homes/cedar/15-bedroom-2.jpg",
+              "alt": "Bedroom with a double bed under a red horse painting and tall curtained windows",
+              "caption": "Bedroom 2",
+              "category": "Bedroom 2",
+              "order": 14,
+              "isHero": false
+            },
+            {
+              "id": "prop_207-photo-16",
+              "url": "/homes/cedar/16-bedroom-2.jpg",
+              "alt": "Double bed with bedside tables, a red painting and a wooden wardrobe",
+              "caption": "Bedroom 2",
+              "category": "Bedroom 2",
+              "order": 15,
+              "isHero": false
+            },
+            {
+              "id": "prop_207-photo-17",
+              "url": "/homes/cedar/17-bedroom-2.jpg",
+              "alt": "Double bed with grey linen and a red painting above the headboard",
+              "caption": "Bedroom 2",
+              "category": "Bedroom 2",
+              "order": 16,
+              "isHero": false
+            }
+          ]
+        },
+        {
+          "id": "prop_207-room-3",
+          "kind": "room",
+          "name": "Cedar Bedroom 3",
+          "bedType": "double",
+          "hasAc": true,
+          "maxOccupancy": 2,
+          "status": "booked",
+          "hasReplicas": false,
+          "photos": [
+            {
+              "id": "prop_207-photo-18",
+              "url": "/homes/cedar/18-bedroom-3.jpg",
+              "alt": "Bedroom with a double bed, sheer curtains and a dark wood wardrobe with mirror",
+              "caption": "Bedroom 3",
+              "category": "Bedroom 3",
+              "order": 17,
+              "isHero": false
+            },
+            {
+              "id": "prop_207-photo-19",
+              "url": "/homes/cedar/19-bedroom-3.jpg",
+              "alt": "Compact bedroom with a double bed, curtained window and glass-door wardrobe",
+              "caption": "Bedroom 3",
+              "category": "Bedroom 3",
+              "order": 18,
+              "isHero": false
+            },
+            {
+              "id": "prop_207-photo-20",
+              "url": "/homes/cedar/20-bedroom-3.jpg",
+              "alt": "Double bed under a window, with a dark wardrobe on the right",
+              "caption": "Bedroom 3",
+              "category": "Bedroom 3",
+              "order": 19,
+              "isHero": false
+            }
+          ]
+        },
+        {
+          "id": "prop_207-entire",
+          "kind": "entire",
+          "name": "Cedar 3BHK",
+          "hasAc": true,
+          "hasBalcony": true,
+          "maxOccupancy": 6,
+          "monthlyRate": 100000,
+          "nightlyRate": 7900,
+          "status": "booked",
+          "hasReplicas": false
+        }
+      ],
+      "photos": [
+        {
+          "id": "prop_207-photo-1",
+          "url": "/homes/cedar/01-living-room.jpg",
+          "alt": "Living room with leather Chesterfield sofas, a TV wall and the dining table beyond",
+          "caption": "Living room",
+          "category": "Living room",
+          "order": 0,
+          "isHero": true
+        },
+        {
+          "id": "prop_207-photo-3",
+          "url": "/homes/cedar/03-kitchen.jpg",
+          "alt": "Galley kitchen with orange cabinets, a gas hob, chimney and black granite counters",
+          "caption": "Kitchen",
+          "category": "Kitchen",
+          "order": 2,
+          "isHero": false
+        },
+        {
+          "id": "prop_207-photo-4",
+          "url": "/homes/cedar/04-dining.jpg",
+          "alt": "Six-seat wooden dining table under a paper pendant lamp, beside curtained windows",
+          "caption": "Dining",
+          "category": "Dining",
+          "order": 3,
+          "isHero": false
+        },
+        {
+          "id": "prop_207-photo-5",
+          "url": "/homes/cedar/05-living-room.jpg",
+          "alt": "Living room with two leather sofas around a jute rug and a wall-mounted TV",
+          "caption": "Living room",
+          "category": "Living room",
+          "order": 4,
+          "isHero": false
+        },
+        {
+          "id": "prop_207-photo-6",
+          "url": "/homes/cedar/06-living-room.jpg",
+          "alt": "Leather sofas facing a TV unit against a terracotta feature wall",
+          "caption": "Living room",
+          "category": "Living room",
+          "order": 5,
+          "isHero": false
+        },
+        {
+          "id": "prop_207-photo-7",
+          "url": "/homes/cedar/07-living-room.jpg",
+          "alt": "Living room with a leather sofa set, snow-landscape painting and the front door",
+          "caption": "Living room",
+          "category": "Living room",
+          "order": 6,
+          "isHero": false
+        },
+        {
+          "id": "prop_207-photo-8",
+          "url": "/homes/cedar/08-dining.jpg",
+          "alt": "Dining table set with candles, with the kitchen visible through the doorway",
+          "caption": "Dining",
+          "category": "Dining",
+          "order": 7,
+          "isHero": false
+        },
+        {
+          "id": "prop_207-photo-9",
+          "url": "/homes/cedar/09-dining.jpg",
+          "alt": "Dining area looking back towards the living room",
+          "caption": "Dining",
+          "category": "Dining",
+          "order": 8,
+          "isHero": false
+        },
+        {
+          "id": "prop_207-photo-10",
+          "url": "/homes/cedar/10-kitchen.jpg",
+          "alt": "Kitchen counter with a two-burner hob, cookware, dish rack and microwave",
+          "caption": "Kitchen",
+          "category": "Kitchen",
+          "order": 9,
+          "isHero": false
+        },
+        {
+          "id": "prop_207-photo-11",
+          "url": "/homes/cedar/11-kitchen.jpg",
+          "alt": "Kitchen with orange cabinets and black counter, seen from the doorway",
+          "caption": "Kitchen",
+          "category": "Kitchen",
+          "order": 10,
+          "isHero": false
+        },
+        {
+          "id": "prop_207-photo-21",
+          "url": "/homes/cedar/21-bathroom.jpg",
+          "alt": "Bathroom with navy tiled wall, vessel basin, western toilet and geyser",
+          "caption": "Bathroom",
+          "category": "Bathroom",
+          "order": 20,
+          "isHero": false
+        },
+        {
+          "id": "prop_207-photo-22",
+          "url": "/homes/cedar/22-bathroom.jpg",
+          "alt": "Bathroom with navy tiles, wall-hung basin, mirror and western toilet",
+          "caption": "Bathroom",
+          "category": "Bathroom",
+          "order": 21,
+          "isHero": false
+        },
+        {
+          "id": "prop_207-photo-23",
+          "url": "/homes/cedar/23-bathroom.jpg",
+          "alt": "Bathroom with a raised shower area, teal tiles and a geyser",
+          "caption": "Bathroom",
+          "category": "Bathroom",
+          "order": 22,
+          "isHero": false
+        },
+        {
+          "id": "prop_207-photo-24",
+          "url": "/homes/cedar/24-bathroom.jpg",
+          "alt": "Bathroom with a basin, shower, towel rail and a warm salt lamp",
+          "caption": "Bathroom",
+          "category": "Bathroom",
+          "order": 23,
+          "isHero": false
+        },
+        {
+          "id": "prop_207-photo-25",
+          "url": "/homes/cedar/25-bathroom.jpg",
+          "alt": "Raised shower area with teal tiled wall and western toilet",
+          "caption": "Bathroom",
+          "category": "Bathroom",
+          "order": 24,
+          "isHero": false
+        },
+        {
+          "id": "prop_207-photo-26",
+          "url": "/homes/cedar/26-bathroom.jpg",
+          "alt": "Bathroom with teal patterned tiles, shower, geyser and western toilet",
+          "caption": "Bathroom",
+          "category": "Bathroom",
+          "order": 25,
+          "isHero": false
+        },
+        {
+          "id": "prop_207-photo-27",
+          "url": "/homes/cedar/27-bathroom.jpg",
+          "alt": "Wall-mounted vessel basin under a mirror, against teal patterned tiles",
+          "caption": "Bathroom",
+          "category": "Bathroom",
+          "order": 26,
+          "isHero": false
+        },
+        {
+          "id": "prop_207-photo-28",
+          "url": "/homes/cedar/28-bathroom.jpg",
+          "alt": "Bathroom with a window, western toilet and teal patterned tiles",
+          "caption": "Bathroom",
+          "category": "Bathroom",
+          "order": 27,
+          "isHero": false
+        },
+        {
+          "id": "prop_207-photo-29",
+          "url": "/homes/cedar/29-hallway.jpg",
+          "alt": "Hallway with marble flooring and a framed painting at the end",
+          "caption": "Hallway",
+          "category": "Hallway",
+          "order": 28,
+          "isHero": false
+        },
+        {
+          "id": "prop_207-photo-30",
+          "url": "/homes/cedar/30-utility.jpg",
+          "alt": "Utility nook with a refrigerator and an air cooler",
+          "caption": "Utility",
+          "category": "Utility",
+          "order": 29,
+          "isHero": false
+        }
+      ],
+      "amenities": [
+        "fully_furnished",
+        "lift",
+        "balcony"
+      ],
+      "included": [
+        "internet",
+        "housekeeping",
+        "maintenance"
+      ]
+    }
+  ]
+}

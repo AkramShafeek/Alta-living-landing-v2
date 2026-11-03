@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { Link, useLocation } from 'react-router-dom'
 import { Button } from '@/components/ui/button'
-import { FontSwitcher } from '@/components/FontSwitcher'
 import { FilterIcon } from 'lucide-react'
+import { navItems } from '@/content/site'
 
 const slideUpVariants = {
   hidden: { opacity: 0, y: 0 },
@@ -86,13 +86,21 @@ const Navbar = () => {
             <FilterIcon size={20} className="fill-black" />
           </div>
         )}
-        <div className="bg-white flex gap-2 border rounded-full px-1 pl-2 py-1 border-black shadow-md">
-          <Button variant="link" className="text-foreground" asChild>
-            <Link to="/listings">Listings</Link>
+        <div className="bg-white flex items-center gap-1 border rounded-full px-1 pl-2 py-1 border-black shadow-md">
+          {/* Below lg only the button stays; "Find a home" is the way in. */}
+          <div className="hidden lg:flex">
+            {navItems.map((item) => (
+              <Button key={item.label} variant="link" className="text-foreground" asChild>
+                <Link to={item.href}>{item.label}</Link>
+              </Button>
+            ))}
+          </div>
+          <Button
+            asChild
+            className="h-9 rounded-full border-2 border-black bg-amber-400 px-4 text-black hover:bg-black hover:text-amber-400"
+          >
+            <Link to="/listings">Find a home</Link>
           </Button>
-          <Button variant="link" className="text-foreground">About Us</Button>
-          <Button variant="link" className="text-foreground">Contact</Button>
-          <FontSwitcher />
         </div>
       </div>
     </motion.div>

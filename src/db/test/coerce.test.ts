@@ -1,5 +1,14 @@
 import { describe, expect, it } from "vitest"
-import { bool, date, isBlank, list, num, pairs, str } from "../coerce"
+import {
+  bool,
+  date,
+  imageUrl,
+  isBlank,
+  list,
+  num,
+  pairs,
+  str,
+} from "../coerce"
 
 describe("num", () => {
   it("reads the formats a sheet actually produces", () => {
@@ -84,5 +93,40 @@ describe("str and isBlank", () => {
     expect(str("   ")).toBeUndefined()
     expect(isBlank("  ")).toBe(true)
     expect(isBlank("x")).toBe(false)
+  })
+})
+
+describe("imageUrl", () => {
+  const ID = "1AbC-d_EfGhIjKlMnOpQrStUvWxYz0123"
+  const IMAGE = `https://lh3.googleusercontent.com/d/${ID}=w2000`
+
+  it("rewrites every shape of Drive link to the image itself", () => {
+    for (const link of [
+      `https://drive.google.com/file/d/${ID}/view?usp=sharing`,
+      `https://drive.google.com/file/d/${ID}/view?usp=drive_link`,
+      `https://drive.google.com/file/d/${ID}`,
+      `https://drive.google.com/open?id=${ID}`,
+      `https://drive.google.com/uc?export=view&id=${ID}`,
+      `https://drive.google.com/thumbnail?id=${ID}&sz=w400`,
+      `https://docs.google.com/uc?id=${ID}`,
+      `  https://drive.google.com/file/d/${ID}/view  `,
+    ]) {
+      expect(imageUrl(link), link).toBe(IMAGE)
+    }
+  })
+
+  it("passes every other URL through", () => {
+    expect(imageUrl("/homes/1.jpg")).toBe("/homes/1.jpg")
+    expect(imageUrl("https://cdn.example.com/a.jpg")).toBe(
+      "https://cdn.example.com/a.jpg"
+    )
+    expect(imageUrl(`https://lh3.googleusercontent.com/d/${ID}=w800`)).toBe(
+      `https://lh3.googleusercontent.com/d/${ID}=w800`
+    )
+  })
+
+  it("reads a blank cell as unset", () => {
+    expect(imageUrl("")).toBeUndefined()
+    expect(imageUrl("   ")).toBeUndefined()
   })
 })

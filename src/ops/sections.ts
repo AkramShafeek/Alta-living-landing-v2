@@ -12,13 +12,7 @@
 // possibility of a duplicate or a typo entirely.
 // ─────────────────────────────────────────────────────────────────────────
 
-import type { Row } from "@/db/types"
-import {
-  newPhotoId,
-  newReviewId,
-  newUnitId,
-  type ChildTable,
-} from "./propertyScope"
+import type { ChildTable } from "./propertyScope"
 
 export type SectionSpec = {
   table: ChildTable
@@ -28,8 +22,6 @@ export type SectionSpec = {
   summary: string[]
   /** Join tables: the enum column to render as an on/off grid. */
   toggle?: string
-  /** Tables with an `id`, which needs to be unique and is easy to fumble. */
-  makeId?: (rows: Row[], propertyId: string) => string
   addLabel: string
   /** Shown instead of the list when there is nothing yet. */
   empty: string
@@ -42,7 +34,6 @@ export const SECTIONS: SectionSpec[] = [
     blurb:
       "One row per bookable thing. A home has many rooms and exactly one entire-property row, priced directly.",
     summary: ["name", "kind", "monthlyRate", "status"],
-    makeId: newUnitId,
     addLabel: "Add unit",
     empty:
       "No units yet. A home needs at least the entire-property row to be bookable.",
@@ -53,7 +44,6 @@ export const SECTIONS: SectionSpec[] = [
     blurb:
       "The image files themselves are managed outside this editor — this is the caption, the alt text and the ordering.",
     summary: ["category", "caption", "url", "isHero"],
-    makeId: newPhotoId,
     addLabel: "Add photo",
     empty: "No photos yet.",
   },
@@ -116,7 +106,6 @@ export const SECTIONS: SectionSpec[] = [
     blurb:
       "Real stays only. Below three reviews the site shows no rating at all.",
     summary: ["authorFirstName", "rating", "stayMonth"],
-    makeId: newReviewId,
     addLabel: "Add review",
     empty: "No reviews yet.",
   },

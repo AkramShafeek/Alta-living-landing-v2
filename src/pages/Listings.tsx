@@ -72,19 +72,19 @@ const Listings = () => {
       .filter(
         (card) =>
           (locations.length === 0 || locations.includes(card.location)) &&
-          // An unpriced home (no entire-unit rate yet) is exempt from the price
-          // filter rather than treated as a nightly rate of zero — the same
+          // An unpriced home (no unit priced yet) is exempt from the price
+          // filter rather than treated as a rate of zero — the same
           // reasoning as the rating filter below: no data is not bad data, and
           // folding it into the range would make it vanish from the default
           // view instead of merely showing as unpriced.
-          (card.unpriced || (card.nightly >= low && card.nightly <= high)) &&
+          (card.unpriced || (card.monthly >= low && card.monthly <= high)) &&
           // An unrated home is hidden by a rating filter rather than treated as
           // a zero — too few reviews is not the same as a bad stay.
           (minRating === "0" || (card.rawRating ?? 0) >= Number(minRating))
       )
       .sort((a, b) => {
-        if (sort === "price-asc") return a.nightly - b.nightly
-        if (sort === "price-desc") return b.nightly - a.nightly
+        if (sort === "price-asc") return a.monthly - b.monthly
+        if (sort === "price-desc") return b.monthly - a.monthly
         return (b.rawRating ?? 0) - (a.rawRating ?? 0)
       })
   }, [cards, locations, range, minRating, sort])
@@ -133,7 +133,7 @@ const Listings = () => {
 
           <div className="flex flex-col gap-2.5 min-w-64 flex-1 max-w-90">
             <div className="flex justify-between items-baseline gap-4">
-              <span className={labelClasses}>Price per night</span>
+              <span className={labelClasses}>Price per month</span>
               <span className="font-mono text-[11px] font-semibold tracking-widest">
                 {formatINR(range[0])} — {formatINR(range[1])}
               </span>
@@ -144,9 +144,9 @@ const Listings = () => {
               min={bounds.min}
               max={bounds.max}
               disabled={bounds.max === 0}
-              step={100}
+              step={1000}
               minStepsBetweenThumbs={1}
-              aria-label="Price per night"
+              aria-label="Price per month"
             />
           </div>
 
@@ -181,7 +181,7 @@ const Listings = () => {
         {isLoading ? (
           // Skeletons rather than a spinner: the grid keeps its shape, so the
           // page does not jump when the real cards land.
-          <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
+          <div className="grid grid-cols-[repeat(auto-fill,minmax(min(100%,26rem),1fr))] gap-8">
             {Array.from({ length: 6 }, (_, i) => (
               <div
                 key={i}
@@ -208,7 +208,7 @@ const Listings = () => {
             </button>
           </div>
         ) : filtered.length > 0 ? (
-          <div className="flex flex-wrap justify-center gap-8">
+          <div className="grid grid-cols-[repeat(auto-fill,minmax(min(100%,26rem),1fr))] gap-8">
             {filtered.map((card, i) => (
               <motion.div
                 key={card.slug}

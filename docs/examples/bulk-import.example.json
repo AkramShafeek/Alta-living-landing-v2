@@ -1,0 +1,223 @@
+{
+  "version": 1,
+  "properties": [
+    {
+      "id": "prop_101",
+      "slug": "koramangala-courtyard-flat",
+      "name": "The Courtyard Flat",
+      "status": "draft",
+      "listedOn": "01/11/2026",
+
+      "city": "Bangalore",
+      "neighbourhood": "Koramangala",
+      "subLocality": "5th Block",
+      "lat": 12.9352,
+      "lng": 77.6245,
+      "floor": 2,
+      "totalFloors": 4,
+      "hasLift": true,
+
+      "propertyType": "apartment",
+      "bedrooms": 3,
+      "bathrooms": 2,
+      "balconies": 1,
+      "carpetAreaSqft": 1350,
+      "furnishing": "fully",
+      "maxOccupancy": 5,
+      "deskCount": 3,
+      "taskChairCount": 3,
+      "acRooms": "bedrooms_only",
+
+      "kitchenType": "full",
+      "kitchenHob": true,
+      "kitchenFridge": true,
+      "kitchenMicrowave": true,
+      "kitchenOven": false,
+      "kitchenCookware": true,
+      "laundry": "washer",
+
+      "parkingCar": 1,
+      "parkingTwoWheeler": 2,
+      "parkingCovered": true,
+
+      "wifiDownMbps": 200,
+      "wifiWired": true,
+      "wifiProvider": "ACT",
+      "powerBackup": "full",
+      "waterSource": "corporation",
+      "waterHotWater": "geyser",
+      "waterDrinking": "ro",
+
+      "housekeepingCadence": "weekly",
+      "linenChange": "weekly",
+      "gstInvoice": true,
+
+      "tenantFit": "anyone",
+      "smoking": "not_allowed",
+      "alcohol": "allowed",
+      "pets": "on_request",
+      "overnightGuests": "on_request",
+      "partyPolicy": "no_parties",
+      "kycRequired": true,
+      "agreementType": "license",
+
+      "minStayNights": 30,
+      "noticePeriodDays": 30,
+      "lockInMonths": 1,
+      "allowsEntireBooking": true,
+
+      "hook": "Three rooms around a shaded courtyard, five minutes from the Sony signal.",
+      "body": "A third-floor flat that gets the morning light and keeps the afternoon out. Every bedroom has a proper desk.",
+      "displayOnHome": false,
+      "hostId": "host_meera",
+
+      "units": [
+        {
+          "id": "prop_101-room-1",
+          "name": "Courtyard room",
+          "bedType": "queen",
+          "bathroom": "ensuite",
+          "hasDesk": true,
+          "hasAc": true,
+          "areaSqft": 190,
+          "maxOccupancy": 2,
+          "monthlyRate": 24000,
+          "nightlyRate": 1800,
+          "deposit": 48000,
+          "status": "available",
+          "photos": [
+            {
+              "url": "/homes/101/courtyard-room.jpg",
+              "alt": "Queen bed facing a window onto the courtyard",
+              "category": "Bedroom"
+            }
+          ]
+        },
+        {
+          "name": "Shared work room",
+          "bedType": "single",
+          "bathroom": "shared",
+          "hasDesk": true,
+          "maxOccupancy": 1,
+          "monthlyRate": 12000,
+          "nightlyRate": 900,
+          "status": "available",
+          "hasReplicas": true,
+          "totalCount": 4,
+          "occupiedCount": 1,
+          "note": "Four identical single rooms on the same corridor",
+          "photos": [
+            {
+              "url": "/homes/101/single-room.jpg",
+              "alt": "Single bed and a desk under a window",
+              "category": "Bedroom"
+            }
+          ]
+        },
+        {
+          "kind": "entire",
+          "name": "Entire property",
+          "maxOccupancy": 5,
+          "monthlyRate": 85000,
+          "nightlyRate": 6000,
+          "deposit": 170000,
+          "status": "available"
+        }
+      ],
+
+      "photos": [
+        {
+          "url": "/homes/101/living.jpg",
+          "alt": "Living room with a long table and two monitors",
+          "caption": "Living room, morning",
+          "category": "Living",
+          "isHero": true
+        },
+        {
+          "url": "/homes/101/kitchen.jpg",
+          "alt": "Galley kitchen with a four-burner hob",
+          "category": "Kitchen"
+        }
+      ],
+
+      "reviews": [
+        {
+          "authorFirstName": "Rohan",
+          "authorCity": "Delhi",
+          "stayMonth": "Aug 2026",
+          "stayDurationNights": 61,
+          "rating": 5,
+          "text": "Quiet enough to take calls all day, and the courtyard is a real courtyard.",
+          "source": "direct",
+          "verified": true
+        }
+      ],
+
+      "amenities": ["fully_furnished", "work_desk", "washer", "lift", "power_backup"],
+      "included": ["electricity", "water", "internet", "housekeeping"],
+
+      "notIncluded": [
+        { "item": "Cooking gas", "note": "Billed at actuals, roughly ₹900 a month" }
+      ],
+      "housekeeping": [
+        { "cover": "Common areas", "frequency": "weekly" },
+        { "cover": "Bathrooms", "frequency": "weekly" }
+      ],
+      "nearby": [
+        { "kind": "metro", "name": "Koramangala metro", "minutes": 12, "mode": "walk" },
+        { "kind": "airport", "name": "Kempegowda Airport", "minutes": 70, "mode": "drive" }
+      ],
+      "highlights": [
+        { "value": "1998", "label": "Built around a courtyard" }
+      ]
+    },
+    {
+      "id": "prop_102",
+      "slug": "assagao-studio",
+      "name": "Assagao Studio",
+      "status": "draft",
+      "city": "Goa",
+      "neighbourhood": "Assagao",
+      "propertyType": "studio",
+      "bedrooms": 1,
+      "bathrooms": 1,
+      "carpetAreaSqft": 450,
+      "furnishing": "fully",
+      "maxOccupancy": 2,
+      "acRooms": "all",
+      "kitchenType": "kitchenette",
+      "laundry": "shared",
+      "wifiDownMbps": 100,
+      "powerBackup": "partial",
+      "waterSource": "borewell",
+      "waterHotWater": "solar",
+      "waterDrinking": "can",
+      "housekeepingCadence": "fortnightly",
+      "linenChange": "fortnightly",
+      "tenantFit": "couples_welcome",
+      "smoking": "not_allowed",
+      "alcohol": "allowed",
+      "pets": "not_allowed",
+      "overnightGuests": "allowed",
+      "partyPolicy": "no_parties",
+      "agreementType": "rental_agreement",
+      "minStayNights": 7,
+      "hook": "A studio under a mango tree, ten minutes from the beach by scooter.",
+      "body": "One room, done properly.",
+      "hostId": "host_meera",
+      "units": [
+        {
+          "kind": "entire",
+          "name": "Entire studio",
+          "maxOccupancy": 2,
+          "monthlyRate": 45000,
+          "nightlyRate": 2500,
+          "status": "available"
+        }
+      ],
+      "photos": [
+        { "url": "/homes/102/studio.jpg", "alt": "Studio with a double bed and a desk", "isHero": true }
+      ]
+    }
+  ]
+}

@@ -110,6 +110,17 @@ export const zProperty = z.object({
   minStayNights: z.number().int().positive(),
   noticePeriodDays: z.number().int().nonnegative().default(0),
   lockInMonths: z.number().int().nonnegative().default(0),
+  /**
+   * Whether the whole home can be taken as one booking, alongside its rooms.
+   *
+   * When false the `entire` unit stays in the sheet — its rate is still a fact
+   * ops may want to keep — but the service leaves it out of the assembled
+   * property, so no page, price or cart can offer it.
+   *
+   * Defaults to true because that is what every home did before the column
+   * existed: a sheet without it must keep rendering exactly as it did.
+   */
+  allowsEntireBooking: z.boolean().default(true),
 
   // story — hand-written, and deliberately not structured
   hook: z.string().min(1).max(140),

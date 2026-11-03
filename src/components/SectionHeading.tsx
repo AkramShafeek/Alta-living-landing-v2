@@ -48,7 +48,7 @@ export const SectionHeading = ({
             noteColor
           )}
         >
-          More than 1000 people have signed up already. What are you waiting for?          
+          {note}
         </p>
       )}
     </div>

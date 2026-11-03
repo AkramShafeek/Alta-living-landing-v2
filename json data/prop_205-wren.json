@@ -1,0 +1,408 @@
+{
+  "version": 1,
+  "properties": [
+    {
+      "id": "prop_205",
+      "slug": "wren",
+      "name": "Alta Wren House",
+      "status": "draft",
+      "city": "Bangalore",
+      "neighbourhood": "Vasanthapura",
+      "subLocality": "Konankunte Cross",
+      "addressLine": "41, Green & Cozy, Vasanthapura, Konankunte Cross, Kanakapura Road",
+      "hasLift": false,
+      "propertyType": "apartment",
+      "bedrooms": 1,
+      "bathrooms": 1,
+      "carpetAreaSqft": 700,
+      "furnishing": "fully",
+      "maxOccupancy": 4,
+      "acRooms": "none",
+      "kitchenType": "full",
+      "laundry": "washer",
+      "wifiDownMbps": 50,
+      "powerBackup": "full",
+      "waterSource": "both",
+      "waterHotWater": "geyser",
+      "waterDrinking": "ro",
+      "housekeepingCadence": "fortnightly",
+      "linenChange": "fortnightly",
+      "tenantFit": "anyone",
+      "smoking": "not_allowed",
+      "alcohol": "not_allowed",
+      "pets": "not_allowed",
+      "overnightGuests": "on_request",
+      "partyPolicy": "no_parties",
+      "agreementType": "license",
+      "minStayNights": 7,
+      "allowsEntireBooking": false,
+      "hook": "Two fully furnished one-bedroom homes in Vasanthapura, off Kanakapura Road.",
+      "body": "Two one-bedroom homes in Vasanthapura, near Konankunte Cross on Kanakapura Road. Both are fully furnished, with Wi-Fi, housekeeping and maintenance included in the rent.",
+      "hostId": "host_meera",
+      "units": [
+        {
+          "id": "prop_205-room-1",
+          "kind": "room",
+          "name": "Wren 1",
+          "hasAc": false,
+          "hasBalcony": false,
+          "maxOccupancy": 2,
+          "monthlyRate": 45000,
+          "nightlyRate": 2300,
+          "status": "booked",
+          "hasReplicas": false,
+          "photos": [
+            {
+              "id": "prop_205-photo-2",
+              "url": "/homes/wren/02-wren-1-bedroom.avif",
+              "alt": "Bright bedroom with a double bed, white quilt, patterned cushions and a curtained window",
+              "caption": "Wren 1 · Bedroom",
+              "category": "Bedroom",
+              "order": 1,
+              "isHero": false
+            },
+            {
+              "id": "prop_205-photo-5",
+              "url": "/homes/wren/05-wren-1-living-room.avif",
+              "alt": "Living room with a corner desk, the front door and a view into the bedroom",
+              "caption": "Wren 1 · Living room",
+              "category": "Living room",
+              "order": 4,
+              "isHero": false
+            },
+            {
+              "id": "prop_205-photo-6",
+              "url": "/homes/wren/06-wren-1-bedroom.avif",
+              "alt": "Double bed with brown striped linen and folded towels beside the window",
+              "caption": "Wren 1 · Bedroom",
+              "category": "Bedroom",
+              "order": 5,
+              "isHero": false
+            },
+            {
+              "id": "prop_205-photo-7",
+              "url": "/homes/wren/07-wren-1-kitchen.avif",
+              "alt": "Kitchen with wooden cabinets, a sink, an induction hob and a kettle",
+              "caption": "Wren 1 · Kitchen",
+              "category": "Kitchen",
+              "order": 6,
+              "isHero": false
+            },
+            {
+              "id": "prop_205-photo-8",
+              "url": "/homes/wren/08-wren-1-living-room.avif",
+              "alt": "Living room with a grey sofa bed, floor lamps and a wall clock",
+              "caption": "Wren 1 · Living room",
+              "category": "Living room",
+              "order": 7,
+              "isHero": false
+            },
+            {
+              "id": "prop_205-photo-9",
+              "url": "/homes/wren/09-wren-1-living-room.avif",
+              "alt": "Grey sofa bed with cushions and a cream throw",
+              "caption": "Wren 1 · Living room",
+              "category": "Living room",
+              "order": 8,
+              "isHero": false
+            },
+            {
+              "id": "prop_205-photo-10",
+              "url": "/homes/wren/10-wren-1-living-room.avif",
+              "alt": "Corner desk with a lamp and Wi-Fi router beside a curtained window",
+              "caption": "Wren 1 · Living room",
+              "category": "Living room",
+              "order": 9,
+              "isHero": false
+            },
+            {
+              "id": "prop_205-photo-11",
+              "url": "/homes/wren/11-wren-1-living-room.avif",
+              "alt": "Wooden sideboard next to a double-door refrigerator",
+              "caption": "Wren 1 · Living room",
+              "category": "Living room",
+              "order": 10,
+              "isHero": false
+            },
+            {
+              "id": "prop_205-photo-12",
+              "url": "/homes/wren/12-wren-1-bedroom.avif",
+              "alt": "Double bed with a dark wood headboard and a tall wardrobe",
+              "caption": "Wren 1 · Bedroom",
+              "category": "Bedroom",
+              "order": 11,
+              "isHero": false
+            },
+            {
+              "id": "prop_205-photo-13",
+              "url": "/homes/wren/13-wren-1-bedroom.avif",
+              "alt": "Bedside desk with a lamp and laptop, the bed through the doorway",
+              "caption": "Wren 1 · Bedroom",
+              "category": "Bedroom",
+              "order": 12,
+              "isHero": false
+            },
+            {
+              "id": "prop_205-photo-14",
+              "url": "/homes/wren/14-wren-1-bedroom.avif",
+              "alt": "Desk with a laptop and lamp beside the doorway to the bed",
+              "caption": "Wren 1 · Bedroom",
+              "category": "Bedroom",
+              "order": 13,
+              "isHero": false
+            },
+            {
+              "id": "prop_205-photo-15",
+              "url": "/homes/wren/15-wren-1-bedroom.avif",
+              "alt": "Breakfast tray with a candle and fruit on the bed",
+              "caption": "Wren 1 · Bedroom",
+              "category": "Bedroom",
+              "order": 14,
+              "isHero": false
+            },
+            {
+              "id": "prop_205-photo-16",
+              "url": "/homes/wren/16-wren-1-bedroom.avif",
+              "alt": "Laptop playing Netflix on the bed by candlelight",
+              "caption": "Wren 1 · Bedroom",
+              "category": "Bedroom",
+              "order": 15,
+              "isHero": false
+            },
+            {
+              "id": "prop_205-photo-17",
+              "url": "/homes/wren/17-wren-1-bathroom.avif",
+              "alt": "White-tiled bathroom with a western toilet, shower and wall-mounted taps",
+              "caption": "Wren 1 · Bathroom",
+              "category": "Bathroom",
+              "order": 16,
+              "isHero": false
+            },
+            {
+              "id": "prop_205-photo-18",
+              "url": "/homes/wren/18-wren-1-kitchen.avif",
+              "alt": "Cookware and dinner plates on a kitchen shelf",
+              "caption": "Wren 1 · Kitchen",
+              "category": "Kitchen",
+              "order": 17,
+              "isHero": false
+            },
+            {
+              "id": "prop_205-photo-19",
+              "url": "/homes/wren/19-wren-1-kitchen.avif",
+              "alt": "Kitchen shelves with pans, mugs and bowls",
+              "caption": "Wren 1 · Kitchen",
+              "category": "Kitchen",
+              "order": 18,
+              "isHero": false
+            },
+            {
+              "id": "prop_205-photo-20",
+              "url": "/homes/wren/20-wren-1-kitchen.avif",
+              "alt": "Plates and bowls beside an induction hob and a kettle",
+              "caption": "Wren 1 · Kitchen",
+              "category": "Kitchen",
+              "order": 19,
+              "isHero": false
+            },
+            {
+              "id": "prop_205-photo-21",
+              "url": "/homes/wren/21-wren-1-kitchen.avif",
+              "alt": "Induction hob and electric kettle on the counter",
+              "caption": "Wren 1 · Kitchen",
+              "category": "Kitchen",
+              "order": 20,
+              "isHero": false
+            },
+            {
+              "id": "prop_205-photo-22",
+              "url": "/homes/wren/22-wren-1-kitchen.avif",
+              "alt": "Cutlery drawer with knives, spoons, a peeler and scissors",
+              "caption": "Wren 1 · Kitchen",
+              "category": "Kitchen",
+              "order": 21,
+              "isHero": false
+            }
+          ]
+        },
+        {
+          "id": "prop_205-room-2",
+          "kind": "room",
+          "name": "Wren 2",
+          "hasAc": false,
+          "hasBalcony": false,
+          "maxOccupancy": 2,
+          "monthlyRate": 45000,
+          "nightlyRate": 2300,
+          "status": "available",
+          "hasReplicas": false,
+          "photos": [
+            {
+              "id": "prop_205-photo-1",
+              "url": "/homes/wren/01-wren-2-living-room.avif",
+              "alt": "Living room with a navy sofa bed on a round jute rug, a floor lamp and a full-length mirror",
+              "caption": "Wren 2 · Living room",
+              "category": "Living room",
+              "order": 0,
+              "isHero": true
+            },
+            {
+              "id": "prop_205-photo-3",
+              "url": "/homes/wren/03-wren-2-kitchen.avif",
+              "alt": "L-shaped kitchen with wooden cabinets, a sink and black counters under a window",
+              "caption": "Wren 2 · Kitchen",
+              "category": "Kitchen",
+              "order": 2,
+              "isHero": false
+            },
+            {
+              "id": "prop_205-photo-23",
+              "url": "/homes/wren/23-wren-2-bedroom.avif",
+              "alt": "Bedroom with a light wood double bed, overhead cabinets and a curtained window",
+              "caption": "Wren 2 · Bedroom",
+              "category": "Bedroom",
+              "order": 22,
+              "isHero": false
+            },
+            {
+              "id": "prop_205-photo-24",
+              "url": "/homes/wren/24-wren-2-bathroom.avif",
+              "alt": "Bathroom with blue tiles, a western toilet, a shower curtain and a plant by the window",
+              "caption": "Wren 2 · Bathroom",
+              "category": "Bathroom",
+              "order": 23,
+              "isHero": false
+            },
+            {
+              "id": "prop_205-photo-25",
+              "url": "/homes/wren/25-wren-2-living-room.avif",
+              "alt": "Living room with a navy sofa bed, a round rug and a curtained window",
+              "caption": "Wren 2 · Living room",
+              "category": "Living room",
+              "order": 24,
+              "isHero": false
+            },
+            {
+              "id": "prop_205-photo-26",
+              "url": "/homes/wren/26-wren-2-living-room.avif",
+              "alt": "Living room with a corner desk and the doorway to the bedroom",
+              "caption": "Wren 2 · Living room",
+              "category": "Living room",
+              "order": 25,
+              "isHero": false
+            },
+            {
+              "id": "prop_205-photo-27",
+              "url": "/homes/wren/27-wren-2-bathroom.avif",
+              "alt": "Bathroom with blue tiles and a leaf-print wall beside the door",
+              "caption": "Wren 2 · Bathroom",
+              "category": "Bathroom",
+              "order": 26,
+              "isHero": false
+            }
+          ]
+        }
+      ],
+      "photos": [
+        {
+          "id": "prop_205-photo-4",
+          "url": "/homes/wren/04-building.avif",
+          "alt": "Front of the two-storey white building with orange accents and an outside staircase",
+          "caption": "Building",
+          "category": "Building",
+          "order": 3,
+          "isHero": false
+        },
+        {
+          "id": "prop_205-photo-28",
+          "url": "/homes/wren/28-building.avif",
+          "alt": "Corner view of the building with its balconies and outside staircase",
+          "caption": "Building",
+          "category": "Building",
+          "order": 27,
+          "isHero": false
+        },
+        {
+          "id": "prop_205-photo-29",
+          "url": "/homes/wren/29-building.avif",
+          "alt": "Ground-floor entrance with a gate and a doormat",
+          "caption": "Building",
+          "category": "Building",
+          "order": 28,
+          "isHero": false
+        },
+        {
+          "id": "prop_205-photo-30",
+          "url": "/homes/wren/30-building.avif",
+          "alt": "Tree-lined street outside the building",
+          "caption": "Building",
+          "category": "Building",
+          "order": 29,
+          "isHero": false
+        },
+        {
+          "id": "prop_205-photo-31",
+          "url": "/homes/wren/31-building.avif",
+          "alt": "The building seen from the street, with parked cars",
+          "caption": "Building",
+          "category": "Building",
+          "order": 30,
+          "isHero": false
+        },
+        {
+          "id": "prop_205-photo-32",
+          "url": "/homes/wren/32-terrace.avif",
+          "alt": "Open rooftop terrace surrounded by trees",
+          "caption": "Terrace",
+          "category": "Terrace",
+          "order": 31,
+          "isHero": false
+        },
+        {
+          "id": "prop_205-photo-33",
+          "url": "/homes/wren/33-neighbourhood.avif",
+          "alt": "Temple with a glass pyramid roof and white gopuram, nearby",
+          "caption": "Neighbourhood",
+          "category": "Neighbourhood",
+          "order": 32,
+          "isHero": false
+        },
+        {
+          "id": "prop_205-photo-34",
+          "url": "/homes/wren/34-neighbourhood.avif",
+          "alt": "Paved walking path under trees in a nearby park",
+          "caption": "Neighbourhood",
+          "category": "Neighbourhood",
+          "order": 33,
+          "isHero": false
+        },
+        {
+          "id": "prop_205-photo-35",
+          "url": "/homes/wren/35-neighbourhood.avif",
+          "alt": "Walking path along a lake at sunset",
+          "caption": "Neighbourhood",
+          "category": "Neighbourhood",
+          "order": 34,
+          "isHero": false
+        },
+        {
+          "id": "prop_205-photo-36",
+          "url": "/homes/wren/36-neighbourhood.avif",
+          "alt": "Open ground among trees in a nearby park",
+          "caption": "Neighbourhood",
+          "category": "Neighbourhood",
+          "order": 35,
+          "isHero": false
+        }
+      ],
+      "amenities": [
+        "fully_furnished"
+      ],
+      "included": [
+        "internet",
+        "housekeeping",
+        "maintenance"
+      ]
+    }
+  ]
+}

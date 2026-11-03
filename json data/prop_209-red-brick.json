@@ -1,0 +1,75 @@
+{
+  "version": 1,
+  "properties": [
+    {
+      "id": "prop_209",
+      "slug": "red-brick",
+      "name": "The Red Brick Estate",
+      "status": "draft",
+      "city": "Mandya",
+      "neighbourhood": "Maddur",
+      "subLocality": "",
+      "addressLine": "Maddur, Mysuru–Bengaluru Expressway",
+      "hasLift": false,
+      "propertyType": "independent_house",
+      "bedrooms": 8,
+      "bathrooms": 8,
+      "carpetAreaSqft": 700,
+      "furnishing": "fully",
+      "maxOccupancy": 32,
+      "acRooms": "bedrooms_only",
+      "kitchenType": "full",
+      "laundry": "none",
+      "wifiDownMbps": 50,
+      "powerBackup": "full",
+      "waterSource": "borewell",
+      "waterHotWater": "geyser",
+      "waterDrinking": "ro",
+      "housekeepingCadence": "fortnightly",
+      "linenChange": "fortnightly",
+      "tenantFit": "anyone",
+      "smoking": "not_allowed",
+      "alcohol": "not_allowed",
+      "pets": "not_allowed",
+      "overnightGuests": "on_request",
+      "partyPolicy": "no_parties",
+      "agreementType": "none",
+      "minStayNights": 2,
+      "allowsEntireBooking": false,
+      "hook": "A resort estate at Maddur on the Mysuru–Bengaluru Expressway: eight rooms and two dorms.",
+      "body": "An out-of-city estate at Maddur, on the Mysuru–Bengaluru Expressway, with eight rooms and two dorms. Fully furnished, with Wi-Fi, housekeeping and maintenance included.",
+      "hostId": "host_meera",
+      "units": [
+        {
+          "id": "prop_209-room-1",
+          "name": "Red Brick room",
+          "hasBalcony": true,
+          "maxOccupancy": 2,
+          "status": "available",
+          "note": "AC in 4 of the 8 rooms",
+          "hasReplicas": true,
+          "totalCount": 8,
+          "occupiedCount": 8
+        },
+        {
+          "id": "prop_209-room-2",
+          "name": "Red Brick dorm",
+          "maxOccupancy": 8,
+          "status": "available",
+          "hasReplicas": true,
+          "totalCount": 2,
+          "occupiedCount": 2
+        }
+      ],
+      "amenities": [
+        "fully_furnished",
+        "balcony"
+      ],
+      "included": [
+        "internet",
+        "housekeeping",
+        "maintenance"
+      ]
+    }
+  ]
+}

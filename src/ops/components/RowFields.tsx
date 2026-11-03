@@ -18,7 +18,8 @@ import { cn } from "@/lib/utils"
 import type { TableName } from "@/db/config"
 import type { Row } from "@/db/types"
 import { checkRow, fieldsOf, type Field } from "../fields"
-import { FIELD_GROUPS, OTHER_GROUP } from "../fieldGroups"
+import { bool } from "@/db/coerce"
+import { FIELD_GROUPS, OTHER_GROUP, SHOWN_WHEN } from "../fieldGroups"
 import { MANAGED_COLUMNS } from "../sections"
 import { FieldInput } from "./FieldInput"
 
@@ -65,6 +66,7 @@ const FieldGrid = ({
   problems,
   columns,
   onChange,
+  onGenerateId,
 }: {
   table: TableName
   row: Row
@@ -72,6 +74,7 @@ const FieldGrid = ({
   problems: Record<string, string>
   columns: Columns
   onChange: (column: string, value: string) => void
+  onGenerateId?: () => void
 }) => (
   <div
     className={cn(
@@ -92,6 +95,7 @@ const FieldGrid = ({
           value={row[field.name] ?? ""}
           problem={problems[field.name]}
           onChange={(value) => onChange(field.name, value)}
+          onGenerate={field.name === "id" ? onGenerateId : undefined}
         />
       </div>
     ))}
@@ -102,20 +106,36 @@ export const RowFields = ({
   table,
   row,
   onChange,
+  onGenerateId,
   columns = 3,
 }: {
   table: TableName
   row: Row
   onChange: (column: string, value: string) => void
+  /** Fills a blank `id` cell. Absent where ids are not generated. */
+  onGenerateId?: () => void
   /** Widest column count; sections in a narrower panel pass fewer. */
   columns?: Columns
 }) => {
-  const fields = useMemo(
+  const allFields = useMemo(
     () => fieldsOf(table).filter((field) => !MANAGED_COLUMNS.has(field.name)),
     [table]
   )
-  const sections = useMemo(() => groupFields(table, fields), [table, fields])
+
   const problems = checkRow(table, row)
+
+  // Per row, not per table: whether a replica count applies depends on this
+  // row's own `hasReplicas`. A gated field that holds a bad value stays on
+  // screen even when switched off — the db rejects the row either way, and a
+  // problem ops cannot see is a problem ops cannot fix.
+  const conditions = SHOWN_WHEN[table]
+  const fields = conditions
+    ? allFields.filter((field) => {
+        const gate = conditions[field.name]
+        return !gate || bool(row[gate]) === true || Boolean(problems[field.name])
+      })
+    : allFields
+  const sections = groupFields(table, fields)
 
   // One group and no title is the ungrouped case — render the grid on its own
   // rather than wrapping it in a section with an empty heading.
@@ -128,6 +148,7 @@ export const RowFields = ({
         problems={problems}
         columns={columns}
         onChange={onChange}
+        onGenerateId={onGenerateId}
       />
     )
   }
@@ -160,6 +181,7 @@ export const RowFields = ({
               problems={problems}
               columns={columns}
               onChange={onChange}
+        onGenerateId={onGenerateId}
             />
           </section>
         )

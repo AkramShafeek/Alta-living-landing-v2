@@ -12,6 +12,7 @@ export type PropertyCardData = {
   hook?: string
   location?: string
   bedType?: string
+  size?: string
   availability?: string
   price?: string
   priceUnit?: string
@@ -41,20 +42,28 @@ export const PropertyCard = ({
     hook = "Something nice about the property",
     location = "Location",
     bedType = "1BHK",
+    size,
     availability = "Available 1/3",
     price = "₹ 30,000",
-    // Unused: the markup below hardcodes "/ month (per room)" rather than
-    // reading this prop. Kept `_`-prefixed rather than dropped from the
-    // signature, since callers still pass it and removing the prop would be
-    // a breaking change for no behaviour gained.
-    priceUnit: _priceUnit = "per month",
+    // Data, not design: a home whose cheapest offer is the whole home is not
+    // priced "per room".
+    priceUnit = "month (per room)",
     rating,
     unpriced = false,
   } = property ?? {}
 
-  const card = <div className="pb-6 flex-1 min-w-130 bg-[#fffef6] flex rounded-4xl flex-col border border-neutral-500 gap-2 overflow-hidden group/card">
+  const card = <div className="pb-6 flex-1 min-w-0 bg-[#fffef6] flex rounded-4xl flex-col border border-neutral-500 gap-2 overflow-hidden group/card">
     <div className="h-80 flex relative border-b border-neutral-500 overflow-hidden">
-      <img src={src || propertySrc || "/3.jpg"} className="bg-cover w-full h-full object-cover transition-transform duration-300 ease-out group-hover/card:scale-[1.03]" />
+      {src || propertySrc ? (
+        <img src={src || propertySrc} className="bg-cover w-full h-full object-cover transition-transform duration-300 ease-out group-hover/card:scale-[1.03]" />
+      ) : (
+        // No photo yet: say so, rather than borrowing another home's picture.
+        <div className="flex h-full w-full items-center justify-center bg-[#f0f0f0]">
+          <span className="font-mono text-[11px] tracking-[0.18em] text-foreground/60 uppercase">
+            Photos coming soon
+          </span>
+        </div>
+      )}
       {rating && (
         <span className="absolute top-3 right-3 bg-white rounded-full border border-neutral-500 px-2 py-1 flex items-center gap-1 font-mono text-[11px] font-semibold tracking-widest shadow-[3px_3px_0px_#000]">
           <StarIcon size={11} className="fill-black" /> {rating}
@@ -72,9 +81,9 @@ export const PropertyCard = ({
       <div className="flex flex-col w-full gap-2">
         <div className="flex flex-col px-4 gap-2 mb-3">
           <Separator />
-          <div className="text-xs flex justify-between gap-2">
+          <div className="text-xs flex flex-wrap justify-between gap-x-2 gap-y-1.5">
             <div className="bg-black text-white text-xs h-fit px-2 py-1 flex gap-2 items-center rounded-full"> <MapPinIcon size={12} /> {location}</div>
-            <p className="flex items-center gap-1"><DiamondIcon size={16} /> 1200 sq ft</p>
+            {size && <p className="flex items-center gap-1"><DiamondIcon size={16} /> {size}</p>}
             <p className="flex items-center gap-1"><BedIcon size={16} /> {bedType}</p>
             <p className="flex items-center gap-1"><DoorOpenIcon size={16} /> {availability}</p>
           </div>
@@ -88,7 +97,7 @@ export const PropertyCard = ({
               <>
                 <p className="text-xs font-light">Starting from</p>
                 <p className="flex flex-1 items-baseline gap-1 text-2xl font-bold">{price}
-                  <p className="text-xs font-light">/ month (per room)</p>
+                  <p className="text-xs font-light">/ {priceUnit}</p>
                 </p>
               </>
             )}

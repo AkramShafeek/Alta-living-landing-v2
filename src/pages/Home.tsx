@@ -14,7 +14,11 @@ import { AreaExplorer } from "@/sections/AreaExplorer"
 import { ContactSection } from "@/sections/ContactSection"
 import { ClosingCta } from "@/sections/ClosingCta"
 import { Footer } from "@/sections/Footer"
-import { heroContent, tickerItems } from "@/content/site"
+import { ForCompaniesAndOwners } from "@/sections/ForCompaniesAndOwners"
+import { FaqSection } from "@/sections/FaqSection"
+import { enquiryWhatsApp, heroContent, tickerItems } from "@/content/site"
+import { whatsappTextLink } from "@/lib/whatsapp"
+import { Link } from "react-router-dom"
 // import { cn } from "@/lib/utils" // unused
 
 const Home = () => {
@@ -99,9 +103,9 @@ const Home = () => {
                 animate="visible"
                 variants={altaVariants}
               >
-                <p className="max-w-2xl text-8xl font-extrabold">
-                  Looking for a house rental?
-                </p>
+                <h1 className="max-w-4xl text-6xl leading-[0.95] font-extrabold tracking-tight text-balance md:text-8xl">
+                  {heroContent.headline}
+                </h1>
               </motion.div>
 
               <motion.div variants={slideUpVariants}>
@@ -112,10 +116,25 @@ const Home = () => {
 
               <motion.div
                 variants={slideUpVariants}
-                className="mt-5 flex w-full justify-center"
+                className="z-10 mt-10 mb-8 flex w-full flex-wrap justify-center gap-4"
               >
-                <Button className="z-10 m-8 mx-auto h-16 w-1/4 rounded-full border-2 border-black bg-white text-black shadow-[5px_6px_0px_#000] hover:bg-yellow-400 active:shadow-none">
-                  {heroContent.ctaLabel}
+                <Button
+                  asChild
+                  className="h-16 rounded-full border-2 border-black bg-white px-10 text-base text-black shadow-[5px_6px_0px_#000] hover:bg-yellow-400 active:shadow-none"
+                >
+                  <Link to="/listings">{heroContent.ctaLabel}</Link>
+                </Button>
+                <Button
+                  asChild
+                  className="h-16 rounded-full border-2 border-black bg-black px-10 text-base text-amber-400 shadow-[5px_6px_0px_#000] hover:bg-amber-400 hover:text-black active:shadow-none"
+                >
+                  <a
+                    href={whatsappTextLink(enquiryWhatsApp, "Hi Alta, I'm looking for a home.")}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {heroContent.whatsappLabel}
+                  </a>
                 </Button>
               </motion.div>
 
@@ -142,6 +161,8 @@ const Home = () => {
       <AreaExplorer />
       {/* <PricingSection /> */}
       <ContactSection />
+      <ForCompaniesAndOwners />
+      <FaqSection />
       <ClosingCta />
       <Footer />
     </>

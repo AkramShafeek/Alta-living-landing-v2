@@ -125,6 +125,37 @@ describe("checkRow", () => {
   })
 })
 
+describe("checkRow — rules across columns", () => {
+  const unit = {
+    id: "unit_x",
+    propertyId: "prop_001",
+    kind: "room",
+    name: "Bunk room",
+    maxOccupancy: "1",
+    monthlyRate: "9,000",
+    nightlyRate: "900",
+    status: "available",
+  }
+
+  it("asks for the counts once hasReplicas is TRUE", () => {
+    expect(checkRow("units", { ...unit, hasReplicas: "FALSE" })).toEqual({})
+    expect(
+      Object.keys(checkRow("units", { ...unit, hasReplicas: "TRUE" })).sort()
+    ).toEqual(["occupiedCount", "totalCount"])
+  })
+
+  it("files occupied-over-total under occupiedCount", () => {
+    const problems = checkRow("units", {
+      ...unit,
+      hasReplicas: "TRUE",
+      totalCount: "3",
+      occupiedCount: "4",
+    })
+    expect(Object.keys(problems)).toEqual(["occupiedCount"])
+    expect(problems.occupiedCount).toMatch(/totalCount/)
+  })
+})
+
 describe("blankRow", () => {
   it("carries every column, so a new row exports the same header", () => {
     const row = blankRow("units")

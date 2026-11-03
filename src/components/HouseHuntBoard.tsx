@@ -1,16 +1,20 @@
 import { useEffect, useRef, useState, useCallback } from "react"
 import { motion } from "framer-motion"
+import { houseHuntNotes } from "@/content/site"
 
 // ─── Data ────────────────────────────────────────────────────────────────
 
-const NOTES = [
-  { id: "a", x: 8, y: 18, rotate: -6, text: "Indiranagar\n2BHK — too small" },
-  { id: "b", x: 24, y: 42, rotate: 4, text: "Koramangala\n★ good light" },
-  { id: "c", x: 15, y: 78, rotate: -3, text: "Whitefield\ntoo far from work" },
-  { id: "d", x: 88, y: 25, rotate: 5, text: "HSR Layout\nnear metro?" },
-  { id: "e", x: 92, y: 48, rotate: -4, text: "Budget\n₹30,000 / night" },
-  { id: "f", x: 80, y: 82, rotate: 3, text: "Jayanagar\nvisited 12/3 ✓" },
+// Where each note sits and how it tilts. The words are in site.ts.
+const PLACES = [
+  { id: "a", x: 8, y: 18, rotate: -6 },
+  { id: "b", x: 9, y: 50, rotate: 4 },
+  { id: "c", x: 15, y: 78, rotate: -3 },
+  { id: "d", x: 88, y: 25, rotate: 5 },
+  { id: "e", x: 92, y: 48, rotate: -4 },
+  { id: "f", x: 80, y: 82, rotate: 3 },
 ] as const
+
+const NOTES = PLACES.map((place, i) => ({ ...place, text: houseHuntNotes[i] }))
 
 const CONNECTIONS: [string, string][] = [
   ["a", "b"],

@@ -97,40 +97,103 @@ export function newPropertyRow(existing: Row[]): Row {
   }
 }
 
-/** A new unit id that does not collide inside this property. */
-export function newUnitId(units: Row[], propertyId: string): string {
-  const suffix = propertyId.replace(/^prop_/, "")
-  const taken = new Set(units.map((unit) => unit.id))
+// ── child ids ────────────────────────────────────────────────────────────
+// Every generated id is the property id plus a noun and a number:
+//
+//   prop_004-room-1   prop_004-photo-12   prop_004-review-3   prop_004-entire
+//
+// Readable in a sheet cell, sortable, and scoped by construction — two homes
+// cannot generate the same id because their prefixes differ. The number is the
+// smallest one not already taken in the whole table, so a gap left by a
+// deleted row is reused rather than the count creeping upward.
+//
+// Older ids (`unit_001a`, `ph_001b`) stay as they are. Nothing parses an id;
+// it only has to be unique, and the two styles cannot collide.
 
-  for (let i = 0; i < 26; i += 1) {
-    const candidate = `unit_${suffix}${String.fromCharCode(97 + i)}`
-    if (!taken.has(candidate)) return candidate
+/** The tables whose rows carry their own `id`, and the noun each one uses. */
+export const ID_NOUNS = {
+  units: "room",
+  photos: "photo",
+  reviews: "review",
+} as const satisfies Partial<Record<ChildTable, string>>
+
+export type IdTable = keyof typeof ID_NOUNS
+
+export const hasOwnId = (table: TableName): table is IdTable =>
+  table in ID_NOUNS
+
+/**
+ * A fresh id for a row of `table` belonging to `propertyId`.
+ *
+ * `taken` is every id already in the table — all homes, not just this one, so
+ * a hand-typed id that happens to match the pattern is still avoided. Pass
+ * `kind: "entire"` for the whole-home unit, which gets `<prop>-entire` when
+ * that is free; a home has exactly one, so it needs no number.
+ */
+export function newChildId(
+  table: IdTable,
+  taken: ReadonlySet<string>,
+  propertyId: string,
+  kind?: string
+): string {
+  if (table === "units" && kind === "entire") {
+    const whole = `${propertyId}-entire`
+    if (!taken.has(whole)) return whole
   }
-  return `unit_${suffix}_${Date.now()}`
+
+  const stem = `${propertyId}-${ID_NOUNS[table]}-`
+  for (let n = 1; ; n += 1) {
+    if (!taken.has(`${stem}${n}`)) return `${stem}${n}`
+  }
 }
 
-/** Same, for photos. */
-export function newPhotoId(photos: Row[], propertyId: string): string {
-  const suffix = propertyId.replace(/^prop_/, "")
-  const taken = new Set(photos.map((photo) => photo.id))
+/** Every non-blank id in a table. */
+export const idsIn = (rows: readonly Row[]): Set<string> =>
+  new Set(rows.map((row) => row.id ?? "").filter(Boolean))
 
-  for (let i = 0; i < 26; i += 1) {
-    const candidate = `ph_${suffix}${String.fromCharCode(97 + i)}`
-    if (!taken.has(candidate)) return candidate
+/**
+ * Fills every blank id on one home's units, photos and reviews.
+ *
+ * Returns only the tables it changed, ready for `replaceTables`. Ids that are
+ * already set are never touched: a unit's id is what its photos point at, and
+ * renaming it would silently detach them.
+ */
+export function fillMissingIds(
+  state: DraftSlice,
+  propertyId: string
+): Partial<Record<TableName, Row[]>> {
+  const changed: Partial<Record<TableName, Row[]>> = {}
+
+  for (const table of Object.keys(ID_NOUNS) as IdTable[]) {
+    const rows = rowsOf(state, table)
+    const taken = idsIn(rows)
+    let touched = false
+
+    const next = rows.map((row) => {
+      if (row.propertyId !== propertyId || (row.id ?? "").trim() !== "") {
+        return row
+      }
+      const id = newChildId(table, taken, propertyId, row.kind)
+      taken.add(id)
+      touched = true
+      return { ...row, id }
+    })
+
+    if (touched) changed[table] = next
   }
-  return `ph_${suffix}_${Date.now()}`
+
+  return changed
 }
 
-/** Same, for reviews. */
-export function newReviewId(reviews: Row[], propertyId: string): string {
-  const suffix = propertyId.replace(/^prop_/, "")
-  const taken = new Set(reviews.map((review) => review.id))
-
-  for (let i = 0; i < 26; i += 1) {
-    const candidate = `rev_${suffix}${String.fromCharCode(97 + i)}`
-    if (!taken.has(candidate)) return candidate
+/** How many of this home's id-bearing rows have no id yet. */
+export function missingIdCount(state: DraftSlice, propertyId: string): number {
+  let count = 0
+  for (const table of Object.keys(ID_NOUNS) as IdTable[]) {
+    for (const entry of scopedRows(state, table, propertyId)) {
+      if ((entry.row.id ?? "").trim() === "") count += 1
+    }
   }
-  return `rev_${suffix}_${Date.now()}`
+  return count
 }
 
 /**

@@ -6,10 +6,12 @@ import type { DraftSlice } from "../draftStore"
 import {
   CHILD_TABLES,
   everyRowOf,
+  fillMissingIds,
+  idsIn,
+  missingIdCount,
+  newChildId,
   newChildRow,
-  newPhotoId,
   newPropertyRow,
-  newUnitId,
   propertyRow,
   scopedRows,
 } from "../propertyScope"
@@ -120,15 +122,64 @@ describe("id generation", () => {
     expect(newPropertyRow([]).status).toBe("draft")
   })
 
-  it("does not reuse a unit id already on the table", () => {
-    const units = state().baseline.units!
-    const id = newUnitId(units, "prop_001")
-    expect(units.map((unit) => unit.id)).not.toContain(id)
-    expect(id).toMatch(/^unit_001/)
+  it("prefixes child ids with the property id", () => {
+    expect(newChildId("units", new Set(), "prop_007")).toBe("prop_007-room-1")
+    expect(newChildId("photos", new Set(), "prop_007")).toBe("prop_007-photo-1")
+    expect(newChildId("reviews", new Set(), "prop_007")).toBe(
+      "prop_007-review-1"
+    )
   })
 
-  it("scopes photo ids to the home they belong to", () => {
-    expect(newPhotoId([], "prop_007")).toBe("ph_007a")
+  it("takes the smallest number not already used", () => {
+    const taken = new Set(["prop_001-room-1", "prop_001-room-3"])
+    expect(newChildId("units", taken, "prop_001")).toBe("prop_001-room-2")
+  })
+
+  it("names the whole-home unit once, then falls back to a number", () => {
+    expect(newChildId("units", new Set(), "prop_001", "entire")).toBe(
+      "prop_001-entire"
+    )
+    expect(
+      newChildId("units", new Set(["prop_001-entire"]), "prop_001", "entire")
+    ).toBe("prop_001-room-1")
+  })
+
+  it("does not reuse an id already on the table", () => {
+    const units = state().baseline.units!
+    const id = newChildId("units", idsIn(units), "prop_001")
+    expect(units.map((unit) => unit.id)).not.toContain(id)
+  })
+})
+
+describe("fillMissingIds", () => {
+  const withBlanks = (): DraftSlice => ({
+    baseline: {
+      units: [
+        { id: "unit_001a", propertyId: "prop_001" },
+        { id: "", propertyId: "prop_001", kind: "room" },
+        { id: "", propertyId: "prop_001", kind: "entire" },
+        { id: "", propertyId: "prop_002", kind: "room" },
+      ],
+      photos: [{ id: "", propertyId: "prop_001" }],
+    },
+    edits: {},
+  })
+
+  it("fills only this home's blank ids, and leaves set ones alone", () => {
+    const changed = fillMissingIds(withBlanks(), "prop_001")
+    expect(changed.units!.map((row) => row.id)).toEqual([
+      "unit_001a",
+      "prop_001-room-1",
+      "prop_001-entire",
+      "",
+    ])
+    expect(changed.photos!.map((row) => row.id)).toEqual(["prop_001-photo-1"])
+    expect(changed.reviews).toBeUndefined()
+  })
+
+  it("counts what it would fill", () => {
+    expect(missingIdCount(withBlanks(), "prop_001")).toBe(3)
+    expect(missingIdCount(withBlanks(), "prop_002")).toBe(1)
   })
 })
 

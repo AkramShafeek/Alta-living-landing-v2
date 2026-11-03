@@ -1,0 +1,37 @@
+prop_202-photo-1	prop_202	/homes/linden/01-3rd-floor-living-room.avif	Living room with two blue wingback chairs, a round jute rug and a wall-mounted TV unit	3rd floor · Living room	prop_202-room-3	Living room	0	TRUE
+prop_202-photo-2	prop_202	/homes/linden/02-2nd-floor-living-room.jpg	Living room with a tan leather sofa, a round wooden table and a door to the balcony	2nd floor · Living room	prop_202-room-2	Living room	1	FALSE
+prop_202-photo-3	prop_202	/homes/linden/03-1st-floor-bedroom.avif	Bedroom with a double bed, a tall wooden wardrobe and a mirror	1st floor · Bedroom	prop_202-room-1	Bedroom	2	FALSE
+prop_202-photo-4	prop_202	/homes/linden/04-3rd-floor-view.avif	Sunset over palm trees and rooftops, from the third floor	3rd floor · View	prop_202-room-3	View	3	FALSE
+prop_202-photo-5	prop_202	/homes/linden/05-1st-floor-living-room.avif	Living room with a sofa, coffee table and red rug beside the balcony door	1st floor · Living room	prop_202-room-1	Living room	4	FALSE
+prop_202-photo-6	prop_202	/homes/linden/06-1st-floor-living-room.avif	TV unit in the living room, with the bedroom behind a curtain	1st floor · Living room	prop_202-room-1	Living room	5	FALSE
+prop_202-photo-7	prop_202	/homes/linden/07-1st-floor-bedroom.avif	Double bed with folded towels, beside the bedroom door	1st floor · Bedroom	prop_202-room-1	Bedroom	6	FALSE
+prop_202-photo-8	prop_202	/homes/linden/08-1st-floor-living-room.avif	Living room with a TV unit, coffee table and the hallway to the door	1st floor · Living room	prop_202-room-1	Living room	7	FALSE
+prop_202-photo-9	prop_202	/homes/linden/09-1st-floor-bedroom.avif	Bed with a carved headboard and fresh towels	1st floor · Bedroom	prop_202-room-1	Bedroom	8	FALSE
+prop_202-photo-10	prop_202	/homes/linden/10-1st-floor-bedroom.avif	Double bed under a curtained window	1st floor · Bedroom	prop_202-room-1	Bedroom	9	FALSE
+prop_202-photo-11	prop_202	/homes/linden/11-1st-floor-living-room.avif	Sofa and coffee table on a red rug by the curtained bedroom door	1st floor · Living room	prop_202-room-1	Living room	10	FALSE
+prop_202-photo-12	prop_202	/homes/linden/12-1st-floor-living-room.avif	Living room looking through to the bedroom and the kitchen	1st floor · Living room	prop_202-room-1	Living room	11	FALSE
+prop_202-photo-13	prop_202	/homes/linden/13-2nd-floor-bedroom.avif	Bedroom with a double bed in coral linen beside a large window	2nd floor · Bedroom	prop_202-room-2	Bedroom	12	FALSE
+prop_202-photo-14	prop_202	/homes/linden/14-2nd-floor-living-room.avif	Living room with a leather sofa, a patterned rug and a TV unit	2nd floor · Living room	prop_202-room-2	Living room	13	FALSE
+prop_202-photo-15	prop_202	/homes/linden/15-2nd-floor-bedroom.avif	Double bed with folded towels and a wardrobe with a mirror	2nd floor · Bedroom	prop_202-room-2	Bedroom	14	FALSE
+prop_202-photo-16	prop_202	/homes/linden/16-2nd-floor-bathroom.avif	Bathroom with patterned wall tiles, a washbasin and a shower	2nd floor · Bathroom	prop_202-room-2	Bathroom	15	FALSE
+prop_202-photo-17	prop_202	/homes/linden/17-2nd-floor-bathroom.avif	Bathroom with a western toilet and a high window	2nd floor · Bathroom	prop_202-room-2	Bathroom	16	FALSE
+prop_202-photo-18	prop_202	/homes/linden/18-2nd-floor-kitchen.avif	Induction hob on the black kitchen counter	2nd floor · Kitchen	prop_202-room-2	Kitchen	17	FALSE
+prop_202-photo-19	prop_202	/homes/linden/19-2nd-floor-living-room.avif	Hallway to the front door in evening light	2nd floor · Living room	prop_202-room-2	Living room	18	FALSE
+prop_202-photo-20	prop_202	/homes/linden/20-3rd-floor-living-room.avif	Blue wingback chairs facing the TV on a round jute rug	3rd floor · Living room	prop_202-room-3	Living room	19	FALSE
+prop_202-photo-21	prop_202	/homes/linden/21-3rd-floor-bedroom.avif	Double bed with block-printed linen beside a curtained window	3rd floor · Bedroom	prop_202-room-3	Bedroom	20	FALSE
+prop_202-photo-22	prop_202	/homes/linden/22-3rd-floor-bedroom.avif	Bedroom with a wooden wardrobe, a bench and a curtained window	3rd floor · Bedroom	prop_202-room-3	Bedroom	21	FALSE
+prop_202-photo-23	prop_202	/homes/linden/23-3rd-floor-living-room.avif	Two blue wingback chairs by the window	3rd floor · Living room	prop_202-room-3	Living room	22	FALSE
+prop_202-photo-24	prop_202	/homes/linden/24-3rd-floor-living-room.avif	TV unit beside floor-length curtains	3rd floor · Living room	prop_202-room-3	Living room	23	FALSE
+prop_202-photo-25	prop_202	/homes/linden/25-3rd-floor-living-room.avif	Refrigerator in the living room, by the kitchen	3rd floor · Living room	prop_202-room-3	Living room	24	FALSE
+prop_202-photo-26	prop_202	/homes/linden/26-3rd-floor-bedroom.avif	Block-printed pillows on the double bed	3rd floor · Bedroom	prop_202-room-3	Bedroom	25	FALSE
+prop_202-photo-27	prop_202	/homes/linden/27-3rd-floor-kitchen.avif	Kitchen with open shelves, cookware and an induction hob under a window	3rd floor · Kitchen	prop_202-room-3	Kitchen	26	FALSE
+prop_202-photo-28	prop_202	/homes/linden/28-3rd-floor-kitchen.avif	Storage jars and a kettle on the kitchen shelf	3rd floor · Kitchen	prop_202-room-3	Kitchen	27	FALSE
+prop_202-photo-29	prop_202	/homes/linden/29-3rd-floor-kitchen.avif	Pressure cooker and saucepans on the kitchen shelf	3rd floor · Kitchen	prop_202-room-3	Kitchen	28	FALSE
+prop_202-photo-30	prop_202	/homes/linden/30-3rd-floor-kitchen.avif	Stainless steel cookware on an open shelf	3rd floor · Kitchen	prop_202-room-3	Kitchen	29	FALSE
+prop_202-photo-31	prop_202	/homes/linden/31-kitchen.avif	Kitchen with a sink, wooden and cream cabinets and black counters	Kitchen		Kitchen	30	FALSE
+prop_202-photo-32	prop_202	/homes/linden/32-kitchen.avif	Kitchen with open shelving, a hob and a window	Kitchen		Kitchen	31	FALSE
+prop_202-photo-33	prop_202	/homes/linden/33-kitchen.avif	Kitchen drawers with a plate rack pulled out	Kitchen		Kitchen	32	FALSE
+prop_202-photo-34	prop_202	/homes/linden/34-kitchen.avif	Cutlery and utensil drawer	Kitchen		Kitchen	33	FALSE
+prop_202-photo-35	prop_202	/homes/linden/35-bathroom.avif	Washbasin and mixer tap against blue patterned tiles	Bathroom		Bathroom	34	FALSE
+prop_202-photo-36	prop_202	/homes/linden/36-bathroom.avif	Western toilet and hand shower against blue patterned tiles	Bathroom		Bathroom	35	FALSE
+prop_202-photo-37	prop_202	/homes/linden/37-bathroom.avif	Soap dish and a plant on the bathroom shelf	Bathroom		Bathroom	36	FALSE

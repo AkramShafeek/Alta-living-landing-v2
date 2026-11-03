@@ -15,7 +15,7 @@
 // ─────────────────────────────────────────────────────────────────────────
 
 import type { z } from "zod"
-import { list } from "./coerce"
+import { imageUrl, list } from "./coerce"
 import type { CoerceOverrides } from "./parse"
 
 import { zProperty } from "@/models/Property"
@@ -52,16 +52,17 @@ export type TableDef = {
   /**
    * Sheet tab id — the `gid=` in the URL bar with that tab selected.
    *
-   * Empty means "whole-document publish", which serves the first tab of the
-   * spreadsheet. Only one table can legitimately be empty; the rest need their
-   * own gid or they will all read the same tab.
+   * Required for any table read from sheets: the db refuses an empty one.
+   * Google serves the spreadsheet's *first* tab for a blank gid, so a table
+   * switched to sheets before its gid was filled in silently read the
+   * properties tab and failed every row with a baffling message.
    */
   gid: string
   schema: z.ZodObject
   /**
-   * Per-column coercer overrides. Empty everywhere today — the coercer is
-   * derived from each field's Zod type, and no column currently needs an
-   * exception. Kept so the first weird cell does not force a rethink.
+   * Per-column coercer overrides, for the columns whose Zod type does not
+   * say how to read the cell — a pipe-joined list, an image URL that may be a
+   * Drive share link. Everything else derives its coercer from the schema.
    */
   coerce?: CoerceOverrides
   /**
@@ -82,6 +83,19 @@ export type TableDef = {
    * Skipped rows are never silent — see `db.issues()`.
    */
   onBadRow?: "fail" | "skip"
+  /**
+   * Whether the site can render without this table at all.
+   *
+   * When true, a table that cannot be read — wrong gid, tab not published,
+   * network — reads as empty instead of failing every page, and the failure
+   * is logged and kept in `db.issues()`. Only for tables whose absence the UI
+   * already handles: photos have a "coming soon" placeholder; units do not
+   * have a stand-in for a price.
+   *
+   * The ops editor ignores this and reads strictly. An editor that thought a
+   * tab was empty would export it empty and wipe the sheet.
+   */
+  optional?: boolean
 }
 
 export const tables = {
@@ -89,10 +103,21 @@ export const tables = {
   // one home costs that home rather than the whole catalog.
   properties: { gid: "1205454703", schema: zProperty, onBadRow: "skip" },
   units: { gid: "0", schema: zUnit },
-  photos: { gid: "", schema: zPhoto },
+  // Optional and "skip": a missing or broken photo costs a picture, which the
+  // UI covers with a placeholder, never the home or the page.
+  //
+  // `url` accepts a Drive share link and rewrites it to the image — see
+  // `imageUrl`.
+  photos: {
+    gid: "893073541",
+    schema: zPhoto,
+    coerce: { url: imageUrl },
+    onBadRow: "skip",
+    optional: true,
+  },
   reviews: { gid: "", schema: zReview },
   nearby: { gid: "", schema: zNearby },
-  amenities: { gid: "", schema: zPropertyAmenity },
+  amenities: { gid: "318743865", schema: zPropertyAmenity },
   included: { gid: "", schema: zPropertyIncluded },
   notIncluded: { gid: "", schema: zNotIncluded },
   housekeeping: { gid: "", schema: zHousekeeping },
@@ -104,7 +129,11 @@ export const tables = {
   // `languages` is the one column whose Zod type does not imply its coercer —
   // an array reads as text and would arrive as the literal string
   // "English|Kannada|Hindi". This is what the `coerce` escape hatch is for.
-  hosts: { gid: "", schema: zHost, coerce: { languages: list } },
+  hosts: {
+    gid: "",
+    schema: zHost,
+    coerce: { languages: list, photoUrl: imageUrl },
+  },
 } as const satisfies Record<string, TableDef>
 
 export type TableName = keyof typeof tables

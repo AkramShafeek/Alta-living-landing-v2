@@ -1,0 +1,3 @@
+id	propertyId	kind	name	bedType	bathroom	hasDesk	hasAc	hasBalcony	areaSqft	maxOccupancy	monthlyRate	nightlyRate	deposit	status	note	hasReplicas	totalCount	occupiedCount
+prop_206-room-1	prop_206	room	Juniper Bedroom	double			TRUE			2				available		TRUE	3	3
+prop_206-entire	prop_206	entire	Juniper 3BHK				TRUE			6	110000	8000		booked		FALSE		

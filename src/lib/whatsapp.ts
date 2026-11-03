@@ -67,6 +67,60 @@ export function whatsappLink(
   items: CartItem[],
   name: string
 ): string {
-  const text = encodeURIComponent(enquiryMessage(items, name))
-  return `https://wa.me/${digitsOnly(phone)}?text=${text}`
+  return whatsappTextLink(phone, enquiryMessage(items, name))
+}
+
+/** The same link, for any ready-written message — every WhatsApp button. */
+export function whatsappTextLink(phone: string, text: string): string {
+  return `https://wa.me/${digitsOnly(phone)}?text=${encodeURIComponent(text)}`
+}
+
+// ─────────────────────────────────────────────────────────────────────────
+// Contact form → a WhatsApp message.
+//
+// Same idea as the cart: nothing is posted anywhere. The form writes the
+// first message of a real conversation and the visitor sends it from their
+// own WhatsApp, so the reply lands in a thread they already have.
+// ─────────────────────────────────────────────────────────────────────────
+
+export type ContactEnquiry = {
+  name: string
+  phone: string
+  email: string
+  /** Which home the enquiry is about, when sent from a property page. */
+  subject?: string
+  area: string
+  moveIn: string
+  stay: string
+  who: string
+  message: string
+}
+
+/**
+ * The message body. Only filled-in fields appear, one per line, so a short
+ * enquiry reads as a short message rather than a form with blanks.
+ */
+export function contactMessage(enquiry: ContactEnquiry): string {
+  const who = enquiry.name.trim()
+  const lines = [who ? `Hi Alta — this is ${who}.` : "Hi Alta —", ""]
+
+  const fields: [string, string | undefined][] = [
+    ["About", enquiry.subject],
+    ["Area", enquiry.area],
+    ["Move-in", enquiry.moveIn],
+    ["How long", enquiry.stay],
+    ["Who's moving in", enquiry.who],
+    ["Phone", enquiry.phone],
+    ["Email", enquiry.email],
+  ]
+  const filled = fields.filter(([, value]) => value && value.trim() !== "")
+  if (filled.length > 0) {
+    lines.push("I'm looking for a home:")
+    for (const [label, value] of filled) lines.push(`• ${label}: ${value!.trim()}`)
+  }
+
+  const message = enquiry.message.trim()
+  if (message) lines.push("", message)
+
+  return lines.join("\n")
 }

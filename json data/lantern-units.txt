@@ -1,0 +1,2 @@
+id	propertyId	kind	name	bedType	bathroom	hasDesk	hasAc	hasBalcony	areaSqft	maxOccupancy	monthlyRate	nightlyRate	deposit	status	note	hasReplicas	totalCount	occupiedCount
+prop_203-room-1	prop_203	room	Lantern 1BHK	double	ensuite		FALSE	TRUE		2	35000	1900		available		TRUE	9	8

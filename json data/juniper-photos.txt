@@ -1,0 +1,20 @@
+prop_206-photo-1	prop_206	/homes/juniper/01-living-room.jpg	Living room with two velvet Chesterfield sofas, nesting tables and a backlit TV wall	Living room		Living room	0	TRUE
+prop_206-photo-2	prop_206	/homes/juniper/02-bedroom.jpg	Bedroom with a dark wood double bed, orange linen, a patterned rug and floor-length curtains	Bedroom	prop_206-room-1	Bedroom	1	FALSE
+prop_206-photo-3	prop_206	/homes/juniper/03-kitchen.jpg	Long modular kitchen with black counters, glass-front cabinets, a chimney and a refrigerator	Kitchen		Kitchen	2	FALSE
+prop_206-photo-4	prop_206	/homes/juniper/04-dining.jpg	Dining table for four beside the living room sofas and TV wall	Dining		Dining	3	FALSE
+prop_206-photo-5	prop_206	/homes/juniper/05-living-room.jpg	Living room with velvet sofas, a floor lamp and the TV wall by the front door	Living room		Living room	4	FALSE
+prop_206-photo-6	prop_206	/homes/juniper/06-living-room.jpg	Open living and dining area with marble floors	Living room		Living room	5	FALSE
+prop_206-photo-7	prop_206	/homes/juniper/07-living-room.jpg	Living room with the sofas, plants and the TV wall, looking towards the kitchen	Living room		Living room	6	FALSE
+prop_206-photo-8	prop_206	/homes/juniper/08-living-room.jpg	Two velvet sofas around marble-topped nesting tables	Living room		Living room	7	FALSE
+prop_206-photo-9	prop_206	/homes/juniper/09-living-room.jpg	Backlit wooden TV wall with a large TV and floating cabinets	Living room		Living room	8	FALSE
+prop_206-photo-10	prop_206	/homes/juniper/10-living-room.jpg	TV wall with a floor lamp, plants and a velvet sofa	Living room		Living room	9	FALSE
+prop_206-photo-11	prop_206	/homes/juniper/11-dining.jpg	Dining table with four chairs and a bench	Dining		Dining	10	FALSE
+prop_206-photo-12	prop_206	/homes/juniper/12-kitchen.jpg	Kitchen counter with a hob, chimney and under-cabinet lighting	Kitchen		Kitchen	11	FALSE
+prop_206-photo-13	prop_206	/homes/juniper/13-kitchen.jpg	Galley kitchen running towards the living room	Kitchen		Kitchen	12	FALSE
+prop_206-photo-14	prop_206	/homes/juniper/14-kitchen.jpg	Kitchen island with pendant lights, beside the dining area	Kitchen		Kitchen	13	FALSE
+prop_206-photo-15	prop_206	/homes/juniper/15-bedroom.jpg	Bedroom with a double bed, orange linen and tall windows	Bedroom	prop_206-room-1	Bedroom	14	FALSE
+prop_206-photo-16	prop_206	/homes/juniper/16-bedroom.jpg	Bedroom with a double bed, a full-height wardrobe and the door to the hall	Bedroom	prop_206-room-1	Bedroom	15	FALSE
+prop_206-photo-17	prop_206	/homes/juniper/17-bathroom.jpg	Bathroom with marble-look tiles, a wall-hung toilet and a washbasin	Bathroom		Bathroom	16	FALSE
+prop_206-photo-18	prop_206	/homes/juniper/18-bathroom.jpg	Bathroom with a wall-hung toilet, geyser and window	Bathroom		Bathroom	17	FALSE
+prop_206-photo-19	prop_206	/homes/juniper/19-bathroom.jpg	Bathroom with a rain shower, geyser and a washbasin	Bathroom		Bathroom	18	FALSE
+prop_206-photo-20	prop_206	/homes/juniper/20-utility.jpg	Utility area with a top-loading washing machine	Utility		Utility	19	FALSE

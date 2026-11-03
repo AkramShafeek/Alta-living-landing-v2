@@ -17,7 +17,9 @@ import {
   AlertTriangleIcon,
   DownloadIcon,
   RotateCwIcon,
-  Trash2Icon,  
+  Trash2Icon,
+  UploadIcon,
+  WandSparklesIcon,
 } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { blankRow, problemCountOf } from "@/ops/fields"
@@ -37,6 +39,11 @@ import {
 import {
   CHILD_TABLES,
   everyRowOf,
+  fillMissingIds,
+  hasOwnId,
+  idsIn,
+  missingIdCount,
+  newChildId,
   newChildRow,
   newPropertyRow,
   areaOf,
@@ -45,6 +52,12 @@ import {
   type ChildTable,
 } from "@/ops/propertyScope"
 import { SECTIONS } from "@/ops/sections"
+import {
+  ImportError,
+  parseImportText,
+  planImport,
+  type ImportPlan,
+} from "@/ops/importJson"
 import { PropertyPicker, type HomeEntry } from "@/ops/components/PropertyPicker"
 import { ChildSection } from "@/ops/components/ChildSection"
 import { RowFields } from "@/ops/components/RowFields"
@@ -78,6 +91,10 @@ const OpsEditor = () => {
   const [selected, setSelected] = useState<string | null>(null)
   const [showHosts, setShowHosts] = useState(false)
   const [exported, setExported] = useState<ExportResult | null>(null)
+  const [imported, setImported] = useState<
+    { plan: ImportPlan } | { problems: string[] } | null
+  >(null)
+  const fileRef = useRef<HTMLInputElement>(null)
 
   const [sidebarWidth, setSidebarWidth] = useState(SIDEBAR_DEFAULT)
   const layoutRef = useRef<HTMLDivElement>(null)
@@ -153,6 +170,7 @@ const OpsEditor = () => {
   )
 
   const home = selected ? propertyRow(state, selected) : null
+  const missing = selected ? missingIdCount(state, selected) : 0
   const homeEntry = homes.find((entry) => entry.id === selected) ?? null
 
   const propertyEdits = useMemo(() => editedRows(state, "properties"), [state])
@@ -194,11 +212,58 @@ const OpsEditor = () => {
   const addChild = (table: ChildTable) => {
     if (!selected) return
 
-    const spec = SECTIONS.find((candidate) => candidate.table === table)
     const row = newChildRow(table, selected)
-
-    if (spec?.makeId) row.id = spec.makeId(rowsOf(state, table), selected)
+    if (hasOwnId(table)) {
+      row.id = newChildId(table, idsIn(rowsOf(state, table)), selected)
+    }
     state.addRow(table, row)
+  }
+
+  /** Fills one row's blank id, scoped to the home it belongs to. */
+  const generateId = (table: ChildTable, index: number) => {
+    if (!selected || !hasOwnId(table)) return
+    const rows = rowsOf(state, table)
+    state.setCell(
+      table,
+      index,
+      "id",
+      newChildId(table, idsIn(rows), selected, rows[index]?.kind)
+    )
+  }
+
+  const fillIds = () => {
+    if (selected) state.replaceTables(fillMissingIds(state, selected))
+  }
+
+  const importFile = async (file: File) => {
+    setExported(null)
+    try {
+      const plan = planImport(parseImportText(await file.text()), state)
+
+      const replacing = plan.homes.filter((entry) => entry.replaced)
+      if (
+        replacing.length > 0 &&
+        !window.confirm(
+          `${replacing.length} of these ${plan.homes.length} homes already exist and will be replaced whole — every row in every tab:\n\n` +
+            replacing.map((entry) => `· ${entry.id} ${entry.name}`).join("\n") +
+            "\n\nThis only changes your draft."
+        )
+      ) {
+        return
+      }
+
+      state.replaceTables(plan.tables)
+      setImported({ plan })
+      setSelected(plan.homes[0]?.id ?? null)
+      setShowHosts(false)
+    } catch (error) {
+      setImported({
+        problems:
+          error instanceof ImportError
+            ? error.problems
+            : [error instanceof Error ? error.message : String(error)],
+      })
+    }
   }
 
   const toggleChild = (
@@ -314,6 +379,29 @@ const OpsEditor = () => {
               <Trash2Icon size={13} aria-hidden /> Discard draft
             </button>
 
+            <input
+              ref={fileRef}
+              type="file"
+              accept="application/json,.json"
+              className="hidden"
+              onChange={(event) => {
+                const file = event.target.files?.[0]
+                // Cleared so picking the same file again — after fixing it —
+                // still fires a change.
+                event.target.value = ""
+                if (file) void importFile(file)
+              }}
+            />
+            <button
+              type="button"
+              onClick={() => fileRef.current?.click()}
+              disabled={status !== "ready"}
+              title="Bulk-add homes from a JSON file — see docs/bulk-import-format.md"
+              className={cn(BUTTON, "-translate-x-0.5 -translate-y-0.5 active:translate-x-0 active:translate-y-0 shadow-[3px_3px_0px_#000] active:shadow-none rounded-full transition-all border-neutral-500 bg-white hover:bg-neutral-50 disabled:opacity-50")}
+            >
+              <UploadIcon size={13} aria-hidden /> Import JSON
+            </button>
+
             <button
               type="button"
               onClick={exportEverything}
@@ -342,6 +430,58 @@ const OpsEditor = () => {
                 </span>
               )}
             </p>
+          </div>
+        )}
+
+        {imported && "problems" in imported && (
+          <div className="border-t border-neutral-500 bg-red-50 px-6 py-4 font-mono text-[11px] leading-relaxed text-red-700">
+            <p className="font-semibold">
+              Nothing was imported. Fix{" "}
+              {imported.problems.length === 1
+                ? "this"
+                : `these ${imported.problems.length}`}{" "}
+              and try again:
+            </p>
+            <ul className="mt-1.5 list-disc pl-5">
+              {imported.problems.map((problem) => (
+                <li key={problem}>{problem}</li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        {imported && "plan" in imported && (
+          <div className="border-t border-neutral-500 bg-blue-50 px-6 py-4 font-mono text-[11px] leading-relaxed">
+            <p>
+              Imported <strong>{imported.plan.homes.length}</strong>{" "}
+              {imported.plan.homes.length === 1 ? "home" : "homes"} (
+              {imported.plan.homes.filter((entry) => entry.replaced).length}{" "}
+              replaced), {imported.plan.rowCount} rows.
+              {imported.plan.generatedIds > 0 &&
+                ` ${imported.plan.generatedIds} unit id${imported.plan.generatedIds === 1 ? " was" : "s were"} generated so nested photos and reviews keep their room.`}
+              {imported.plan.problemCount > 0 ? (
+                <span className="text-red-700">
+                  {" "}
+                  {imported.plan.problemCount} field
+                  {imported.plan.problemCount === 1 ? "" : "s"} the site would
+                  reject — they are marked in each home.
+                </span>
+              ) : (
+                " Every field validates."
+              )}
+            </p>
+            {imported.plan.warnings.length > 0 && (
+              <details className="mt-1.5">
+                <summary className="cursor-pointer">
+                  {imported.plan.warnings.length} ignored
+                </summary>
+                <ul className="mt-1 list-disc pl-5 text-black/70">
+                  {imported.plan.warnings.map((warning) => (
+                    <li key={warning}>{warning}</li>
+                  ))}
+                </ul>
+              </details>
+            )}
           </div>
         )}
 
@@ -403,6 +543,20 @@ const OpsEditor = () => {
                 </div>
 
                 <div className="flex flex-wrap items-center gap-2.5">
+                  {missing > 0 && (
+                    <button
+                      type="button"
+                      onClick={fillIds}
+                      title={`Give every unit, photo and review without an id one like ${selected}-room-1`}
+                      className={cn(
+                        BUTTON,
+                        "bg-white rounded-full border-neutral-500 -translate-y-0.5 -translate-x-0.5 active:translate-x-0 active:translate-y-0 transition-all hover:bg-amber-200 shadow-[3px_3px_0px_#000] active:shadow-none"
+                      )}
+                    >
+                      <WandSparklesIcon size={13} aria-hidden /> Fill {missing}{" "}
+                      missing {missing === 1 ? "id" : "ids"}
+                    </button>
+                  )}
                   <button
                     type="button"
                     onClick={deleteHome}
@@ -464,6 +618,11 @@ const OpsEditor = () => {
                   }
                   onAdd={() => addChild(spec.table)}
                   onRemove={(index) => state.removeRow(spec.table, index)}
+                  onGenerateId={
+                    hasOwnId(spec.table)
+                      ? (index) => generateId(spec.table, index)
+                      : undefined
+                  }
                   onToggle={
                     spec.toggle
                       ? (key, on) =>

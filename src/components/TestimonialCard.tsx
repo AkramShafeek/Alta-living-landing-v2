@@ -51,7 +51,7 @@ export const TestimonialCard = ({
           <div className="text-xs flex justify-between gap-2 items-center p-2">
             <div className="bg-blue-200 text-blue-800 text-xs h-fit px-2 py-1 flex gap-2 items-center rounded-full">
               <MapPinIcon size={12} />
-              {location || "Indiranagar, Bangalore"}
+              {location || "Bengaluru"}
             </div>
             <p className="flex items-center gap-1 text-muted-foreground">
               <HomeIcon size={16} /> Verified Stay

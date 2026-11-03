@@ -1,0 +1,367 @@
+{
+  "version": 1,
+  "properties": [
+    {
+      "id": "prop_208",
+      "slug": "skyline",
+      "name": "Alta Skyline",
+      "status": "draft",
+      "city": "Bangalore",
+      "neighbourhood": "Bilekahalli",
+      "subLocality": "Vijaya Bank Layout",
+      "addressLine": "Vijaya Bank Layout, Bilekahalli, Bannerghatta Road",
+      "hasLift": true,
+      "propertyType": "apartment",
+      "bedrooms": 1,
+      "bathrooms": 1,
+      "carpetAreaSqft": 700,
+      "furnishing": "fully",
+      "maxOccupancy": 2,
+      "acRooms": "bedrooms_only",
+      "kitchenType": "full",
+      "laundry": "washer",
+      "wifiDownMbps": 50,
+      "powerBackup": "full",
+      "waterSource": "both",
+      "waterHotWater": "geyser",
+      "waterDrinking": "ro",
+      "housekeepingCadence": "fortnightly",
+      "linenChange": "fortnightly",
+      "tenantFit": "anyone",
+      "smoking": "not_allowed",
+      "alcohol": "not_allowed",
+      "pets": "not_allowed",
+      "overnightGuests": "on_request",
+      "partyPolicy": "no_parties",
+      "agreementType": "license",
+      "minStayNights": 7,
+      "allowsEntireBooking": true,
+      "hook": "A fully furnished one-bedroom executive suite in Vijaya Bank Layout, close to IIM Bangalore.",
+      "body": "A one-bedroom executive suite in Vijaya Bank Layout, Bilekahalli, close to IIM Bangalore. Fully furnished, with Wi-Fi, housekeeping and maintenance included in the rent.",
+      "hostId": "host_meera",
+      "units": [
+        {
+          "id": "prop_208-entire",
+          "kind": "entire",
+          "name": "Skyline 1BHK",
+          "hasAc": true,
+          "hasBalcony": true,
+          "maxOccupancy": 2,
+          "monthlyRate": 65000,
+          "nightlyRate": 3200,
+          "status": "booked",
+          "hasReplicas": false,
+          "photos": [
+            {
+              "id": "prop_208-photo-1",
+              "url": "/homes/skyline/01-living-room.jpg",
+              "alt": "Living room with a blue sofa set, a recliner, a jute rug and a TV on a wooden console",
+              "caption": "Living room",
+              "category": "Living room",
+              "order": 0,
+              "isHero": true
+            },
+            {
+              "id": "prop_208-photo-2",
+              "url": "/homes/skyline/02-bedroom.jpg",
+              "alt": "Bedroom with a grey upholstered double bed, bedside tables and a wall of wooden wardrobes",
+              "caption": "Bedroom",
+              "category": "Bedroom",
+              "order": 1,
+              "isHero": false
+            },
+            {
+              "id": "prop_208-photo-3",
+              "url": "/homes/skyline/03-kitchen.jpg",
+              "alt": "Kitchen with sage cabinets, orange wall tiles, a hob and a door to the balcony",
+              "caption": "Kitchen",
+              "category": "Kitchen",
+              "order": 2,
+              "isHero": false
+            },
+            {
+              "id": "prop_208-photo-4",
+              "url": "/homes/skyline/04-balcony.jpg",
+              "alt": "Balcony looking out over palm trees and the neighbourhood",
+              "caption": "Balcony",
+              "category": "Balcony",
+              "order": 3,
+              "isHero": false
+            },
+            {
+              "id": "prop_208-photo-5",
+              "url": "/homes/skyline/05-living-room.jpg",
+              "alt": "Living room from the entrance, with glass-fronted shelves, the sofa set and the TV",
+              "caption": "Living room",
+              "category": "Living room",
+              "order": 4,
+              "isHero": false
+            },
+            {
+              "id": "prop_208-photo-6",
+              "url": "/homes/skyline/06-living-room.jpg",
+              "alt": "Blue sofa, recliner and side tables around a jute rug",
+              "caption": "Living room",
+              "category": "Living room",
+              "order": 5,
+              "isHero": false
+            },
+            {
+              "id": "prop_208-photo-7",
+              "url": "/homes/skyline/07-living-room.jpg",
+              "alt": "Sofa set facing the TV, with a display shelf and floor lamp",
+              "caption": "Living room",
+              "category": "Living room",
+              "order": 6,
+              "isHero": false
+            },
+            {
+              "id": "prop_208-photo-8",
+              "url": "/homes/skyline/08-living-room.jpg",
+              "alt": "Living room with blue sofas, a wooden TV console and a refrigerator by the door",
+              "caption": "Living room",
+              "category": "Living room",
+              "order": 7,
+              "isHero": false
+            },
+            {
+              "id": "prop_208-photo-9",
+              "url": "/homes/skyline/09-living-room.jpg",
+              "alt": "Recliner and sofa looking across the living room to the kitchen",
+              "caption": "Living room",
+              "category": "Living room",
+              "order": 8,
+              "isHero": false
+            },
+            {
+              "id": "prop_208-photo-10",
+              "url": "/homes/skyline/10-bedroom.jpg",
+              "alt": "Double bed with grey linen, a blue rug and a round bedside table",
+              "caption": "Bedroom",
+              "category": "Bedroom",
+              "order": 9,
+              "isHero": false
+            },
+            {
+              "id": "prop_208-photo-11",
+              "url": "/homes/skyline/11-bedroom.jpg",
+              "alt": "Double bed beside a tall wooden wardrobe",
+              "caption": "Bedroom",
+              "category": "Bedroom",
+              "order": 10,
+              "isHero": false
+            },
+            {
+              "id": "prop_208-photo-12",
+              "url": "/homes/skyline/12-bedroom.jpg",
+              "alt": "Bed under a curtained window with a door to the balcony",
+              "caption": "Bedroom",
+              "category": "Bedroom",
+              "order": 11,
+              "isHero": false
+            },
+            {
+              "id": "prop_208-photo-13",
+              "url": "/homes/skyline/13-bedroom.jpg",
+              "alt": "Wardrobes and the balcony door seen from the foot of the bed",
+              "caption": "Bedroom",
+              "category": "Bedroom",
+              "order": 12,
+              "isHero": false
+            },
+            {
+              "id": "prop_208-photo-14",
+              "url": "/homes/skyline/14-bedroom.jpg",
+              "alt": "Dressing table with a mirror, looking into the bedroom",
+              "caption": "Bedroom",
+              "category": "Bedroom",
+              "order": 13,
+              "isHero": false
+            },
+            {
+              "id": "prop_208-photo-15",
+              "url": "/homes/skyline/15-bedroom.jpg",
+              "alt": "Bedroom seen from the doorway, past the dressing table",
+              "caption": "Bedroom",
+              "category": "Bedroom",
+              "order": 14,
+              "isHero": false
+            },
+            {
+              "id": "prop_208-photo-16",
+              "url": "/homes/skyline/16-bedroom.jpg",
+              "alt": "Bedroom in the evening with bedside lamps lit",
+              "caption": "Bedroom",
+              "category": "Bedroom",
+              "order": 15,
+              "isHero": false
+            },
+            {
+              "id": "prop_208-photo-17",
+              "url": "/homes/skyline/17-bedroom.jpg",
+              "alt": "Bedside table with a lamp and dried flowers",
+              "caption": "Bedroom",
+              "category": "Bedroom",
+              "order": 16,
+              "isHero": false
+            },
+            {
+              "id": "prop_208-photo-18",
+              "url": "/homes/skyline/18-kitchen.jpg",
+              "alt": "Kitchen with tall storage, a microwave and an induction hob",
+              "caption": "Kitchen",
+              "category": "Kitchen",
+              "order": 17,
+              "isHero": false
+            },
+            {
+              "id": "prop_208-photo-19",
+              "url": "/homes/skyline/19-kitchen.jpg",
+              "alt": "Kitchen storage cabinets and the counter with a hob and microwave",
+              "caption": "Kitchen",
+              "category": "Kitchen",
+              "order": 18,
+              "isHero": false
+            },
+            {
+              "id": "prop_208-photo-20",
+              "url": "/homes/skyline/20-kitchen.jpg",
+              "alt": "Galley kitchen with sage cabinets leading to the balcony",
+              "caption": "Kitchen",
+              "category": "Kitchen",
+              "order": 19,
+              "isHero": false
+            },
+            {
+              "id": "prop_208-photo-21",
+              "url": "/homes/skyline/21-kitchen.jpg",
+              "alt": "Kitchen counter, sink and window, with the balcony door open",
+              "caption": "Kitchen",
+              "category": "Kitchen",
+              "order": 20,
+              "isHero": false
+            },
+            {
+              "id": "prop_208-photo-22",
+              "url": "/homes/skyline/22-kitchen.jpg",
+              "alt": "Kitchen drawer pulled out to show plates and bowls",
+              "caption": "Kitchen",
+              "category": "Kitchen",
+              "order": 21,
+              "isHero": false
+            },
+            {
+              "id": "prop_208-photo-23",
+              "url": "/homes/skyline/23-kitchen.jpg",
+              "alt": "Kitchen sink under a window beside the balcony door",
+              "caption": "Kitchen",
+              "category": "Kitchen",
+              "order": 22,
+              "isHero": false
+            },
+            {
+              "id": "prop_208-photo-24",
+              "url": "/homes/skyline/24-kitchen.jpg",
+              "alt": "Dinner plates in a rack",
+              "caption": "Kitchen",
+              "category": "Kitchen",
+              "order": 23,
+              "isHero": false
+            },
+            {
+              "id": "prop_208-photo-25",
+              "url": "/homes/skyline/25-kitchen.jpg",
+              "alt": "Kitchen drawer organiser with plates and bowls",
+              "caption": "Kitchen",
+              "category": "Kitchen",
+              "order": 24,
+              "isHero": false
+            },
+            {
+              "id": "prop_208-photo-26",
+              "url": "/homes/skyline/26-wash-area.jpg",
+              "alt": "Hallway leading to a washbasin against a stone-clad wall",
+              "caption": "Wash area",
+              "category": "Wash area",
+              "order": 25,
+              "isHero": false
+            },
+            {
+              "id": "prop_208-photo-27",
+              "url": "/homes/skyline/27-wash-area.jpg",
+              "alt": "Vessel washbasin on a wooden counter beside the bathroom door",
+              "caption": "Wash area",
+              "category": "Wash area",
+              "order": 26,
+              "isHero": false
+            },
+            {
+              "id": "prop_208-photo-28",
+              "url": "/homes/skyline/28-bathroom.jpg",
+              "alt": "Bathroom with green tiles, a western toilet and a window",
+              "caption": "Bathroom",
+              "category": "Bathroom",
+              "order": 27,
+              "isHero": false
+            },
+            {
+              "id": "prop_208-photo-29",
+              "url": "/homes/skyline/29-bathroom.jpg",
+              "alt": "Bathroom with a geyser, green tiled wall and western toilet",
+              "caption": "Bathroom",
+              "category": "Bathroom",
+              "order": 28,
+              "isHero": false
+            },
+            {
+              "id": "prop_208-photo-30",
+              "url": "/homes/skyline/30-bathroom.jpg",
+              "alt": "Shower area with a rain shower and geyser",
+              "caption": "Bathroom",
+              "category": "Bathroom",
+              "order": 29,
+              "isHero": false
+            },
+            {
+              "id": "prop_208-photo-31",
+              "url": "/homes/skyline/31-bathroom.jpg",
+              "alt": "Western toilet against green tiles under a geyser",
+              "caption": "Bathroom",
+              "category": "Bathroom",
+              "order": 30,
+              "isHero": false
+            },
+            {
+              "id": "prop_208-photo-32",
+              "url": "/homes/skyline/32-balcony.jpg",
+              "alt": "Balcony with railings over the trees",
+              "caption": "Balcony",
+              "category": "Balcony",
+              "order": 31,
+              "isHero": false
+            },
+            {
+              "id": "prop_208-photo-33",
+              "url": "/homes/skyline/33-balcony.jpg",
+              "alt": "Balcony door opening onto a view of palm trees",
+              "caption": "Balcony",
+              "category": "Balcony",
+              "order": 32,
+              "isHero": false
+            }
+          ]
+        }
+      ],
+      "amenities": [
+        "fully_furnished",
+        "lift",
+        "balcony"
+      ],
+      "included": [
+        "internet",
+        "housekeeping",
+        "maintenance"
+      ]
+    }
+  ]
+}

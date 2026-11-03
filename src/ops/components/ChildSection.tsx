@@ -47,6 +47,7 @@ export const ChildSection = ({
   onAdd,
   onRemove,
   onToggle,
+  onGenerateId,
 }: {
   spec: SectionSpec
   rows: ScopedRow[]
@@ -56,6 +57,8 @@ export const ChildSection = ({
   onRemove: (globalIndex: number) => void
   /** Join tables only: turn a key on or off. */
   onToggle?: (key: string, on: boolean) => void
+  /** Tables with their own id: fill one row's blank id. */
+  onGenerateId?: (globalIndex: number) => void
 }) => {
   const [open, setOpen] = useState<number | null>(null)
 
@@ -186,6 +189,11 @@ export const ChildSection = ({
                       columns={2}
                       onChange={(column, value) =>
                         onChange(entry.index, column, value)
+                      }
+                      onGenerateId={
+                        onGenerateId
+                          ? () => onGenerateId(entry.index)
+                          : undefined
                       }
                     />
                   </div>

@@ -115,7 +115,13 @@ export const FIELD_GROUPS: Partial<Record<TableName, readonly FieldGroup[]>> = {
     },
     {
       title: "Commercials",
-      fields: ["currency", "minStayNights", "noticePeriodDays", "lockInMonths"],
+      fields: [
+        "currency",
+        "minStayNights",
+        "noticePeriodDays",
+        "lockInMonths",
+        "allowsEntireBooking",
+      ],
     },
     {
       // Long prose, kept together and last-but-one so the form ends on writing
@@ -132,3 +138,18 @@ export const FIELD_GROUPS: Partial<Record<TableName, readonly FieldGroup[]>> = {
 
 /** What unlisted fields are gathered under, so nothing can go missing. */
 export const OTHER_GROUP = "Other"
+
+/**
+ * Fields that only mean something when a boolean column on the same row is
+ * TRUE, keyed by table then field, valued by the column that switches them on.
+ *
+ * Hidden rather than disabled when off: a replica count on an ordinary room is
+ * not a value waiting to be filled, it is a question that does not apply. The
+ * cell keeps whatever it held, so flipping the switch back loses nothing.
+ */
+export const SHOWN_WHEN: Partial<Record<TableName, Record<string, string>>> = {
+  units: {
+    totalCount: "hasReplicas",
+    occupiedCount: "hasReplicas",
+  },
+}

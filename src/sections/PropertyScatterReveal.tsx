@@ -102,56 +102,58 @@ type ScatterTile = {
 // below, and only the axis that is NOT doing the clearing varies wildly. That
 // is what makes the scatter look scattered rather than gridded, without ever
 // risking a tile landing on the words.
+// Photos of real Alta homes, from public/homes: the block promises no stock
+// photos, so neither does it.
 const TILES: ScatterTile[] = [
   {
-    src: "/homes/1.jpg",
+    src: "/homes/cedar/01-living-room.jpg",
     start: { x: -630, y: 450, rotation: 12 },
     rise: { x: "-11vw", y: "-142vh", rotation: -30 },
   },
   {
-    src: "/homes/2.jpg",
+    src: "/homes/harbour/02-1bhk-bedroom.jpg",
     start: { x: 470, y: 100, rotation: 3 },
     rise: { x: "10vw", y: "-150vh", rotation: 24 },
   },
   {
-    src: "/homes/3.jpg",
+    src: "/homes/lantern/01-living-room.jpg",
     start: { x: -460, y: 210, rotation: 25 },
     rise: { x: "-9vw", y: "-122vh", rotation: 28 },
   },
   {
-    src: "/homes/1.jpg",
+    src: "/homes/juniper/01-living-room.jpg",
     // Bumped out from 440: the tile grew wider than the value was checked
     // against, and 440 cleared the text box by only 4px at this size.
     start: { x: 470, y: -230, rotation: -12 },
     rise: { x: "9vw", y: "-160vh", rotation: -24 },
   },
   {
-    src: "/homes/2.jpg",
+    src: "/homes/skyline/02-bedroom.jpg",
     start: { x: 520, y: 500, rotation: 5 },
     rise: { x: "3vw", y: "-172vh", rotation: 11 },
   },
   {
-    src: "/homes/3.jpg",
+    src: "/homes/wren/01-wren-2-living-room.avif",
     start: { x: -90, y: 380, rotation: -7 },
     rise: { x: "-4vw", y: "-120vh", rotation: -15 },
   },
   {
-    src: "/homes/1.jpg",
+    src: "/homes/linden/02-2nd-floor-living-room.jpg",
     start: { x: -560, y: -40, rotation: -18 },
     rise: { x: "-14vw", y: "-135vh", rotation: -11 },
   },
   {
-    src: "/homes/2.jpg",
+    src: "/homes/harbour/01-2bhk-shared-living-room.jpg",
     start: { x: 640, y: 40, rotation: 14 },
     rise: { x: "13vw", y: "-148vh", rotation: 1 },
   },
   {
-    src: "/homes/3.jpg",
+    src: "/homes/skyline/03-kitchen.jpg",
     start: { x: -220, y: -370, rotation: 9 },
     rise: { x: "-6vw", y: "-158vh", rotation: 17 },
   },
   {
-    src: "/homes/1.jpg",
+    src: "/homes/cedar/02-bedroom-1.jpg",
     start: { x: 200, y: 400, rotation: -10 },
     rise: { x: "7vw", y: "-130vh", rotation: -18 },
   },
@@ -242,9 +244,29 @@ export const PropertyScatterReveal = () => {
     { scope: sectionRef }
   )
 
+  const cellWidth = 80;
+  const cellHeight = 80;
+  const lineWidth = 1;
+  const lineColor = "rgba(0,0,0,0.08)";
+
   return (
-    <section ref={sectionRef} className="relative h-[240vh]">
-      <div className="sticky top-0 flex h-dvh w-full items-center justify-center overflow-hidden bg-white">
+    <section ref={sectionRef} className="relative h-[240vh] border-b">
+      <div
+        className="sticky top-0 flex h-dvh w-full items-center justify-center overflow-hidden"
+        // style={
+        //   {
+        //     "--cell-w": `${cellWidth}px`,
+        //     "--cell-h": `${cellHeight}px`,
+        //     "--line-w": `${lineWidth}px`,
+        //     "--line-c": lineColor,
+        //     backgroundImage: `
+        //     linear-gradient(to right, var(--line-c) var(--line-w), transparent var(--line-w)),
+        //     linear-gradient(to bottom, var(--line-c) var(--line-w), transparent var(--line-w))
+        //   `,
+        //     backgroundSize: "var(--cell-w) var(--cell-h)",
+        //   } as React.CSSProperties
+        // }
+      >
         <div
           ref={layerRef}
           aria-hidden
@@ -277,7 +299,7 @@ export const PropertyScatterReveal = () => {
               sm:h-64
               sm:w-72
               "
-            >              
+            >
               <img src={tile.src} alt="" className="h-full w-full object-cover" />
             </div>
           ))}

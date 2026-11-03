@@ -1,0 +1,33 @@
+prop_208-photo-1	prop_208	/homes/skyline/01-living-room.jpg	Living room with a blue sofa set, a recliner, a jute rug and a TV on a wooden console	Living room	prop_208-entire	Living room	0	TRUE
+prop_208-photo-2	prop_208	/homes/skyline/02-bedroom.jpg	Bedroom with a grey upholstered double bed, bedside tables and a wall of wooden wardrobes	Bedroom	prop_208-entire	Bedroom	1	FALSE
+prop_208-photo-3	prop_208	/homes/skyline/03-kitchen.jpg	Kitchen with sage cabinets, orange wall tiles, a hob and a door to the balcony	Kitchen	prop_208-entire	Kitchen	2	FALSE
+prop_208-photo-4	prop_208	/homes/skyline/04-balcony.jpg	Balcony looking out over palm trees and the neighbourhood	Balcony	prop_208-entire	Balcony	3	FALSE
+prop_208-photo-5	prop_208	/homes/skyline/05-living-room.jpg	Living room from the entrance, with glass-fronted shelves, the sofa set and the TV	Living room	prop_208-entire	Living room	4	FALSE
+prop_208-photo-6	prop_208	/homes/skyline/06-living-room.jpg	Blue sofa, recliner and side tables around a jute rug	Living room	prop_208-entire	Living room	5	FALSE
+prop_208-photo-7	prop_208	/homes/skyline/07-living-room.jpg	Sofa set facing the TV, with a display shelf and floor lamp	Living room	prop_208-entire	Living room	6	FALSE
+prop_208-photo-8	prop_208	/homes/skyline/08-living-room.jpg	Living room with blue sofas, a wooden TV console and a refrigerator by the door	Living room	prop_208-entire	Living room	7	FALSE
+prop_208-photo-9	prop_208	/homes/skyline/09-living-room.jpg	Recliner and sofa looking across the living room to the kitchen	Living room	prop_208-entire	Living room	8	FALSE
+prop_208-photo-10	prop_208	/homes/skyline/10-bedroom.jpg	Double bed with grey linen, a blue rug and a round bedside table	Bedroom	prop_208-entire	Bedroom	9	FALSE
+prop_208-photo-11	prop_208	/homes/skyline/11-bedroom.jpg	Double bed beside a tall wooden wardrobe	Bedroom	prop_208-entire	Bedroom	10	FALSE
+prop_208-photo-12	prop_208	/homes/skyline/12-bedroom.jpg	Bed under a curtained window with a door to the balcony	Bedroom	prop_208-entire	Bedroom	11	FALSE
+prop_208-photo-13	prop_208	/homes/skyline/13-bedroom.jpg	Wardrobes and the balcony door seen from the foot of the bed	Bedroom	prop_208-entire	Bedroom	12	FALSE
+prop_208-photo-14	prop_208	/homes/skyline/14-bedroom.jpg	Dressing table with a mirror, looking into the bedroom	Bedroom	prop_208-entire	Bedroom	13	FALSE
+prop_208-photo-15	prop_208	/homes/skyline/15-bedroom.jpg	Bedroom seen from the doorway, past the dressing table	Bedroom	prop_208-entire	Bedroom	14	FALSE
+prop_208-photo-16	prop_208	/homes/skyline/16-bedroom.jpg	Bedroom in the evening with bedside lamps lit	Bedroom	prop_208-entire	Bedroom	15	FALSE
+prop_208-photo-17	prop_208	/homes/skyline/17-bedroom.jpg	Bedside table with a lamp and dried flowers	Bedroom	prop_208-entire	Bedroom	16	FALSE
+prop_208-photo-18	prop_208	/homes/skyline/18-kitchen.jpg	Kitchen with tall storage, a microwave and an induction hob	Kitchen	prop_208-entire	Kitchen	17	FALSE
+prop_208-photo-19	prop_208	/homes/skyline/19-kitchen.jpg	Kitchen storage cabinets and the counter with a hob and microwave	Kitchen	prop_208-entire	Kitchen	18	FALSE
+prop_208-photo-20	prop_208	/homes/skyline/20-kitchen.jpg	Galley kitchen with sage cabinets leading to the balcony	Kitchen	prop_208-entire	Kitchen	19	FALSE
+prop_208-photo-21	prop_208	/homes/skyline/21-kitchen.jpg	Kitchen counter, sink and window, with the balcony door open	Kitchen	prop_208-entire	Kitchen	20	FALSE
+prop_208-photo-22	prop_208	/homes/skyline/22-kitchen.jpg	Kitchen drawer pulled out to show plates and bowls	Kitchen	prop_208-entire	Kitchen	21	FALSE
+prop_208-photo-23	prop_208	/homes/skyline/23-kitchen.jpg	Kitchen sink under a window beside the balcony door	Kitchen	prop_208-entire	Kitchen	22	FALSE
+prop_208-photo-24	prop_208	/homes/skyline/24-kitchen.jpg	Dinner plates in a rack	Kitchen	prop_208-entire	Kitchen	23	FALSE
+prop_208-photo-25	prop_208	/homes/skyline/25-kitchen.jpg	Kitchen drawer organiser with plates and bowls	Kitchen	prop_208-entire	Kitchen	24	FALSE
+prop_208-photo-26	prop_208	/homes/skyline/26-wash-area.jpg	Hallway leading to a washbasin against a stone-clad wall	Wash area	prop_208-entire	Wash area	25	FALSE
+prop_208-photo-27	prop_208	/homes/skyline/27-wash-area.jpg	Vessel washbasin on a wooden counter beside the bathroom door	Wash area	prop_208-entire	Wash area	26	FALSE
+prop_208-photo-28	prop_208	/homes/skyline/28-bathroom.jpg	Bathroom with green tiles, a western toilet and a window	Bathroom	prop_208-entire	Bathroom	27	FALSE
+prop_208-photo-29	prop_208	/homes/skyline/29-bathroom.jpg	Bathroom with a geyser, green tiled wall and western toilet	Bathroom	prop_208-entire	Bathroom	28	FALSE
+prop_208-photo-30	prop_208	/homes/skyline/30-bathroom.jpg	Shower area with a rain shower and geyser	Bathroom	prop_208-entire	Bathroom	29	FALSE
+prop_208-photo-31	prop_208	/homes/skyline/31-bathroom.jpg	Western toilet against green tiles under a geyser	Bathroom	prop_208-entire	Bathroom	30	FALSE
+prop_208-photo-32	prop_208	/homes/skyline/32-balcony.jpg	Balcony with railings over the trees	Balcony	prop_208-entire	Balcony	31	FALSE
+prop_208-photo-33	prop_208	/homes/skyline/33-balcony.jpg	Balcony door opening onto a view of palm trees	Balcony	prop_208-entire	Balcony	32	FALSE

@@ -1,0 +1,252 @@
+{
+  "version": 1,
+  "properties": [
+    {
+      "id": "prop_203",
+      "slug": "lantern",
+      "name": "Alta Lantern House",
+      "status": "draft",
+      "city": "Bangalore",
+      "neighbourhood": "Hulimavu",
+      "subLocality": "",
+      "addressLine": "Chaitanya, Hulimavu, Bannerghatta Road",
+      "hasLift": false,
+      "propertyType": "apartment",
+      "bedrooms": 1,
+      "bathrooms": 1,
+      "carpetAreaSqft": 700,
+      "furnishing": "fully",
+      "maxOccupancy": 18,
+      "acRooms": "none",
+      "kitchenType": "full",
+      "laundry": "washer",
+      "wifiDownMbps": 50,
+      "powerBackup": "full",
+      "waterSource": "both",
+      "waterHotWater": "geyser",
+      "waterDrinking": "ro",
+      "housekeepingCadence": "fortnightly",
+      "linenChange": "fortnightly",
+      "tenantFit": "anyone",
+      "smoking": "not_allowed",
+      "alcohol": "not_allowed",
+      "pets": "not_allowed",
+      "overnightGuests": "on_request",
+      "partyPolicy": "no_parties",
+      "agreementType": "license",
+      "minStayNights": 7,
+      "allowsEntireBooking": false,
+      "hook": "Nine fully furnished one-bedroom homes in Hulimavu, off Bannerghatta Road.",
+      "body": "Nine one-bedroom homes in Hulimavu, off Bannerghatta Road. Each is fully furnished, with Wi-Fi, housekeeping and maintenance included in the rent.",
+      "hostId": "host_meera",
+      "units": [
+        {
+          "id": "prop_203-room-1",
+          "name": "Lantern 1BHK",
+          "bedType": "double",
+          "bathroom": "ensuite",
+          "hasAc": false,
+          "hasBalcony": true,
+          "maxOccupancy": 2,
+          "monthlyRate": 35000,
+          "nightlyRate": 1900,
+          "status": "available",
+          "hasReplicas": true,
+          "totalCount": 9,
+          "occupiedCount": 8,
+          "photos": [
+            {
+              "id": "prop_203-photo-1",
+              "url": "/homes/lantern/01-living-room.jpg",
+              "alt": "Living room with a green leather sofa, oval coffee table, jute rug and sheer curtains",
+              "caption": "Living room",
+              "category": "Living room",
+              "order": 0,
+              "isHero": true
+            },
+            {
+              "id": "prop_203-photo-2",
+              "url": "/homes/lantern/02-bedroom.jpg",
+              "alt": "Bedroom with a wooden double bed, patterned bedcover and a curtained window",
+              "caption": "Bedroom",
+              "category": "Bedroom",
+              "order": 1,
+              "isHero": false
+            },
+            {
+              "id": "prop_203-photo-3",
+              "url": "/homes/lantern/03-kitchen.jpg",
+              "alt": "Kitchen with purple and white cabinets, a sink, an RO purifier and open shelves",
+              "caption": "Kitchen",
+              "category": "Kitchen",
+              "order": 2,
+              "isHero": false
+            },
+            {
+              "id": "prop_203-photo-4",
+              "url": "/homes/lantern/04-living-room.jpg",
+              "alt": "Living room with a wall-mounted TV, looking through to the bedroom",
+              "caption": "Living room",
+              "category": "Living room",
+              "order": 3,
+              "isHero": false
+            },
+            {
+              "id": "prop_203-photo-5",
+              "url": "/homes/lantern/05-bedroom.jpg",
+              "alt": "Double bed with orange pillows beside a window with sheer curtains",
+              "caption": "Bedroom",
+              "category": "Bedroom",
+              "order": 4,
+              "isHero": false
+            },
+            {
+              "id": "prop_203-photo-6",
+              "url": "/homes/lantern/06-bedroom.jpg",
+              "alt": "Bedroom with a ceiling fan and a tall wooden wardrobe",
+              "caption": "Bedroom",
+              "category": "Bedroom",
+              "order": 5,
+              "isHero": false
+            },
+            {
+              "id": "prop_203-photo-7",
+              "url": "/homes/lantern/07-bedroom.jpg",
+              "alt": "Double bed under the window, seen from the foot of the bed",
+              "caption": "Bedroom",
+              "category": "Bedroom",
+              "order": 6,
+              "isHero": false
+            },
+            {
+              "id": "prop_203-photo-8",
+              "url": "/homes/lantern/08-bedroom.jpg",
+              "alt": "Double bed beside the bedroom door",
+              "caption": "Bedroom",
+              "category": "Bedroom",
+              "order": 7,
+              "isHero": false
+            },
+            {
+              "id": "prop_203-photo-9",
+              "url": "/homes/lantern/09-living-room.jpg",
+              "alt": "Green leather sofa and coffee table on a jute rug, by the front door",
+              "caption": "Living room",
+              "category": "Living room",
+              "order": 8,
+              "isHero": false
+            },
+            {
+              "id": "prop_203-photo-10",
+              "url": "/homes/lantern/10-living-room.jpg",
+              "alt": "Living room with a TV unit and a view through to the kitchen",
+              "caption": "Living room",
+              "category": "Living room",
+              "order": 9,
+              "isHero": false
+            },
+            {
+              "id": "prop_203-photo-11",
+              "url": "/homes/lantern/11-kitchen.jpg",
+              "alt": "Kitchen with a refrigerator, purple and white cabinets and a wall shelf",
+              "caption": "Kitchen",
+              "category": "Kitchen",
+              "order": 10,
+              "isHero": false
+            },
+            {
+              "id": "prop_203-photo-12",
+              "url": "/homes/lantern/12-bathroom.jpg",
+              "alt": "Bathroom with patterned wall tiles, a western toilet and a geyser",
+              "caption": "Bathroom",
+              "category": "Bathroom",
+              "order": 11,
+              "isHero": false
+            },
+            {
+              "id": "prop_203-photo-13",
+              "url": "/homes/lantern/13-bathroom.jpg",
+              "alt": "Western toilet with patterned tiles under a small window",
+              "caption": "Bathroom",
+              "category": "Bathroom",
+              "order": 12,
+              "isHero": false
+            },
+            {
+              "id": "prop_203-photo-14",
+              "url": "/homes/lantern/14-utility.jpg",
+              "alt": "Utility area with a washing machine and a washbasin under a window",
+              "caption": "Utility",
+              "category": "Utility",
+              "order": 13,
+              "isHero": false
+            },
+            {
+              "id": "prop_203-photo-15",
+              "url": "/homes/lantern/15-utility.jpg",
+              "alt": "Washing machine beside a washbasin and mirror",
+              "caption": "Utility",
+              "category": "Utility",
+              "order": 14,
+              "isHero": false
+            },
+            {
+              "id": "prop_203-photo-16",
+              "url": "/homes/lantern/16-utility.jpg",
+              "alt": "Top-loading washing machine under a window",
+              "caption": "Utility",
+              "category": "Utility",
+              "order": 15,
+              "isHero": false
+            },
+            {
+              "id": "prop_203-photo-17",
+              "url": "/homes/lantern/17-kitchen.jpg",
+              "alt": "RO water purifier mounted on the kitchen wall",
+              "caption": "Kitchen",
+              "category": "Kitchen",
+              "order": 16,
+              "isHero": false
+            },
+            {
+              "id": "prop_203-photo-18",
+              "url": "/homes/lantern/18-kitchen.jpg",
+              "alt": "Induction hob with cookware on the kitchen counter",
+              "caption": "Kitchen",
+              "category": "Kitchen",
+              "order": 17,
+              "isHero": false
+            },
+            {
+              "id": "prop_203-photo-19",
+              "url": "/homes/lantern/19-kitchen.jpg",
+              "alt": "Induction hob on the black kitchen counter",
+              "caption": "Kitchen",
+              "category": "Kitchen",
+              "order": 18,
+              "isHero": false
+            },
+            {
+              "id": "prop_203-photo-20",
+              "url": "/homes/lantern/20-kitchen.jpg",
+              "alt": "Kitchen shelf with plates, bowls and spoons",
+              "caption": "Kitchen",
+              "category": "Kitchen",
+              "order": 19,
+              "isHero": false
+            }
+          ]
+        }
+      ],
+      "amenities": [
+        "fully_furnished",
+        "balcony"
+      ],
+      "included": [
+        "internet",
+        "housekeeping",
+        "maintenance"
+      ]
+    }
+  ]
+}

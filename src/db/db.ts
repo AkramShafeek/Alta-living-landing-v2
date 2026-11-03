@@ -96,6 +96,12 @@ class DB {
           `Table "${tableName}" is set to read from sheets but VITE_SHEET_PUB_ID is not set`
         )
       }
+      if (definition.gid.trim() === "") {
+        throw new DbError(
+          `Table "${tableName}" is set to read from sheets but has no gid in src/db/config.ts — ` +
+            `without one Google serves the first tab, not "${tableName}"`
+        )
+      }
       return fetchTable(tableName, csvUrl(dbConfig.pubId, definition.gid))
     }
 
@@ -149,7 +155,7 @@ class DB {
       )
     }
 
-    const pending = this.loadRaw(tableName, definition).then((raw) => {
+    const loaded = this.loadRaw(tableName, definition).then((raw) => {
       const { rows, skipped } = parseTable(
         tableName,
         definition.schema,
@@ -174,6 +180,19 @@ class DB {
 
       return rows
     })
+
+    // An optional table that cannot be read at all reads as empty, and says
+    // why — once in the console and in `issues()`, never on every page.
+    const pending = definition.optional
+      ? loaded.catch((error: unknown) => {
+          const detail = error instanceof Error ? error.message : String(error)
+          console.error(`[db] ${tableName} unavailable, rendering without it — ${detail}`)
+          this.badRows.set(tableName, [
+            { table: tableName, row: "(whole table)", detail },
+          ])
+          return []
+        })
+      : loaded
 
     pending.catch(() => this.cache.delete(tableName))
 

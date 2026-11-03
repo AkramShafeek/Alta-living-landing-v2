@@ -1,0 +1,45 @@
+prop_204-photo-1	prop_204	/homes/harbour/01-2bhk-shared-living-room.jpg	Living room with a blue velvet sofa, glass coffee table and jute rug, open to the kitchen	2BHK · Shared living room		Living room	0	TRUE
+prop_204-photo-2	prop_204	/homes/harbour/02-1bhk-bedroom.jpg	Bedroom with a double bed, orange and sage linen, a study desk, AC and a view through to the kitchen	1BHK · Bedroom	prop_204-room-3	Bedroom	1	FALSE
+prop_204-photo-3	prop_204	/homes/harbour/03-1bhk-living-room.jpg	Sitting area with two armchairs, a coffee table, ship paintings and a staircase	1BHK · Living room	prop_204-room-3	Living room	2	FALSE
+prop_204-photo-4	prop_204	/homes/harbour/04-2bhk-bedroom-2.jpg	Bedroom with a grey upholstered double bed, dark wardrobe and a study desk by the window	2BHK · Bedroom 2	prop_204-room-2	Bedroom	3	FALSE
+prop_204-photo-5	prop_204	/homes/harbour/05-1bhk-bathroom.jpg	Bathroom with a bathtub, a washbasin and a washing machine	1BHK · Bathroom	prop_204-room-3	Bathroom	4	FALSE
+prop_204-photo-6	prop_204	/homes/harbour/06-1bhk-kitchen.jpg	L-shaped kitchen with wooden cabinets, a sink, a hob, a microwave and a refrigerator	1BHK · Kitchen	prop_204-room-3	Kitchen	5	FALSE
+prop_204-photo-7	prop_204	/homes/harbour/07-1bhk-bedroom.jpg	Double bed facing a study desk with a laptop beside a curtained window	1BHK · Bedroom	prop_204-room-3	Bedroom	6	FALSE
+prop_204-photo-8	prop_204	/homes/harbour/08-1bhk-bedroom.jpg	Bedroom with an AC, a ceiling fan, a wardrobe and sheer curtains	1BHK · Bedroom	prop_204-room-3	Bedroom	7	FALSE
+prop_204-photo-9	prop_204	/homes/harbour/09-1bhk-bedroom.jpg	Bed beside a window, with a desk, chair and lamp	1BHK · Bedroom	prop_204-room-3	Bedroom	8	FALSE
+prop_204-photo-10	prop_204	/homes/harbour/10-1bhk-bedroom.jpg	Double bed with a wooden headboard and orange throw	1BHK · Bedroom	prop_204-room-3	Bedroom	9	FALSE
+prop_204-photo-11	prop_204	/homes/harbour/11-1bhk-bedroom.jpg	Study desk with a laptop and chair in front of floor-length curtains	1BHK · Bedroom	prop_204-room-3	Bedroom	10	FALSE
+prop_204-photo-12	prop_204	/homes/harbour/12-1bhk-living-room.jpg	Sitting area with armchairs and a staircase, under a ship painting	1BHK · Living room	prop_204-room-3	Living room	11	FALSE
+prop_204-photo-13	prop_204	/homes/harbour/13-1bhk-living-room.jpg	Long sitting area with armchairs, a coffee table and frosted windows	1BHK · Living room	prop_204-room-3	Living room	12	FALSE
+prop_204-photo-14	prop_204	/homes/harbour/14-1bhk-living-room.jpg	Open book and a cup on the coffee table between two armchairs	1BHK · Living room	prop_204-room-3	Living room	13	FALSE
+prop_204-photo-15	prop_204	/homes/harbour/15-1bhk-kitchen.jpg	Kitchen counter with a sink, hob, kettle and paper towels	1BHK · Kitchen	prop_204-room-3	Kitchen	14	FALSE
+prop_204-photo-16	prop_204	/homes/harbour/16-1bhk-kitchen.jpg	Galley kitchen with wooden-pattern flooring and a refrigerator	1BHK · Kitchen	prop_204-room-3	Kitchen	15	FALSE
+prop_204-photo-17	prop_204	/homes/harbour/17-1bhk-kitchen.jpg	Kitchen tap against decorative wall tiles	1BHK · Kitchen	prop_204-room-3	Kitchen	16	FALSE
+prop_204-photo-18	prop_204	/homes/harbour/18-1bhk-bathroom.jpg	Bathroom with a blue washbasin, a bathtub and a magnifying mirror	1BHK · Bathroom	prop_204-room-3	Bathroom	17	FALSE
+prop_204-photo-19	prop_204	/homes/harbour/19-1bhk-bathroom.jpg	Bathtub with a hand shower, beside a washing machine	1BHK · Bathroom	prop_204-room-3	Bathroom	18	FALSE
+prop_204-photo-20	prop_204	/homes/harbour/20-1bhk-bathroom.jpg	Bathtub with a hand shower, a plant and a candle	1BHK · Bathroom	prop_204-room-3	Bathroom	19	FALSE
+prop_204-photo-21	prop_204	/homes/harbour/21-1bhk-wc.jpg	WC with a western toilet, a washbasin and a window	1BHK · WC	prop_204-room-3	Bathroom	20	FALSE
+prop_204-photo-22	prop_204	/homes/harbour/22-1bhk-wc.jpg	Western toilet with a cistern under a window	1BHK · WC	prop_204-room-3	Bathroom	21	FALSE
+prop_204-photo-23	prop_204	/homes/harbour/23-2bhk-bedroom-1.jpg	Bedroom with a double bed, a blue sofa and a sheer-curtained window	2BHK · Bedroom 1	prop_204-room-1	Bedroom	22	FALSE
+prop_204-photo-24	prop_204	/homes/harbour/24-2bhk-bedroom-1.jpg	Blue sofa and side table next to a double bed	2BHK · Bedroom 1	prop_204-room-1	Bedroom	23	FALSE
+prop_204-photo-25	prop_204	/homes/harbour/25-2bhk-bedroom-1.jpg	Double bed and blue sofa, with the door through to the rest of the flat	2BHK · Bedroom 1	prop_204-room-1	Bedroom	24	FALSE
+prop_204-photo-26	prop_204	/homes/harbour/26-2bhk-bedroom-1.jpg	Bedroom seen from the corner, with the bed, sofa and the door to the hall	2BHK · Bedroom 1	prop_204-room-1	Bedroom	25	FALSE
+prop_204-photo-27	prop_204	/homes/harbour/27-2bhk-bedroom-1.jpg	Corner of the bedroom with a lamp table, dried pampas and the blue sofa	2BHK · Bedroom 1	prop_204-room-1	Bedroom	26	FALSE
+prop_204-photo-28	prop_204	/homes/harbour/28-2bhk-bedroom-2.jpg	Double bed beside a dark wardrobe with a mirror, and a desk chair	2BHK · Bedroom 2	prop_204-room-2	Bedroom	27	FALSE
+prop_204-photo-29	prop_204	/homes/harbour/29-2bhk-bedroom-2.jpg	Grey upholstered double bed with brown striped linen	2BHK · Bedroom 2	prop_204-room-2	Bedroom	28	FALSE
+prop_204-photo-30	prop_204	/homes/harbour/30-2bhk-bedroom-2.jpg	Double bed, wardrobe and a study desk with a lamp beside the window	2BHK · Bedroom 2	prop_204-room-2	Bedroom	29	FALSE
+prop_204-photo-31	prop_204	/homes/harbour/31-2bhk-bedroom-2.jpg	Study desk and chair with a reading lamp, against sheer curtains	2BHK · Bedroom 2	prop_204-room-2	Bedroom	30	FALSE
+prop_204-photo-32	prop_204	/homes/harbour/32-2bhk-bedroom-2.jpg	Desk with a reading lamp and a candle in front of the window	2BHK · Bedroom 2	prop_204-room-2	Bedroom	31	FALSE
+prop_204-photo-33	prop_204	/homes/harbour/33-2bhk-shared-living-room.jpg	Blue velvet sofa with cushions and a throw, facing a glass coffee table	2BHK · Shared living room		Living room	32	FALSE
+prop_204-photo-34	prop_204	/homes/harbour/34-2bhk-shared-kitchen.jpg	Kitchen with dark cabinets, a hob, microwave, kettle and a refrigerator	2BHK · Shared kitchen		Kitchen	33	FALSE
+prop_204-photo-35	prop_204	/homes/harbour/35-2bhk-shared-kitchen.jpg	Kitchen counter with a sink, hob and patterned wall tiles under a window	2BHK · Shared kitchen		Kitchen	34	FALSE
+prop_204-photo-36	prop_204	/homes/harbour/36-2bhk-shared-bathroom.jpg	Bathroom with patterned tiles, a western toilet and a storage shelf	2BHK · Shared bathroom		Bathroom	35	FALSE
+prop_204-photo-37	prop_204	/homes/harbour/37-2bhk-shared-bathroom.jpg	Bathroom with a western toilet, shelf and geyser under a high window	2BHK · Shared bathroom		Bathroom	36	FALSE
+prop_204-photo-38	prop_204	/homes/harbour/38-2bhk-shared-bathroom.jpg	Shower corner with patterned tiles and a window	2BHK · Shared bathroom		Bathroom	37	FALSE
+prop_204-photo-39	prop_204	/homes/harbour/39-2bhk-shared-bathroom.jpg	Bathroom in warm evening light	2BHK · Shared bathroom		Bathroom	38	FALSE
+prop_204-photo-40	prop_204	/homes/harbour/40-2bhk-details.jpg	Glass vase with dried pampas beside the blue sofa and its cream throw	2BHK · Details		Details	39	FALSE
+prop_204-photo-41	prop_204	/homes/harbour/41-2bhk-details.jpg	Cushions and a knitted throw on the blue sofa	2BHK · Details		Details	40	FALSE
+prop_204-photo-42	prop_204	/homes/harbour/42-2bhk-details.jpg	Electric kettle on the kitchen counter, beside a wooden chopping board	2BHK · Details		Details	41	FALSE
+prop_204-photo-43	prop_204	/homes/harbour/43-2bhk-details.jpg	Pop-up toaster on the refrigerator, under a round mirror	2BHK · Details		Details	42	FALSE
+prop_204-photo-44	prop_204	/homes/harbour/44-2bhk-details.jpg	Washbasin tap on an orange counter, with potted plants	2BHK · Details		Details	43	FALSE
+prop_204-photo-45	prop_204	/homes/harbour/45-2bhk-details.jpg	Candle and a trailing plant on the bathroom shelf	2BHK · Details		Details	44	FALSE

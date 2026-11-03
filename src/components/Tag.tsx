@@ -18,7 +18,7 @@ export const Tag = ({
 }) => (
   <span
     className={cn(
-      "inline-flex items-center py-1 font-mono text-[11px] uppercase tracking-[0.12em] leading-none",
+      "inline-flex items-center py-1",
       TONE_CLASSES[tone],
       className
     )}

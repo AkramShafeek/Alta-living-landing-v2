@@ -1,0 +1,67 @@
+{
+  "version": 1,
+  "properties": [
+    {
+      "id": "prop_201",
+      "slug": "meridian",
+      "name": "Alta Meridian Residences",
+      "status": "draft",
+      "city": "Bangalore",
+      "neighbourhood": "Hulimavu",
+      "subLocality": "",
+      "addressLine": "SR Residency, Hulimavu, Bannerghatta Road",
+      "hasLift": true,
+      "propertyType": "apartment",
+      "bedrooms": 2,
+      "bathrooms": 2,
+      "carpetAreaSqft": 700,
+      "furnishing": "fully",
+      "maxOccupancy": 128,
+      "acRooms": "bedrooms_only",
+      "kitchenType": "full",
+      "laundry": "washer",
+      "wifiDownMbps": 50,
+      "powerBackup": "full",
+      "waterSource": "both",
+      "waterHotWater": "geyser",
+      "waterDrinking": "ro",
+      "housekeepingCadence": "fortnightly",
+      "linenChange": "fortnightly",
+      "tenantFit": "anyone",
+      "smoking": "not_allowed",
+      "alcohol": "not_allowed",
+      "pets": "not_allowed",
+      "overnightGuests": "on_request",
+      "partyPolicy": "no_parties",
+      "agreementType": "license",
+      "minStayNights": 7,
+      "allowsEntireBooking": false,
+      "hook": "32 fully furnished two-bedroom homes in one building in Hulimavu, off Bannerghatta Road.",
+      "body": "Alta Meridian is our flagship building in Hulimavu, off Bannerghatta Road: thirty-two two-bedroom homes under one roof, for teams and families who need more than one home in the same place. Every home is fully furnished, with Wi-Fi, housekeeping and maintenance included in the rent.",
+      "hostId": "host_meera",
+      "units": [
+        {
+          "id": "prop_201-room-1",
+          "name": "Meridian 2BHK",
+          "hasBalcony": true,
+          "maxOccupancy": 4,
+          "status": "available",
+          "note": "AC in 10 of the 32 apartments",
+          "hasReplicas": true,
+          "totalCount": 32,
+          "occupiedCount": 31
+        }
+      ],
+      "amenities": [
+        "fully_furnished",
+        "lift",
+        "balcony"
+      ],
+      "included": [
+        "internet",
+        "housekeeping",
+        "maintenance"
+      ]
+    }
+  ]
+}

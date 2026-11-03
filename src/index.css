@@ -1,14 +1,7 @@
-/* default */
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
-
-/* editorial */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=PT+Serif:ital,wght@0,400;0,700;1,400&family=Oswald:wght@400;500;600&display=swap');
-
-/* brutalist */
-@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&display=swap');
-
-/* minimal */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap');
+/* The site's type: the "brutalist" set, fixed. JetBrains Mono for every mono
+   label (font-mono), Bricolage Grotesque for .bricolage-grotesque-500
+   headings. Body copy is Inter (font-sans, from @fontsource below). */
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
 
 /* handwriting */
 @import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap');
@@ -47,28 +40,12 @@
 }
 
 :root {
-  --font-display: 'Fraunces', serif;
-  --font-body: 'Inter', sans-serif;
-  --font-mono: 'IBM Plex Mono', monospace;
-}
-
-[data-font="editorial"] {
-  --font-display: 'Playfair Display', serif;
-  --font-body: 'PT Serif', serif;
-  --font-mono: 'Oswald', sans-serif;
-}
-
-[data-font="brutalist"] {
+  /* Brutalist. Archivo Black is named for --font-display but no class uses
+     that variable yet, so it is not downloaded; load it before using it. */
   --font-display: 'Archivo Black', sans-serif;
   --font-body: 'Bricolage Grotesque', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
   --font-hand: 'Cedarville Cursive', cursive;
-}
-
-[data-font="minimal"] {
-  --font-display: 'Inter', sans-serif;
-  --font-body: 'Inter', sans-serif;
-  --font-mono: 'IBM Plex Mono', monospace;
 }
 
 @theme inline {

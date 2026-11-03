@@ -1,0 +1,454 @@
+{
+  "version": 1,
+  "properties": [
+    {
+      "id": "prop_202",
+      "slug": "linden",
+      "name": "Alta Linden House",
+      "status": "draft",
+      "city": "Bangalore",
+      "neighbourhood": "Hulimavu",
+      "subLocality": "",
+      "addressLine": "SR Homes, Hulimavu, Bannerghatta Road",
+      "hasLift": false,
+      "propertyType": "apartment",
+      "bedrooms": 1,
+      "bathrooms": 1,
+      "carpetAreaSqft": 700,
+      "furnishing": "fully",
+      "maxOccupancy": 16,
+      "acRooms": "none",
+      "kitchenType": "full",
+      "laundry": "washer",
+      "wifiDownMbps": 50,
+      "powerBackup": "full",
+      "waterSource": "both",
+      "waterHotWater": "geyser",
+      "waterDrinking": "ro",
+      "housekeepingCadence": "fortnightly",
+      "linenChange": "fortnightly",
+      "tenantFit": "anyone",
+      "smoking": "not_allowed",
+      "alcohol": "not_allowed",
+      "pets": "not_allowed",
+      "overnightGuests": "on_request",
+      "partyPolicy": "no_parties",
+      "agreementType": "license",
+      "minStayNights": 7,
+      "allowsEntireBooking": false,
+      "hook": "Seven one-bedroom homes and a studio in a small building in Hulimavu, off Bannerghatta Road.",
+      "body": "A small building in Hulimavu, off Bannerghatta Road, with seven one-bedroom homes and a studio. Every home is fully furnished, with Wi-Fi, housekeeping and maintenance included in the rent.",
+      "hostId": "host_meera",
+      "units": [
+        {
+          "kind": "room",
+          "bedType": "double",
+          "bathroom": "ensuite",
+          "hasAc": false,
+          "hasBalcony": true,
+          "maxOccupancy": 2,
+          "monthlyRate": 35000,
+          "nightlyRate": 1900,
+          "status": "available",
+          "hasReplicas": true,
+          "id": "prop_202-room-1",
+          "name": "Linden 1BHK · 1st floor",
+          "totalCount": 2,
+          "occupiedCount": 2,
+          "photos": [
+            {
+              "id": "prop_202-photo-3",
+              "url": "/homes/linden/03-1st-floor-bedroom.avif",
+              "alt": "Bedroom with a double bed, a tall wooden wardrobe and a mirror",
+              "caption": "1st floor · Bedroom",
+              "category": "Bedroom",
+              "order": 2,
+              "isHero": false
+            },
+            {
+              "id": "prop_202-photo-5",
+              "url": "/homes/linden/05-1st-floor-living-room.avif",
+              "alt": "Living room with a sofa, coffee table and red rug beside the balcony door",
+              "caption": "1st floor · Living room",
+              "category": "Living room",
+              "order": 4,
+              "isHero": false
+            },
+            {
+              "id": "prop_202-photo-6",
+              "url": "/homes/linden/06-1st-floor-living-room.avif",
+              "alt": "TV unit in the living room, with the bedroom behind a curtain",
+              "caption": "1st floor · Living room",
+              "category": "Living room",
+              "order": 5,
+              "isHero": false
+            },
+            {
+              "id": "prop_202-photo-7",
+              "url": "/homes/linden/07-1st-floor-bedroom.avif",
+              "alt": "Double bed with folded towels, beside the bedroom door",
+              "caption": "1st floor · Bedroom",
+              "category": "Bedroom",
+              "order": 6,
+              "isHero": false
+            },
+            {
+              "id": "prop_202-photo-8",
+              "url": "/homes/linden/08-1st-floor-living-room.avif",
+              "alt": "Living room with a TV unit, coffee table and the hallway to the door",
+              "caption": "1st floor · Living room",
+              "category": "Living room",
+              "order": 7,
+              "isHero": false
+            },
+            {
+              "id": "prop_202-photo-9",
+              "url": "/homes/linden/09-1st-floor-bedroom.avif",
+              "alt": "Bed with a carved headboard and fresh towels",
+              "caption": "1st floor · Bedroom",
+              "category": "Bedroom",
+              "order": 8,
+              "isHero": false
+            },
+            {
+              "id": "prop_202-photo-10",
+              "url": "/homes/linden/10-1st-floor-bedroom.avif",
+              "alt": "Double bed under a curtained window",
+              "caption": "1st floor · Bedroom",
+              "category": "Bedroom",
+              "order": 9,
+              "isHero": false
+            },
+            {
+              "id": "prop_202-photo-11",
+              "url": "/homes/linden/11-1st-floor-living-room.avif",
+              "alt": "Sofa and coffee table on a red rug by the curtained bedroom door",
+              "caption": "1st floor · Living room",
+              "category": "Living room",
+              "order": 10,
+              "isHero": false
+            },
+            {
+              "id": "prop_202-photo-12",
+              "url": "/homes/linden/12-1st-floor-living-room.avif",
+              "alt": "Living room looking through to the bedroom and the kitchen",
+              "caption": "1st floor · Living room",
+              "category": "Living room",
+              "order": 11,
+              "isHero": false
+            }
+          ]
+        },
+        {
+          "kind": "room",
+          "bedType": "double",
+          "bathroom": "ensuite",
+          "hasAc": false,
+          "hasBalcony": true,
+          "maxOccupancy": 2,
+          "monthlyRate": 35000,
+          "nightlyRate": 1900,
+          "status": "available",
+          "hasReplicas": true,
+          "id": "prop_202-room-2",
+          "name": "Linden 1BHK · 2nd floor",
+          "totalCount": 2,
+          "occupiedCount": 1,
+          "photos": [
+            {
+              "id": "prop_202-photo-2",
+              "url": "/homes/linden/02-2nd-floor-living-room.jpg",
+              "alt": "Living room with a tan leather sofa, a round wooden table and a door to the balcony",
+              "caption": "2nd floor · Living room",
+              "category": "Living room",
+              "order": 1,
+              "isHero": false
+            },
+            {
+              "id": "prop_202-photo-13",
+              "url": "/homes/linden/13-2nd-floor-bedroom.avif",
+              "alt": "Bedroom with a double bed in coral linen beside a large window",
+              "caption": "2nd floor · Bedroom",
+              "category": "Bedroom",
+              "order": 12,
+              "isHero": false
+            },
+            {
+              "id": "prop_202-photo-14",
+              "url": "/homes/linden/14-2nd-floor-living-room.avif",
+              "alt": "Living room with a leather sofa, a patterned rug and a TV unit",
+              "caption": "2nd floor · Living room",
+              "category": "Living room",
+              "order": 13,
+              "isHero": false
+            },
+            {
+              "id": "prop_202-photo-15",
+              "url": "/homes/linden/15-2nd-floor-bedroom.avif",
+              "alt": "Double bed with folded towels and a wardrobe with a mirror",
+              "caption": "2nd floor · Bedroom",
+              "category": "Bedroom",
+              "order": 14,
+              "isHero": false
+            },
+            {
+              "id": "prop_202-photo-16",
+              "url": "/homes/linden/16-2nd-floor-bathroom.avif",
+              "alt": "Bathroom with patterned wall tiles, a washbasin and a shower",
+              "caption": "2nd floor · Bathroom",
+              "category": "Bathroom",
+              "order": 15,
+              "isHero": false
+            },
+            {
+              "id": "prop_202-photo-17",
+              "url": "/homes/linden/17-2nd-floor-bathroom.avif",
+              "alt": "Bathroom with a western toilet and a high window",
+              "caption": "2nd floor · Bathroom",
+              "category": "Bathroom",
+              "order": 16,
+              "isHero": false
+            },
+            {
+              "id": "prop_202-photo-18",
+              "url": "/homes/linden/18-2nd-floor-kitchen.avif",
+              "alt": "Induction hob on the black kitchen counter",
+              "caption": "2nd floor · Kitchen",
+              "category": "Kitchen",
+              "order": 17,
+              "isHero": false
+            },
+            {
+              "id": "prop_202-photo-19",
+              "url": "/homes/linden/19-2nd-floor-living-room.avif",
+              "alt": "Hallway to the front door in evening light",
+              "caption": "2nd floor · Living room",
+              "category": "Living room",
+              "order": 18,
+              "isHero": false
+            }
+          ]
+        },
+        {
+          "kind": "room",
+          "bedType": "double",
+          "bathroom": "ensuite",
+          "hasAc": false,
+          "hasBalcony": true,
+          "maxOccupancy": 2,
+          "monthlyRate": 35000,
+          "nightlyRate": 1900,
+          "status": "available",
+          "hasReplicas": true,
+          "id": "prop_202-room-3",
+          "name": "Linden 1BHK · 3rd floor",
+          "totalCount": 3,
+          "occupiedCount": 2,
+          "photos": [
+            {
+              "id": "prop_202-photo-1",
+              "url": "/homes/linden/01-3rd-floor-living-room.avif",
+              "alt": "Living room with two blue wingback chairs, a round jute rug and a wall-mounted TV unit",
+              "caption": "3rd floor · Living room",
+              "category": "Living room",
+              "order": 0,
+              "isHero": true
+            },
+            {
+              "id": "prop_202-photo-4",
+              "url": "/homes/linden/04-3rd-floor-view.avif",
+              "alt": "Sunset over palm trees and rooftops, from the third floor",
+              "caption": "3rd floor · View",
+              "category": "View",
+              "order": 3,
+              "isHero": false
+            },
+            {
+              "id": "prop_202-photo-20",
+              "url": "/homes/linden/20-3rd-floor-living-room.avif",
+              "alt": "Blue wingback chairs facing the TV on a round jute rug",
+              "caption": "3rd floor · Living room",
+              "category": "Living room",
+              "order": 19,
+              "isHero": false
+            },
+            {
+              "id": "prop_202-photo-21",
+              "url": "/homes/linden/21-3rd-floor-bedroom.avif",
+              "alt": "Double bed with block-printed linen beside a curtained window",
+              "caption": "3rd floor · Bedroom",
+              "category": "Bedroom",
+              "order": 20,
+              "isHero": false
+            },
+            {
+              "id": "prop_202-photo-22",
+              "url": "/homes/linden/22-3rd-floor-bedroom.avif",
+              "alt": "Bedroom with a wooden wardrobe, a bench and a curtained window",
+              "caption": "3rd floor · Bedroom",
+              "category": "Bedroom",
+              "order": 21,
+              "isHero": false
+            },
+            {
+              "id": "prop_202-photo-23",
+              "url": "/homes/linden/23-3rd-floor-living-room.avif",
+              "alt": "Two blue wingback chairs by the window",
+              "caption": "3rd floor · Living room",
+              "category": "Living room",
+              "order": 22,
+              "isHero": false
+            },
+            {
+              "id": "prop_202-photo-24",
+              "url": "/homes/linden/24-3rd-floor-living-room.avif",
+              "alt": "TV unit beside floor-length curtains",
+              "caption": "3rd floor · Living room",
+              "category": "Living room",
+              "order": 23,
+              "isHero": false
+            },
+            {
+              "id": "prop_202-photo-25",
+              "url": "/homes/linden/25-3rd-floor-living-room.avif",
+              "alt": "Refrigerator in the living room, by the kitchen",
+              "caption": "3rd floor · Living room",
+              "category": "Living room",
+              "order": 24,
+              "isHero": false
+            },
+            {
+              "id": "prop_202-photo-26",
+              "url": "/homes/linden/26-3rd-floor-bedroom.avif",
+              "alt": "Block-printed pillows on the double bed",
+              "caption": "3rd floor · Bedroom",
+              "category": "Bedroom",
+              "order": 25,
+              "isHero": false
+            },
+            {
+              "id": "prop_202-photo-27",
+              "url": "/homes/linden/27-3rd-floor-kitchen.avif",
+              "alt": "Kitchen with open shelves, cookware and an induction hob under a window",
+              "caption": "3rd floor · Kitchen",
+              "category": "Kitchen",
+              "order": 26,
+              "isHero": false
+            },
+            {
+              "id": "prop_202-photo-28",
+              "url": "/homes/linden/28-3rd-floor-kitchen.avif",
+              "alt": "Storage jars and a kettle on the kitchen shelf",
+              "caption": "3rd floor · Kitchen",
+              "category": "Kitchen",
+              "order": 27,
+              "isHero": false
+            },
+            {
+              "id": "prop_202-photo-29",
+              "url": "/homes/linden/29-3rd-floor-kitchen.avif",
+              "alt": "Pressure cooker and saucepans on the kitchen shelf",
+              "caption": "3rd floor · Kitchen",
+              "category": "Kitchen",
+              "order": 28,
+              "isHero": false
+            },
+            {
+              "id": "prop_202-photo-30",
+              "url": "/homes/linden/30-3rd-floor-kitchen.avif",
+              "alt": "Stainless steel cookware on an open shelf",
+              "caption": "3rd floor · Kitchen",
+              "category": "Kitchen",
+              "order": 29,
+              "isHero": false
+            }
+          ]
+        },
+        {
+          "id": "prop_202-room-4",
+          "name": "Linden Studio",
+          "hasAc": false,
+          "hasBalcony": true,
+          "maxOccupancy": 2,
+          "monthlyRate": 35000,
+          "nightlyRate": 1900,
+          "status": "booked"
+        }
+      ],
+      "photos": [
+        {
+          "id": "prop_202-photo-31",
+          "url": "/homes/linden/31-kitchen.avif",
+          "alt": "Kitchen with a sink, wooden and cream cabinets and black counters",
+          "caption": "Kitchen",
+          "category": "Kitchen",
+          "order": 30,
+          "isHero": false
+        },
+        {
+          "id": "prop_202-photo-32",
+          "url": "/homes/linden/32-kitchen.avif",
+          "alt": "Kitchen with open shelving, a hob and a window",
+          "caption": "Kitchen",
+          "category": "Kitchen",
+          "order": 31,
+          "isHero": false
+        },
+        {
+          "id": "prop_202-photo-33",
+          "url": "/homes/linden/33-kitchen.avif",
+          "alt": "Kitchen drawers with a plate rack pulled out",
+          "caption": "Kitchen",
+          "category": "Kitchen",
+          "order": 32,
+          "isHero": false
+        },
+        {
+          "id": "prop_202-photo-34",
+          "url": "/homes/linden/34-kitchen.avif",
+          "alt": "Cutlery and utensil drawer",
+          "caption": "Kitchen",
+          "category": "Kitchen",
+          "order": 33,
+          "isHero": false
+        },
+        {
+          "id": "prop_202-photo-35",
+          "url": "/homes/linden/35-bathroom.avif",
+          "alt": "Washbasin and mixer tap against blue patterned tiles",
+          "caption": "Bathroom",
+          "category": "Bathroom",
+          "order": 34,
+          "isHero": false
+        },
+        {
+          "id": "prop_202-photo-36",
+          "url": "/homes/linden/36-bathroom.avif",
+          "alt": "Western toilet and hand shower against blue patterned tiles",
+          "caption": "Bathroom",
+          "category": "Bathroom",
+          "order": 35,
+          "isHero": false
+        },
+        {
+          "id": "prop_202-photo-37",
+          "url": "/homes/linden/37-bathroom.avif",
+          "alt": "Soap dish and a plant on the bathroom shelf",
+          "caption": "Bathroom",
+          "category": "Bathroom",
+          "order": 36,
+          "isHero": false
+        }
+      ],
+      "amenities": [
+        "fully_furnished",
+        "balcony"
+      ],
+      "included": [
+        "internet",
+        "housekeeping",
+        "maintenance"
+      ]
+    }
+  ]
+}

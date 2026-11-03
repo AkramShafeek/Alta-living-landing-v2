@@ -132,3 +132,24 @@ describe("PropertyBuilder", () => {
     expect(photos.map((p) => p.id)).toEqual(before)
   })
 })
+
+describe("allowsEntireBooking", () => {
+  it("leaves the entire unit out when whole-home booking is off", async () => {
+    const property = await propertyRepository.findOneBy(
+      "slug",
+      "indiranagar-garden-loft"
+    )
+    if (!property) throw new Error("fixture missing")
+    const units = await unitRepository.findByPropertyId(property.id)
+    expect(units.some((unit) => unit.kind === "entire")).toBe(true)
+
+    const off = buildProperty({ ...property, allowsEntireBooking: false })
+      .withUnits(units)
+      .build()
+    expect(off.units.some((unit) => unit.kind === "entire")).toBe(false)
+    expect(off.units).toHaveLength(units.length - 1)
+
+    const on = buildProperty(property).withUnits(units).build()
+    expect(on.units).toHaveLength(units.length)
+  })
+})

@@ -19,7 +19,7 @@
 // ─────────────────────────────────────────────────────────────────────────
 
 import { z } from "zod"
-import { coercerFor, type Coercer } from "@/db/parse"
+import { coerceRow, coercerFor, type Coercer } from "@/db/parse"
 import type { TableDef, TableName } from "@/db/config"
 import { tables } from "@/db/config"
 import type { Row } from "@/db/types"
@@ -217,6 +217,23 @@ export function checkRow(
   for (const field of fieldsOf(tableName)) {
     const problem = checkCell(tableName, field.name, row[field.name])
     if (problem) problems[field.name] = problem
+  }
+
+  // Rules that compare columns — "occupiedCount cannot exceed totalCount" —
+  // live on the model as refinements, which no single cell can trigger. Run
+  // the whole row once, the way the db will, and file each such complaint
+  // under the column it names. A cell that already failed on its own keeps
+  // that message: it is the one to fix first.
+  const definition: TableDef = tables[tableName]
+  const whole = definition.schema.safeParse(
+    coerceRow(definition.schema, row, definition.coerce)
+  )
+  if (!whole.success) {
+    for (const issue of whole.error.issues) {
+      if (issue.code !== "custom") continue
+      const column = String(issue.path[0] ?? "")
+      if (column && !problems[column]) problems[column] = issue.message
+    }
   }
 
   problemCache.set(row, problems)

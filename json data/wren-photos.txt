@@ -1,0 +1,36 @@
+prop_205-photo-1	prop_205	/homes/wren/01-wren-2-living-room.avif	Living room with a navy sofa bed on a round jute rug, a floor lamp and a full-length mirror	Wren 2 · Living room	prop_205-room-2	Living room	0	TRUE
+prop_205-photo-2	prop_205	/homes/wren/02-wren-1-bedroom.avif	Bright bedroom with a double bed, white quilt, patterned cushions and a curtained window	Wren 1 · Bedroom	prop_205-room-1	Bedroom	1	FALSE
+prop_205-photo-3	prop_205	/homes/wren/03-wren-2-kitchen.avif	L-shaped kitchen with wooden cabinets, a sink and black counters under a window	Wren 2 · Kitchen	prop_205-room-2	Kitchen	2	FALSE
+prop_205-photo-4	prop_205	/homes/wren/04-building.avif	Front of the two-storey white building with orange accents and an outside staircase	Building		Building	3	FALSE
+prop_205-photo-5	prop_205	/homes/wren/05-wren-1-living-room.avif	Living room with a corner desk, the front door and a view into the bedroom	Wren 1 · Living room	prop_205-room-1	Living room	4	FALSE
+prop_205-photo-6	prop_205	/homes/wren/06-wren-1-bedroom.avif	Double bed with brown striped linen and folded towels beside the window	Wren 1 · Bedroom	prop_205-room-1	Bedroom	5	FALSE
+prop_205-photo-7	prop_205	/homes/wren/07-wren-1-kitchen.avif	Kitchen with wooden cabinets, a sink, an induction hob and a kettle	Wren 1 · Kitchen	prop_205-room-1	Kitchen	6	FALSE
+prop_205-photo-8	prop_205	/homes/wren/08-wren-1-living-room.avif	Living room with a grey sofa bed, floor lamps and a wall clock	Wren 1 · Living room	prop_205-room-1	Living room	7	FALSE
+prop_205-photo-9	prop_205	/homes/wren/09-wren-1-living-room.avif	Grey sofa bed with cushions and a cream throw	Wren 1 · Living room	prop_205-room-1	Living room	8	FALSE
+prop_205-photo-10	prop_205	/homes/wren/10-wren-1-living-room.avif	Corner desk with a lamp and Wi-Fi router beside a curtained window	Wren 1 · Living room	prop_205-room-1	Living room	9	FALSE
+prop_205-photo-11	prop_205	/homes/wren/11-wren-1-living-room.avif	Wooden sideboard next to a double-door refrigerator	Wren 1 · Living room	prop_205-room-1	Living room	10	FALSE
+prop_205-photo-12	prop_205	/homes/wren/12-wren-1-bedroom.avif	Double bed with a dark wood headboard and a tall wardrobe	Wren 1 · Bedroom	prop_205-room-1	Bedroom	11	FALSE
+prop_205-photo-13	prop_205	/homes/wren/13-wren-1-bedroom.avif	Bedside desk with a lamp and laptop, the bed through the doorway	Wren 1 · Bedroom	prop_205-room-1	Bedroom	12	FALSE
+prop_205-photo-14	prop_205	/homes/wren/14-wren-1-bedroom.avif	Desk with a laptop and lamp beside the doorway to the bed	Wren 1 · Bedroom	prop_205-room-1	Bedroom	13	FALSE
+prop_205-photo-15	prop_205	/homes/wren/15-wren-1-bedroom.avif	Breakfast tray with a candle and fruit on the bed	Wren 1 · Bedroom	prop_205-room-1	Bedroom	14	FALSE
+prop_205-photo-16	prop_205	/homes/wren/16-wren-1-bedroom.avif	Laptop playing Netflix on the bed by candlelight	Wren 1 · Bedroom	prop_205-room-1	Bedroom	15	FALSE
+prop_205-photo-17	prop_205	/homes/wren/17-wren-1-bathroom.avif	White-tiled bathroom with a western toilet, shower and wall-mounted taps	Wren 1 · Bathroom	prop_205-room-1	Bathroom	16	FALSE
+prop_205-photo-18	prop_205	/homes/wren/18-wren-1-kitchen.avif	Cookware and dinner plates on a kitchen shelf	Wren 1 · Kitchen	prop_205-room-1	Kitchen	17	FALSE
+prop_205-photo-19	prop_205	/homes/wren/19-wren-1-kitchen.avif	Kitchen shelves with pans, mugs and bowls	Wren 1 · Kitchen	prop_205-room-1	Kitchen	18	FALSE
+prop_205-photo-20	prop_205	/homes/wren/20-wren-1-kitchen.avif	Plates and bowls beside an induction hob and a kettle	Wren 1 · Kitchen	prop_205-room-1	Kitchen	19	FALSE
+prop_205-photo-21	prop_205	/homes/wren/21-wren-1-kitchen.avif	Induction hob and electric kettle on the counter	Wren 1 · Kitchen	prop_205-room-1	Kitchen	20	FALSE
+prop_205-photo-22	prop_205	/homes/wren/22-wren-1-kitchen.avif	Cutlery drawer with knives, spoons, a peeler and scissors	Wren 1 · Kitchen	prop_205-room-1	Kitchen	21	FALSE
+prop_205-photo-23	prop_205	/homes/wren/23-wren-2-bedroom.avif	Bedroom with a light wood double bed, overhead cabinets and a curtained window	Wren 2 · Bedroom	prop_205-room-2	Bedroom	22	FALSE
+prop_205-photo-24	prop_205	/homes/wren/24-wren-2-bathroom.avif	Bathroom with blue tiles, a western toilet, a shower curtain and a plant by the window	Wren 2 · Bathroom	prop_205-room-2	Bathroom	23	FALSE
+prop_205-photo-25	prop_205	/homes/wren/25-wren-2-living-room.avif	Living room with a navy sofa bed, a round rug and a curtained window	Wren 2 · Living room	prop_205-room-2	Living room	24	FALSE
+prop_205-photo-26	prop_205	/homes/wren/26-wren-2-living-room.avif	Living room with a corner desk and the doorway to the bedroom	Wren 2 · Living room	prop_205-room-2	Living room	25	FALSE
+prop_205-photo-27	prop_205	/homes/wren/27-wren-2-bathroom.avif	Bathroom with blue tiles and a leaf-print wall beside the door	Wren 2 · Bathroom	prop_205-room-2	Bathroom	26	FALSE
+prop_205-photo-28	prop_205	/homes/wren/28-building.avif	Corner view of the building with its balconies and outside staircase	Building		Building	27	FALSE
+prop_205-photo-29	prop_205	/homes/wren/29-building.avif	Ground-floor entrance with a gate and a doormat	Building		Building	28	FALSE
+prop_205-photo-30	prop_205	/homes/wren/30-building.avif	Tree-lined street outside the building	Building		Building	29	FALSE
+prop_205-photo-31	prop_205	/homes/wren/31-building.avif	The building seen from the street, with parked cars	Building		Building	30	FALSE
+prop_205-photo-32	prop_205	/homes/wren/32-terrace.avif	Open rooftop terrace surrounded by trees	Terrace		Terrace	31	FALSE
+prop_205-photo-33	prop_205	/homes/wren/33-neighbourhood.avif	Temple with a glass pyramid roof and white gopuram, nearby	Neighbourhood		Neighbourhood	32	FALSE
+prop_205-photo-34	prop_205	/homes/wren/34-neighbourhood.avif	Paved walking path under trees in a nearby park	Neighbourhood		Neighbourhood	33	FALSE
+prop_205-photo-35	prop_205	/homes/wren/35-neighbourhood.avif	Walking path along a lake at sunset	Neighbourhood		Neighbourhood	34	FALSE
+prop_205-photo-36	prop_205	/homes/wren/36-neighbourhood.avif	Open ground among trees in a nearby park	Neighbourhood		Neighbourhood	35	FALSE

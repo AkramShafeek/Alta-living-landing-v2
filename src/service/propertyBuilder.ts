@@ -102,11 +102,24 @@ export class PropertyBuilder {
     return this
   }
 
+  /**
+   * The units a guest can be offered.
+   *
+   * A home that does not allow whole-home booking keeps its `entire` row in
+   * the sheet, but it is dropped here — one funnel, as with `status` — so the
+   * page, the listing price and the cart cannot disagree about whether it is
+   * on offer. The cart in particular drops anything absent from `units`.
+   */
+  private offeredUnits(): Unit[] {
+    if (this.property.allowsEntireBooking) return this.units
+    return this.units.filter((unit) => unit.kind !== "entire")
+  }
+
   build(): PropertyDetail {
     return {
       property: this.property,
 
-      units: buildUnitDetails(this.units, this.photos),
+      units: buildUnitDetails(this.offeredUnits(), this.photos),
       photos: [...this.photos].sort(byHeroThenOrder),
       reviews: this.reviews,
 

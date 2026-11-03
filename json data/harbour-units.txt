@@ -1,0 +1,4 @@
+id	propertyId	kind	name	bedType	bathroom	hasDesk	hasAc	hasBalcony	areaSqft	maxOccupancy	monthlyRate	nightlyRate	deposit	status	note	hasReplicas	totalCount	occupiedCount
+prop_204-room-1	prop_204	room	Harbour 2BHK · Bedroom 1	double	shared					2	35000	1900		available		TRUE	2	0
+prop_204-room-2	prop_204	room	Harbour 2BHK · Bedroom 2	double	shared	TRUE				2	35000	1900		available		TRUE	2	0
+prop_204-room-3	prop_204	room	Harbour 1BHK	double	ensuite	TRUE	TRUE			2	65000	3700		available	Bathroom with a bathtub	FALSE		

@@ -2,7 +2,7 @@ import { useState } from "react"
 import { SectionHeading } from "@/components/SectionHeading"
 import { PillTabs } from "@/components/PillTabs"
 import { StatCell } from "@/components/StatCell"
-import { checks, founder, reasons, whoWeAreStats } from "@/content/site"
+import { checks, founder, reasons, whoWeAre, whoWeAreStats } from "@/content/site"
 
 export const WhoWeAre = () => {
   const [reasonIndex, setReasonIndex] = useState(0)
@@ -10,12 +10,11 @@ export const WhoWeAre = () => {
   const reason = reasons[reasonIndex]
 
   return (
-    <section className="bg-black text-background px-8 py-18 md:py-22 border-b-2 border-black">
+    <section id="who-we-are" className="bg-black text-background px-8 py-18 md:py-22 border-b-2 border-black">
       <SectionHeading
         tone="paper"
-        eyebrow="who are we"
-        title={<>A managed portfolio,<br />not a marketplace</>}
-        note="Five years of hosting · one city · every home walked through by us before a guest ever sees it"
+        eyebrow={whoWeAre.eyebrow}
+        title={whoWeAre.title}
       />
 
       <div className="grid grid-cols-1 md:grid-cols-4 border-2 border-background">
@@ -23,8 +22,11 @@ export const WhoWeAre = () => {
         <div className="md:col-span-2 md:row-span-2 p-8 border-b md:border-b-0 md:border-r border-background/40 flex flex-col justify-between gap-6">
           <p className="text-xl leading-relaxed text-balance">“{founder.quote}”</p>
           <div className="flex items-center gap-3.5">
-            <div className="w-13 h-13 border-2 border-background bg-background/10 flex items-center justify-center font-mono text-[10px] text-center text-background/70">
-              PHO<br />TO
+            <div
+              aria-hidden
+              className="w-13 h-13 border-2 border-background bg-amber-400 text-black flex items-center justify-center bricolage-grotesque-500 text-2xl"
+            >
+              {founder.name.charAt(0)}
             </div>
             <div>
               <p className="bricolage-grotesque-500 text-lg">{founder.name}</p>
@@ -34,7 +36,7 @@ export const WhoWeAre = () => {
         </div>
 
         {/* Reason switcher */}
-        <div className="md:col-span-2 p-7 border-b border-background/40 bg-amber-400 text-black flex flex-col gap-4">
+        <div id="how-it-works" className="md:col-span-2 p-7 border-b border-background/40 bg-amber-400 text-black flex flex-col gap-4">
           <p className="font-mono text-[11px] uppercase tracking-[0.18em]">Why we're different — pick one</p>
           <PillTabs
             tone="dark"
@@ -44,7 +46,9 @@ export const WhoWeAre = () => {
           />
           <p className="bricolage-grotesque-500 text-2xl leading-tight">{reason.title}</p>
           <p className="text-sm leading-relaxed">{reason.body}</p>
-          <p className="font-mono text-xs font-bold uppercase tracking-[0.16em]">{reason.figure}</p>
+          {reason.figure && (
+            <p className="font-mono text-xs font-bold uppercase tracking-[0.16em]">{reason.figure}</p>
+          )}
         </div>
 
         {whoWeAreStats.slice(0, 2).map((s, i) => (

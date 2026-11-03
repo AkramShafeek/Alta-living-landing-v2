@@ -1,0 +1,5 @@
+id	propertyId	kind	name	bedType	bathroom	hasDesk	hasAc	hasBalcony	areaSqft	maxOccupancy	monthlyRate	nightlyRate	deposit	status	note	hasReplicas	totalCount	occupiedCount
+prop_207-room-1	prop_207	room	Cedar Bedroom 1	double			TRUE			2				booked		FALSE		
+prop_207-room-2	prop_207	room	Cedar Bedroom 2	double			TRUE			2				booked		FALSE		
+prop_207-room-3	prop_207	room	Cedar Bedroom 3	double			TRUE			2				booked		FALSE		
+prop_207-entire	prop_207	entire	Cedar 3BHK				TRUE	TRUE		6	100000	7900		booked		FALSE		

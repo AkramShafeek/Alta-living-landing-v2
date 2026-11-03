@@ -34,6 +34,13 @@ import { cn } from "@/lib/utils"
 import { useCatalogStore } from "@/store/catalogStore"
 import { isInCart, useCartStore, type PropertyRef } from "@/store/cartStore"
 import type { UnitDetail } from "@/store/types"
+import {
+  isUnitBookable as isBookable,
+  selectAvailabilityLabel,
+  selectReplicaAvailability,
+  selectStartingMonthly,
+  selectUnitStatusLabel,
+} from "@/store/selectors"
 import type { Photo } from "@/models/Photo"
 // import { Separator } from "@/components/ui/separator" // unused — only appears in commented-out markup
 
@@ -98,10 +105,6 @@ const plural = (n: number, noun: string) => `${n} ${noun}${n === 1 ? "" : "s"}`
 type Fact = { label: string; value: string | undefined }
 const present = (facts: Fact[]) =>
   facts.filter((f): f is Required<Fact> => Boolean(f.value))
-
-/** Only `available` can be taken. `on_notice` is leaving, but not tonight. */
-const isBookable = (unit: UnitDetail | undefined) =>
-  unit?.status === "available"
 
 /** A titled block that renders nothing when it has nothing to say. */
 const AmenityGrid = ({ amenities }: { amenities: readonly AmenityKey[] }) => (
@@ -278,9 +281,12 @@ const UNIT_TABS = [
 const PhotoTile = ({
   photo,
   ratio,
+  label = true,
 }: {
   photo: Photo | undefined
   ratio: string
+  /** Off when the whole grid is empty and says so once, over the top. */
+  label?: boolean
 }) => (
   <div className={cn("relative overflow-hidden bg-[#f0f0f0]", ratio)}>
     {photo ? (
@@ -289,7 +295,7 @@ const PhotoTile = ({
         alt={photo.alt}
         className="h-full w-full object-cover"
       />
-    ) : (
+    ) : !label ? null : (
       <div className="flex h-full w-full items-center justify-center px-3 text-center">
         <span className="font-mono text-[10px] tracking-[0.18em] text-foreground/60 uppercase">
           Photo coming soon
@@ -321,11 +327,19 @@ const PhotoQuad = ({
     { length: QUAD },
     (_, index) => photos[index]
   )
+  // No photos at all: the same grid, empty, saying it once rather than four
+  // times — the block keeps its height either way.
+  const none = photos.length === 0
 
   return (
     <div role="group" aria-label={caption}>
-      <div className="grid gap-0.5 overflow-hidden rounded-2xl">
-        <PhotoTile photo={cover} ratio="aspect-[16/8]" />
+      <div className="relative grid gap-0.5 overflow-hidden rounded-2xl">
+        {none && (
+          <span className="absolute inset-0 z-10 flex items-center justify-center font-mono text-[11px] tracking-[0.18em] text-foreground/60 uppercase">
+            Photos coming soon
+          </span>
+        )}
+        <PhotoTile photo={cover} ratio="aspect-[16/8]" label={!none} />
 
         <div className="grid grid-cols-3 gap-0.5">
           {rest.map((photo, index) => (
@@ -333,6 +347,7 @@ const PhotoQuad = ({
               key={photo?.id ?? `blank-${index}`}
               photo={photo}
               ratio="aspect-[4/3]"
+              label={!none}
             />
           ))}
         </div>
@@ -531,22 +546,19 @@ const Property = () => {
   const { nearby, housekeeping, notIncluded, includedInPrice } = detail
 
   const rooms = units.filter((unit) => unit.kind === "room")
+  // Absent when the home does not allow whole-home booking — the service
+  // leaves the unit out rather than this page hiding it.
   const whole = units.find((unit) => unit.kind === "entire")
+  const offersWhole = property.allowsEntireBooking
 
-  // A home with no separate rooms has only one thing to offer, so the tab it
-  // would land on does not exist. Derived rather than corrected in an effect,
-  // which would render the empty tab for a frame first.
-  const unitMode: UnitMode = rooms.length === 0 ? "whole" : mode
+  // A home with only one kind of thing to offer has no choice to make, so the
+  // tab it would land on must be the one that exists. Derived rather than
+  // corrected in an effect, which would render the empty tab for a frame first.
+  const unitMode: UnitMode =
+    rooms.length === 0 ? "whole" : !offersWhole ? "rooms" : mode
 
-  const openRooms = rooms.filter(isBookable).length
-  const availability =
-    rooms.length === 0
-      ? isBookable(whole)
-        ? "Available now"
-        : "Fully booked"
-      : openRooms === 0
-        ? "Fully booked"
-        : `${openRooms} of ${rooms.length} available`
+  const availability = selectAvailabilityLabel(detail)
+  const startingMonthly = selectStartingMonthly(detail)
 
   const area = `${property.neighbourhood}`
 
@@ -781,6 +793,15 @@ const Property = () => {
   const photoCount = photos.length
   const activePhoto = photoCount > 0 ? photo % photoCount : 0
   const currentPhoto = photos[activePhoto]
+  // The gallery is the first four photos — `photos` is already hero-first —
+  // shown as one large and three beneath. Clicking a thumbnail swaps it into
+  // the large slot, so the three beneath are always "the other three". The
+  // rest of a home's photos belong to its rooms, further down the page.
+  const galleryIndices = photos.slice(0, QUAD).map((_, index) => index)
+  const thumbnails = Array.from(
+    { length: QUAD - 1 },
+    (_, slot) => galleryIndices.filter((index) => index !== activePhoto)[slot]
+  )
 
   return (
     <div className="bg-background relative" style={{ paddingTop: 0 }}>
@@ -850,29 +871,42 @@ const Property = () => {
                 )} */}
               </div>
               <div className="flex h-[30%] gap-3">
-                {photos.map((item, i) => (
-                  <div
-                    key={item.id}
-                    aria-label={`Show photo ${i + 1}`}
-                    onClick={() => setPhoto(i)}
-                    className={cn(
-                      "h-full flex-1 overflow-hidden object-cover transition-opacity"
-                    )}
-                  >
-                    <img
-                      src={item.url}
-                      alt=""
-                      className="h-full w-full object-cover"
-                    />
-                  </div>
-                ))}
+                {thumbnails.map((index, slot) =>
+                  index === undefined ? (
+                    // Fewer than four photos: keep the slot, so the row does
+                    // not stretch two pictures across the space of three.
+                    <div key={`blank-${slot}`} className="h-full flex-1 bg-[#f0f0f0]" />
+                  ) : (
+                    <div
+                      key={photos[index].id}
+                      aria-label={`Show photo ${index + 1}`}
+                      onClick={() => setPhoto(index)}
+                      className={cn(
+                        "h-full flex-1 overflow-hidden object-cover transition-opacity"
+                      )}
+                    >
+                      <img
+                        src={photos[index].url}
+                        alt=""
+                        className="h-full w-full object-cover"
+                      />
+                    </div>
+                  )
+                )}
               </div>
             </>
           ) : (
-            <div className="flex min-h-100 flex-1 items-center justify-center">
-              <p className="font-mono text-[11px] tracking-[0.18em] text-background/60 uppercase">
-                Photos coming shortly
-              </p>
+            <div className="flex h-full flex-col gap-0.5">
+              <div className="flex h-[70%] items-center justify-center bg-[#f0f0f0]">
+                <p className="font-mono text-[11px] tracking-[0.18em] text-foreground/60 uppercase">
+                  Photos coming soon
+                </p>
+              </div>
+              <div className="flex h-[30%] gap-0.5">
+                {Array.from({ length: 3 }, (_, i) => (
+                  <div key={i} className="flex-1 bg-[#f0f0f0]" />
+                ))}
+              </div>
             </div>
           )}
         </div>
@@ -898,7 +932,7 @@ const Property = () => {
               {property.hook}
             </p>
           )}
-          <div className="flex flex-col justify-center z-10">
+          <div className="flex flex-col justify-center z-10 gap-2 mb-2">
             {/* <div className="paper-lift -rotate-12 h-10 w-36 flex justify-center">
               <Tag className="bg-amber-100 absolute w-full h-full z-10 border-border py-4 gap-1 justify-center items-center">
                 <MapPinIcon size={16} />
@@ -923,19 +957,19 @@ const Property = () => {
                 {availability}
               </Tag>
             </div> */}
-            <Tag className="border-none text-lg gap-5 items-center">
+            <Tag className="border-none font-extralight gap-5 items-center">
               <MapPinIcon size={20} />
               {area}
             </Tag>
-            <Tag className="border-none text-lg gap-5 items-center">
+            <Tag className="border-none font-extralight gap-5 items-center">
               <BedDoubleIcon size={20} />
               {beds}
             </Tag>
-            <Tag className="border-none text-lg gap-5 items-center">
+            <Tag className="border-none font-extralight gap-5 items-center">
               <DiamondIcon size={20} />
               {size}
             </Tag>
-            <Tag className="border-none text-lg gap-5 items-center">
+            <Tag className="border-none font-extralight gap-5 items-center">
               <DoorOpenIcon size={20} />
               {availability}
             </Tag>
@@ -965,19 +999,28 @@ const Property = () => {
               </p>
             </div>
             <Separator orientation="vertical" /> */}
-            <div className="text-left mb-2 z-10">
-              <p className="text-sm text-muted-foreground">
-                Starting from
-              </p>
-              <div className="flex items-baseline justify-start gap-2">
-                <p className="font-mono text-4xl font-bold">
-                  {formatINR(whole?.monthlyRate ?? 0)}
+            {/* The lowest monthly rate of any unit, whole home included —
+                not the whole home's alone, which a home let only by the room
+                does not have. */}
+            {startingMonthly > 0 ? (
+              <div className="text-left mb-2 z-10">
+                <p className="text-sm text-muted-foreground">
+                  Starting from
                 </p>
-                <span className="text-sm font-normal text-muted-foreground">
-                  / per month
-                </span>
+                <div className="flex items-baseline justify-start gap-2">
+                  <p className="font-mono text-4xl font-bold">
+                    {formatINR(startingMonthly)}
+                  </p>
+                  <span className="text-sm font-normal text-muted-foreground">
+                    / per month
+                  </span>
+                </div>
               </div>
-            </div>
+            ) : (
+              <p className="mb-2 z-10 text-sm text-muted-foreground">
+                Price coming soon
+              </p>
+            )}
           </div>
 
           {/* {amenities.length > 0 && (
@@ -1033,9 +1076,11 @@ const Property = () => {
               room by room
             </p>
             <h2 className="bricolage-grotesque-500 text-4xl leading-none tracking-tight md:text-5xl">
-              {rooms.length > 0
-                ? "Take one room, or take the whole home"
-                : "Take the whole home"}
+              {rooms.length === 0
+                ? "Take the whole home"
+                : offersWhole
+                  ? "Take one room, or take the whole home"
+                  : "Take a room"}
             </h2>
           </div>
           <p className="max-w-70 font-mono text-[11px] leading-loose tracking-[0.16em] text-muted-foreground uppercase">
@@ -1053,7 +1098,7 @@ const Property = () => {
           onValueChange={(next) => setMode(next as UnitMode)}
           className="flex flex-col gap-8"
         >
-          {rooms.length > 0 && (
+          {rooms.length > 0 && offersWhole && (
             <Tabs.List
               aria-label="What to book"
               className="inline-flex w-fit border-2 border-black bg-white shadow-[4px_4px_0_#000] rounded-full overflow-hidden"
@@ -1092,11 +1137,14 @@ const Property = () => {
                       area={roomArea(room) || undefined}
                       price={formatINR(room.monthlyRate)}
                     />
-                    <RoomCardList items={roomAmenities(room)} />
+                    <RoomCardList
+                      items={roomAmenities(room)}
+                      availability={selectReplicaAvailability(room)}
+                    />
                     <RoomCardFooter>
                       <RoomCardGroup>
                         <RoomCardStatus
-                          label={humanise(room.status)}
+                          label={selectUnitStatusLabel(room)}
                           available={bookable}
                         />
                         {room.deposit > 0 && (

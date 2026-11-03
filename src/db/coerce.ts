@@ -83,5 +83,36 @@ export const pairs = (value: string | undefined): [string, string][] =>
     return [left.trim(), rest.join("::").trim()]
   })
 
+/**
+ * An image URL, with Google Drive share links rewritten to the image itself.
+ *
+ * "Copy link" in Drive gives `drive.google.com/file/d/<id>/view` — a viewer
+ * page, which an `<img>` cannot show. `lh3.googleusercontent.com/d/<id>`
+ * serves the file's pixels. Rewriting here, at read time, means ops paste the
+ * link Drive hands them and the sheet keeps it exactly as pasted.
+ *
+ * Not an official Google API: it can be throttled or changed, and the file
+ * must be shared as "Anyone with the link". Every other URL passes through.
+ */
+const DRIVE_ID = [
+  /drive\.google\.com\/file\/d\/([\w-]+)/,
+  /drive\.google\.com\/(?:open|uc|thumbnail)\?(?:.*&)?id=([\w-]+)/,
+  /docs\.google\.com\/uc\?(?:.*&)?id=([\w-]+)/,
+]
+
+/** Wide enough for a full-bleed hero; Google scales down, never up. */
+const DRIVE_WIDTH = 2000
+
+export const imageUrl = (value: string | undefined): string | undefined => {
+  const url = str(value)
+  if (url === undefined) return undefined
+
+  for (const pattern of DRIVE_ID) {
+    const id = pattern.exec(url)?.[1]
+    if (id) return `https://lh3.googleusercontent.com/d/${id}=w${DRIVE_WIDTH}`
+  }
+  return url
+}
+
 /** Reads "a.b" out of a flat row, since sheets have no nested columns. */
 export const at = (row: Row, key: string): string | undefined => row[key]

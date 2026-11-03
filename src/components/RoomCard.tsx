@@ -1,5 +1,5 @@
 import type { ReactNode } from "react"
-import { CheckIcon, PlusIcon, type LucideIcon } from "lucide-react"
+import { CheckIcon, DoorOpenIcon, PlusIcon, type LucideIcon } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 /**
@@ -106,8 +106,19 @@ export type RoomCardListItem = {
 }
 
 /** The amenities/features list — or any other label list a caller wants here. */
-function RoomCardList({ items }: { items: RoomCardListItem[] }) {
-  if (items.length === 0) return null
+function RoomCardList({
+  items,
+  availability,
+}: {
+  items: RoomCardListItem[]
+  /**
+   * A count line — "2/5 Available" — for a listing that stands for several
+   * identical rooms. Omitted for a single room, whose status tag already says
+   * all there is to say.
+   */
+  availability?: ReactNode
+}) {
+  if (items.length === 0 && !availability) return null
 
   return (
     <ul className="flex flex-col gap-x-6 gap-y-3 px-7 pb-7">
@@ -126,6 +137,12 @@ function RoomCardList({ items }: { items: RoomCardListItem[] }) {
           {item.label}
         </li>
       ))}
+      {availability && (
+        <li key="availability" className="flex items-center gap-2 font-mono text-[13px] text-black/75">
+          <DoorOpenIcon size={DEFAULT_ICON_SIZE} aria-hidden className="shrink-0" />
+          {availability}
+        </li>
+      )}
     </ul>
   )
 }

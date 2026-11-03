@@ -22,11 +22,18 @@ export const FieldInput = ({
   value,
   problem,
   onChange,
+  onGenerate,
 }: {
   field: Field
   value: string
   problem?: string
   onChange: (value: string) => void
+  /**
+   * Offers an "Auto" button that fills the cell — ids only. Shown while the
+   * cell is blank and never after: an id other rows point at must not be
+   * regenerated out from under them.
+   */
+  onGenerate?: () => void
 }) => {
   const id = `field-${field.name}`
   const describedBy = problem
@@ -93,6 +100,25 @@ export const FieldInput = ({
           <option value="TRUE">TRUE</option>
           <option value="FALSE">FALSE</option>
         </select>
+      ) : onGenerate && value.trim() === "" ? (
+        <div className="flex gap-2">
+          <input
+            id={id}
+            type="text"
+            value={value}
+            aria-invalid={invalid}
+            aria-describedby={describedBy}
+            onChange={(event) => onChange(event.target.value)}
+            className={controlClass}
+          />
+          <button
+            type="button"
+            onClick={onGenerate}
+            className="shrink-0 rounded-lg border border-neutral-500 bg-white px-3 font-mono text-[10px] font-semibold tracking-[0.16em] uppercase transition-colors hover:bg-amber-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+          >
+            Auto
+          </button>
+        </div>
       ) : (
         <input
           id={id}

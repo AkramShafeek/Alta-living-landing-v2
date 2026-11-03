@@ -1,0 +1,511 @@
+{
+  "version": 1,
+  "properties": [
+    {
+      "id": "prop_204",
+      "slug": "harbour",
+      "name": "Alta Harbour Residence",
+      "status": "draft",
+      "city": "Bangalore",
+      "neighbourhood": "JP Nagar",
+      "subLocality": "Dollars Colony",
+      "addressLine": "515, The Harbour Residence, Dollars Colony, JP Nagar",
+      "hasLift": false,
+      "propertyType": "apartment",
+      "bedrooms": 2,
+      "bathrooms": 2,
+      "carpetAreaSqft": 700,
+      "furnishing": "fully",
+      "maxOccupancy": 10,
+      "acRooms": "bedrooms_only",
+      "kitchenType": "full",
+      "laundry": "washer",
+      "wifiDownMbps": 50,
+      "powerBackup": "full",
+      "waterSource": "both",
+      "waterHotWater": "geyser",
+      "waterDrinking": "ro",
+      "housekeepingCadence": "fortnightly",
+      "linenChange": "fortnightly",
+      "tenantFit": "anyone",
+      "smoking": "not_allowed",
+      "alcohol": "not_allowed",
+      "pets": "not_allowed",
+      "overnightGuests": "on_request",
+      "partyPolicy": "no_parties",
+      "agreementType": "license",
+      "minStayNights": 7,
+      "allowsEntireBooking": false,
+      "hook": "Rooms in two-bedroom homes, and a one-bedroom of its own, in Dollars Colony, JP Nagar.",
+      "body": "Two two-bedroom homes let room by room, and a one-bedroom let whole, in Dollars Colony, JP Nagar. Everything is fully furnished, with Wi-Fi, housekeeping and maintenance included in the rent.",
+      "hostId": "host_meera",
+      "units": [
+        {
+          "id": "prop_204-room-1",
+          "kind": "room",
+          "name": "Harbour 2BHK · Bedroom 1",
+          "bedType": "double",
+          "bathroom": "shared",
+          "maxOccupancy": 2,
+          "monthlyRate": 35000,
+          "nightlyRate": 1900,
+          "status": "available",
+          "hasReplicas": true,
+          "totalCount": 2,
+          "occupiedCount": 0,
+          "photos": [
+            {
+              "id": "prop_204-photo-23",
+              "url": "/homes/harbour/23-2bhk-bedroom-1.jpg",
+              "alt": "Bedroom with a double bed, a blue sofa and a sheer-curtained window",
+              "caption": "2BHK · Bedroom 1",
+              "category": "Bedroom",
+              "order": 22,
+              "isHero": false
+            },
+            {
+              "id": "prop_204-photo-24",
+              "url": "/homes/harbour/24-2bhk-bedroom-1.jpg",
+              "alt": "Blue sofa and side table next to a double bed",
+              "caption": "2BHK · Bedroom 1",
+              "category": "Bedroom",
+              "order": 23,
+              "isHero": false
+            },
+            {
+              "id": "prop_204-photo-25",
+              "url": "/homes/harbour/25-2bhk-bedroom-1.jpg",
+              "alt": "Double bed and blue sofa, with the door through to the rest of the flat",
+              "caption": "2BHK · Bedroom 1",
+              "category": "Bedroom",
+              "order": 24,
+              "isHero": false
+            },
+            {
+              "id": "prop_204-photo-26",
+              "url": "/homes/harbour/26-2bhk-bedroom-1.jpg",
+              "alt": "Bedroom seen from the corner, with the bed, sofa and the door to the hall",
+              "caption": "2BHK · Bedroom 1",
+              "category": "Bedroom",
+              "order": 25,
+              "isHero": false
+            },
+            {
+              "id": "prop_204-photo-27",
+              "url": "/homes/harbour/27-2bhk-bedroom-1.jpg",
+              "alt": "Corner of the bedroom with a lamp table, dried pampas and the blue sofa",
+              "caption": "2BHK · Bedroom 1",
+              "category": "Bedroom",
+              "order": 26,
+              "isHero": false
+            }
+          ]
+        },
+        {
+          "id": "prop_204-room-2",
+          "kind": "room",
+          "name": "Harbour 2BHK · Bedroom 2",
+          "bedType": "double",
+          "bathroom": "shared",
+          "hasDesk": true,
+          "maxOccupancy": 2,
+          "monthlyRate": 35000,
+          "nightlyRate": 1900,
+          "status": "available",
+          "hasReplicas": true,
+          "totalCount": 2,
+          "occupiedCount": 0,
+          "photos": [
+            {
+              "id": "prop_204-photo-4",
+              "url": "/homes/harbour/04-2bhk-bedroom-2.jpg",
+              "alt": "Bedroom with a grey upholstered double bed, dark wardrobe and a study desk by the window",
+              "caption": "2BHK · Bedroom 2",
+              "category": "Bedroom",
+              "order": 3,
+              "isHero": false
+            },
+            {
+              "id": "prop_204-photo-28",
+              "url": "/homes/harbour/28-2bhk-bedroom-2.jpg",
+              "alt": "Double bed beside a dark wardrobe with a mirror, and a desk chair",
+              "caption": "2BHK · Bedroom 2",
+              "category": "Bedroom",
+              "order": 27,
+              "isHero": false
+            },
+            {
+              "id": "prop_204-photo-29",
+              "url": "/homes/harbour/29-2bhk-bedroom-2.jpg",
+              "alt": "Grey upholstered double bed with brown striped linen",
+              "caption": "2BHK · Bedroom 2",
+              "category": "Bedroom",
+              "order": 28,
+              "isHero": false
+            },
+            {
+              "id": "prop_204-photo-30",
+              "url": "/homes/harbour/30-2bhk-bedroom-2.jpg",
+              "alt": "Double bed, wardrobe and a study desk with a lamp beside the window",
+              "caption": "2BHK · Bedroom 2",
+              "category": "Bedroom",
+              "order": 29,
+              "isHero": false
+            },
+            {
+              "id": "prop_204-photo-31",
+              "url": "/homes/harbour/31-2bhk-bedroom-2.jpg",
+              "alt": "Study desk and chair with a reading lamp, against sheer curtains",
+              "caption": "2BHK · Bedroom 2",
+              "category": "Bedroom",
+              "order": 30,
+              "isHero": false
+            },
+            {
+              "id": "prop_204-photo-32",
+              "url": "/homes/harbour/32-2bhk-bedroom-2.jpg",
+              "alt": "Desk with a reading lamp and a candle in front of the window",
+              "caption": "2BHK · Bedroom 2",
+              "category": "Bedroom",
+              "order": 31,
+              "isHero": false
+            }
+          ]
+        },
+        {
+          "id": "prop_204-room-3",
+          "kind": "room",
+          "name": "Harbour 1BHK",
+          "bedType": "double",
+          "bathroom": "ensuite",
+          "hasDesk": true,
+          "hasAc": true,
+          "maxOccupancy": 2,
+          "monthlyRate": 65000,
+          "nightlyRate": 3700,
+          "status": "available",
+          "note": "Bathroom with a bathtub",
+          "hasReplicas": false,
+          "photos": [
+            {
+              "id": "prop_204-photo-2",
+              "url": "/homes/harbour/02-1bhk-bedroom.jpg",
+              "alt": "Bedroom with a double bed, orange and sage linen, a study desk, AC and a view through to the kitchen",
+              "caption": "1BHK · Bedroom",
+              "category": "Bedroom",
+              "order": 1,
+              "isHero": false
+            },
+            {
+              "id": "prop_204-photo-3",
+              "url": "/homes/harbour/03-1bhk-living-room.jpg",
+              "alt": "Sitting area with two armchairs, a coffee table, ship paintings and a staircase",
+              "caption": "1BHK · Living room",
+              "category": "Living room",
+              "order": 2,
+              "isHero": false
+            },
+            {
+              "id": "prop_204-photo-5",
+              "url": "/homes/harbour/05-1bhk-bathroom.jpg",
+              "alt": "Bathroom with a bathtub, a washbasin and a washing machine",
+              "caption": "1BHK · Bathroom",
+              "category": "Bathroom",
+              "order": 4,
+              "isHero": false
+            },
+            {
+              "id": "prop_204-photo-6",
+              "url": "/homes/harbour/06-1bhk-kitchen.jpg",
+              "alt": "L-shaped kitchen with wooden cabinets, a sink, a hob, a microwave and a refrigerator",
+              "caption": "1BHK · Kitchen",
+              "category": "Kitchen",
+              "order": 5,
+              "isHero": false
+            },
+            {
+              "id": "prop_204-photo-7",
+              "url": "/homes/harbour/07-1bhk-bedroom.jpg",
+              "alt": "Double bed facing a study desk with a laptop beside a curtained window",
+              "caption": "1BHK · Bedroom",
+              "category": "Bedroom",
+              "order": 6,
+              "isHero": false
+            },
+            {
+              "id": "prop_204-photo-8",
+              "url": "/homes/harbour/08-1bhk-bedroom.jpg",
+              "alt": "Bedroom with an AC, a ceiling fan, a wardrobe and sheer curtains",
+              "caption": "1BHK · Bedroom",
+              "category": "Bedroom",
+              "order": 7,
+              "isHero": false
+            },
+            {
+              "id": "prop_204-photo-9",
+              "url": "/homes/harbour/09-1bhk-bedroom.jpg",
+              "alt": "Bed beside a window, with a desk, chair and lamp",
+              "caption": "1BHK · Bedroom",
+              "category": "Bedroom",
+              "order": 8,
+              "isHero": false
+            },
+            {
+              "id": "prop_204-photo-10",
+              "url": "/homes/harbour/10-1bhk-bedroom.jpg",
+              "alt": "Double bed with a wooden headboard and orange throw",
+              "caption": "1BHK · Bedroom",
+              "category": "Bedroom",
+              "order": 9,
+              "isHero": false
+            },
+            {
+              "id": "prop_204-photo-11",
+              "url": "/homes/harbour/11-1bhk-bedroom.jpg",
+              "alt": "Study desk with a laptop and chair in front of floor-length curtains",
+              "caption": "1BHK · Bedroom",
+              "category": "Bedroom",
+              "order": 10,
+              "isHero": false
+            },
+            {
+              "id": "prop_204-photo-12",
+              "url": "/homes/harbour/12-1bhk-living-room.jpg",
+              "alt": "Sitting area with armchairs and a staircase, under a ship painting",
+              "caption": "1BHK · Living room",
+              "category": "Living room",
+              "order": 11,
+              "isHero": false
+            },
+            {
+              "id": "prop_204-photo-13",
+              "url": "/homes/harbour/13-1bhk-living-room.jpg",
+              "alt": "Long sitting area with armchairs, a coffee table and frosted windows",
+              "caption": "1BHK · Living room",
+              "category": "Living room",
+              "order": 12,
+              "isHero": false
+            },
+            {
+              "id": "prop_204-photo-14",
+              "url": "/homes/harbour/14-1bhk-living-room.jpg",
+              "alt": "Open book and a cup on the coffee table between two armchairs",
+              "caption": "1BHK · Living room",
+              "category": "Living room",
+              "order": 13,
+              "isHero": false
+            },
+            {
+              "id": "prop_204-photo-15",
+              "url": "/homes/harbour/15-1bhk-kitchen.jpg",
+              "alt": "Kitchen counter with a sink, hob, kettle and paper towels",
+              "caption": "1BHK · Kitchen",
+              "category": "Kitchen",
+              "order": 14,
+              "isHero": false
+            },
+            {
+              "id": "prop_204-photo-16",
+              "url": "/homes/harbour/16-1bhk-kitchen.jpg",
+              "alt": "Galley kitchen with wooden-pattern flooring and a refrigerator",
+              "caption": "1BHK · Kitchen",
+              "category": "Kitchen",
+              "order": 15,
+              "isHero": false
+            },
+            {
+              "id": "prop_204-photo-17",
+              "url": "/homes/harbour/17-1bhk-kitchen.jpg",
+              "alt": "Kitchen tap against decorative wall tiles",
+              "caption": "1BHK · Kitchen",
+              "category": "Kitchen",
+              "order": 16,
+              "isHero": false
+            },
+            {
+              "id": "prop_204-photo-18",
+              "url": "/homes/harbour/18-1bhk-bathroom.jpg",
+              "alt": "Bathroom with a blue washbasin, a bathtub and a magnifying mirror",
+              "caption": "1BHK · Bathroom",
+              "category": "Bathroom",
+              "order": 17,
+              "isHero": false
+            },
+            {
+              "id": "prop_204-photo-19",
+              "url": "/homes/harbour/19-1bhk-bathroom.jpg",
+              "alt": "Bathtub with a hand shower, beside a washing machine",
+              "caption": "1BHK · Bathroom",
+              "category": "Bathroom",
+              "order": 18,
+              "isHero": false
+            },
+            {
+              "id": "prop_204-photo-20",
+              "url": "/homes/harbour/20-1bhk-bathroom.jpg",
+              "alt": "Bathtub with a hand shower, a plant and a candle",
+              "caption": "1BHK · Bathroom",
+              "category": "Bathroom",
+              "order": 19,
+              "isHero": false
+            },
+            {
+              "id": "prop_204-photo-21",
+              "url": "/homes/harbour/21-1bhk-wc.jpg",
+              "alt": "WC with a western toilet, a washbasin and a window",
+              "caption": "1BHK · WC",
+              "category": "Bathroom",
+              "order": 20,
+              "isHero": false
+            },
+            {
+              "id": "prop_204-photo-22",
+              "url": "/homes/harbour/22-1bhk-wc.jpg",
+              "alt": "Western toilet with a cistern under a window",
+              "caption": "1BHK · WC",
+              "category": "Bathroom",
+              "order": 21,
+              "isHero": false
+            }
+          ]
+        }
+      ],
+      "photos": [
+        {
+          "id": "prop_204-photo-1",
+          "url": "/homes/harbour/01-2bhk-shared-living-room.jpg",
+          "alt": "Living room with a blue velvet sofa, glass coffee table and jute rug, open to the kitchen",
+          "caption": "2BHK · Shared living room",
+          "category": "Living room",
+          "order": 0,
+          "isHero": true
+        },
+        {
+          "id": "prop_204-photo-33",
+          "url": "/homes/harbour/33-2bhk-shared-living-room.jpg",
+          "alt": "Blue velvet sofa with cushions and a throw, facing a glass coffee table",
+          "caption": "2BHK · Shared living room",
+          "category": "Living room",
+          "order": 32,
+          "isHero": false
+        },
+        {
+          "id": "prop_204-photo-34",
+          "url": "/homes/harbour/34-2bhk-shared-kitchen.jpg",
+          "alt": "Kitchen with dark cabinets, a hob, microwave, kettle and a refrigerator",
+          "caption": "2BHK · Shared kitchen",
+          "category": "Kitchen",
+          "order": 33,
+          "isHero": false
+        },
+        {
+          "id": "prop_204-photo-35",
+          "url": "/homes/harbour/35-2bhk-shared-kitchen.jpg",
+          "alt": "Kitchen counter with a sink, hob and patterned wall tiles under a window",
+          "caption": "2BHK · Shared kitchen",
+          "category": "Kitchen",
+          "order": 34,
+          "isHero": false
+        },
+        {
+          "id": "prop_204-photo-36",
+          "url": "/homes/harbour/36-2bhk-shared-bathroom.jpg",
+          "alt": "Bathroom with patterned tiles, a western toilet and a storage shelf",
+          "caption": "2BHK · Shared bathroom",
+          "category": "Bathroom",
+          "order": 35,
+          "isHero": false
+        },
+        {
+          "id": "prop_204-photo-37",
+          "url": "/homes/harbour/37-2bhk-shared-bathroom.jpg",
+          "alt": "Bathroom with a western toilet, shelf and geyser under a high window",
+          "caption": "2BHK · Shared bathroom",
+          "category": "Bathroom",
+          "order": 36,
+          "isHero": false
+        },
+        {
+          "id": "prop_204-photo-38",
+          "url": "/homes/harbour/38-2bhk-shared-bathroom.jpg",
+          "alt": "Shower corner with patterned tiles and a window",
+          "caption": "2BHK · Shared bathroom",
+          "category": "Bathroom",
+          "order": 37,
+          "isHero": false
+        },
+        {
+          "id": "prop_204-photo-39",
+          "url": "/homes/harbour/39-2bhk-shared-bathroom.jpg",
+          "alt": "Bathroom in warm evening light",
+          "caption": "2BHK · Shared bathroom",
+          "category": "Bathroom",
+          "order": 38,
+          "isHero": false
+        },
+        {
+          "id": "prop_204-photo-40",
+          "url": "/homes/harbour/40-2bhk-details.jpg",
+          "alt": "Glass vase with dried pampas beside the blue sofa and its cream throw",
+          "caption": "2BHK · Details",
+          "category": "Details",
+          "order": 39,
+          "isHero": false
+        },
+        {
+          "id": "prop_204-photo-41",
+          "url": "/homes/harbour/41-2bhk-details.jpg",
+          "alt": "Cushions and a knitted throw on the blue sofa",
+          "caption": "2BHK · Details",
+          "category": "Details",
+          "order": 40,
+          "isHero": false
+        },
+        {
+          "id": "prop_204-photo-42",
+          "url": "/homes/harbour/42-2bhk-details.jpg",
+          "alt": "Electric kettle on the kitchen counter, beside a wooden chopping board",
+          "caption": "2BHK · Details",
+          "category": "Details",
+          "order": 41,
+          "isHero": false
+        },
+        {
+          "id": "prop_204-photo-43",
+          "url": "/homes/harbour/43-2bhk-details.jpg",
+          "alt": "Pop-up toaster on the refrigerator, under a round mirror",
+          "caption": "2BHK · Details",
+          "category": "Details",
+          "order": 42,
+          "isHero": false
+        },
+        {
+          "id": "prop_204-photo-44",
+          "url": "/homes/harbour/44-2bhk-details.jpg",
+          "alt": "Washbasin tap on an orange counter, with potted plants",
+          "caption": "2BHK · Details",
+          "category": "Details",
+          "order": 43,
+          "isHero": false
+        },
+        {
+          "id": "prop_204-photo-45",
+          "url": "/homes/harbour/45-2bhk-details.jpg",
+          "alt": "Candle and a trailing plant on the bathroom shelf",
+          "caption": "2BHK · Details",
+          "category": "Details",
+          "order": 44,
+          "isHero": false
+        }
+      ],
+      "amenities": [
+        "fully_furnished"
+      ],
+      "included": [
+        "internet",
+        "housekeeping",
+        "maintenance"
+      ]
+    }
+  ]
+}

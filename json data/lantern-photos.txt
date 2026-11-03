@@ -1,0 +1,20 @@
+prop_203-photo-1	prop_203	/homes/lantern/01-living-room.jpg	Living room with a green leather sofa, oval coffee table, jute rug and sheer curtains	Living room	prop_203-room-1	Living room	0	TRUE
+prop_203-photo-2	prop_203	/homes/lantern/02-bedroom.jpg	Bedroom with a wooden double bed, patterned bedcover and a curtained window	Bedroom	prop_203-room-1	Bedroom	1	FALSE
+prop_203-photo-3	prop_203	/homes/lantern/03-kitchen.jpg	Kitchen with purple and white cabinets, a sink, an RO purifier and open shelves	Kitchen	prop_203-room-1	Kitchen	2	FALSE
+prop_203-photo-4	prop_203	/homes/lantern/04-living-room.jpg	Living room with a wall-mounted TV, looking through to the bedroom	Living room	prop_203-room-1	Living room	3	FALSE
+prop_203-photo-5	prop_203	/homes/lantern/05-bedroom.jpg	Double bed with orange pillows beside a window with sheer curtains	Bedroom	prop_203-room-1	Bedroom	4	FALSE
+prop_203-photo-6	prop_203	/homes/lantern/06-bedroom.jpg	Bedroom with a ceiling fan and a tall wooden wardrobe	Bedroom	prop_203-room-1	Bedroom	5	FALSE
+prop_203-photo-7	prop_203	/homes/lantern/07-bedroom.jpg	Double bed under the window, seen from the foot of the bed	Bedroom	prop_203-room-1	Bedroom	6	FALSE
+prop_203-photo-8	prop_203	/homes/lantern/08-bedroom.jpg	Double bed beside the bedroom door	Bedroom	prop_203-room-1	Bedroom	7	FALSE
+prop_203-photo-9	prop_203	/homes/lantern/09-living-room.jpg	Green leather sofa and coffee table on a jute rug, by the front door	Living room	prop_203-room-1	Living room	8	FALSE
+prop_203-photo-10	prop_203	/homes/lantern/10-living-room.jpg	Living room with a TV unit and a view through to the kitchen	Living room	prop_203-room-1	Living room	9	FALSE
+prop_203-photo-11	prop_203	/homes/lantern/11-kitchen.jpg	Kitchen with a refrigerator, purple and white cabinets and a wall shelf	Kitchen	prop_203-room-1	Kitchen	10	FALSE
+prop_203-photo-12	prop_203	/homes/lantern/12-bathroom.jpg	Bathroom with patterned wall tiles, a western toilet and a geyser	Bathroom	prop_203-room-1	Bathroom	11	FALSE
+prop_203-photo-13	prop_203	/homes/lantern/13-bathroom.jpg	Western toilet with patterned tiles under a small window	Bathroom	prop_203-room-1	Bathroom	12	FALSE
+prop_203-photo-14	prop_203	/homes/lantern/14-utility.jpg	Utility area with a washing machine and a washbasin under a window	Utility	prop_203-room-1	Utility	13	FALSE
+prop_203-photo-15	prop_203	/homes/lantern/15-utility.jpg	Washing machine beside a washbasin and mirror	Utility	prop_203-room-1	Utility	14	FALSE
+prop_203-photo-16	prop_203	/homes/lantern/16-utility.jpg	Top-loading washing machine under a window	Utility	prop_203-room-1	Utility	15	FALSE
+prop_203-photo-17	prop_203	/homes/lantern/17-kitchen.jpg	RO water purifier mounted on the kitchen wall	Kitchen	prop_203-room-1	Kitchen	16	FALSE
+prop_203-photo-18	prop_203	/homes/lantern/18-kitchen.jpg	Induction hob with cookware on the kitchen counter	Kitchen	prop_203-room-1	Kitchen	17	FALSE
+prop_203-photo-19	prop_203	/homes/lantern/19-kitchen.jpg	Induction hob on the black kitchen counter	Kitchen	prop_203-room-1	Kitchen	18	FALSE
+prop_203-photo-20	prop_203	/homes/lantern/20-kitchen.jpg	Kitchen shelf with plates, bowls and spoons	Kitchen	prop_203-room-1	Kitchen	19	FALSE

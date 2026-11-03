@@ -1,0 +1,5 @@
+id	propertyId	kind	name	bedType	bathroom	hasDesk	hasAc	hasBalcony	areaSqft	maxOccupancy	monthlyRate	nightlyRate	deposit	status	note	hasReplicas	totalCount	occupiedCount
+prop_202-room-1	prop_202	room	Linden 1BHK · 1st floor	double	ensuite		FALSE	TRUE		2	35000	1900		available		TRUE	2	2
+prop_202-room-2	prop_202	room	Linden 1BHK · 2nd floor	double	ensuite		FALSE	TRUE		2	35000	1900		available		TRUE	2	1
+prop_202-room-3	prop_202	room	Linden 1BHK · 3rd floor	double	ensuite		FALSE	TRUE		2	35000	1900		available		TRUE	3	2
+prop_202-room-4	prop_202	room	Linden Studio				FALSE	TRUE		2	35000	1900		booked				
