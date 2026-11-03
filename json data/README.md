@@ -241,6 +241,14 @@ A value from the sheets was never overwritten.
   - `SR201` kitchen 5 and 6 were left out because they feature wine glasses.
   - Cover section: 3rd-floor living room (cover), 2nd-floor living room,
     1st-floor bedroom, 3rd-floor sunset view.
+- **Red Brick:** "Red Brick room" (`prop_209-room-1`): 8 copies, 4 occupied,
+  so 4 free. The dorm (`room-2`) is unchanged. Both are in
+  `red-brick-units.txt`, and both still have no rates. 9 photos from
+  `Reduced Size/Red bricks` (WhatsApp exports):
+  - On the room unit: 6 (rooms, bathroom, details).
+  - On the home: 3 (garden ×2, veranda).
+  - Cover: the garden.
+  - `11.11.39 AM` was left out as a near-identical frame of `11.11.39 AM (1)`.
 - **Every other home:** none yet. The site shows "Photos coming soon".
 
 **Hosting:** the photos are served by the site itself, from

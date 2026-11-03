@@ -49,7 +49,63 @@
           "note": "AC in 4 of the 8 rooms",
           "hasReplicas": true,
           "totalCount": 8,
-          "occupiedCount": 8
+          "occupiedCount": 4,
+          "photos": [
+            {
+              "id": "prop_209-photo-2",
+              "url": "/homes/red-brick/02-room.jpg",
+              "alt": "Room with a double bed, AC, a patterned rug, a bench and a large window",
+              "caption": "Room",
+              "category": "Room",
+              "order": 1,
+              "isHero": false
+            },
+            {
+              "id": "prop_209-photo-4",
+              "url": "/homes/red-brick/04-room.jpg",
+              "alt": "Room with a double bed under a white brick wall, a wooden headboard and plants",
+              "caption": "Room",
+              "category": "Room",
+              "order": 3,
+              "isHero": false
+            },
+            {
+              "id": "prop_209-photo-5",
+              "url": "/homes/red-brick/05-room.jpg",
+              "alt": "Large room with a double bed, a seating corner on a rug and wooden doors",
+              "caption": "Room",
+              "category": "Room",
+              "order": 4,
+              "isHero": false
+            },
+            {
+              "id": "prop_209-photo-6",
+              "url": "/homes/red-brick/06-bathroom.jpg",
+              "alt": "Bathroom with a washbasin, mirror and white brick walls",
+              "caption": "Bathroom",
+              "category": "Bathroom",
+              "order": 5,
+              "isHero": false
+            },
+            {
+              "id": "prop_209-photo-7",
+              "url": "/homes/red-brick/07-room.jpg",
+              "alt": "Bedside with a clay vase, dried flowers and a tree-stump table",
+              "caption": "Room",
+              "category": "Room",
+              "order": 6,
+              "isHero": false
+            },
+            {
+              "id": "prop_209-photo-8",
+              "url": "/homes/red-brick/08-room.jpg",
+              "alt": "Window corner with a potted plant and a carved wooden stool",
+              "caption": "Room",
+              "category": "Room",
+              "order": 7,
+              "isHero": false
+            }
+          ]
         },
         {
           "id": "prop_209-room-2",
@@ -59,6 +115,35 @@
           "hasReplicas": true,
           "totalCount": 2,
           "occupiedCount": 2
+        }
+      ],
+      "photos": [
+        {
+          "id": "prop_209-photo-1",
+          "url": "/homes/red-brick/01-garden.jpg",
+          "alt": "Landscaped garden with stepping stones, palms and the red-roofed veranda behind",
+          "caption": "Garden",
+          "category": "Garden",
+          "order": 0,
+          "isHero": true
+        },
+        {
+          "id": "prop_209-photo-3",
+          "url": "/homes/red-brick/03-veranda.jpg",
+          "alt": "Long red-brick veranda with a wooden swing, armchairs and a dining table",
+          "caption": "Veranda",
+          "category": "Veranda",
+          "order": 2,
+          "isHero": false
+        },
+        {
+          "id": "prop_209-photo-9",
+          "url": "/homes/red-brick/09-garden.jpg",
+          "alt": "Garden path between lawns, palms and flowering beds",
+          "caption": "Garden",
+          "category": "Garden",
+          "order": 8,
+          "isHero": false
         }
       ],
       "amenities": [

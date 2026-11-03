@@ -1,0 +1,3 @@
+id	propertyId	kind	name	bedType	bathroom	hasDesk	hasAc	hasBalcony	areaSqft	maxOccupancy	monthlyRate	nightlyRate	deposit	status	note	hasReplicas	totalCount	occupiedCount
+prop_209-room-1	prop_209	room	Red Brick room					TRUE		2				available	AC in 4 of the 8 rooms	TRUE	8	4
+prop_209-room-2	prop_209	room	Red Brick dorm							8				available		TRUE	2	2

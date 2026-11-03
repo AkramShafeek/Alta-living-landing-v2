@@ -220,3 +220,12 @@ prop_202-photo-34	prop_202	/homes/linden/34-kitchen.avif	Cutlery and utensil dra
 prop_202-photo-35	prop_202	/homes/linden/35-bathroom.avif	Washbasin and mixer tap against blue patterned tiles	Bathroom		Bathroom	34	FALSE
 prop_202-photo-36	prop_202	/homes/linden/36-bathroom.avif	Western toilet and hand shower against blue patterned tiles	Bathroom		Bathroom	35	FALSE
 prop_202-photo-37	prop_202	/homes/linden/37-bathroom.avif	Soap dish and a plant on the bathroom shelf	Bathroom		Bathroom	36	FALSE
+prop_209-photo-1	prop_209	/homes/red-brick/01-garden.jpg	Landscaped garden with stepping stones, palms and the red-roofed veranda behind	Garden		Garden	0	TRUE
+prop_209-photo-2	prop_209	/homes/red-brick/02-room.jpg	Room with a double bed, AC, a patterned rug, a bench and a large window	Room	prop_209-room-1	Room	1	FALSE
+prop_209-photo-3	prop_209	/homes/red-brick/03-veranda.jpg	Long red-brick veranda with a wooden swing, armchairs and a dining table	Veranda		Veranda	2	FALSE
+prop_209-photo-4	prop_209	/homes/red-brick/04-room.jpg	Room with a double bed under a white brick wall, a wooden headboard and plants	Room	prop_209-room-1	Room	3	FALSE
+prop_209-photo-5	prop_209	/homes/red-brick/05-room.jpg	Large room with a double bed, a seating corner on a rug and wooden doors	Room	prop_209-room-1	Room	4	FALSE
+prop_209-photo-6	prop_209	/homes/red-brick/06-bathroom.jpg	Bathroom with a washbasin, mirror and white brick walls	Bathroom	prop_209-room-1	Bathroom	5	FALSE
+prop_209-photo-7	prop_209	/homes/red-brick/07-room.jpg	Bedside with a clay vase, dried flowers and a tree-stump table	Room	prop_209-room-1	Room	6	FALSE
+prop_209-photo-8	prop_209	/homes/red-brick/08-room.jpg	Window corner with a potted plant and a carved wooden stool	Room	prop_209-room-1	Room	7	FALSE
+prop_209-photo-9	prop_209	/homes/red-brick/09-garden.jpg	Garden path between lawns, palms and flowering beds	Garden		Garden	8	FALSE
