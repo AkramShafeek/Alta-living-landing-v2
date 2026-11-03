@@ -59,7 +59,7 @@ function useNavTop(isHome: boolean) {
 const Navbar = () => {
   const { pathname } = useLocation()
   const isHome = pathname === '/'
-  const isListings = pathname === '/listings'
+  // const isListings = pathname === '/listings'
   const navTop = useNavTop(isHome)
 
   return (
