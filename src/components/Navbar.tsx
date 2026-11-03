@@ -81,11 +81,11 @@ const Navbar = () => {
         </span>
       </Link>
       <div className="flex gap-4 items-center">
-        {isListings && (
+        {/* {isListings && (
           <div className="aspect-square h-11 cursor-pointer transition-all active:scale-[0.92] flex justify-center shadow-md items-center bg-white rounded-full border border-black">
             <FilterIcon size={20} className="fill-black" />
           </div>
-        )}
+        )} */}
         <div className="bg-white flex items-center gap-1 border rounded-full px-1 pl-2 py-1 border-black shadow-md">
           {/* Below lg only the button stays; "Find a home" is the way in. */}
           <div className="hidden lg:flex">
