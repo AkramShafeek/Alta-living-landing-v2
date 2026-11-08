@@ -42,6 +42,9 @@ import {
   selectUnitStatusLabel,
 } from "@/store/selectors"
 import type { Photo } from "@/models/Photo"
+import { Button } from "@/components/ui/button"
+import { PhotoGallery } from "@/components/gallery/PhotoGallery"
+import { PhotoViewer } from "@/components/gallery/PhotoViewer"
 // import { Separator } from "@/components/ui/separator" // unused — only appears in commented-out markup
 
 // Matches the listings page — the fixed navbar occupies the first 64px.
@@ -282,19 +285,28 @@ const PhotoTile = ({
   photo,
   ratio,
   label = true,
+  onOpen,
 }: {
   photo: Photo | undefined
   ratio: string
   /** Off when the whole grid is empty and says so once, over the top. */
   label?: boolean
+  onOpen?: () => void
 }) => (
   <div className={cn("relative overflow-hidden bg-[#f0f0f0]", ratio)}>
     {photo ? (
-      <img
-        src={photo.url}
-        alt={photo.alt}
-        className="h-full w-full object-cover"
-      />
+      <button
+        type="button"
+        onClick={onOpen}
+        disabled={!onOpen}
+        className="block h-full w-full cursor-zoom-in"
+      >
+        <img
+          src={photo.url}
+          alt={photo.alt}
+          className="h-full w-full object-cover"
+        />
+      </button>
     ) : !label ? null : (
       <div className="flex h-full w-full items-center justify-center px-3 text-center">
         <span className="font-mono text-[10px] tracking-[0.18em] text-foreground/60 uppercase">
@@ -319,9 +331,12 @@ const PhotoTile = ({
 const PhotoQuad = ({
   photos,
   caption,
+  onOpen,
 }: {
   photos: Photo[]
   caption?: string
+  /** A tile was clicked; `index` is its position in `photos`. */
+  onOpen?: (index: number) => void
 }) => {
   const [cover, ...rest] = Array.from(
     { length: QUAD },
@@ -339,7 +354,12 @@ const PhotoQuad = ({
             Photos coming soon
           </span>
         )}
-        <PhotoTile photo={cover} ratio="aspect-[16/8]" label={!none} />
+        <PhotoTile
+          photo={cover}
+          ratio="aspect-[16/8]"
+          label={!none}
+          onOpen={onOpen && (() => onOpen(0))}
+        />
 
         <div className="grid grid-cols-3 gap-0.5">
           {rest.map((photo, index) => (
@@ -348,6 +368,7 @@ const PhotoQuad = ({
               photo={photo}
               ratio="aspect-[4/3]"
               label={!none}
+              onOpen={onOpen && (() => onOpen(index + 1))}
             />
           ))}
         </div>
@@ -507,6 +528,14 @@ const Property = () => {
   // them, so the state has to separate first.
   const [mode, setMode] = useState<UnitMode>("rooms")
   const [photo, setPhoto] = useState(0)
+  // The full-screen viewer pages through whichever list it was opened from:
+  // the whole home's photos, or one room's.
+  const [viewer, setViewer] = useState<{ photos: Photo[]; index: number | null }>(
+    { photos: [], index: null }
+  )
+  const [galleryOpen, setGalleryOpen] = useState(false)
+  const openViewer = (list: Photo[], index: number) =>
+    setViewer({ photos: list, index })
 
   if (notFound) {
     return (
@@ -805,6 +834,19 @@ const Property = () => {
 
   return (
     <div className="bg-background relative" style={{ paddingTop: 0 }}>
+      <PhotoGallery
+        open={galleryOpen}
+        onOpenChange={setGalleryOpen}
+        title={property.name}
+        photos={photos}
+        units={units}
+        onSelect={openViewer}
+      />
+      <PhotoViewer
+        photos={viewer.photos}
+        index={viewer.index}
+        onIndexChange={(index) => setViewer((v) => ({ ...v, index }))}
+      />
       {/* <div className="flex flex-wrap items-center justify-between gap-4 px-8 py-5">
         <Link
         to="/listings"
@@ -831,11 +873,24 @@ const Property = () => {
           {currentPhoto ? (
             <>
               <div className="relative h-[70%] overflow-hidden pb-0">
-                <img
-                  src={currentPhoto.url}
-                  alt={currentPhoto.alt}
-                  className="h-full w-full object-cover"
-                />
+                <button
+                  type="button"
+                  onClick={() => openViewer(photos, activePhoto)}
+                  className="block h-full w-full cursor-zoom-in"
+                >
+                  <img
+                    src={currentPhoto.url}
+                    alt={currentPhoto.alt}
+                    className="h-full w-full object-cover"
+                  />
+                </button>
+                <Button
+                  variant="secondary"
+                  onClick={() => setGalleryOpen(true)}
+                  className="absolute right-5 bottom-5 rounded-full"
+                >
+                  View all {photoCount} photos
+                </Button>
                 {/* <div className="absolute left-5 top-5 flex gap-2">
                   <span className="px-3 py-1.5 bg-black/55 backdrop-blur-xs text-background border-2 border-background font-mono text-[10px] font-semibold uppercase tracking-[0.18em]">
                     {availability}
@@ -1129,7 +1184,10 @@ const Property = () => {
               return (
                 <RoomCard key={room.id} bookable={bookable}>
                   <RoomCardMedia>
-                    <PhotoQuad photos={room.photos} />
+                    <PhotoQuad
+                      photos={room.photos}
+                      onOpen={(index) => openViewer(room.photos, index)}
+                    />
                   </RoomCardMedia>
                   <RoomCardContent>
                     <RoomCardHeader
@@ -1175,7 +1233,10 @@ const Property = () => {
           <Tabs.Content value="whole" className="focus-visible:outline-none">
             <RoomCard bookable={Boolean(whole && isBookable(whole))}>
               <RoomCardMedia>
-                <PhotoQuad photos={photos} />
+                <PhotoQuad
+                  photos={photos}
+                  onOpen={(index) => openViewer(photos, index)}
+                />
               </RoomCardMedia>
               <RoomCardContent>
                 <RoomCardHeader
