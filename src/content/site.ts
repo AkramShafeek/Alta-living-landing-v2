@@ -17,7 +17,7 @@
 /** The business line: enquiries, the cart, every WhatsApp button. */
 export const contact = {
   name: "Keerthan",
-  role: "Co-founder & CEO, Alta Living",
+  role: "Founder & CEO, Alta Living",
   phone: "+91 79752 53536",
   email: "booking@altaliving.in",
 }
