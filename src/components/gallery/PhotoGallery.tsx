@@ -92,23 +92,25 @@ export const PhotoGallery = ({
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="top-0 left-0 flex h-dvh w-screen max-w-none translate-x-0 translate-y-0 flex-col gap-4 rounded-none p-0 ring-0 sm:max-w-none">
         <DialogHeader className="px-6 pt-6 pr-16">
-          <DialogTitle className="text-xl">{title}</DialogTitle>
-          <DialogDescription>{photos.length} photos</DialogDescription>
+          <DialogTitle className="text-xl text-center">{title}</DialogTitle>
+          <DialogDescription className="text-center">{photos.length} photos</DialogDescription>
         </DialogHeader>
 
         <Tabs defaultValue="all" className="min-h-0 flex-1 flex-col">
-          <ScrollArea className="w-full px-6">
-            {/* mb/mr leave room for the hard shadow inside the scroll viewport */}
-            <TabsList className="mr-1 mb-1.5 h-auto! items-stretch gap-2 overflow-hidden rounded-full border border-black bg-blue-100 p-2">
-              <TabsTrigger value="all" className={tabTrigger}>
-                All photos
-              </TabsTrigger>
-              {rooms.map((room) => (
-                <TabsTrigger key={room.id} value={room.id} className={tabTrigger}>
-                  {room.name}
+          <ScrollArea className="w-full px-6 flex justify-center">
+            <div className="w-full flex justify-center">
+              {/* mb/mr leave room for the hard shadow inside the scroll viewport */}
+              <TabsList className="mr-1 mb-1.5 h-auto! items-stretch gap-2 overflow-hidden rounded-full border border-black bg-blue-100 p-2">
+                <TabsTrigger value="all" className={tabTrigger}>
+                  All photos
                 </TabsTrigger>
-              ))}
-            </TabsList>
+                {rooms.map((room) => (
+                  <TabsTrigger key={room.id} value={room.id} className={tabTrigger}>
+                    {room.name}
+                  </TabsTrigger>
+                ))}
+              </TabsList>
+            </div>
             <ScrollBar orientation="horizontal" />
           </ScrollArea>
 
