@@ -10,7 +10,7 @@ const slideUpVariants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, ease: 'easeOut' },
+    transition: { duration: 0.6, ease: 'easeOut', delay: 2},
   },
 } as const
 
@@ -67,7 +67,7 @@ const Navbar = () => {
       initial="hidden"
       animate="visible"
       variants={slideUpVariants}
-      style={{ top: navTop }}
+      // style={{ top: navTop }}
       className="fixed inset-x-0 z-40 flex justify-between items-center w-full pt-4 px-8 bg-transparent "
     >
       <Link to="/" className="flex items-center gap-2  px-1 pr-2 py-1 border border-black bg-white rounded-lg">

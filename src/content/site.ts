@@ -56,7 +56,7 @@ export const tickerItems = [
 export const heroContent = {
   eyebrow: "homes by alta living",
   headline: "Your next home is already set up.",
-  body: "Fully furnished, professionally run homes in South Bengaluru, for a few nights or a few years. No brokers. No landlord drama. No surprises.",
+  body: "Fully furnished professionally run homes in Bengaluru, Rented by the month",
   ctaLabel: "Find a home",
   whatsappLabel: "Talk to us on WhatsApp",
   /** The contact form's area picker. */
@@ -67,6 +67,63 @@ export const heroContent = {
     "Vasanthapura",
     "Not sure, suggest one",
   ],
+}
+
+/**
+ * The immersive scroll hero (src/sections/ImmersiveHero.tsx).
+ * Copy and colours only — timing lives in HERO_MOTION in that file.
+ */
+export const immersiveHero = {
+  /**
+   * The headline, as its two halves. They sit at the bottom of the screen on
+   * load, rise up in a wave on scroll, then split: the first half exits left,
+   * the second exits right.
+   */
+  headline: ["Your next home", "is already set up."] as const,
+  /** Revealed in the centre on page load; shrinks away as the headline rises. */
+  body: heroContent.body,
+  /** The button above the body copy. Leaves with the body copy on scroll. */
+  cta: { label: "View homes", to: "/listings" },
+  /** Solid background. Bone white. */
+  background: "#F3EFE6",
+  /** Text colour. */
+  ink: "#141210",
+  /** Small vertical labels on the thin rails at the left and right edges. */
+  rails: { left: "Alta Living — Bengaluru", right: "Est. 2022" },
+
+  /** Slides in from the top left once the headline has split and gone. */
+  promise: {
+    eyebrow: "no surprises, ever",
+    /**
+     * One entry per line. The lines never re-wrap, so the popping squares
+     * (positioned in em) always sit over the same letters at every width.
+     */
+    headline: ["What you see is", "what you get."],
+    body: "Every home is set up, checked and photographed by our own team. No stock photos, no “similar unit”.",
+    /** The squares that pop in behind the headline. Positions and timing: PROMISE_SQUARES in src/sections/hero/PromiseScene.tsx. */
+    squareColor: "#1C1A17",
+    /** The headline's colour wherever it sits on top of a square. (Tailwind blue-50; was orange #FF5B2E.) */
+    popColor: "#EFF6FF",
+  },
+
+  /**
+   * The photo strip that scrolls right-to-left along the bottom, alongside
+   * the promise. Real Alta homes only (from public/homes). Add, remove or
+   * reorder freely: the strip's length adjusts itself.
+   */
+  strip: {
+    caption: "Real Alta homes. Real photos.",
+    photos: [
+      { src: "/homes/cedar/01-living-room.jpg", label: "Cedar · Bellandur" },
+      { src: "/homes/harbour/02-1bhk-bedroom.jpg", label: "Harbour · JP Nagar" },
+      { src: "/homes/lantern/01-living-room.jpg", label: "Lantern · Hulimavu" },
+      { src: "/homes/juniper/01-living-room.jpg", label: "Juniper · Kanakapura Rd" },
+      { src: "/homes/skyline/02-bedroom.jpg", label: "Skyline · Bannerghatta Rd" },
+      { src: "/homes/wren/01-wren-2-living-room.avif", label: "Wren · Kanakapura Rd" },
+      { src: "/homes/linden/02-2nd-floor-living-room.jpg", label: "Linden · Hulimavu" },
+      { src: "/homes/skyline/03-kitchen.jpg", label: "Skyline · Bannerghatta Rd" },
+    ],
+  },
 }
 
 /** The messy house-hunt pinned behind the hero. */
@@ -219,6 +276,72 @@ export const clusters: Cluster[] = [
   // Out of town, so listed but not pinned on the city map.
   { name: "Ambara Resort", count: "weekend escape" },
 ]
+
+/**
+ * Immersive hero, scene 3 (src/sections/hero/AreasScene.tsx): text on the
+ * right, a picker-style wheel of neighbourhoods on the left.
+ */
+export const heroAreas = {
+  eyebrow: areas.eyebrow,
+  title: areas.title,
+  body: "Every home sits within a short ride of our team, so a broken geyser gets fixed today, not “this week”.",
+  footer: areas.footer,
+  /**
+   * The words on the wheel, in the order they come to the arrow. Short
+   * names: these are set huge. Add or remove freely.
+   *
+   * While an area is at the arrow the whole panel turns `bg`, with `ink` for
+   * the text (dark on the light colours, bone on the deep ones, for
+   * contrast). Same pop palette as the how-it-works columns.
+   */
+  wheel: [
+    { name: "Hulimavu", bg: "#FF5B2E", ink: "#141210" },
+    { name: "Bannerghatta", bg: "#3157FF", ink: "#F3EFE6" },
+    { name: "JP Nagar", bg: "#FFC23D", ink: "#141210" },
+    { name: "Kanakapura", bg: "#0F7B58", ink: "#F3EFE6" },
+  ],
+}
+
+/**
+ * Immersive hero, scene 4 (src/sections/hero/HowItWorksScene.tsx). Calm and
+ * readable on purpose. Every claim here is one the site already makes
+ * elsewhere (ticker, promise, contact form footnote).
+ */
+export const heroHowItWorks = {
+  eyebrow: "how it works",
+  title: "From first look to move-in.",
+  /**
+   * One tall column each, left to right. `color` is the column, `ink` the
+   * text on it (picked for contrast: dark on the light colours, bone on the
+   * deep ones).
+   */
+  steps: [
+    {
+      title: "Pick a home",
+      body: "Every listing is a home our own team has set up, checked in person and photographed.",
+      color: "#FFC23D",
+      ink: "#141210",
+    },
+    {
+      title: "Message us",
+      body: "On WhatsApp or through the form. We reply the same day, usually within the hour.",
+      color: "#FF5B2E",
+      ink: "#141210",
+    },
+    {
+      title: "Move in with a suitcase",
+      body: "Fully furnished and ready. Stay 3 nights or 11 months. No brokerage, ever.",
+      color: "#3157FF",
+      ink: "#F3EFE6",
+    },
+    {
+      title: "We stay on call",
+      body: "Housekeeping is included, and when something breaks, a real person from our team picks up.",
+      color: "#0F7B58",
+      ink: "#F3EFE6",
+    },
+  ],
+}
 
 export const contactSection = {
   eyebrow: "talk to a person",
