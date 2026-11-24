@@ -18,7 +18,7 @@
 export const contact = {
   name: "Keerthan",
   role: "Founder & CEO, Alta Living",
-  phone: "+91 79752 53536",
+  phone: "+91 78999 03471",
   email: "booking@altaliving.in",
 }
 
